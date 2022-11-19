@@ -1,0 +1,15 @@
+{
+// SQL
+"mssql.connections": [
+  {
+    "profileName": "SQL",
+    "server": "localhost\\Instance",
+    "database": "master",
+    "user": "sa",
+    "authenticationType": "SqlLogin",
+    "password": "",
+    "savePassword": true
+  }
+],
+"mssql.maxRecentConnections": 5,
+}
