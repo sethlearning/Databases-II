@@ -8,7 +8,7 @@ IF OBJECT_ID('dbo.Authors') IS NULL
         (
             Code_author INT IDENTITY(1, 1) PRIMARY KEY,
             Name_author CHAR(60) NOT NULL,
-            Birthday DATETIME2
+            Birthday DATE
         )
 
     EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник авторов',

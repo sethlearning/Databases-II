@@ -106,8 +106,8 @@ IF OBJECT_ID('dbo.Department') IS NULL
         (
             DeptNo CHAR(3) PRIMARY KEY,
             DeptName VARCHAR(36) NOT NULL,
-            MgrNo CHAR(6) NULL,
-            AdmRDept CHAR(3) NOT NULL,
+            MgrNo CHAR(6) NOT NULL,
+            AdmRDept CHAR(3) NULL,
             Location CHAR(5) NULL
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник департаментов',
