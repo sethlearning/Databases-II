@@ -9,17 +9,7 @@ IF OBJECT_ID('dbo.Employee') IS NULL
             EmpNo CHAR(6) PRIMARY KEY,
             FirstNme VARCHAR(20) NOT NULL,
             MidInit CHAR(1) NOT NULL,
-            LastName VARCHAR(15) NOT NULL,
-            WorkDept CHAR(3) NULL,
-            PhoneNo CHAR(4) NULL,
-            HireDate DATE NULL,
-            Job CHAR(8) NULL,
-            EdLevel SMALLINT NULL,
-            Sex CHAR(1) NULL,
-            Birthdate DATE NULL,
-            Salary DECIMAL(9, 2) NULL,
-            Bonus DECIMAL(9, 2) NULL,
-            Comm DECIMAL(9, 2) NULL
+            LastName VARCHAR(15) NOT NULL
         )
 
     EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник сотрудников',
@@ -45,6 +35,67 @@ IF OBJECT_ID('dbo.Employee') IS NULL
                                     @level0type=N'SCHEMA',   @level0name=N'dbo',
                                     @level1type=N'TABLE',    @level1name=N'Employee',
                                     @level2type=N'COLUMN',   @level2name=N'LastName'
+    END
+ELSE
+    PRINT('Employee table already exists.')
+
+-- Department table
+IF OBJECT_ID('dbo.Department') IS NULL
+    BEGIN
+        CREATE TABLE dbo.Department
+        (
+            DeptNo CHAR(3) PRIMARY KEY,
+            DeptName VARCHAR(36) NOT NULL,
+            MgrNo CHAR(6) NOT NULL FOREIGN KEY REFERENCES Employee (EmpNo),
+            AdmRDept CHAR(3) NULL FOREIGN KEY REFERENCES Department (DeptNo),
+            Location CHAR(5) NULL
+        )
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник департаментов',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер департамента',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department',
+                                        @level2type=N'COLUMN',   @level2name=N'DeptNo'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Наименование департамента',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department',
+                                        @level2type=N'COLUMN',   @level2name=N'DeptName'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер сотрудника - менедера департамента',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department',
+                                        @level2type=N'COLUMN',   @level2name=N'MgrNo'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер департамента, которому данный департамент подотчетен',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department',
+                                        @level2type=N'COLUMN',   @level2name=N'AdmRDept'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код места расположения департамента',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Department',
+                                        @level2type=N'COLUMN',   @level2name=N'Location'
+    END
+ELSE
+    PRINT('Department table already exists.')
+
+-- Employee add
+IF OBJECT_ID('dbo.Employee') IS NOT NULL
+    BEGIN
+        ALTER TABLE dbo.Employee ADD
+            WorkDept CHAR(3) NULL FOREIGN KEY REFERENCES Department (DeptNo),
+            PhoneNo CHAR(4) NULL,
+            HireDate DATE NULL,
+            Job CHAR(8) NULL,
+            EdLevel SMALLINT NULL,
+            Sex CHAR(1) NULL,
+            Birthdate DATE NULL,
+            Salary DECIMAL(9, 2) NULL,
+            Bonus DECIMAL(9, 2) NULL,
+            Comm DECIMAL(9, 2) NULL
 
     EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер департамента сотрудника',
                                     @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -96,51 +147,6 @@ IF OBJECT_ID('dbo.Employee') IS NULL
                                     @level1type=N'TABLE',    @level1name=N'Employee',
                                     @level2type=N'COLUMN',   @level2name=N'Comm'
     END
-ELSE
-    PRINT('Employee table already exists.')
-
--- Department table
-IF OBJECT_ID('dbo.Department') IS NULL
-    BEGIN
-        CREATE TABLE dbo.Department
-        (
-            DeptNo CHAR(3) PRIMARY KEY,
-            DeptName VARCHAR(36) NOT NULL,
-            MgrNo CHAR(6) NOT NULL,
-            AdmRDept CHAR(3) NULL,
-            Location CHAR(5) NULL
-        )
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник департаментов',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер департамента',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department',
-                                        @level2type=N'COLUMN',   @level2name=N'DeptNo'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Наименование департамента',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department',
-                                        @level2type=N'COLUMN',   @level2name=N'DeptName'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер сотрудника - менедера департамента',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department',
-                                        @level2type=N'COLUMN',   @level2name=N'MgrNo'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер департамента, которому данный департамент подотчетен',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department',
-                                        @level2type=N'COLUMN',   @level2name=N'AdmRDept'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код места расположения департамента',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Department',
-                                        @level2type=N'COLUMN',   @level2name=N'Location'
-    END
-ELSE
-    PRINT('Department table already exists.')
 
 -- Project table
 IF OBJECT_ID('dbo.Project') IS NULL
@@ -149,12 +155,12 @@ IF OBJECT_ID('dbo.Project') IS NULL
         (
             ProjNo CHAR(6) PRIMARY KEY,
             ProjName VARCHAR(24) NOT NULL,
-            DeptNo CHAR(3) NOT NULL,
-            RespEmp CHAR(6) NOT NULL,
+            DeptNo CHAR(3) NOT NULL FOREIGN KEY REFERENCES Department (DeptNo),
+            RespEmp CHAR(6) NOT NULL FOREIGN KEY REFERENCES Employee (EmpNo),
             PrStaff DECIMAL(5, 2) NULL,
             PrStDate DATE NULL,
             PrEnDate DATE NULL,
-            MajProj CHAR(6) NULL
+            MajProj CHAR(6) NULL FOREIGN KEY REFERENCES Project (ProjNo)
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник проектов',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -240,9 +246,9 @@ IF OBJECT_ID('dbo.EmpProjAct') IS NULL
         CREATE TABLE dbo.EmpProjAct
         (
             Code INT IDENTITY(1, 1) PRIMARY KEY,
-            EmpNo CHAR(6) NOT NULL,
-            ProjNo CHAR(6) NOT NULL,
-            ActNo SMALLINT NOT NULL,
+            EmpNo CHAR(6) NOT NULL FOREIGN KEY REFERENCES Employee (EmpNo),
+            ProjNo CHAR(6) NOT NULL FOREIGN KEY REFERENCES Project (ProjNo),
+            ActNo SMALLINT NOT NULL FOREIGN KEY REFERENCES Act (ActNo),
             EmPTime DECIMAL(5, 2) NULL,
             EmStDate DATE NULL,
             EmEnDate DATE NULL
@@ -288,26 +294,4 @@ IF OBJECT_ID('dbo.EmpProjAct') IS NULL
     END
 ELSE
     PRINT('EmpProjAct table already exists.')
-
-CREATE NONCLUSTERED INDEX Idx_Authors_Name_author
-    ON dbo.Authors(Name_author ASC)
-
-CREATE NONCLUSTERED INDEX Idx_Publishing_house_Publish
-    ON dbo.Publishing_house(Publish ASC)
-
-CREATE NONCLUSTERED INDEX Idx_Deliveries_Name_company
-    ON dbo.Deliveries(Name_company ASC)
-
-CREATE NONCLUSTERED INDEX Idx_Books_Title_book
-    ON dbo.Books(Title_book ASC)
-
-CREATE NONCLUSTERED INDEX Idx_Purchases_Date_order_Cost_Amount
-    ON dbo.Purchases(Date_order ASC, Cost ASC, Amount ASC)
-
-
-
--- ALTER TABLE dbo.Authors FILLFACTOR = 95
-    -- ALTER COLUMN Name_author CHAR(60) NOT NULL INDEX Idx1 NONCLUSTERED
-    -- ALTER COLUMN Name_author ADD INDEX Idx1 ASC
-    -- ADD INDEX Idx1 NONCLUSTERED Name_author ASC
 
