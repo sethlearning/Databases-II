@@ -8,7 +8,7 @@ IF OBJECT_ID('dbo.Authors') IS NULL
         (
             Code_author INT IDENTITY(1, 1) PRIMARY KEY,
             Name_author CHAR(60) NOT NULL,
-            Birthday DATETIME2
+            Birthday DATE
         )
 
     EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник авторов',
@@ -188,7 +188,7 @@ IF OBJECT_ID('dbo.Purchases') IS NULL
                                         @level1type=N'TABLE',    @level1name=N'Purchases',
                                         @level2type=N'COLUMN',   @level2name=N'Code_delivery'
 
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Тип закупки (опт/розница',
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Тип закупки (опт/розница)',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'Purchases',
                                         @level2type=N'COLUMN',   @level2name=N'Type_purchase'
