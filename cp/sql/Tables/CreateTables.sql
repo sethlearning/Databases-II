@@ -68,7 +68,7 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'JobSe
             LastName VARCHAR(60) NOT NULL,
             FirstName VARCHAR(60) NOT NULL,
             MiddleName VARCHAR(60) NOT NULL,
-            WorkCategory INT NOT NULL CONSTRAINT FK_JobSeekers_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
+            WorkCategory INT NOT NULL CONSTRAINT FK_JobSeekers_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
             Qualification VARCHAR(60) NULL INDEX Idx_Qualification WITH (FILLFACTOR = 90),
             DesiredSalary MONEY NULL,
             Notes VARCHAR(120) NULL,
@@ -125,10 +125,10 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Vacan
         CREATE TABLE dbo.Vacancies
         (
             Code INT IDENTITY (1, 1) CONSTRAINT PK_Vacancies PRIMARY KEY, 
-            WorkCategory INT NOT NULL CONSTRAINT FK_Vacancies_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
+            WorkCategory INT NOT NULL CONSTRAINT FK_Vacancies_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
             Position VARCHAR(60) NOT NULL INDEX Idx_Position NONCLUSTERED WITH (FILLFACTOR = 90),
             Salary MONEY NULL,
-            Employer INT NOT NULL CONSTRAINT FK_Vacancies_Employer FOREIGN KEY REFERENCES dbo.Employers(Code) INDEX Idx_Employer NONCLUSTERED WITH (FILLFACTOR = 90)
+            Employer INT NOT NULL CONSTRAINT FK_Vacancies_Employer FOREIGN KEY REFERENCES dbo.Employers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Employer NONCLUSTERED WITH (FILLFACTOR = 90)
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник вакансий',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -166,8 +166,8 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
         CREATE TABLE dbo.Deals
         (
             Code INT IDENTITY (1, 1) CONSTRAINT PK_Deals PRIMARY KEY,
-            JobSeeker INT NOT NULL CONSTRAINT FK_Deals_JobSeeker FOREIGN KEY REFERENCES dbo.JobSeekers(Code) INDEX Idx_JobSeeker NONCLUSTERED WITH (FILLFACTOR = 90),
-            Vacancy INT NOT NULL CONSTRAINT FK_Deals_Vacancy FOREIGN KEY REFERENCES dbo.Vacancies(Code) INDEX Idx_Vacancy NONCLUSTERED WITH (FILLFACTOR = 90),
+            JobSeeker INT NOT NULL CONSTRAINT FK_Deals_JobSeeker FOREIGN KEY REFERENCES dbo.JobSeekers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_JobSeeker NONCLUSTERED WITH (FILLFACTOR = 90),
+            Vacancy INT NOT NULL CONSTRAINT FK_Deals_Vacancy FOREIGN KEY REFERENCES dbo.Vacancies(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Vacancy NONCLUSTERED WITH (FILLFACTOR = 90),
             Commission MONEY NOT NULL,
             DateClosed DATETIME2 NOT NULL INDEX Idx_Date NONCLUSTERED WITH (FILLFACTOR = 90)
         )
