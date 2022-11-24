@@ -97,6 +97,7 @@
             // 
             this.LoginFormTextBoxPassword.Location = new System.Drawing.Point(160, 86);
             this.LoginFormTextBoxPassword.Name = "LoginFormTextBoxPassword";
+            this.LoginFormTextBoxPassword.PasswordChar = '*';
             this.LoginFormTextBoxPassword.Size = new System.Drawing.Size(188, 20);
             this.LoginFormTextBoxPassword.TabIndex = 4;
             this.LoginFormTextBoxPassword.TextChanged += new System.EventHandler(this.LoginFormTextBoxPassword_TextChanged);

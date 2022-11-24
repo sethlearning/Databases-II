@@ -5969,25 +5969,25 @@ SELECT Code, LastName, FirstName, MiddleName, WorkCategory, Qualification, Desir
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Roles] WHERE (([Code] = @Original_Code) AND ([Name] = @Origina" +
-                "l_Name) AND ([AccessControl] = @Original_AccessControl))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Roles] WHERE (([Code] = @Original_Code) AND ([Name] = @Original_Name" +
+                ") AND ([AccessControl] = @Original_AccessControl))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccessControl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessControl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Roles] ([Name], [AccessControl]) VALUES (@Name, @AccessControl" +
-                ");\r\nSELECT Code, Name, AccessControl FROM Roles WHERE (Code = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Roles] ([Name], [AccessControl]) VALUES (@Name, @AccessControl);\r\nSE" +
+                "LECT Code, Name, AccessControl FROM Roles WHERE (Code = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccessControl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessControl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Roles] SET [Name] = @Name, [AccessControl] = @AccessControl WHERE (" +
-                "([Code] = @Original_Code) AND ([Name] = @Original_Name) AND ([AccessControl] = @" +
-                "Original_AccessControl));\r\nSELECT Code, Name, AccessControl FROM Roles WHERE (Co" +
-                "de = @Code)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Roles] SET [Name] = @Name, [AccessControl] = @AccessControl WHERE (([Code" +
+                "] = @Original_Code) AND ([Name] = @Original_Name) AND ([AccessControl] = @Origin" +
+                "al_AccessControl));\r\nSELECT Code, Name, AccessControl FROM Roles WHERE (Code = @" +
+                "Code)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccessControl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessControl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6010,7 +6010,7 @@ SELECT Code, LastName, FirstName, MiddleName, WorkCategory, Qualification, Desir
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Code, Name, AccessControl FROM dbo.Roles";
+            this._commandCollection[0].CommandText = "SELECT        Code, Name, AccessControl\r\nFROM            Roles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

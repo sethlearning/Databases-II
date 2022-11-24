@@ -28,7 +28,7 @@ namespace cp
             // TODO: This line of code loads data into the 'cPDBDataSet.ActiveUsers' table. You can move, or remove it, as needed.
             this.activeUsersTableAdapter.Fill(this.cPDBDataSet.ActiveUsers);
             LoginFormComboBoxUsername.SelectedValue = 0;
-
+            this.rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
         }
 
         private void LoginFormButtonOK_Click(object sender, EventArgs e)
@@ -42,12 +42,17 @@ namespace cp
                 hashBytes = SHA256.ComputeHash(Encoding.UTF8.GetBytes(LoginFormTextBoxPassword.Text));
                 foreach (byte b in hashBytes)
                     sb.Append(b.ToString("X2"));
-                
+
                 //MessageBox.Show("!" + this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash + "!", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //MessageBox.Show("!" + sb.ToString() + "!", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CPDBDataSet.ActiveUsersRow activeUsersRow = this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue);
 
-                if (this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash.ToString() == sb.ToString())
+//                if (this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash.ToString() == sb.ToString())
+                if (activeUsersRow.PasswordHash.ToString() == sb.ToString())
                 {
+                    
+                    CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(activeUsersRow.Role);
+                    MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     ListsForm lf = new ListsForm(this);
                     lf.Show();
