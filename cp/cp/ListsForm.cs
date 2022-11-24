@@ -24,8 +24,7 @@ namespace cp
 
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _loginForm.Show();
-            this.Dispose();
+            Logout();
         }
 
         private void ListsForm_Load(object sender, EventArgs e)
@@ -43,6 +42,27 @@ namespace cp
         private void EditUser(object sender, EventArgs e)
         {
 
+        }
+
+        private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void Logout()
+        {
+            _loginForm.Show();
+            this.Dispose();
+        }
+
+        private void Exit()
+        {
+            Application.Exit();
+        }
+
+        private void ListsFormToolStripButtonClose_Click(object sender, EventArgs e)
+        {
+            Exit();
         }
     }
 }

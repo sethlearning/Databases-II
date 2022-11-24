@@ -75,6 +75,7 @@
             // 
             this.LoginFormComboBoxUsername.DataSource = this.activeUsersBindingSource;
             this.LoginFormComboBoxUsername.DisplayMember = "UserName";
+            this.LoginFormComboBoxUsername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LoginFormComboBoxUsername.FormattingEnabled = true;
             this.LoginFormComboBoxUsername.Location = new System.Drawing.Point(160, 53);
             this.LoginFormComboBoxUsername.Name = "LoginFormComboBoxUsername";
