@@ -47,7 +47,13 @@ namespace cp
                 //MessageBox.Show("!" + sb.ToString() + "!", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if (this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash.ToString() == sb.ToString())
-                    MessageBox.Show("AAA", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    this.Hide();
+                    ListsForm lf = new ListsForm(this);
+                    lf.Show();
+                    
+                    //MessageBox.Show("AAA", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                     LoginFormLabelWrongPassword.Visible = true;
 

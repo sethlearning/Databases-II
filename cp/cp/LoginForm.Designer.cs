@@ -107,7 +107,7 @@
             this.LoginFormButtonOK.Name = "LoginFormButtonOK";
             this.LoginFormButtonOK.Size = new System.Drawing.Size(75, 23);
             this.LoginFormButtonOK.TabIndex = 5;
-            this.LoginFormButtonOK.Text = "OK";
+            this.LoginFormButtonOK.Text = "Enter";
             this.LoginFormButtonOK.UseVisualStyleBackColor = true;
             this.LoginFormButtonOK.Click += new System.EventHandler(this.LoginFormButtonOK_Click);
             // 
@@ -118,7 +118,7 @@
             this.LoginFormButtonCancel.Name = "LoginFormButtonCancel";
             this.LoginFormButtonCancel.Size = new System.Drawing.Size(75, 23);
             this.LoginFormButtonCancel.TabIndex = 6;
-            this.LoginFormButtonCancel.Text = "Cancel";
+            this.LoginFormButtonCancel.Text = "Close";
             this.LoginFormButtonCancel.UseVisualStyleBackColor = true;
             this.LoginFormButtonCancel.Click += new System.EventHandler(this.LoginFormButtonCancel_Click);
             // 
