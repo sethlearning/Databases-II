@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace cp
 {
-    internal enum AccessRights
+    public enum AccessRights
     {
         None                = 0b_0000_0000_0000_0000,   // 0
         Users               = 0b_0000_0000_0000_0001,   // 1

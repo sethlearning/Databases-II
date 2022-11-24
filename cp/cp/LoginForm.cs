@@ -27,15 +27,18 @@ namespace cp
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.ActiveUsers' table. You can move, or remove it, as needed.
             this.activeUsersTableAdapter.Fill(this.cPDBDataSet.ActiveUsers);
+
+            CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
+            rolesTableAdapter.ClearBeforeFill = true;
+            rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+
             LoginFormComboBoxUsername.SelectedValue = 0;
-            this.rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
         }
 
         private void LoginFormButtonOK_Click(object sender, EventArgs e)
         {
             if (LoginFormComboBoxUsername.SelectedValue != null)
             {
-                //string hash;
                 byte[] hashBytes;
                 StringBuilder sb = new StringBuilder();
                 HashAlgorithm SHA256 = new SHA256Managed();
@@ -43,27 +46,19 @@ namespace cp
                 foreach (byte b in hashBytes)
                     sb.Append(b.ToString("X2"));
 
-                //MessageBox.Show("!" + this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash + "!", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //MessageBox.Show("!" + sb.ToString() + "!", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CPDBDataSet.ActiveUsersRow activeUsersRow = this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue);
 
-//                if (this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue).PasswordHash.ToString() == sb.ToString())
                 if (activeUsersRow.PasswordHash.ToString() == sb.ToString())
                 {
-                    
                     CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(activeUsersRow.Role);
-                    MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    ListsForm lf = new ListsForm(this);
+                    LoginFormTextBoxPassword.Text = "";
+                    ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl));
                     lf.Show();
-                    
-                    //MessageBox.Show("AAA", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     LoginFormLabelWrongPassword.Visible = true;
-
-                //if (sb.ToString)
-                //MessageBox.Show(sb.ToString(), "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
