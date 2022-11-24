@@ -33,8 +33,6 @@
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlUsersPage = new System.Windows.Forms.TabPage();
             this.ListsFormUsersDataGridView = new System.Windows.Forms.DataGridView();
-            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cPDBDataSet = new cp.CPDBDataSet();
             this.ListsFormTabControlEmployersPage = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,15 +49,17 @@
             this.рольDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
+            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersListTableAdapter = new cp.CPDBDataSetTableAdapters.UsersListTableAdapter();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlUsersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ListsFormTabControl
@@ -114,16 +114,6 @@
             this.ListsFormUsersDataGridView.Size = new System.Drawing.Size(755, 326);
             this.ListsFormUsersDataGridView.TabIndex = 0;
             this.ListsFormUsersDataGridView.DoubleClick += new System.EventHandler(this.EditUser);
-            // 
-            // usersListBindingSource
-            // 
-            this.usersListBindingSource.DataMember = "UsersList";
-            this.usersListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ListsFormTabControlEmployersPage
             // 
@@ -253,6 +243,16 @@
             this.usersListBindingSource1.DataMember = "UsersList";
             this.usersListBindingSource1.DataSource = this.cPDBDataSet;
             // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usersListBindingSource
+            // 
+            this.usersListBindingSource.DataMember = "UsersList";
+            this.usersListBindingSource.DataSource = this.cPDBDataSet;
+            // 
             // usersListTableAdapter
             // 
             this.usersListTableAdapter.ClearBeforeFill = true;
@@ -274,13 +274,13 @@
             this.ListsFormTabControl.ResumeLayout(false);
             this.ListsFormTabControlUsersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ListsFormMenuStrip.ResumeLayout(false);
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -4,10 +4,10 @@ GO
 -- Roles
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Roles')
     INSERT INTO dbo.Roles (Name, AccessControl)
-        VALUES  ('Администратор', 1),
-                ('Руководитель', 340),
-                ('Менеджер', 170),
-                ('Оператор', 128)
+        VALUES  ('Администратор', 3),
+                ('Руководитель', 1364),
+                ('Менеджер', 4092),
+                ('Оператор', 3412)
 
 SELECT * FROM dbo.Roles
 

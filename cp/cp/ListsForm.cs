@@ -34,7 +34,7 @@ namespace cp
 
             ListsFormTabControl.TabPages.Clear();
 
-            if ((_accessRights & AccessRights.Users) == AccessRights.Users)
+            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView)
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlUsersPage);
         }
 
