@@ -1,13 +1,86 @@
 USE CPDB
 GO
 
+-- Roles
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Roles')
+    BEGIN
+        CREATE TABLE dbo.Roles
+        (
+            Code INT IDENTITY(1, 1) CONSTRAINT PK_Roles PRIMARY KEY,
+            Name VARCHAR(64) NOT NULL,
+            AccessControl INT NOT NULL
+        )
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал ролей',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'Code'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'Name'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Права доступа',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'AccessControl'
+    END
+
+-- Users
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
+    BEGIN
+        CREATE TABLE dbo.Users
+        (
+            Code INT IDENTITY(1, 1) CONSTRAINT PK_Users PRIMARY KEY,
+            UserName VARCHAR(64) NOT NULL INDEX Idx_UserName NONCLUSTERED WITH (FILLFACTOR = 90),
+            PasswordHash CHAR(128) NOT NULL,
+            Role INT NOT NULL CONSTRAINT FK_Users_Role FOREIGN KEY REFERENCES Roles (Code) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            Enabled BIT NOT NULL
+        )
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал пользователей',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Code'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'UserName'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Хэш пароля пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'PasswordHash'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Role'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Активность учетной записи',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Enabled'
+    END
+
+
 -- WorkCategories
 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'WorkCategories')
     BEGIN
         CREATE TABLE dbo.WorkCategories
         (
             Code INT IDENTITY(1, 1) CONSTRAINT PK_WorkCategories PRIMARY KEY,
-            Category VARCHAR(60) NOT NULL INDEX Idx_Category NONCLUSTERED WITH (FILLFACTOR = 90)
+            Category VARCHAR(60) NOT NULL INDEX Idx_Category NONCLUSTERED WITH (FILLFACTOR = 90),
+            ChangeTime DATETIME2 NOT NULL,
+            ChangedBy INT NOT NULL CONSTRAINT FK_WorkCategories_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник видов деятельности',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -22,6 +95,16 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'WorkC
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'WorkCategories',
                                         @level2type=N'COLUMN',   @level2name=N'Category'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'WorkCategories',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangeTime'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Пользователь, совершивший изменение',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'WorkCategories',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangedBy'
     END
 
 -- Employers
@@ -32,7 +115,9 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Emplo
             Code INT IDENTITY(1, 1) CONSTRAINT PK_Employers PRIMARY KEY,
             Name VARCHAR(60) NOT NULL INDEX Idx_Name NONCLUSTERED WITH (FILLFACTOR = 90),
             Address VARCHAR(120) NULL,
-            Phone VARCHAR(15) NULL
+            Phone VARCHAR(15) NULL,
+            ChangeTime DATETIME2 NOT NULL,
+            ChangedBy INT NOT NULL CONSTRAINT FK_Employers_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник работодателей',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -57,6 +142,16 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Emplo
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'Employers',
                                         @level2type=N'COLUMN',   @level2name=N'Phone'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Employers',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangeTime'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Пользователь, совершивший изменение',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Employers',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangedBy'
     END
 
 -- JobSeekers
@@ -72,6 +167,8 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'JobSe
             Qualification VARCHAR(60) NULL INDEX Idx_Qualification WITH (FILLFACTOR = 90),
             DesiredSalary MONEY NULL,
             Notes VARCHAR(120) NULL,
+            ChangeTime DATETIME2 NOT NULL,
+            ChangedBy INT NOT NULL CONSTRAINT FK_JobSeekers_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION,
             INDEX Idx_Name NONCLUSTERED (LastName ASC, FirstName ASC, MiddleName ASC) WITH (FILLFACTOR = 90)
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник соискателей',
@@ -117,6 +214,16 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'JobSe
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'JobSeekers',
                                         @level2type=N'COLUMN',   @level2name=N'Notes'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'JobSeekers',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangeTime'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Пользователь, совершивший изменение',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'JobSeekers',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangedBy'
     END
 
 -- Vacancies
@@ -128,7 +235,9 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Vacan
             WorkCategory INT NOT NULL CONSTRAINT FK_Vacancies_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
             Position VARCHAR(60) NOT NULL INDEX Idx_Position NONCLUSTERED WITH (FILLFACTOR = 90),
             Salary MONEY NULL,
-            Employer INT NOT NULL CONSTRAINT FK_Vacancies_Employer FOREIGN KEY REFERENCES dbo.Employers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Employer NONCLUSTERED WITH (FILLFACTOR = 90)
+            Employer INT NOT NULL CONSTRAINT FK_Vacancies_Employer FOREIGN KEY REFERENCES dbo.Employers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Employer NONCLUSTERED WITH (FILLFACTOR = 90),
+            ChangeTime DATETIME2 NOT NULL,
+            ChangedBy INT NOT NULL CONSTRAINT FK_Vacancies_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Справочник вакансий',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -158,6 +267,16 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Vacan
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'Vacancies',
                                         @level2type=N'COLUMN',   @level2name=N'Employer'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Vacancies',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangeTime'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Пользователь, совершивший изменение',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Vacancies',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangedBy'
     END
 
 -- Deals
@@ -169,7 +288,9 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
             JobSeeker INT NOT NULL CONSTRAINT FK_Deals_JobSeeker FOREIGN KEY REFERENCES dbo.JobSeekers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_JobSeeker NONCLUSTERED WITH (FILLFACTOR = 90),
             Vacancy INT NOT NULL CONSTRAINT FK_Deals_Vacancy FOREIGN KEY REFERENCES dbo.Vacancies(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Vacancy NONCLUSTERED WITH (FILLFACTOR = 90),
             Commission MONEY NOT NULL,
-            DateClosed DATETIME2 NOT NULL INDEX Idx_Date NONCLUSTERED WITH (FILLFACTOR = 90)
+            DateClosed DATE NOT NULL INDEX Idx_Date NONCLUSTERED WITH (FILLFACTOR = 90),
+            ChangeTime DATETIME2 NOT NULL,
+            ChangedBy INT NOT NULL CONSTRAINT FK_Deals_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал сделок',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
@@ -199,72 +320,15 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'Deals',
                                         @level2type=N'COLUMN',   @level2name=N'DateClosed'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Deals',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangeTime'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Пользователь, совершивший изменение',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Deals',
+                                        @level2type=N'COLUMN',   @level2name=N'ChangedBy'
     END
 
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Roles')
-    BEGIN
-        CREATE TABLE dbo.Roles
-        (
-            Code INT IDENTITY(1, 1) CONSTRAINT PK_Roles PRIMARY KEY,
-            Name VARCHAR(64) NOT NULL,
-            AccessControl INT NOT NULL
-        )
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал ролей',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Roles'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Roles',
-                                        @level2type=N'COLUMN',   @level2name=N'Code'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя роли',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Roles',
-                                        @level2type=N'COLUMN',   @level2name=N'Name'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Права доступа',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Roles',
-                                        @level2type=N'COLUMN',   @level2name=N'AccessControl'
-    END
-
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
-    BEGIN
-        CREATE TABLE dbo.Users
-        (
-            Code INT IDENTITY(1, 1) CONSTRAINT PK_Users PRIMARY KEY,
-            UserName VARCHAR(64) NOT NULL INDEX Idx_UserName NONCLUSTERED WITH (FILLFACTOR = 90),
-            PasswordHash CHAR(128) NOT NULL,
-            Role INT NOT NULL CONSTRAINT FK_Users_Role FOREIGN KEY REFERENCES Roles (Code) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            Enabled BIT NOT NULL
-        )
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал пользователей',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код пользователя',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users',
-                                        @level2type=N'COLUMN',   @level2name=N'Code'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя пользователя',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users',
-                                        @level2type=N'COLUMN',   @level2name=N'UserName'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Хэш пароля пользователя',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users',
-                                        @level2type=N'COLUMN',   @level2name=N'PasswordHash'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users',
-                                        @level2type=N'COLUMN',   @level2name=N'Role'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Активность учетной записи',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Users',
-                                        @level2type=N'COLUMN',   @level2name=N'Enabled'
-    END
