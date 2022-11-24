@@ -36,8 +36,6 @@ namespace cp
 
             if ((_accessRights & AccessRights.Users) == AccessRights.Users)
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlUsersPage);
-
-
         }
 
         private void EditUser(object sender, EventArgs e)
