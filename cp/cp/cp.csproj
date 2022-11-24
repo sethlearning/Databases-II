@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CPDBDataSet.cs">
+      <DependentUpon>CPDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CPDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
