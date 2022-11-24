@@ -1,0 +1,3 @@
+USE CPDB
+
+DROP VIEW IF EXISTS dbo.ActiveUsers
