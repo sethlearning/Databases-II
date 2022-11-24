@@ -33,14 +33,15 @@
             this.LoginFormLabelUser = new System.Windows.Forms.Label();
             this.LoginFormLabelPassword = new System.Windows.Forms.Label();
             this.LoginFormComboBoxUsername = new System.Windows.Forms.ComboBox();
+            this.activeUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
             this.LoginFormTextBoxPassword = new System.Windows.Forms.TextBox();
             this.LoginFormButtonOK = new System.Windows.Forms.Button();
             this.LoginFormButtonCancel = new System.Windows.Forms.Button();
-            this.cPDBDataSet = new cp.CPDBDataSet();
-            this.activeUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.activeUsersTableAdapter = new cp.CPDBDataSetTableAdapters.ActiveUsersTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
+            this.LoginFormLabelWrongPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.activeUsersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginFormLabelDescription
@@ -80,6 +81,17 @@
             this.LoginFormComboBoxUsername.Size = new System.Drawing.Size(188, 21);
             this.LoginFormComboBoxUsername.TabIndex = 3;
             this.LoginFormComboBoxUsername.ValueMember = "Code";
+            this.LoginFormComboBoxUsername.SelectedValueChanged += new System.EventHandler(this.LoginFormComboBoxUsername_SelectedValueChanged);
+            // 
+            // activeUsersBindingSource
+            // 
+            this.activeUsersBindingSource.DataMember = "ActiveUsers";
+            this.activeUsersBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // LoginFormTextBoxPassword
             // 
@@ -87,20 +99,22 @@
             this.LoginFormTextBoxPassword.Name = "LoginFormTextBoxPassword";
             this.LoginFormTextBoxPassword.Size = new System.Drawing.Size(188, 20);
             this.LoginFormTextBoxPassword.TabIndex = 4;
+            this.LoginFormTextBoxPassword.TextChanged += new System.EventHandler(this.LoginFormTextBoxPassword_TextChanged);
             // 
             // LoginFormButtonOK
             // 
-            this.LoginFormButtonOK.Location = new System.Drawing.Point(160, 125);
+            this.LoginFormButtonOK.Location = new System.Drawing.Point(160, 138);
             this.LoginFormButtonOK.Name = "LoginFormButtonOK";
             this.LoginFormButtonOK.Size = new System.Drawing.Size(75, 23);
             this.LoginFormButtonOK.TabIndex = 5;
             this.LoginFormButtonOK.Text = "OK";
             this.LoginFormButtonOK.UseVisualStyleBackColor = true;
+            this.LoginFormButtonOK.Click += new System.EventHandler(this.LoginFormButtonOK_Click);
             // 
             // LoginFormButtonCancel
             // 
             this.LoginFormButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.LoginFormButtonCancel.Location = new System.Drawing.Point(272, 124);
+            this.LoginFormButtonCancel.Location = new System.Drawing.Point(272, 137);
             this.LoginFormButtonCancel.Name = "LoginFormButtonCancel";
             this.LoginFormButtonCancel.Size = new System.Drawing.Size(75, 23);
             this.LoginFormButtonCancel.TabIndex = 6;
@@ -108,19 +122,20 @@
             this.LoginFormButtonCancel.UseVisualStyleBackColor = true;
             this.LoginFormButtonCancel.Click += new System.EventHandler(this.LoginFormButtonCancel_Click);
             // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // activeUsersBindingSource
-            // 
-            this.activeUsersBindingSource.DataMember = "ActiveUsers";
-            this.activeUsersBindingSource.DataSource = this.cPDBDataSet;
-            // 
             // activeUsersTableAdapter
             // 
             this.activeUsersTableAdapter.ClearBeforeFill = true;
+            // 
+            // LoginFormLabelWrongPassword
+            // 
+            this.LoginFormLabelWrongPassword.AutoSize = true;
+            this.LoginFormLabelWrongPassword.ForeColor = System.Drawing.Color.Red;
+            this.LoginFormLabelWrongPassword.Location = new System.Drawing.Point(86, 115);
+            this.LoginFormLabelWrongPassword.Name = "LoginFormLabelWrongPassword";
+            this.LoginFormLabelWrongPassword.Size = new System.Drawing.Size(214, 13);
+            this.LoginFormLabelWrongPassword.TabIndex = 7;
+            this.LoginFormLabelWrongPassword.Text = "Неверное имя пользователя или пароль";
+            this.LoginFormLabelWrongPassword.Visible = false;
             // 
             // LoginForm
             // 
@@ -128,8 +143,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.LoginFormButtonCancel;
-            this.ClientSize = new System.Drawing.Size(388, 165);
+            this.ClientSize = new System.Drawing.Size(388, 174);
             this.ControlBox = false;
+            this.Controls.Add(this.LoginFormLabelWrongPassword);
             this.Controls.Add(this.LoginFormButtonCancel);
             this.Controls.Add(this.LoginFormButtonOK);
             this.Controls.Add(this.LoginFormTextBoxPassword);
@@ -141,8 +157,8 @@
             this.Name = "LoginForm";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activeUsersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +176,7 @@
         private CPDBDataSet cPDBDataSet;
         private System.Windows.Forms.BindingSource activeUsersBindingSource;
         private CPDBDataSetTableAdapters.ActiveUsersTableAdapter activeUsersTableAdapter;
+        private System.Windows.Forms.Label LoginFormLabelWrongPassword;
     }
 }
 
