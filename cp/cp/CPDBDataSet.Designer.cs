@@ -7832,11 +7832,23 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Code, UserName, PasswordHash, Role FROM dbo.ActiveUsers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Code, UserName, PasswordHash, Role
+FROM            ActiveUsers
+ORDER BY
+CASE WHEN @OrderBy = 'Code' THEN Code END ASC,
+CASE WHEN @OrderBy = 'UserName' THEN UserName END ASC,
+CASE WHEN @OrderBy = 'PasswordHash' THEN PasswordHash END ASC,
+CASE WHEN @OrderBy = 'Role' THEN Role END ASC,
+CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code END DESC";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("OrderBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7858,6 +7870,42 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CPDBDataSet.ActiveUsersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            CPDBDataSet.ActiveUsersDataTable dataTable = new CPDBDataSet.ActiveUsersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillOrderBy(CPDBDataSet.ActiveUsersDataTable dataTable, string OrderBy) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((OrderBy == null)) {
+                throw new global::System.ArgumentNullException("OrderBy");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(OrderBy));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CPDBDataSet.ActiveUsersDataTable GetDataOrderBy(string OrderBy) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((OrderBy == null)) {
+                throw new global::System.ArgumentNullException("OrderBy");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(OrderBy));
+            }
             CPDBDataSet.ActiveUsersDataTable dataTable = new CPDBDataSet.ActiveUsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
