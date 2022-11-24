@@ -200,3 +200,71 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
                                         @level1type=N'TABLE',    @level1name=N'Deals',
                                         @level2type=N'COLUMN',   @level2name=N'DateClosed'
     END
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Roles')
+    BEGIN
+        CREATE TABLE dbo.Roles
+        (
+            Code INT IDENTITY(1, 1) CONSTRAINT PK_Roles PRIMARY KEY,
+            Name VARCHAR(64) NOT NULL,
+            AccessControl INT NOT NULL
+        )
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал ролей',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'Code'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'Name'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Права доступа',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Roles',
+                                        @level2type=N'COLUMN',   @level2name=N'AccessControl'
+    END
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
+    BEGIN
+        CREATE TABLE dbo.Users
+        (
+            Code INT IDENTITY(1, 1) CONSTRAINT PK_Users PRIMARY KEY,
+            UserName VARCHAR(64) NOT NULL INDEX Idx_UserName NONCLUSTERED WITH (FILLFACTOR = 90),
+            PasswordHash CHAR(128) NOT NULL,
+            Role INT NOT NULL CONSTRAINT FK_Users_Role FOREIGN KEY REFERENCES Roles (Code) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            Enabled BIT NOT NULL
+        )
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Журнал пользователей',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Code'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Имя пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'UserName'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Хэш пароля пользователя',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'PasswordHash'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Код роли',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Role'
+
+        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Активность учетной записи',
+                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
+                                        @level1type=N'TABLE',    @level1name=N'Users',
+                                        @level2type=N'COLUMN',   @level2name=N'Enabled'
+    END

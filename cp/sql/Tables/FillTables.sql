@@ -59,3 +59,23 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals')
                 (4, 4, 9000, '09/12/2022')
 
 SELECT * FROM dbo.Deals
+
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Roles')
+    INSERT INTO dbo.Roles (Name, AccessControl)
+        VALUES  ('Администратор', 15),
+                ('Руководитель', 15),
+                ('Менеджер', 15),
+                ('Оператор', 15)
+
+SELECT * FROM dbo.Roles
+
+
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
+    INSERT INTO dbo.Users (UserName, PasswordHash, Role, Enabled)
+        VALUES  ('Администратор', '6B86B273FF34FCE19D6B804EFF5A3F5747ADA4EAA22F1D49C01E52DDB7875B4B', 1, 1),
+                ('Директор Иванов И.И.', 'D4735E3A265E16EEE03F59718B9B5D03019C07D8B6C51F90DA3A666EEC13AB35', 2, 1),
+                ('Менеджер Петров П.П.', '4E07408562BEDB8B60CE05C1DECFE3AD16B72230967DE01F640B7E4729B49FCE', 3, 1),
+                ('Оператор Сидоров С.С.', '4B227777D4DD1FC61C6F884F48641D02B4D121D3FD328CB08B5531FCACDABF8A', 4, 1),
+                ('Оператор Панкратов П.П.', 'EF2D127DE37B942BAAD06145E54B0C619A1F22327B2EBBCFBEC78F5564AFE39D', 4, 0)
+
+SELECT * FROM Users
