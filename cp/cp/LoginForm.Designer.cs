@@ -31,8 +31,10 @@
             this.LoginFormLabelDescription = new System.Windows.Forms.Label();
             this.LoginFormLabelUser = new System.Windows.Forms.Label();
             this.LoginFormLabelPassword = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LoginFormComboBoxUsername = new System.Windows.Forms.ComboBox();
+            this.LoginFormTextBoxPassword = new System.Windows.Forms.TextBox();
+            this.LoginFormButtonOK = new System.Windows.Forms.Button();
+            this.LoginFormButtonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoginFormLabelDescription
@@ -62,31 +64,56 @@
             this.LoginFormLabelPassword.TabIndex = 2;
             this.LoginFormLabelPassword.Text = "Пароль:";
             // 
-            // comboBox1
+            // LoginFormComboBoxUsername
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(160, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(188, 21);
-            this.comboBox1.TabIndex = 3;
+            this.LoginFormComboBoxUsername.FormattingEnabled = true;
+            this.LoginFormComboBoxUsername.Location = new System.Drawing.Point(160, 53);
+            this.LoginFormComboBoxUsername.Name = "LoginFormComboBoxUsername";
+            this.LoginFormComboBoxUsername.Size = new System.Drawing.Size(188, 21);
+            this.LoginFormComboBoxUsername.TabIndex = 3;
             // 
-            // textBox1
+            // LoginFormTextBoxPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 4;
+            this.LoginFormTextBoxPassword.Location = new System.Drawing.Point(160, 86);
+            this.LoginFormTextBoxPassword.Name = "LoginFormTextBoxPassword";
+            this.LoginFormTextBoxPassword.Size = new System.Drawing.Size(188, 20);
+            this.LoginFormTextBoxPassword.TabIndex = 4;
+            // 
+            // LoginFormButtonOK
+            // 
+            this.LoginFormButtonOK.Location = new System.Drawing.Point(160, 125);
+            this.LoginFormButtonOK.Name = "LoginFormButtonOK";
+            this.LoginFormButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.LoginFormButtonOK.TabIndex = 5;
+            this.LoginFormButtonOK.Text = "OK";
+            this.LoginFormButtonOK.UseVisualStyleBackColor = true;
+            // 
+            // LoginFormButtonCancel
+            // 
+            this.LoginFormButtonCancel.Location = new System.Drawing.Point(272, 124);
+            this.LoginFormButtonCancel.Name = "LoginFormButtonCancel";
+            this.LoginFormButtonCancel.Size = new System.Drawing.Size(75, 23);
+            this.LoginFormButtonCancel.TabIndex = 6;
+            this.LoginFormButtonCancel.Text = "Cancel";
+            this.LoginFormButtonCancel.UseVisualStyleBackColor = true;
+            this.LoginFormButtonCancel.Click += new System.EventHandler(this.LoginFormButtonCancel_Click);
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.LoginFormButtonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 136);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.CancelButton = this.LoginFormButtonCancel;
+            this.ClientSize = new System.Drawing.Size(388, 165);
+            this.ControlBox = false;
+            this.Controls.Add(this.LoginFormButtonCancel);
+            this.Controls.Add(this.LoginFormButtonOK);
+            this.Controls.Add(this.LoginFormTextBoxPassword);
+            this.Controls.Add(this.LoginFormComboBoxUsername);
             this.Controls.Add(this.LoginFormLabelPassword);
             this.Controls.Add(this.LoginFormLabelUser);
             this.Controls.Add(this.LoginFormLabelDescription);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -99,8 +126,10 @@
         private System.Windows.Forms.Label LoginFormLabelDescription;
         private System.Windows.Forms.Label LoginFormLabelUser;
         private System.Windows.Forms.Label LoginFormLabelPassword;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox LoginFormComboBoxUsername;
+        private System.Windows.Forms.TextBox LoginFormTextBoxPassword;
+        private System.Windows.Forms.Button LoginFormButtonOK;
+        private System.Windows.Forms.Button LoginFormButtonCancel;
     }
 }
 

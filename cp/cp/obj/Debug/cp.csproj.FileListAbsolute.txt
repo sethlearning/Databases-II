@@ -1,0 +1,11 @@
+D:\git\learn\Databases-II\cp\cp\bin\Debug\cp.exe.config
+D:\git\learn\Databases-II\cp\cp\bin\Debug\cp.exe
+D:\git\learn\Databases-II\cp\cp\bin\Debug\cp.pdb
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.csproj.AssemblyReference.cache
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.csproj.SuggestedBindingRedirects.cache
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.LoginForm.resources
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.Properties.Resources.resources
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.csproj.GenerateResource.cache
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.csproj.CoreCompileInputs.cache
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.exe
+D:\git\learn\Databases-II\cp\cp\obj\Debug\cp.pdb

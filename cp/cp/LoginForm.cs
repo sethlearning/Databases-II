@@ -16,5 +16,10 @@ namespace cp
         {
             InitializeComponent();
         }
+
+        private void LoginFormButtonCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
