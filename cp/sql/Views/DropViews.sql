@@ -1,5 +1,5 @@
 USE CPDB
 GO
 
-DROP VIEW IF EXISTS dbo.ActiveUsers
-DROP VIEW IF EXISTS dbo.UsersList
+DROP VIEW IF EXISTS dbo.vActiveUsers
+DROP VIEW IF EXISTS dbo.vUsersList

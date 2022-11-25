@@ -1,7 +1,7 @@
 USE CPDB
 GO
 
-CREATE PROCEDURE cpAddUser
+CREATE PROCEDURE pAddUser
 	@UserName varchar(64), 
 	@PasswordHash char(64),
 	@Role int,
@@ -12,7 +12,7 @@ AS
     END
 GO
 
-CREATE PROCEDURE cpUpdateUser
+CREATE PROCEDURE pUpdateUser
 	@Code int,
     @UserName varchar(64), 
 	@PasswordHash char(64),
@@ -26,7 +26,7 @@ AS
     END
 GO
 
-CREATE PROCEDURE cpDeleteUser
+CREATE PROCEDURE pDeleteUser
 	@Code int
 AS
     BEGIN
