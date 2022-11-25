@@ -489,12 +489,12 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ActiveUsersTableAdapter" GeneratorDataComponentClassName="ActiveUsersTableAdapter" Name="ActiveUsers" UserDataComponentName="ActiveUsersTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vActiveUsersTableAdapter" GeneratorDataComponentClassName="vActiveUsersTableAdapter" Name="vActiveUsers" UserDataComponentName="vActiveUsersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.ActiveUsers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.vActiveUsers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Code, UserName, PasswordHash, Role FROM dbo.ActiveUsers</CommandText>
+                    <CommandText>SELECT Code, UserName, PasswordHash, Role FROM dbo.vActiveUsers</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -507,11 +507,11 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
               <Mapping SourceColumn="Role" DataSetColumn="Role" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.ActiveUsers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillOrderBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataOrderBy" GeneratorSourceName="FillOrderBy" GetMethodModifier="Public" GetMethodName="GetDataOrderBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataOrderBy" UserSourceName="FillOrderBy">
+              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.vActiveUsers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillOrderBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataOrderBy" GeneratorSourceName="FillOrderBy" GetMethodModifier="Public" GetMethodName="GetDataOrderBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataOrderBy" UserSourceName="FillOrderBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Code, UserName, PasswordHash, Role
-FROM            ActiveUsers
+                    <CommandText>SELECT Code, UserName, PasswordHash, Role
+FROM dbo.vActiveUsers
 ORDER BY
 CASE WHEN @OrderBy = 'Code' THEN Code END ASC,
 CASE WHEN @OrderBy = 'UserName' THEN UserName END ASC,
@@ -526,12 +526,12 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsersListTableAdapter" GeneratorDataComponentClassName="UsersListTableAdapter" Name="UsersList" UserDataComponentName="UsersListTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vUsersListTableAdapter" GeneratorDataComponentClassName="vUsersListTableAdapter" Name="vUsersList" UserDataComponentName="vUsersListTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.UsersList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.vUsersList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.UsersList</CommandText>
+                    <CommandText>SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.vUsersList</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -544,10 +544,10 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
               <Mapping SourceColumn="Активен" DataSetColumn="Активен" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.UsersList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillOrderBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataOrderBy" GeneratorSourceName="FillOrderBy" GetMethodModifier="Public" GetMethodName="GetDataOrderBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataOrderBy" UserSourceName="FillOrderBy">
+              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.vUsersList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillOrderByCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataOrderByCode" GeneratorSourceName="FillOrderByCode" GetMethodModifier="Public" GetMethodName="GetDataOrderByCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataOrderByCode" UserSourceName="FillOrderByCode">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.UsersList ORDER BY Код</CommandText>
+                    <CommandText>SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.vUsersList ORDER BY Код</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -724,47 +724,47 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ActiveUsers" msprop:Generator_RowEvHandlerName="ActiveUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="ActiveUsersRowDeleted" msprop:Generator_RowDeletingName="ActiveUsersRowDeleting" msprop:Generator_RowEvArgName="ActiveUsersRowChangeEvent" msprop:Generator_TablePropName="ActiveUsers" msprop:Generator_RowChangedName="ActiveUsersRowChanged" msprop:Generator_UserTableName="ActiveUsers" msprop:Generator_RowChangingName="ActiveUsersRowChanging" msprop:Generator_RowClassName="ActiveUsersRow" msprop:Generator_TableClassName="ActiveUsersDataTable" msprop:Generator_TableVarName="tableActiveUsers">
+        <xs:element name="vActiveUsers" msprop:Generator_RowClassName="vActiveUsersRow" msprop:Generator_RowEvHandlerName="vActiveUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="vActiveUsersRowDeleted" msprop:Generator_RowDeletingName="vActiveUsersRowDeleting" msprop:Generator_RowEvArgName="vActiveUsersRowChangeEvent" msprop:Generator_TablePropName="vActiveUsers" msprop:Generator_RowChangedName="vActiveUsersRowChanged" msprop:Generator_UserTableName="vActiveUsers" msprop:Generator_RowChangingName="vActiveUsersRowChanging" msprop:Generator_TableClassName="vActiveUsersDataTable" msprop:Generator_TableVarName="tablevActiveUsers">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Code" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnVarNameInTable="columnCode" type="xs:int" />
-              <xs:element name="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_UserColumnName="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName">
+              <xs:element name="Code" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" type="xs:int" />
+              <xs:element name="UserName" msprop:Generator_UserColumnName="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PasswordHash" msprop:Generator_ColumnPropNameInTable="PasswordHashColumn" msprop:Generator_ColumnPropNameInRow="PasswordHash" msprop:Generator_UserColumnName="PasswordHash" msprop:Generator_ColumnVarNameInTable="columnPasswordHash">
+              <xs:element name="PasswordHash" msprop:Generator_UserColumnName="PasswordHash" msprop:Generator_ColumnPropNameInTable="PasswordHashColumn" msprop:Generator_ColumnPropNameInRow="PasswordHash" msprop:Generator_ColumnVarNameInTable="columnPasswordHash">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="128" />
+                    <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_UserColumnName="Role" msprop:Generator_ColumnVarNameInTable="columnRole" type="xs:int" />
+              <xs:element name="Role" msprop:Generator_UserColumnName="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnVarNameInTable="columnRole" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UsersList" msprop:Generator_RowEvHandlerName="UsersListRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersListRowDeleted" msprop:Generator_RowDeletingName="UsersListRowDeleting" msprop:Generator_RowEvArgName="UsersListRowChangeEvent" msprop:Generator_TablePropName="UsersList" msprop:Generator_RowChangedName="UsersListRowChanged" msprop:Generator_RowChangingName="UsersListRowChanging" msprop:Generator_TableClassName="UsersListDataTable" msprop:Generator_RowClassName="UsersListRow" msprop:Generator_TableVarName="tableUsersList" msprop:Generator_UserTableName="UsersList">
+        <xs:element name="vUsersList" msprop:Generator_RowClassName="vUsersListRow" msprop:Generator_RowEvHandlerName="vUsersListRowChangeEventHandler" msprop:Generator_RowDeletedName="vUsersListRowDeleted" msprop:Generator_RowDeletingName="vUsersListRowDeleting" msprop:Generator_RowEvArgName="vUsersListRowChangeEvent" msprop:Generator_TablePropName="vUsersList" msprop:Generator_RowChangedName="vUsersListRowChanged" msprop:Generator_UserTableName="vUsersList" msprop:Generator_RowChangingName="vUsersListRowChanging" msprop:Generator_TableClassName="vUsersListDataTable" msprop:Generator_TableVarName="tablevUsersList">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Код" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_UserColumnName="Код" type="xs:int" />
-              <xs:element name="Имя_x0020_пользователя" msprop:Generator_ColumnPropNameInRow="Имя_пользователя" msprop:Generator_ColumnPropNameInTable="Имя_пользователяColumn" msprop:Generator_ColumnVarNameInTable="columnИмя_пользователя" msprop:Generator_UserColumnName="Имя пользователя">
+              <xs:element name="Код" msprop:Generator_UserColumnName="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnVarNameInTable="columnКод" type="xs:int" />
+              <xs:element name="Имя_x0020_пользователя" msprop:Generator_UserColumnName="Имя пользователя" msprop:Generator_ColumnPropNameInTable="Имя_пользователяColumn" msprop:Generator_ColumnPropNameInRow="Имя_пользователя" msprop:Generator_ColumnVarNameInTable="columnИмя_пользователя">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Роль" msprop:Generator_ColumnPropNameInRow="Роль" msprop:Generator_ColumnPropNameInTable="РольColumn" msprop:Generator_ColumnVarNameInTable="columnРоль" msprop:Generator_UserColumnName="Роль">
+              <xs:element name="Роль" msprop:Generator_UserColumnName="Роль" msprop:Generator_ColumnPropNameInTable="РольColumn" msprop:Generator_ColumnPropNameInRow="Роль" msprop:Generator_ColumnVarNameInTable="columnРоль">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="64" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Активен" msprop:Generator_ColumnPropNameInRow="Активен" msprop:Generator_ColumnPropNameInTable="АктивенColumn" msprop:Generator_ColumnVarNameInTable="columnАктивен" msprop:Generator_UserColumnName="Активен" type="xs:boolean" />
+              <xs:element name="Активен" msprop:Generator_UserColumnName="Активен" msprop:Generator_ColumnPropNameInTable="АктивенColumn" msprop:Generator_ColumnPropNameInRow="Активен" msprop:Generator_ColumnVarNameInTable="columnАктивен" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -798,12 +798,12 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
       <xs:selector xpath=".//mstns:WorkCategories" />
       <xs:field xpath="mstns:Code" />
     </xs:unique>
-    <xs:unique name="ActiveUsers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ActiveUsers" />
+    <xs:unique name="vActiveUsers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vActiveUsers" />
       <xs:field xpath="mstns:Code" />
     </xs:unique>
-    <xs:unique name="UsersList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:UsersList" />
+    <xs:unique name="vUsersList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vUsersList" />
       <xs:field xpath="mstns:Код" />
     </xs:unique>
   </xs:element>

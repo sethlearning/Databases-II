@@ -33,6 +33,8 @@
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlUsersPage = new System.Windows.Forms.TabPage();
             this.ListsFormUsersDataGridView = new System.Windows.Forms.DataGridView();
+            this.vUsersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
             this.ListsFormTabControlEmployersPage = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,21 +46,21 @@
             this.ListsFormToolStripButtonLogout = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ListsFormToolStripButtonClose = new System.Windows.Forms.ToolStripButton();
+            this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.имяПользователяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.рольDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cPDBDataSet = new cp.CPDBDataSet();
-            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersListTableAdapter = new cp.CPDBDataSetTableAdapters.UsersListTableAdapter();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlUsersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vUsersListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +105,7 @@
             this.имяПользователяDataGridViewTextBoxColumn,
             this.рольDataGridViewTextBoxColumn,
             this.активенDataGridViewCheckBoxColumn});
-            this.ListsFormUsersDataGridView.DataSource = this.usersListBindingSource1;
+            this.ListsFormUsersDataGridView.DataSource = this.vUsersListBindingSource;
             this.ListsFormUsersDataGridView.Location = new System.Drawing.Point(6, 6);
             this.ListsFormUsersDataGridView.MultiSelect = false;
             this.ListsFormUsersDataGridView.Name = "ListsFormUsersDataGridView";
@@ -114,6 +116,16 @@
             this.ListsFormUsersDataGridView.Size = new System.Drawing.Size(755, 326);
             this.ListsFormUsersDataGridView.TabIndex = 0;
             this.ListsFormUsersDataGridView.DoubleClick += new System.EventHandler(this.EditUser);
+            // 
+            // vUsersListBindingSource
+            // 
+            this.vUsersListBindingSource.DataMember = "vUsersList";
+            this.vUsersListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ListsFormTabControlEmployersPage
             // 
@@ -210,6 +222,10 @@
             this.ListsFormToolStripButtonClose.Text = "Закрыть";
             this.ListsFormToolStripButtonClose.Click += new System.EventHandler(this.ListsFormToolStripButtonClose_Click);
             // 
+            // vUsersListTableAdapter
+            // 
+            this.vUsersListTableAdapter.ClearBeforeFill = true;
+            // 
             // кодDataGridViewTextBoxColumn
             // 
             this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
@@ -238,25 +254,6 @@
             this.активенDataGridViewCheckBoxColumn.Name = "активенDataGridViewCheckBoxColumn";
             this.активенDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // usersListBindingSource1
-            // 
-            this.usersListBindingSource1.DataMember = "UsersList";
-            this.usersListBindingSource1.DataSource = this.cPDBDataSet;
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usersListBindingSource
-            // 
-            this.usersListBindingSource.DataMember = "UsersList";
-            this.usersListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // usersListTableAdapter
-            // 
-            this.usersListTableAdapter.ClearBeforeFill = true;
-            // 
             // ListsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,12 +271,13 @@
             this.ListsFormTabControl.ResumeLayout(false);
             this.ListsFormTabControlUsersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vUsersListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ListsFormMenuStrip.ResumeLayout(false);
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,10 +292,6 @@
         private System.Windows.Forms.DataGridView ListsFormUsersDataGridView;
         private CPDBDataSet cPDBDataSet;
         private System.Windows.Forms.BindingSource usersListBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn имяПользователяDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn рольDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn активенDataGridViewCheckBoxColumn;
         private System.Windows.Forms.MenuStrip ListsFormMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStrip ListsFormToolStrip;
@@ -312,6 +306,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn enabledDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource usersListBindingSource1;
-        private CPDBDataSetTableAdapters.UsersListTableAdapter usersListTableAdapter;
+        private System.Windows.Forms.BindingSource vUsersListBindingSource;
+        private CPDBDataSetTableAdapters.vUsersListTableAdapter vUsersListTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn имяПользователяDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn рольDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn активенDataGridViewCheckBoxColumn;
     }
 }

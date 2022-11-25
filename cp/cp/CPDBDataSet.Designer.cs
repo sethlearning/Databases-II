@@ -38,9 +38,9 @@ namespace cp {
         
         private WorkCategoriesDataTable tableWorkCategories;
         
-        private ActiveUsersDataTable tableActiveUsers;
+        private vActiveUsersDataTable tablevActiveUsers;
         
-        private UsersListDataTable tableUsersList;
+        private vUsersListDataTable tablevUsersList;
         
         private global::System.Data.DataRelation relationFK_Deals_ChangedBy;
         
@@ -113,11 +113,11 @@ namespace cp {
                 if ((ds.Tables["WorkCategories"] != null)) {
                     base.Tables.Add(new WorkCategoriesDataTable(ds.Tables["WorkCategories"]));
                 }
-                if ((ds.Tables["ActiveUsers"] != null)) {
-                    base.Tables.Add(new ActiveUsersDataTable(ds.Tables["ActiveUsers"]));
+                if ((ds.Tables["vActiveUsers"] != null)) {
+                    base.Tables.Add(new vActiveUsersDataTable(ds.Tables["vActiveUsers"]));
                 }
-                if ((ds.Tables["UsersList"] != null)) {
-                    base.Tables.Add(new UsersListDataTable(ds.Tables["UsersList"]));
+                if ((ds.Tables["vUsersList"] != null)) {
+                    base.Tables.Add(new vUsersListDataTable(ds.Tables["vUsersList"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -211,9 +211,9 @@ namespace cp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ActiveUsersDataTable ActiveUsers {
+        public vActiveUsersDataTable vActiveUsers {
             get {
-                return this.tableActiveUsers;
+                return this.tablevActiveUsers;
             }
         }
         
@@ -221,9 +221,9 @@ namespace cp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public UsersListDataTable UsersList {
+        public vUsersListDataTable vUsersList {
             get {
-                return this.tableUsersList;
+                return this.tablevUsersList;
             }
         }
         
@@ -315,11 +315,11 @@ namespace cp {
                 if ((ds.Tables["WorkCategories"] != null)) {
                     base.Tables.Add(new WorkCategoriesDataTable(ds.Tables["WorkCategories"]));
                 }
-                if ((ds.Tables["ActiveUsers"] != null)) {
-                    base.Tables.Add(new ActiveUsersDataTable(ds.Tables["ActiveUsers"]));
+                if ((ds.Tables["vActiveUsers"] != null)) {
+                    base.Tables.Add(new vActiveUsersDataTable(ds.Tables["vActiveUsers"]));
                 }
-                if ((ds.Tables["UsersList"] != null)) {
-                    base.Tables.Add(new UsersListDataTable(ds.Tables["UsersList"]));
+                if ((ds.Tables["vUsersList"] != null)) {
+                    base.Tables.Add(new vUsersListDataTable(ds.Tables["vUsersList"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -396,16 +396,16 @@ namespace cp {
                     this.tableWorkCategories.InitVars();
                 }
             }
-            this.tableActiveUsers = ((ActiveUsersDataTable)(base.Tables["ActiveUsers"]));
+            this.tablevActiveUsers = ((vActiveUsersDataTable)(base.Tables["vActiveUsers"]));
             if ((initTable == true)) {
-                if ((this.tableActiveUsers != null)) {
-                    this.tableActiveUsers.InitVars();
+                if ((this.tablevActiveUsers != null)) {
+                    this.tablevActiveUsers.InitVars();
                 }
             }
-            this.tableUsersList = ((UsersListDataTable)(base.Tables["UsersList"]));
+            this.tablevUsersList = ((vUsersListDataTable)(base.Tables["vUsersList"]));
             if ((initTable == true)) {
-                if ((this.tableUsersList != null)) {
-                    this.tableUsersList.InitVars();
+                if ((this.tablevUsersList != null)) {
+                    this.tablevUsersList.InitVars();
                 }
             }
             this.relationFK_Deals_ChangedBy = this.Relations["FK_Deals_ChangedBy"];
@@ -443,10 +443,10 @@ namespace cp {
             base.Tables.Add(this.tableVacancies);
             this.tableWorkCategories = new WorkCategoriesDataTable();
             base.Tables.Add(this.tableWorkCategories);
-            this.tableActiveUsers = new ActiveUsersDataTable();
-            base.Tables.Add(this.tableActiveUsers);
-            this.tableUsersList = new UsersListDataTable();
-            base.Tables.Add(this.tableUsersList);
+            this.tablevActiveUsers = new vActiveUsersDataTable();
+            base.Tables.Add(this.tablevActiveUsers);
+            this.tablevUsersList = new vUsersListDataTable();
+            base.Tables.Add(this.tablevUsersList);
             this.relationFK_Deals_ChangedBy = new global::System.Data.DataRelation("FK_Deals_ChangedBy", new global::System.Data.DataColumn[] {
                         this.tableUsers.CodeColumn}, new global::System.Data.DataColumn[] {
                         this.tableDeals.ChangedByColumn}, false);
@@ -537,13 +537,13 @@ namespace cp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeActiveUsers() {
+        private bool ShouldSerializevActiveUsers() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeUsersList() {
+        private bool ShouldSerializevUsersList() {
             return false;
         }
         
@@ -624,10 +624,10 @@ namespace cp {
         public delegate void WorkCategoriesRowChangeEventHandler(object sender, WorkCategoriesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ActiveUsersRowChangeEventHandler(object sender, ActiveUsersRowChangeEvent e);
+        public delegate void vActiveUsersRowChangeEventHandler(object sender, vActiveUsersRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void UsersListRowChangeEventHandler(object sender, UsersListRowChangeEvent e);
+        public delegate void vUsersListRowChangeEventHandler(object sender, vUsersListRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3033,7 +3033,7 @@ namespace cp {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ActiveUsersDataTable : global::System.Data.TypedTableBase<ActiveUsersRow> {
+        public partial class vActiveUsersDataTable : global::System.Data.TypedTableBase<vActiveUsersRow> {
             
             private global::System.Data.DataColumn columnCode;
             
@@ -3045,8 +3045,8 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersDataTable() {
-                this.TableName = "ActiveUsers";
+            public vActiveUsersDataTable() {
+                this.TableName = "vActiveUsers";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3054,7 +3054,7 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ActiveUsersDataTable(global::System.Data.DataTable table) {
+            internal vActiveUsersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3071,7 +3071,7 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ActiveUsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected vActiveUsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3119,55 +3119,55 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRow this[int index] {
+            public vActiveUsersRow this[int index] {
                 get {
-                    return ((ActiveUsersRow)(this.Rows[index]));
+                    return ((vActiveUsersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ActiveUsersRowChangeEventHandler ActiveUsersRowChanging;
+            public event vActiveUsersRowChangeEventHandler vActiveUsersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ActiveUsersRowChangeEventHandler ActiveUsersRowChanged;
+            public event vActiveUsersRowChangeEventHandler vActiveUsersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ActiveUsersRowChangeEventHandler ActiveUsersRowDeleting;
+            public event vActiveUsersRowChangeEventHandler vActiveUsersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ActiveUsersRowChangeEventHandler ActiveUsersRowDeleted;
+            public event vActiveUsersRowChangeEventHandler vActiveUsersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddActiveUsersRow(ActiveUsersRow row) {
+            public void AddvActiveUsersRow(vActiveUsersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRow AddActiveUsersRow(string UserName, string PasswordHash, int Role) {
-                ActiveUsersRow rowActiveUsersRow = ((ActiveUsersRow)(this.NewRow()));
+            public vActiveUsersRow AddvActiveUsersRow(string UserName, string PasswordHash, int Role) {
+                vActiveUsersRow rowvActiveUsersRow = ((vActiveUsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         UserName,
                         PasswordHash,
                         Role};
-                rowActiveUsersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowActiveUsersRow);
-                return rowActiveUsersRow;
+                rowvActiveUsersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvActiveUsersRow);
+                return rowvActiveUsersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRow FindByCode(int Code) {
-                return ((ActiveUsersRow)(this.Rows.Find(new object[] {
+            public vActiveUsersRow FindByCode(int Code) {
+                return ((vActiveUsersRow)(this.Rows.Find(new object[] {
                             Code})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ActiveUsersDataTable cln = ((ActiveUsersDataTable)(base.Clone()));
+                vActiveUsersDataTable cln = ((vActiveUsersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3175,7 +3175,7 @@ namespace cp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ActiveUsersDataTable();
+                return new vActiveUsersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3209,34 +3209,34 @@ namespace cp {
                 this.columnUserName.AllowDBNull = false;
                 this.columnUserName.MaxLength = 64;
                 this.columnPasswordHash.AllowDBNull = false;
-                this.columnPasswordHash.MaxLength = 128;
+                this.columnPasswordHash.MaxLength = 64;
                 this.columnRole.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRow NewActiveUsersRow() {
-                return ((ActiveUsersRow)(this.NewRow()));
+            public vActiveUsersRow NewvActiveUsersRow() {
+                return ((vActiveUsersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ActiveUsersRow(builder);
+                return new vActiveUsersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ActiveUsersRow);
+                return typeof(vActiveUsersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ActiveUsersRowChanged != null)) {
-                    this.ActiveUsersRowChanged(this, new ActiveUsersRowChangeEvent(((ActiveUsersRow)(e.Row)), e.Action));
+                if ((this.vActiveUsersRowChanged != null)) {
+                    this.vActiveUsersRowChanged(this, new vActiveUsersRowChangeEvent(((vActiveUsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3244,8 +3244,8 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ActiveUsersRowChanging != null)) {
-                    this.ActiveUsersRowChanging(this, new ActiveUsersRowChangeEvent(((ActiveUsersRow)(e.Row)), e.Action));
+                if ((this.vActiveUsersRowChanging != null)) {
+                    this.vActiveUsersRowChanging(this, new vActiveUsersRowChangeEvent(((vActiveUsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3253,8 +3253,8 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ActiveUsersRowDeleted != null)) {
-                    this.ActiveUsersRowDeleted(this, new ActiveUsersRowChangeEvent(((ActiveUsersRow)(e.Row)), e.Action));
+                if ((this.vActiveUsersRowDeleted != null)) {
+                    this.vActiveUsersRowDeleted(this, new vActiveUsersRowChangeEvent(((vActiveUsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3262,14 +3262,14 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ActiveUsersRowDeleting != null)) {
-                    this.ActiveUsersRowDeleting(this, new ActiveUsersRowChangeEvent(((ActiveUsersRow)(e.Row)), e.Action));
+                if ((this.vActiveUsersRowDeleting != null)) {
+                    this.vActiveUsersRowDeleting(this, new vActiveUsersRowChangeEvent(((vActiveUsersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveActiveUsersRow(ActiveUsersRow row) {
+            public void RemovevActiveUsersRow(vActiveUsersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3296,7 +3296,7 @@ namespace cp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ActiveUsersDataTable";
+                attribute2.FixedValue = "vActiveUsersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3342,7 +3342,7 @@ namespace cp {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class UsersListDataTable : global::System.Data.TypedTableBase<UsersListRow> {
+        public partial class vUsersListDataTable : global::System.Data.TypedTableBase<vUsersListRow> {
             
             private global::System.Data.DataColumn columnКод;
             
@@ -3354,8 +3354,8 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListDataTable() {
-                this.TableName = "UsersList";
+            public vUsersListDataTable() {
+                this.TableName = "vUsersList";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3363,7 +3363,7 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal UsersListDataTable(global::System.Data.DataTable table) {
+            internal vUsersListDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3380,7 +3380,7 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected UsersListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected vUsersListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3428,55 +3428,55 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRow this[int index] {
+            public vUsersListRow this[int index] {
                 get {
-                    return ((UsersListRow)(this.Rows[index]));
+                    return ((vUsersListRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersListRowChangeEventHandler UsersListRowChanging;
+            public event vUsersListRowChangeEventHandler vUsersListRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersListRowChangeEventHandler UsersListRowChanged;
+            public event vUsersListRowChangeEventHandler vUsersListRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersListRowChangeEventHandler UsersListRowDeleting;
+            public event vUsersListRowChangeEventHandler vUsersListRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersListRowChangeEventHandler UsersListRowDeleted;
+            public event vUsersListRowChangeEventHandler vUsersListRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddUsersListRow(UsersListRow row) {
+            public void AddvUsersListRow(vUsersListRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRow AddUsersListRow(int Код, string Имя_пользователя, string Роль, bool Активен) {
-                UsersListRow rowUsersListRow = ((UsersListRow)(this.NewRow()));
+            public vUsersListRow AddvUsersListRow(int Код, string Имя_пользователя, string Роль, bool Активен) {
+                vUsersListRow rowvUsersListRow = ((vUsersListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Код,
                         Имя_пользователя,
                         Роль,
                         Активен};
-                rowUsersListRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowUsersListRow);
-                return rowUsersListRow;
+                rowvUsersListRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvUsersListRow);
+                return rowvUsersListRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRow FindByКод(int Код) {
-                return ((UsersListRow)(this.Rows.Find(new object[] {
+            public vUsersListRow FindByКод(int Код) {
+                return ((vUsersListRow)(this.Rows.Find(new object[] {
                             Код})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                UsersListDataTable cln = ((UsersListDataTable)(base.Clone()));
+                vUsersListDataTable cln = ((vUsersListDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3484,7 +3484,7 @@ namespace cp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new UsersListDataTable();
+                return new vUsersListDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3520,28 +3520,28 @@ namespace cp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRow NewUsersListRow() {
-                return ((UsersListRow)(this.NewRow()));
+            public vUsersListRow NewvUsersListRow() {
+                return ((vUsersListRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new UsersListRow(builder);
+                return new vUsersListRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(UsersListRow);
+                return typeof(vUsersListRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.UsersListRowChanged != null)) {
-                    this.UsersListRowChanged(this, new UsersListRowChangeEvent(((UsersListRow)(e.Row)), e.Action));
+                if ((this.vUsersListRowChanged != null)) {
+                    this.vUsersListRowChanged(this, new vUsersListRowChangeEvent(((vUsersListRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3549,8 +3549,8 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.UsersListRowChanging != null)) {
-                    this.UsersListRowChanging(this, new UsersListRowChangeEvent(((UsersListRow)(e.Row)), e.Action));
+                if ((this.vUsersListRowChanging != null)) {
+                    this.vUsersListRowChanging(this, new vUsersListRowChangeEvent(((vUsersListRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3558,8 +3558,8 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.UsersListRowDeleted != null)) {
-                    this.UsersListRowDeleted(this, new UsersListRowChangeEvent(((UsersListRow)(e.Row)), e.Action));
+                if ((this.vUsersListRowDeleted != null)) {
+                    this.vUsersListRowDeleted(this, new vUsersListRowChangeEvent(((vUsersListRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3567,14 +3567,14 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.UsersListRowDeleting != null)) {
-                    this.UsersListRowDeleting(this, new UsersListRowChangeEvent(((UsersListRow)(e.Row)), e.Action));
+                if ((this.vUsersListRowDeleting != null)) {
+                    this.vUsersListRowDeleting(this, new vUsersListRowChangeEvent(((vUsersListRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveUsersListRow(UsersListRow row) {
+            public void RemovevUsersListRow(vUsersListRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3601,7 +3601,7 @@ namespace cp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "UsersListDataTable";
+                attribute2.FixedValue = "vUsersListDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4556,25 +4556,25 @@ namespace cp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ActiveUsersRow : global::System.Data.DataRow {
+        public partial class vActiveUsersRow : global::System.Data.DataRow {
             
-            private ActiveUsersDataTable tableActiveUsers;
+            private vActiveUsersDataTable tablevActiveUsers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ActiveUsersRow(global::System.Data.DataRowBuilder rb) : 
+            internal vActiveUsersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableActiveUsers = ((ActiveUsersDataTable)(this.Table));
+                this.tablevActiveUsers = ((vActiveUsersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Code {
                 get {
-                    return ((int)(this[this.tableActiveUsers.CodeColumn]));
+                    return ((int)(this[this.tablevActiveUsers.CodeColumn]));
                 }
                 set {
-                    this[this.tableActiveUsers.CodeColumn] = value;
+                    this[this.tablevActiveUsers.CodeColumn] = value;
                 }
             }
             
@@ -4582,10 +4582,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string UserName {
                 get {
-                    return ((string)(this[this.tableActiveUsers.UserNameColumn]));
+                    return ((string)(this[this.tablevActiveUsers.UserNameColumn]));
                 }
                 set {
-                    this[this.tableActiveUsers.UserNameColumn] = value;
+                    this[this.tablevActiveUsers.UserNameColumn] = value;
                 }
             }
             
@@ -4593,10 +4593,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string PasswordHash {
                 get {
-                    return ((string)(this[this.tableActiveUsers.PasswordHashColumn]));
+                    return ((string)(this[this.tablevActiveUsers.PasswordHashColumn]));
                 }
                 set {
-                    this[this.tableActiveUsers.PasswordHashColumn] = value;
+                    this[this.tablevActiveUsers.PasswordHashColumn] = value;
                 }
             }
             
@@ -4604,10 +4604,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Role {
                 get {
-                    return ((int)(this[this.tableActiveUsers.RoleColumn]));
+                    return ((int)(this[this.tablevActiveUsers.RoleColumn]));
                 }
                 set {
-                    this[this.tableActiveUsers.RoleColumn] = value;
+                    this[this.tablevActiveUsers.RoleColumn] = value;
                 }
             }
         }
@@ -4615,25 +4615,25 @@ namespace cp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class UsersListRow : global::System.Data.DataRow {
+        public partial class vUsersListRow : global::System.Data.DataRow {
             
-            private UsersListDataTable tableUsersList;
+            private vUsersListDataTable tablevUsersList;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal UsersListRow(global::System.Data.DataRowBuilder rb) : 
+            internal vUsersListRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableUsersList = ((UsersListDataTable)(this.Table));
+                this.tablevUsersList = ((vUsersListDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Код {
                 get {
-                    return ((int)(this[this.tableUsersList.КодColumn]));
+                    return ((int)(this[this.tablevUsersList.КодColumn]));
                 }
                 set {
-                    this[this.tableUsersList.КодColumn] = value;
+                    this[this.tablevUsersList.КодColumn] = value;
                 }
             }
             
@@ -4641,10 +4641,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Имя_пользователя {
                 get {
-                    return ((string)(this[this.tableUsersList.Имя_пользователяColumn]));
+                    return ((string)(this[this.tablevUsersList.Имя_пользователяColumn]));
                 }
                 set {
-                    this[this.tableUsersList.Имя_пользователяColumn] = value;
+                    this[this.tablevUsersList.Имя_пользователяColumn] = value;
                 }
             }
             
@@ -4652,10 +4652,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Роль {
                 get {
-                    return ((string)(this[this.tableUsersList.РольColumn]));
+                    return ((string)(this[this.tablevUsersList.РольColumn]));
                 }
                 set {
-                    this[this.tableUsersList.РольColumn] = value;
+                    this[this.tablevUsersList.РольColumn] = value;
                 }
             }
             
@@ -4663,10 +4663,10 @@ namespace cp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Активен {
                 get {
-                    return ((bool)(this[this.tableUsersList.АктивенColumn]));
+                    return ((bool)(this[this.tablevUsersList.АктивенColumn]));
                 }
                 set {
-                    this[this.tableUsersList.АктивенColumn] = value;
+                    this[this.tablevUsersList.АктивенColumn] = value;
                 }
             }
         }
@@ -4913,22 +4913,22 @@ namespace cp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ActiveUsersRowChangeEvent : global::System.EventArgs {
+        public class vActiveUsersRowChangeEvent : global::System.EventArgs {
             
-            private ActiveUsersRow eventRow;
+            private vActiveUsersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRowChangeEvent(ActiveUsersRow row, global::System.Data.DataRowAction action) {
+            public vActiveUsersRowChangeEvent(vActiveUsersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ActiveUsersRow Row {
+            public vActiveUsersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4947,22 +4947,22 @@ namespace cp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class UsersListRowChangeEvent : global::System.EventArgs {
+        public class vUsersListRowChangeEvent : global::System.EventArgs {
             
-            private UsersListRow eventRow;
+            private vUsersListRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRowChangeEvent(UsersListRow row, global::System.Data.DataRowAction action) {
+            public vUsersListRowChangeEvent(vUsersListRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersListRow Row {
+            public vUsersListRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7703,7 +7703,7 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ActiveUsersTableAdapter : global::System.ComponentModel.Component {
+    public partial class vActiveUsersTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7717,7 +7717,7 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ActiveUsersTableAdapter() {
+        public vActiveUsersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7814,7 +7814,7 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ActiveUsers";
+            tableMapping.DataSetTable = "vActiveUsers";
             tableMapping.ColumnMappings.Add("Code", "Code");
             tableMapping.ColumnMappings.Add("UserName", "UserName");
             tableMapping.ColumnMappings.Add("PasswordHash", "PasswordHash");
@@ -7835,12 +7835,12 @@ SELECT Code, Category, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Code, UserName, PasswordHash, Role FROM dbo.ActiveUsers";
+            this._commandCollection[0].CommandText = "SELECT Code, UserName, PasswordHash, Role FROM dbo.vActiveUsers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Code, UserName, PasswordHash, Role
-FROM            ActiveUsers
+            this._commandCollection[1].CommandText = @"SELECT Code, UserName, PasswordHash, Role
+FROM dbo.vActiveUsers
 ORDER BY
 CASE WHEN @OrderBy = 'Code' THEN Code END ASC,
 CASE WHEN @OrderBy = 'UserName' THEN UserName END ASC,
@@ -7855,7 +7855,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CPDBDataSet.ActiveUsersDataTable dataTable) {
+        public virtual int Fill(CPDBDataSet.vActiveUsersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7868,9 +7868,9 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CPDBDataSet.ActiveUsersDataTable GetData() {
+        public virtual CPDBDataSet.vActiveUsersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CPDBDataSet.ActiveUsersDataTable dataTable = new CPDBDataSet.ActiveUsersDataTable();
+            CPDBDataSet.vActiveUsersDataTable dataTable = new CPDBDataSet.vActiveUsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7879,7 +7879,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillOrderBy(CPDBDataSet.ActiveUsersDataTable dataTable, string OrderBy) {
+        public virtual int FillOrderBy(CPDBDataSet.vActiveUsersDataTable dataTable, string OrderBy) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((OrderBy == null)) {
                 throw new global::System.ArgumentNullException("OrderBy");
@@ -7898,7 +7898,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CPDBDataSet.ActiveUsersDataTable GetDataOrderBy(string OrderBy) {
+        public virtual CPDBDataSet.vActiveUsersDataTable GetDataOrderBy(string OrderBy) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((OrderBy == null)) {
                 throw new global::System.ArgumentNullException("OrderBy");
@@ -7906,7 +7906,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(OrderBy));
             }
-            CPDBDataSet.ActiveUsersDataTable dataTable = new CPDBDataSet.ActiveUsersDataTable();
+            CPDBDataSet.vActiveUsersDataTable dataTable = new CPDBDataSet.vActiveUsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7921,7 +7921,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class UsersListTableAdapter : global::System.ComponentModel.Component {
+    public partial class vUsersListTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7935,7 +7935,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public UsersListTableAdapter() {
+        public vUsersListTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -8032,7 +8032,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "UsersList";
+            tableMapping.DataSetTable = "vUsersList";
             tableMapping.ColumnMappings.Add("Код", "Код");
             tableMapping.ColumnMappings.Add("Имя пользователя", "Имя пользователя");
             tableMapping.ColumnMappings.Add("Роль", "Роль");
@@ -8053,11 +8053,11 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.UsersList";
+            this._commandCollection[0].CommandText = "SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.vUsersList";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.UsersList ORDER BY Код";
+            this._commandCollection[1].CommandText = "SELECT Код, [Имя пользователя], Роль, Активен FROM dbo.vUsersList ORDER BY Код";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8065,7 +8065,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CPDBDataSet.UsersListDataTable dataTable) {
+        public virtual int Fill(CPDBDataSet.vUsersListDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8078,9 +8078,9 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CPDBDataSet.UsersListDataTable GetData() {
+        public virtual CPDBDataSet.vUsersListDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CPDBDataSet.UsersListDataTable dataTable = new CPDBDataSet.UsersListDataTable();
+            CPDBDataSet.vUsersListDataTable dataTable = new CPDBDataSet.vUsersListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8089,7 +8089,7 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillOrderBy(CPDBDataSet.UsersListDataTable dataTable) {
+        public virtual int FillOrderByCode(CPDBDataSet.vUsersListDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8102,9 +8102,9 @@ CASE WHEN @OrderBy NOT IN ('Code', 'UserName', 'PasswordHash', 'Role') THEN Code
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CPDBDataSet.UsersListDataTable GetDataOrderBy() {
+        public virtual CPDBDataSet.vUsersListDataTable GetDataOrderByCode() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            CPDBDataSet.UsersListDataTable dataTable = new CPDBDataSet.UsersListDataTable();
+            CPDBDataSet.vUsersListDataTable dataTable = new CPDBDataSet.vUsersListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

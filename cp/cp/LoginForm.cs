@@ -25,8 +25,10 @@ namespace cp
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vActiveUsers' table. You can move, or remove it, as needed.
+            this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
             // TODO: This line of code loads data into the 'cPDBDataSet.ActiveUsers' table. You can move, or remove it, as needed.
-            this.activeUsersTableAdapter.FillOrderBy(this.cPDBDataSet.ActiveUsers, "Code");
+            //this.activeUsersTableAdapter.FillOrderBy(this.cPDBDataSet.ActiveUsers, "Code");
 
             CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
             rolesTableAdapter.ClearBeforeFill = true;
@@ -46,11 +48,11 @@ namespace cp
                 foreach (byte b in hashBytes)
                     sb.Append(b.ToString("X2"));
 
-                CPDBDataSet.ActiveUsersRow activeUsersRow = this.cPDBDataSet.ActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue);
+                CPDBDataSet.vActiveUsersRow vActiveUsersRow = this.cPDBDataSet.vActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue);
 
-                if (activeUsersRow.PasswordHash.ToString() == sb.ToString())
+                if (vActiveUsersRow.PasswordHash.ToString() == sb.ToString())
                 {
-                    CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(activeUsersRow.Role);
+                    CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(vActiveUsersRow.Role);
                     // MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     LoginFormTextBoxPassword.Text = "";
