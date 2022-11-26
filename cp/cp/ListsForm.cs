@@ -12,14 +12,57 @@ namespace cp
 {
     public partial class ListsForm : Form
     {
-        LoginForm _loginForm;
-        AccessRights _accessRights;
+        private LoginForm _loginForm;
+        private AccessRights _accessRights;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights)
         {
             InitializeComponent();
             _loginForm = loginForm;
             _accessRights = accessRights;
+        }
+
+        private void ConfigureInterfaceTabs()
+        {
+            ListsFormTabControl.TabPages.Clear();
+
+            // Users
+            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageUsers);
+                this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+            }
+
+            // WorkCategories
+            if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
+            }
+
+            // Employers
+            if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
+            }
+        }
+
+        private void ConfigureInterfaceButtons()
+        {
+            if ( ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers" && (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit )
+            {
+                ListsFormToolStripButtonNew.Visible = true;
+                ListsFormToolStripButtonEdit.Visible = true;
+                ListsFormToolStripButtonDelete.Visible = true;
+            }
+
+            else
+            {
+                ListsFormToolStripButtonNew.Visible = false;
+                ListsFormToolStripButtonEdit.Visible = false;
+                ListsFormToolStripButtonDelete.Visible = false;
+            }
         }
 
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -29,15 +72,8 @@ namespace cp
 
         private void ListsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vUsersList' table. You can move, or remove it, as needed.
-            this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
-            // TODO: This line of code loads data into the 'cPDBDataSet.UsersList' table. You can move, or remove it, as needed.
-            //this.usersListTableAdapter.FillOrderBy(this.cPDBDataSet.UsersList);
-
-            ListsFormTabControl.TabPages.Clear();
-
-            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView)
-                ListsFormTabControl.TabPages.Add(ListsFormTabControlUsersPage);
+            ConfigureInterfaceTabs();
+            ConfigureInterfaceButtons();
         }
 
         private void EditUser(object sender, EventArgs e)
