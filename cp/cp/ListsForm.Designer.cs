@@ -39,6 +39,7 @@
             this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vUsersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPDBDataSet = new cp.CPDBDataSet();
+            this.ListsFormTabControlPageWorkCategories = new System.Windows.Forms.TabPage();
             this.ListsFormTabControlPageEmployers = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
-            this.ListsFormTabControlPageWorkCategories = new System.Windows.Forms.TabPage();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -117,7 +117,6 @@
             this.ListsFormUsersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListsFormUsersDataGridView.Size = new System.Drawing.Size(755, 326);
             this.ListsFormUsersDataGridView.TabIndex = 0;
-            this.ListsFormUsersDataGridView.DoubleClick += new System.EventHandler(this.EditUser);
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -156,6 +155,15 @@
             // 
             this.cPDBDataSet.DataSetName = "CPDBDataSet";
             this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ListsFormTabControlPageWorkCategories
+            // 
+            this.ListsFormTabControlPageWorkCategories.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageWorkCategories.Name = "ListsFormTabControlPageWorkCategories";
+            this.ListsFormTabControlPageWorkCategories.Size = new System.Drawing.Size(767, 338);
+            this.ListsFormTabControlPageWorkCategories.TabIndex = 2;
+            this.ListsFormTabControlPageWorkCategories.Text = "Вид деятельности";
+            this.ListsFormTabControlPageWorkCategories.UseVisualStyleBackColor = true;
             // 
             // ListsFormTabControlPageEmployers
             // 
@@ -215,6 +223,7 @@
             this.ListsFormToolStripButtonEdit.Name = "ListsFormToolStripButtonEdit";
             this.ListsFormToolStripButtonEdit.Size = new System.Drawing.Size(107, 22);
             this.ListsFormToolStripButtonEdit.Text = "Редактировать";
+            this.ListsFormToolStripButtonEdit.Click += new System.EventHandler(this.ListsFormToolStripButtonEdit_Click);
             // 
             // ListsFormToolStripButtonDelete
             // 
@@ -255,15 +264,6 @@
             // vUsersListTableAdapter
             // 
             this.vUsersListTableAdapter.ClearBeforeFill = true;
-            // 
-            // ListsFormTabControlPageWorkCategories
-            // 
-            this.ListsFormTabControlPageWorkCategories.Location = new System.Drawing.Point(4, 22);
-            this.ListsFormTabControlPageWorkCategories.Name = "ListsFormTabControlPageWorkCategories";
-            this.ListsFormTabControlPageWorkCategories.Size = new System.Drawing.Size(767, 338);
-            this.ListsFormTabControlPageWorkCategories.TabIndex = 2;
-            this.ListsFormTabControlPageWorkCategories.Text = "Вид деятельности";
-            this.ListsFormTabControlPageWorkCategories.UseVisualStyleBackColor = true;
             // 
             // ListsForm
             // 

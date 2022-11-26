@@ -35,18 +35,25 @@ namespace cp
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageUsers);
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
             }
+            if ((_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit)
+            {
+                ListsFormUsersDataGridView.AllowUserToAddRows = true;
+                this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
+            }
 
             // WorkCategories
             if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
             }
+            //if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
 
             // Employers
             if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
             }
+            //if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
         }
 
         private void ConfigureInterfaceButtons()
@@ -79,9 +86,9 @@ namespace cp
             ConfigureInterfaceButtons();
         }
 
-        private void EditUser(object sender, EventArgs e)
+        private void EditUser()
         {
-
+            MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
@@ -103,6 +110,18 @@ namespace cp
         private void ListsFormToolStripButtonClose_Click(object sender, EventArgs e)
         {
             Exit();
+        }
+
+        private void ListsFormUsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditUser();
+            //MessageBox.Show($"RowIndex: {e.RowIndex} UserCode: {ListsFormUsersDataGridView.Rows[e.RowIndex].Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                EditUser();
         }
     }
 }
