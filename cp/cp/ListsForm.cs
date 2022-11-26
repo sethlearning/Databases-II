@@ -74,7 +74,6 @@ namespace cp
                 ListsFormToolStripButtonEdit.Visible = true;
                 ListsFormToolStripButtonDelete.Visible = true;
             }
-
             else
             {
                 ListsFormToolStripButtonNew.Visible = false;
@@ -125,17 +124,14 @@ namespace cp
                 {
                     _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
                     DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    //MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (removeUserDialogResult == DialogResult.OK)
                     {
-                        int returnCode = _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
-                        //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
                         this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                         _usersTableAdapter.Fill(this.cPDBDataSet.Users);
                     }
                 }
             }
-
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)

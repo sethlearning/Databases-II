@@ -89,12 +89,9 @@ namespace cp
             {
                 if (_newUser)
                 {
-                    //MessageBox.Show($"{_newUser}", "NewUser", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    int returnCode = _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: Utilities.GetSHA256(UserFormTextBoxPassword.Text), Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
-                    //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: Utilities.GetSHA256(UserFormTextBoxPassword.Text), Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
                     this.DialogResult = DialogResult.OK;
                 }
-
                 else
                 {
                     if ( UserFormTextBoxUsername.Text != _usersRow.UserName ||
@@ -103,23 +100,19 @@ namespace cp
                          (!String.IsNullOrEmpty(UserFormTextBoxPassword.Text) && Utilities.GetSHA256(UserFormTextBoxPassword.Text) != _usersRow.PasswordHash) )
                     {
                         _isChanged = true;
-                        //MessageBox.Show($"{_isChanged}", "isChanged", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         string passwordHash;
                         if (String.IsNullOrEmpty(UserFormTextBoxPassword.Text))
                             passwordHash = _usersRow.PasswordHash;
                         else
                             passwordHash = Utilities.GetSHA256(UserFormTextBoxPassword.Text);
 
-                        int returnCode = _queriesTableAdapter.pUpdateUser(Code: _usersRow.Code, UserName: UserFormTextBoxUsername.Text, PasswordHash: passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
-                        //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _queriesTableAdapter.pUpdateUser(Code: _usersRow.Code, UserName: UserFormTextBoxUsername.Text, PasswordHash: passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
                         this.DialogResult = DialogResult.OK;
                     }
                     else
                         this.DialogResult = DialogResult.Cancel;
-                    //MessageBox.Show($"{_isChanged}", "isChanged", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
         }
     }
 }
