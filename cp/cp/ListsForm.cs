@@ -26,7 +26,6 @@ namespace cp
             _loginForm = loginForm;
             _accessRights = accessRights;
             _userCode = userCode;
-            //MessageBox.Show($"{_userCode}", "UserCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             _usersTableAdapter.ClearBeforeFill = true;
@@ -47,9 +46,6 @@ namespace cp
                 ListsFormUsersDataGridView.AllowUserToAddRows = true;
                 this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
                 this.ListsFormUsersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormUsersDataGridView_KeyDown);
-                //CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
-                //CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
-                //usersTableAdapter.ClearBeforeFill = true;
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
 
@@ -103,20 +99,10 @@ namespace cp
 
         private void EditUser(bool newUserControl)
         {
-            //CPDBDataSet.UsersRow usersRow = new CPDBDataSet.UsersRow(new DataRowBuilder());
-            //_usersRow =  this.cPDBDataSet.Users.NewUsersRow();
-            //MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (newUserControl || ListsFormUsersDataGridView.CurrentRow.Index >= ListsFormUsersDataGridView.Rows.Count - 1)
                 _usersRow = this.cPDBDataSet.Users.NewUsersRow();
             else
                 _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
-
-            /*
-            if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
-                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
-            else
-                _usersRow = this.cPDBDataSet.Users.NewUsersRow();
-            */
 
             UserForm userForm = new UserForm(_usersRow);
             DialogResult dialogResult = userForm.ShowDialog();
@@ -125,10 +111,8 @@ namespace cp
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
-            //userForm.Show();
-            //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             userForm.Dispose();
-            //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void RemoveUser()
@@ -137,11 +121,11 @@ namespace cp
             {
                 _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
                 DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (removeUserDialogResult == DialogResult.OK)
                 {
                     int returnCode = _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
-                    MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                     _usersTableAdapter.Fill(this.cPDBDataSet.Users);
                 }
@@ -163,7 +147,6 @@ namespace cp
         private void Exit()
         {
             Application.Exit();
-            //_loginForm.VisibleChanged -= _loginForm.VisibleChanged;
         }
 
         private void ListsFormToolStripButtonClose_Click(object sender, EventArgs e)
@@ -174,7 +157,6 @@ namespace cp
         private void ListsFormUsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditUser();
-            //MessageBox.Show($"RowIndex: {e.RowIndex} UserCode: {ListsFormUsersDataGridView.Rows[e.RowIndex].Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)

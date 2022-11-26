@@ -29,15 +29,6 @@ namespace cp
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vActiveUsers' table. You can move, or remove it, as needed.
-            //this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
-            // TODO: This line of code loads data into the 'cPDBDataSet.ActiveUsers' table. You can move, or remove it, as needed.
-            //this.activeUsersTableAdapter.FillOrderBy(this.cPDBDataSet.ActiveUsers, "Code");
-
-            //CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
-            //rolesTableAdapter.ClearBeforeFill = true;
-            //rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
-
             LoginFormComboBoxUsername.SelectedValue = 0;
         }
 
@@ -53,7 +44,6 @@ namespace cp
                 if (vActiveUsersRow.PasswordHash.ToString() == textBoxPasswordHash)
                 {
                     CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(vActiveUsersRow.Role);
-                    // MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     LoginFormTextBoxPassword.Text = "";
                     ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl), vActiveUsersRow.Code);
@@ -78,7 +68,6 @@ namespace cp
         {
             if (this.Visible == true)
             {
-                //MessageBox.Show($"{this.Visible}", "LoginForm Visibility", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }

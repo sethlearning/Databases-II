@@ -26,7 +26,6 @@ namespace cp
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.Roles' table. You can move, or remove it, as needed.
             this.rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
 
             if (_usersRow.Code < 0)
@@ -50,7 +49,6 @@ namespace cp
             _isValid = true;
             _isChanged = false;
 
-            //if (UserFormTextBoxUsername.Text == "")
             if ( String.IsNullOrWhiteSpace(UserFormTextBoxUsername.Text) )
             {
                 //UserFormLabelUsername.Font = new Font(UserFormLabelCode.Font, FontStyle.Bold);
@@ -83,10 +81,9 @@ namespace cp
             {
                 if (_newUser)
                 {
-                    MessageBox.Show($"{_newUser}", "NewUser", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //CPDBDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
+                    //MessageBox.Show($"{_newUser}", "NewUser", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int returnCode = _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: Utilities.GetSHA256(UserFormTextBoxPassword.Text), Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
-                    MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                 }
 
@@ -98,7 +95,7 @@ namespace cp
                          (!String.IsNullOrEmpty(UserFormTextBoxPassword.Text) && Utilities.GetSHA256(UserFormTextBoxPassword.Text) != _usersRow.PasswordHash) )
                     {
                         _isChanged = true;
-                        MessageBox.Show($"{_isChanged}", "isChanged", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show($"{_isChanged}", "isChanged", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         string passwordHash;
                         if (String.IsNullOrEmpty(UserFormTextBoxPassword.Text))
                             passwordHash = _usersRow.PasswordHash;
@@ -106,7 +103,7 @@ namespace cp
                             passwordHash = Utilities.GetSHA256(UserFormTextBoxPassword.Text);
 
                         int returnCode = _queriesTableAdapter.pUpdateUser(Code: _usersRow.Code, UserName: UserFormTextBoxUsername.Text, PasswordHash: passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
-                        MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                     }
                     else
