@@ -82,6 +82,9 @@ namespace cp
                 if (_newUser)
                 {
                     MessageBox.Show($"{_newUser}", "NewUser", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CPDBDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
+                    int returnCode = queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: Utilities.GetSHA256(UserFormTextBoxPassword.Text), Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
+                    MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                 }
 

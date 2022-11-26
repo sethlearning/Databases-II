@@ -16,6 +16,7 @@ namespace cp
         private AccessRights _accessRights;
         private int _userCode;
         private CPDBDataSet.UsersRow _usersRow;
+        private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
         {
@@ -24,6 +25,8 @@ namespace cp
             _accessRights = accessRights;
             _userCode = userCode;
             //MessageBox.Show($"{_userCode}", "UserCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+            _usersTableAdapter.ClearBeforeFill = true;
         }
 
         private void ConfigureInterfaceTabs()
@@ -41,9 +44,10 @@ namespace cp
                 ListsFormUsersDataGridView.AllowUserToAddRows = true;
                 this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
                 this.ListsFormUsersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormUsersDataGridView_KeyDown);
-                CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
-                usersTableAdapter.ClearBeforeFill = true;
-                usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                //CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+                //CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+                //usersTableAdapter.ClearBeforeFill = true;
+                _usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
 
             // WorkCategories
@@ -102,10 +106,16 @@ namespace cp
                 _usersRow = this.cPDBDataSet.Users.NewUsersRow();
 
             UserForm userForm = new UserForm(_usersRow);
-            userForm.ShowDialog();
+            DialogResult dialogResult = userForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+                _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+            }
             //userForm.Show();
-            userForm.Dispose();
             MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            userForm.Dispose();
+            //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
