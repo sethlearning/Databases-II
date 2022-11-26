@@ -238,6 +238,7 @@
             this.ListsFormToolStripButtonDelete.Name = "ListsFormToolStripButtonDelete";
             this.ListsFormToolStripButtonDelete.Size = new System.Drawing.Size(71, 22);
             this.ListsFormToolStripButtonDelete.Text = "Удалить";
+            this.ListsFormToolStripButtonDelete.Click += new System.EventHandler(this.ListsFormToolStripButtonDelete_Click);
             // 
             // toolStripSeparator1
             // 

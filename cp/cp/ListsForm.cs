@@ -18,6 +18,7 @@ namespace cp
         private int _userCode;
         private CPDBDataSet.UsersRow _usersRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
+        private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
         {
@@ -27,6 +28,7 @@ namespace cp
             _userCode = userCode;
             //MessageBox.Show($"{_userCode}", "UserCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+            _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             _usersTableAdapter.ClearBeforeFill = true;
         }
 
@@ -129,6 +131,24 @@ namespace cp
             //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void RemoveUser()
+        {
+            if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
+            {
+                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+                DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (removeUserDialogResult == DialogResult.OK)
+                {
+                    int returnCode = _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
+                    MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+                    _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                }
+            }
+
+        }
+
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
         {
             Logout();
@@ -177,6 +197,12 @@ namespace cp
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
                 EditUser(newUserControl: true);
+        }
+
+        private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                RemoveUser();
         }
     }
 }
