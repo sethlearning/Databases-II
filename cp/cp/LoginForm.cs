@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using cp.CPDBDataSetTableAdapters;
 
 namespace cp
 {
     public partial class LoginForm : Form
     {
+        CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         public LoginForm()
         {
             InitializeComponent();
+            _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
+            _rolesTableAdapter.ClearBeforeFill = true;
         }
 
         private void LoginFormButtonCancel_Click(object sender, EventArgs e)
@@ -26,13 +30,13 @@ namespace cp
         private void LoginForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.vActiveUsers' table. You can move, or remove it, as needed.
-            this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
+            //this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
             // TODO: This line of code loads data into the 'cPDBDataSet.ActiveUsers' table. You can move, or remove it, as needed.
             //this.activeUsersTableAdapter.FillOrderBy(this.cPDBDataSet.ActiveUsers, "Code");
 
-            CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
-            rolesTableAdapter.ClearBeforeFill = true;
-            rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+            //CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
+            //rolesTableAdapter.ClearBeforeFill = true;
+            //rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
 
             LoginFormComboBoxUsername.SelectedValue = 0;
         }
@@ -68,6 +72,16 @@ namespace cp
         private void LoginFormComboBoxUsername_SelectedValueChanged(object sender, EventArgs e)
         {
             LoginFormLabelWrongPassword.Visible = false;
+        }
+
+        private void LoginForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                MessageBox.Show($"{this.Visible}", "LoginForm Visibility", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
+                _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+            }
         }
     }
 }
