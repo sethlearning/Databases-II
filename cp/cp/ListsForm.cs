@@ -40,6 +40,7 @@ namespace cp
             {
                 ListsFormUsersDataGridView.AllowUserToAddRows = true;
                 this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
+                this.ListsFormUsersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormUsersDataGridView_KeyDown);
                 CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
                 usersTableAdapter.ClearBeforeFill = true;
                 usersTableAdapter.Fill(this.cPDBDataSet.Users);
@@ -102,8 +103,9 @@ namespace cp
 
             UserForm userForm = new UserForm(_usersRow);
             userForm.ShowDialog();
+            //userForm.Show();
             userForm.Dispose();
-                //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
@@ -137,6 +139,16 @@ namespace cp
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
                 EditUser();
+        }
+
+        private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EditUser();
+                e.SuppressKeyPress = true;
+                //e.Handled= true;
+            }
         }
     }
 }

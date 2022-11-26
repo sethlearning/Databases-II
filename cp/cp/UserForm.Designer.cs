@@ -69,7 +69,6 @@
             // 
             // UserFormButtonOK
             // 
-            this.UserFormButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.UserFormButtonOK.Location = new System.Drawing.Point(241, 249);
             this.UserFormButtonOK.Name = "UserFormButtonOK";
             this.UserFormButtonOK.Size = new System.Drawing.Size(75, 23);
@@ -91,6 +90,8 @@
             // UserFormLabelUsername
             // 
             this.UserFormLabelUsername.AutoSize = true;
+            this.UserFormLabelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserFormLabelUsername.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UserFormLabelUsername.Location = new System.Drawing.Point(20, 65);
             this.UserFormLabelUsername.Name = "UserFormLabelUsername";
             this.UserFormLabelUsername.Size = new System.Drawing.Size(106, 13);
@@ -123,9 +124,9 @@
             // UserFormLabelPasswordDescription
             // 
             this.UserFormLabelPasswordDescription.AutoSize = true;
-            this.UserFormLabelPasswordDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserFormLabelPasswordDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserFormLabelPasswordDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.UserFormLabelPasswordDescription.Location = new System.Drawing.Point(142, 129);
+            this.UserFormLabelPasswordDescription.Location = new System.Drawing.Point(143, 129);
             this.UserFormLabelPasswordDescription.Name = "UserFormLabelPasswordDescription";
             this.UserFormLabelPasswordDescription.Size = new System.Drawing.Size(269, 13);
             this.UserFormLabelPasswordDescription.TabIndex = 8;
