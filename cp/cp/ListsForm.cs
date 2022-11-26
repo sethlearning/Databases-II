@@ -119,15 +119,20 @@ namespace cp
         {
             if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
             {
-                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
-                DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                //MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (removeUserDialogResult == DialogResult.OK)
+                if (_userCode == (int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value)
+                    MessageBox.Show($"Невозможно удалить свою учетную запись: {ListsFormUsersDataGridView.CurrentRow.Cells[1].Value}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
                 {
-                    int returnCode = _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
-                    //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
-                    _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                    _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+                    DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    //MessageBox.Show($"{removeUserDialogResult}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (removeUserDialogResult == DialogResult.OK)
+                    {
+                        int returnCode = _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
+                        //MessageBox.Show($"{returnCode}", "ReturnCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+                        _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                    }
                 }
             }
 
