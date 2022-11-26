@@ -104,7 +104,7 @@ namespace cp
             else
                 _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
 
-            UserForm userForm = new UserForm(_usersRow);
+            UserForm userForm = new UserForm(_usersRow, _userCode);
             DialogResult dialogResult = userForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
@@ -120,7 +120,7 @@ namespace cp
             if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
             {
                 if (_userCode == (int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value)
-                    MessageBox.Show($"Невозможно удалить свою учетную запись: {ListsFormUsersDataGridView.CurrentRow.Cells[1].Value}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Невозможно удалить собственную учетную запись: {ListsFormUsersDataGridView.CurrentRow.Cells[1].Value}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);

@@ -13,13 +13,15 @@ namespace cp
     public partial class UserForm : Form
     {
         private CPDBDataSet.UsersRow _usersRow;
+        int _userCode;
         private bool _newUser = false;
         private bool _isChanged = false;
         private bool _isValid = false;
         CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
-        public UserForm(CPDBDataSet.UsersRow usersRow)
+        public UserForm(CPDBDataSet.UsersRow usersRow, int userCode)
         {
             InitializeComponent();
+            _userCode = userCode;
             _usersRow = usersRow;
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
         }
@@ -41,6 +43,12 @@ namespace cp
                 UserFormTextBoxUsername.Text = _usersRow.UserName;
                 UserFormComboBoxRole.SelectedValue = _usersRow.Role;
                 UserFormCheckBoxActive.Checked = _usersRow.Enabled;
+
+                if (_userCode == _usersRow.Code)
+                {
+                    UserFormComboBoxRole.Enabled = false;
+                    UserFormCheckBoxActive.Enabled = false;
+                }
             }
         }
 
