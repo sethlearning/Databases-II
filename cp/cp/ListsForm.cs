@@ -39,6 +39,9 @@ namespace cp
             {
                 ListsFormUsersDataGridView.AllowUserToAddRows = true;
                 this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
+                CPDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+                usersTableAdapter.ClearBeforeFill = true;
+                usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
 
             // WorkCategories
@@ -88,7 +91,16 @@ namespace cp
 
         private void EditUser()
         {
-            MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //CPDBDataSet.UsersRow usersRow = new CPDBDataSet.UsersRow(new DataRowBuilder());
+            CPDBDataSet.UsersRow usersRow =  this.cPDBDataSet.Users.NewUsersRow();
+            //MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
+                usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+
+                UserForm userForm = new UserForm(usersRow);
+                userForm.ShowDialog();
+                //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
