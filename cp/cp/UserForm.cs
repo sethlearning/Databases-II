@@ -17,8 +17,14 @@ namespace cp
         {
             InitializeComponent();
             _usersRow = usersRow;
+        }
 
-            if (_usersRow.Code == -1)
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cPDBDataSet.Roles' table. You can move, or remove it, as needed.
+            this.rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+
+            if (_usersRow.Code < 0)
             {
                 UserFormTextBoxCode.Text = "New User";
             }
@@ -26,8 +32,15 @@ namespace cp
             {
                 UserFormTextBoxCode.Text = _usersRow.Code.ToString();
                 UserFormTextBoxUsername.Text = _usersRow.UserName;
+                UserFormComboBoxRole.SelectedValue = _usersRow.Code;
                 UserFormCheckBoxActive.Checked = _usersRow.Enabled;
             }
+        }
+
+        private void UserFormButtonOK_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{UserFormComboBoxRole.Text}", "UserFormComboBoxRole", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{UserFormComboBoxRole.SelectedValue}", "UserFormComboBoxRole", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

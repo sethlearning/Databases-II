@@ -15,6 +15,7 @@ namespace cp
         private LoginForm _loginForm;
         private AccessRights _accessRights;
         private int _userCode;
+        private CPDBDataSet.UsersRow _usersRow;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
         {
@@ -92,15 +93,17 @@ namespace cp
         private void EditUser()
         {
             //CPDBDataSet.UsersRow usersRow = new CPDBDataSet.UsersRow(new DataRowBuilder());
-            CPDBDataSet.UsersRow usersRow =  this.cPDBDataSet.Users.NewUsersRow();
+            //_usersRow =  this.cPDBDataSet.Users.NewUsersRow();
             //MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
-                usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+            else
+                _usersRow = this.cPDBDataSet.Users.NewUsersRow();
 
-                UserForm userForm = new UserForm(usersRow);
-                userForm.ShowDialog();
+            UserForm userForm = new UserForm(_usersRow);
+            userForm.ShowDialog();
+            userForm.Dispose();
                 //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)

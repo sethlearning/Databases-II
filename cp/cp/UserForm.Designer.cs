@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.UserFormLabelCode = new System.Windows.Forms.Label();
             this.UserFormTextBoxCode = new System.Windows.Forms.TextBox();
             this.UserFormButtonOK = new System.Windows.Forms.Button();
@@ -38,9 +39,14 @@
             this.UserFormTextBoxPassword = new System.Windows.Forms.TextBox();
             this.UserFormLabelPasswordDescription = new System.Windows.Forms.Label();
             this.UserFormLabelRole = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.UserFormComboBoxRole = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
             this.UserFormLabelActive = new System.Windows.Forms.Label();
             this.UserFormCheckBoxActive = new System.Windows.Forms.CheckBox();
+            this.rolesTableAdapter = new cp.CPDBDataSetTableAdapters.RolesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // UserFormLabelCode
@@ -70,6 +76,7 @@
             this.UserFormButtonOK.TabIndex = 5;
             this.UserFormButtonOK.Text = "OK";
             this.UserFormButtonOK.UseVisualStyleBackColor = true;
+            this.UserFormButtonOK.Click += new System.EventHandler(this.UserFormButtonOK_Click);
             // 
             // UserFormButtonCancel
             // 
@@ -133,13 +140,27 @@
             this.UserFormLabelRole.TabIndex = 9;
             this.UserFormLabelRole.Text = "Роль:";
             // 
-            // comboBox1
+            // UserFormComboBoxRole
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(140, 152);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(275, 21);
-            this.comboBox1.TabIndex = 3;
+            this.UserFormComboBoxRole.DataSource = this.rolesBindingSource;
+            this.UserFormComboBoxRole.DisplayMember = "Name";
+            this.UserFormComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UserFormComboBoxRole.FormattingEnabled = true;
+            this.UserFormComboBoxRole.Location = new System.Drawing.Point(140, 152);
+            this.UserFormComboBoxRole.Name = "UserFormComboBoxRole";
+            this.UserFormComboBoxRole.Size = new System.Drawing.Size(275, 21);
+            this.UserFormComboBoxRole.TabIndex = 3;
+            this.UserFormComboBoxRole.ValueMember = "Code";
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // UserFormLabelActive
             // 
@@ -159,6 +180,10 @@
             this.UserFormCheckBoxActive.TabIndex = 4;
             this.UserFormCheckBoxActive.UseVisualStyleBackColor = true;
             // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
             // UserForm
             // 
             this.AcceptButton = this.UserFormButtonOK;
@@ -168,7 +193,7 @@
             this.ClientSize = new System.Drawing.Size(445, 297);
             this.Controls.Add(this.UserFormCheckBoxActive);
             this.Controls.Add(this.UserFormLabelActive);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.UserFormComboBoxRole);
             this.Controls.Add(this.UserFormLabelRole);
             this.Controls.Add(this.UserFormLabelPasswordDescription);
             this.Controls.Add(this.UserFormTextBoxPassword);
@@ -181,6 +206,9 @@
             this.Controls.Add(this.UserFormLabelCode);
             this.Name = "UserForm";
             this.Text = "Пользователь";
+            this.Load += new System.EventHandler(this.UserForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,8 +226,11 @@
         private System.Windows.Forms.TextBox UserFormTextBoxPassword;
         private System.Windows.Forms.Label UserFormLabelPasswordDescription;
         private System.Windows.Forms.Label UserFormLabelRole;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox UserFormComboBoxRole;
         private System.Windows.Forms.Label UserFormLabelActive;
         private System.Windows.Forms.CheckBox UserFormCheckBoxActive;
+        private CPDBDataSet cPDBDataSet;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private CPDBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
     }
 }
