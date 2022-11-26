@@ -41,22 +41,18 @@ namespace cp
         {
             if (LoginFormComboBoxUsername.SelectedValue != null)
             {
-                byte[] hashBytes;
-                StringBuilder sb = new StringBuilder();
-                HashAlgorithm SHA256 = new SHA256Managed();
-                hashBytes = SHA256.ComputeHash(Encoding.UTF8.GetBytes(LoginFormTextBoxPassword.Text));
-                foreach (byte b in hashBytes)
-                    sb.Append(b.ToString("X2"));
+                string textBoxPasswordHash;
 
+                textBoxPasswordHash = cp.Utilities.GetSHA256(LoginFormTextBoxPassword.Text);
                 CPDBDataSet.vActiveUsersRow vActiveUsersRow = this.cPDBDataSet.vActiveUsers.FindByCode((int)LoginFormComboBoxUsername.SelectedValue);
 
-                if (vActiveUsersRow.PasswordHash.ToString() == sb.ToString())
+                if (vActiveUsersRow.PasswordHash.ToString() == textBoxPasswordHash)
                 {
                     CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(vActiveUsersRow.Role);
                     // MessageBox.Show($"{rolesRow.AccessControl}", "LoginFormComboBoxUsername", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     LoginFormTextBoxPassword.Text = "";
-                    ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl));
+                    ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl), vActiveUsersRow.Code);
                     lf.Show();
                 }
                 else

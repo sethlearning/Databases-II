@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +30,19 @@ namespace cp
         // Operator = 3412
     }
 
+    internal static class Utilities
+    {
+        internal static string GetSHA256(string input)
+        {
+            byte[] hashBytes;
+            StringBuilder sb = new StringBuilder();
+            HashAlgorithm SHA256 = new SHA256Managed();
+            hashBytes = SHA256.ComputeHash(Encoding.UTF8.GetBytes(input));
+            foreach (byte b in hashBytes)
+                sb.Append(b.ToString("X2"));
+            return sb.ToString();
+        }
+    }
     internal static class Program
     {
         /// <summary>

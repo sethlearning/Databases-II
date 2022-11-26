@@ -14,12 +14,15 @@ namespace cp
     {
         private LoginForm _loginForm;
         private AccessRights _accessRights;
+        private int _userCode;
 
-        public ListsForm(LoginForm loginForm, AccessRights accessRights)
+        public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
         {
             InitializeComponent();
             _loginForm = loginForm;
             _accessRights = accessRights;
+            _userCode = userCode;
+            //MessageBox.Show($"{_userCode}", "UserCode", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ConfigureInterfaceTabs()
