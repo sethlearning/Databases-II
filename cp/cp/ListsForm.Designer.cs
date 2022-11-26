@@ -33,6 +33,10 @@
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlPageUsers = new System.Windows.Forms.TabPage();
             this.ListsFormUsersDataGridView = new System.Windows.Forms.DataGridView();
+            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.имяПользователяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.рольDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vUsersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPDBDataSet = new cp.CPDBDataSet();
             this.ListsFormTabControlPageWorkCategories = new System.Windows.Forms.TabPage();
@@ -50,10 +54,6 @@
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.имяПользователяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.рольDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -119,6 +119,37 @@
             this.ListsFormUsersDataGridView.Size = new System.Drawing.Size(755, 326);
             this.ListsFormUsersDataGridView.StandardTab = true;
             this.ListsFormUsersDataGridView.TabIndex = 0;
+            // 
+            // кодDataGridViewTextBoxColumn
+            // 
+            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
+            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // имяПользователяDataGridViewTextBoxColumn
+            // 
+            this.имяПользователяDataGridViewTextBoxColumn.DataPropertyName = "Имя пользователя";
+            this.имяПользователяDataGridViewTextBoxColumn.HeaderText = "Имя пользователя";
+            this.имяПользователяDataGridViewTextBoxColumn.Name = "имяПользователяDataGridViewTextBoxColumn";
+            this.имяПользователяDataGridViewTextBoxColumn.ReadOnly = true;
+            this.имяПользователяDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // рольDataGridViewTextBoxColumn
+            // 
+            this.рольDataGridViewTextBoxColumn.DataPropertyName = "Роль";
+            this.рольDataGridViewTextBoxColumn.HeaderText = "Роль";
+            this.рольDataGridViewTextBoxColumn.Name = "рольDataGridViewTextBoxColumn";
+            this.рольDataGridViewTextBoxColumn.ReadOnly = true;
+            this.рольDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // активенDataGridViewCheckBoxColumn
+            // 
+            this.активенDataGridViewCheckBoxColumn.DataPropertyName = "Активен";
+            this.активенDataGridViewCheckBoxColumn.HeaderText = "Активен";
+            this.активенDataGridViewCheckBoxColumn.Name = "активенDataGridViewCheckBoxColumn";
+            this.активенDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // vUsersListBindingSource
             // 
@@ -189,6 +220,7 @@
             this.ListsFormToolStripButtonNew.Name = "ListsFormToolStripButtonNew";
             this.ListsFormToolStripButtonNew.Size = new System.Drawing.Size(70, 22);
             this.ListsFormToolStripButtonNew.Text = "Создать";
+            this.ListsFormToolStripButtonNew.Click += new System.EventHandler(this.ListsFormToolStripButtonNew_Click);
             // 
             // ListsFormToolStripButtonEdit
             // 
@@ -238,37 +270,6 @@
             // vUsersListTableAdapter
             // 
             this.vUsersListTableAdapter.ClearBeforeFill = true;
-            // 
-            // кодDataGridViewTextBoxColumn
-            // 
-            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
-            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
-            this.кодDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // имяПользователяDataGridViewTextBoxColumn
-            // 
-            this.имяПользователяDataGridViewTextBoxColumn.DataPropertyName = "Имя пользователя";
-            this.имяПользователяDataGridViewTextBoxColumn.HeaderText = "Имя пользователя";
-            this.имяПользователяDataGridViewTextBoxColumn.Name = "имяПользователяDataGridViewTextBoxColumn";
-            this.имяПользователяDataGridViewTextBoxColumn.ReadOnly = true;
-            this.имяПользователяDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // рольDataGridViewTextBoxColumn
-            // 
-            this.рольDataGridViewTextBoxColumn.DataPropertyName = "Роль";
-            this.рольDataGridViewTextBoxColumn.HeaderText = "Роль";
-            this.рольDataGridViewTextBoxColumn.Name = "рольDataGridViewTextBoxColumn";
-            this.рольDataGridViewTextBoxColumn.ReadOnly = true;
-            this.рольDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // активенDataGridViewCheckBoxColumn
-            // 
-            this.активенDataGridViewCheckBoxColumn.DataPropertyName = "Активен";
-            this.активенDataGridViewCheckBoxColumn.HeaderText = "Активен";
-            this.активенDataGridViewCheckBoxColumn.Name = "активенDataGridViewCheckBoxColumn";
-            this.активенDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // ListsForm
             // 

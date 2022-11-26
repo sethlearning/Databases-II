@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -86,7 +87,8 @@ namespace cp
 
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Logout();
+            if (e.CloseReason == CloseReason.UserClosing)
+                Logout();
         }
 
         private void ListsForm_Load(object sender, EventArgs e)
@@ -95,15 +97,24 @@ namespace cp
             ConfigureInterfaceButtons();
         }
 
-        private void EditUser()
+        private void EditUser() => EditUser(newUserControl: false);
+
+        private void EditUser(bool newUserControl)
         {
             //CPDBDataSet.UsersRow usersRow = new CPDBDataSet.UsersRow(new DataRowBuilder());
             //_usersRow =  this.cPDBDataSet.Users.NewUsersRow();
             //MessageBox.Show($"RowIndex: {ListsFormUsersDataGridView.CurrentRow.Index} UserCode: {ListsFormUsersDataGridView.CurrentRow.Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (newUserControl || ListsFormUsersDataGridView.CurrentRow.Index >= ListsFormUsersDataGridView.Rows.Count - 1)
+                _usersRow = this.cPDBDataSet.Users.NewUsersRow();
+            else
+                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+
+            /*
             if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
                 _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
             else
                 _usersRow = this.cPDBDataSet.Users.NewUsersRow();
+            */
 
             UserForm userForm = new UserForm(_usersRow);
             DialogResult dialogResult = userForm.ShowDialog();
@@ -113,7 +124,7 @@ namespace cp
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
             //userForm.Show();
-            MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
             userForm.Dispose();
             //MessageBox.Show($"DialogResult: {userForm.DialogResult}", "UserForm DialogResult", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -132,6 +143,7 @@ namespace cp
         private void Exit()
         {
             Application.Exit();
+            //_loginForm.VisibleChanged -= _loginForm.VisibleChanged;
         }
 
         private void ListsFormToolStripButtonClose_Click(object sender, EventArgs e)
@@ -145,12 +157,6 @@ namespace cp
             //MessageBox.Show($"RowIndex: {e.RowIndex} UserCode: {ListsFormUsersDataGridView.Rows[e.RowIndex].Cells[0].Value}", "CellContentDoubleClick", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
-        {
-            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
-                EditUser();
-        }
-
         private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -159,6 +165,18 @@ namespace cp
                 e.SuppressKeyPress = true;
                 //e.Handled= true;
             }
+        }
+
+        private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                EditUser();
+        }
+
+        private void ListsFormToolStripButtonNew_Click(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                EditUser(newUserControl: true);
         }
     }
 }

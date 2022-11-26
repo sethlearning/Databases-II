@@ -78,7 +78,7 @@ namespace cp
         {
             if (this.Visible == true)
             {
-                MessageBox.Show($"{this.Visible}", "LoginForm Visibility", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show($"{this.Visible}", "LoginForm Visibility", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.vActiveUsersTableAdapter.FillOrderBy(this.cPDBDataSet.vActiveUsers, "Code");
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }
