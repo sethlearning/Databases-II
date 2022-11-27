@@ -39,8 +39,8 @@
             this.активенDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vUsersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPDBDataSet = new cp.CPDBDataSet();
+            this.ListsFormTabControlPageRoles = new System.Windows.Forms.TabPage();
             this.ListsFormTabControlPageWorkCategories = new System.Windows.Forms.TabPage();
-            this.ListsFormTabControlPageEmployers = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListsFormToolStrip = new System.Windows.Forms.ToolStrip();
@@ -54,6 +54,7 @@
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ListsFormTabControlPageEmployers = new System.Windows.Forms.TabPage();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -71,6 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ListsFormTabControl.Controls.Add(this.ListsFormTabControlPageUsers);
+            this.ListsFormTabControl.Controls.Add(this.ListsFormTabControlPageRoles);
             this.ListsFormTabControl.Controls.Add(this.ListsFormTabControlPageWorkCategories);
             this.ListsFormTabControl.Controls.Add(this.ListsFormTabControlPageEmployers);
             this.ListsFormTabControl.Location = new System.Drawing.Point(13, 56);
@@ -161,24 +163,24 @@
             this.cPDBDataSet.DataSetName = "CPDBDataSet";
             this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // ListsFormTabControlPageRoles
+            // 
+            this.ListsFormTabControlPageRoles.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageRoles.Name = "ListsFormTabControlPageRoles";
+            this.ListsFormTabControlPageRoles.Size = new System.Drawing.Size(767, 338);
+            this.ListsFormTabControlPageRoles.TabIndex = 2;
+            this.ListsFormTabControlPageRoles.Text = "Роли";
+            this.ListsFormTabControlPageRoles.UseVisualStyleBackColor = true;
+            // 
             // ListsFormTabControlPageWorkCategories
             // 
             this.ListsFormTabControlPageWorkCategories.Location = new System.Drawing.Point(4, 22);
             this.ListsFormTabControlPageWorkCategories.Name = "ListsFormTabControlPageWorkCategories";
+            this.ListsFormTabControlPageWorkCategories.Padding = new System.Windows.Forms.Padding(3);
             this.ListsFormTabControlPageWorkCategories.Size = new System.Drawing.Size(767, 338);
-            this.ListsFormTabControlPageWorkCategories.TabIndex = 2;
+            this.ListsFormTabControlPageWorkCategories.TabIndex = 1;
             this.ListsFormTabControlPageWorkCategories.Text = "Вид деятельности";
             this.ListsFormTabControlPageWorkCategories.UseVisualStyleBackColor = true;
-            // 
-            // ListsFormTabControlPageEmployers
-            // 
-            this.ListsFormTabControlPageEmployers.Location = new System.Drawing.Point(4, 22);
-            this.ListsFormTabControlPageEmployers.Name = "ListsFormTabControlPageEmployers";
-            this.ListsFormTabControlPageEmployers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListsFormTabControlPageEmployers.Size = new System.Drawing.Size(767, 338);
-            this.ListsFormTabControlPageEmployers.TabIndex = 1;
-            this.ListsFormTabControlPageEmployers.Text = "Работодатели";
-            this.ListsFormTabControlPageEmployers.UseVisualStyleBackColor = true;
             // 
             // ListsFormMenuStrip
             // 
@@ -272,6 +274,16 @@
             // 
             this.vUsersListTableAdapter.ClearBeforeFill = true;
             // 
+            // ListsFormTabControlPageEmployers
+            // 
+            this.ListsFormTabControlPageEmployers.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageEmployers.Name = "ListsFormTabControlPageEmployers";
+            this.ListsFormTabControlPageEmployers.Padding = new System.Windows.Forms.Padding(3);
+            this.ListsFormTabControlPageEmployers.Size = new System.Drawing.Size(767, 338);
+            this.ListsFormTabControlPageEmployers.TabIndex = 3;
+            this.ListsFormTabControlPageEmployers.Text = "Работодатели";
+            this.ListsFormTabControlPageEmployers.UseVisualStyleBackColor = true;
+            // 
             // ListsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +318,7 @@
 
         private System.Windows.Forms.TabControl ListsFormTabControl;
         private System.Windows.Forms.TabPage ListsFormTabControlPageUsers;
-        private System.Windows.Forms.TabPage ListsFormTabControlPageEmployers;
+        private System.Windows.Forms.TabPage ListsFormTabControlPageWorkCategories;
         private System.Windows.Forms.DataGridView ListsFormUsersDataGridView;
         private CPDBDataSet cPDBDataSet;
         private System.Windows.Forms.BindingSource usersListBindingSource;
@@ -326,10 +338,11 @@
         private System.Windows.Forms.BindingSource usersListBindingSource1;
         private System.Windows.Forms.BindingSource vUsersListBindingSource;
         private CPDBDataSetTableAdapters.vUsersListTableAdapter vUsersListTableAdapter;
-        private System.Windows.Forms.TabPage ListsFormTabControlPageWorkCategories;
+        private System.Windows.Forms.TabPage ListsFormTabControlPageRoles;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn имяПользователяDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn рольDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn активенDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TabPage ListsFormTabControlPageEmployers;
     }
 }

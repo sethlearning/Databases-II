@@ -52,14 +52,14 @@ namespace cp
             // WorkCategories
             if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView)
             {
-                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageRoles);
             }
             //if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
 
             // Employers
             if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
             {
-                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
             }
             //if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
         }
