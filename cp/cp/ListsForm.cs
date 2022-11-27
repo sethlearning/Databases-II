@@ -18,6 +18,7 @@ namespace cp
         private int _userCode;
         private CPDBDataSet.UsersRow _usersRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
+        private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
@@ -27,6 +28,7 @@ namespace cp
             _accessRights = accessRights;
             _userCode = userCode;
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
+            _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             _usersTableAdapter.ClearBeforeFill = true;
         }
@@ -55,10 +57,14 @@ namespace cp
                 (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageRoles);
+                this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
             }
             if ((_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
             {
-
+                ListsFormRolesDataGridView.AllowUserToAddRows = true;
+                this.ListsFormRolesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormRolesDataGridView_CellDoubleClick);
+                this.ListsFormRolesDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormRolesDataGridView_KeyDown);
+                _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }
 
             // WorkCategories
@@ -103,6 +109,8 @@ namespace cp
 
         private void ListsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
+            //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
@@ -206,6 +214,16 @@ namespace cp
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
                 RemoveUser();
+        }
+
+        private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ListsFormRolesDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }
