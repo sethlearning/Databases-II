@@ -24,7 +24,7 @@ SELECT * FROM Users
 
 -- WorkCategories
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'WorkCategories')
-    INSERT INTO dbo.WorkCategories (Category, ChangeTime, ChangedBy)
+    INSERT INTO dbo.WorkCategories (Name, ChangeTime, ChangedBy)
         VALUES  ('Информационные технологии', GETDATE(), 3),
                 ('Металлообработка', GETDATE(), 3),
                 ('Производство продуктов питания', GETDATE(), 3),

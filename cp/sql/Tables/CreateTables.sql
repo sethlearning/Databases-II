@@ -78,7 +78,7 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'WorkC
         CREATE TABLE dbo.WorkCategories
         (
             Code INT IDENTITY(1, 1) CONSTRAINT PK_WorkCategories PRIMARY KEY,
-            Category VARCHAR(60) NOT NULL INDEX Idx_Category NONCLUSTERED WITH (FILLFACTOR = 90),
+            Name VARCHAR(60) NOT NULL INDEX Idx_Category NONCLUSTERED WITH (FILLFACTOR = 90),
             ChangeTime DATETIME2 NOT NULL,
             ChangedBy INT NOT NULL CONSTRAINT FK_WorkCategories_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
@@ -94,7 +94,7 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'WorkC
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Наименование категории',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'WorkCategories',
-                                        @level2type=N'COLUMN',   @level2name=N'Category'
+                                        @level2type=N'COLUMN',   @level2name=N'Name'
 
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
