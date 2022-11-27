@@ -13,10 +13,10 @@ namespace cp
     public partial class UserForm : Form
     {
         private CPDBDataSet.UsersRow _usersRow;
-        int _userCode;
+        private int _userCode;
         private bool _newUser = false;
-        private bool _isChanged = false;
         private bool _isValid = false;
+        private string _passwordHash;
         CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
         public UserForm(CPDBDataSet.UsersRow usersRow, int userCode)
         {
@@ -55,7 +55,6 @@ namespace cp
         private void UserFormButtonOK_Click(object sender, EventArgs e)
         {
             _isValid = true;
-            _isChanged = false;
 
             // Username
             if ( String.IsNullOrWhiteSpace(UserFormTextBoxUsername.Text) )
@@ -90,9 +89,10 @@ namespace cp
 
             if (_isValid)
             {
+                _passwordHash = Utilities.GetSHA256(UserFormTextBoxPassword.Text);
                 if (_newUser)
                 {
-                    _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: Utilities.GetSHA256(UserFormTextBoxPassword.Text), Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
+                    _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: _passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
@@ -100,16 +100,12 @@ namespace cp
                     if ( UserFormTextBoxUsername.Text != _usersRow.UserName ||
                          (int)UserFormComboBoxRole.SelectedValue != _usersRow.Role ||
                          UserFormCheckBoxActive.Checked != _usersRow.Enabled ||
-                         (!String.IsNullOrEmpty(UserFormTextBoxPassword.Text) && Utilities.GetSHA256(UserFormTextBoxPassword.Text) != _usersRow.PasswordHash) )
+                         (!String.IsNullOrEmpty(UserFormTextBoxPassword.Text) && _passwordHash != _usersRow.PasswordHash) )
                     {
-                        _isChanged = true;
-                        string passwordHash;
                         if (String.IsNullOrEmpty(UserFormTextBoxPassword.Text))
-                            passwordHash = _usersRow.PasswordHash;
-                        else
-                            passwordHash = Utilities.GetSHA256(UserFormTextBoxPassword.Text);
+                            _passwordHash = _usersRow.PasswordHash;
 
-                        _queriesTableAdapter.pUpdateUser(Code: _usersRow.Code, UserName: UserFormTextBoxUsername.Text, PasswordHash: passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
+                        _queriesTableAdapter.pUpdateUser(Code: _usersRow.Code, UserName: UserFormTextBoxUsername.Text, PasswordHash: _passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
                         this.DialogResult = DialogResult.OK;
                     }
                     else
