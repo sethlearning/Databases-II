@@ -57,6 +57,7 @@ namespace cp
             _isValid = true;
             _isChanged = false;
 
+            // Username
             if ( String.IsNullOrWhiteSpace(UserFormTextBoxUsername.Text) )
             {
                 //UserFormLabelUsername.Font = new Font(UserFormLabelCode.Font, FontStyle.Bold);
@@ -69,6 +70,7 @@ namespace cp
                 UserFormLabelUsername.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
             }
 
+            // Role
             if (UserFormComboBoxRole.SelectedValue == null)
             {
                 UserFormLabelRole.ForeColor = Color.Brown;
@@ -77,6 +79,7 @@ namespace cp
             else
                 UserFormLabelRole.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
             
+            // New User Password
             if ( _newUser && String.IsNullOrEmpty(UserFormTextBoxPassword.Text) )
             {
                 UserFormLabelPassword.ForeColor = Color.Brown;

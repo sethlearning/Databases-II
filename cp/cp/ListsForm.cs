@@ -175,6 +175,12 @@ namespace cp
             RoleForm roleForm= new RoleForm(_rolesRow, _userCode, _userRole);
             DialogResult roleFormDialogResult = roleForm.ShowDialog();
             MessageBox.Show(roleFormDialogResult.ToString());
+            if (roleFormDialogResult== DialogResult.OK)
+            {
+                this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
+                _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+            }
+            roleForm.Dispose();
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
