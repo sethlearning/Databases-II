@@ -358,6 +358,7 @@
             this.рольDataGridViewTextBoxColumn1.HeaderText = "Роль";
             this.рольDataGridViewTextBoxColumn1.Name = "рольDataGridViewTextBoxColumn1";
             this.рольDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.рольDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // доступDataGridViewTextBoxColumn
             // 
@@ -367,6 +368,7 @@
             this.доступDataGridViewTextBoxColumn.HeaderText = "Доступ";
             this.доступDataGridViewTextBoxColumn.Name = "доступDataGridViewTextBoxColumn";
             this.доступDataGridViewTextBoxColumn.ReadOnly = true;
+            this.доступDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ListsForm
             // 
