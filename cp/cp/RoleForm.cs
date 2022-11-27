@@ -42,7 +42,7 @@ namespace cp
                 RoleFormTextBoxName.Text = _rolesRow.Name;
                 _accessRights = (AccessRights)_rolesRow.AccessControl;
 
-                if ( _rolesRow.Code == 1 || _rolesRow.Code == _userCode)
+                if (_rolesRow.Code == 1 || _rolesRow.Code == _userCode)
                 {
                     RoleFormCheckBoxUsersView.Enabled = false;
                     RoleFormCheckBoxUsersEdit.Enabled = false;
@@ -72,7 +72,7 @@ namespace cp
                 RoleFormCheckBoxUsersEdit.Checked = true;
             else
                 RoleFormCheckBoxUsersEdit.Checked = false;
-            
+
             // Roles
             if ((_accessRights & AccessRights.RolesView) == AccessRights.RolesView)
                 RoleFormCheckBoxRolesView.Checked = true;
@@ -83,7 +83,7 @@ namespace cp
                 RoleFormCheckBoxRolesEdit.Checked = true;
             else
                 RoleFormCheckBoxRolesEdit.Checked = false;
-            
+
             // WorkCategories
             if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView)
                 RoleFormCheckBoxWorkCategoriesView.Checked = true;
@@ -99,7 +99,7 @@ namespace cp
                 RoleFormCheckBoxWorkCategoriesAudit.Checked = true;
             else
                 RoleFormCheckBoxWorkCategoriesAudit.Checked = false;
-            
+
             // Employers
             if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
                 RoleFormCheckBoxEmployersView.Checked = true;
@@ -115,7 +115,7 @@ namespace cp
                 RoleFormCheckBoxEmployersAudit.Checked = true;
             else
                 RoleFormCheckBoxEmployersAudit.Checked = false;
-            
+
             // Vacancies
             if ((_accessRights & AccessRights.VacanciesView) == AccessRights.VacanciesView)
                 RoleFormCheckBoxVacanciesView.Checked = true;
@@ -201,16 +201,16 @@ namespace cp
         private void RoleFormButtonOK_Click(object sender, EventArgs e)
         {
             _isValid = true;
-            
+
             // Name
-            if ( String.IsNullOrWhiteSpace(RoleFormTextBoxName.Text) )
+            if (String.IsNullOrWhiteSpace(RoleFormTextBoxName.Text))
             {
                 _isValid = false;
                 RoleFormLabelName.ForeColor = Color.Brown;
             }
             else
                 RoleFormLabelName.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
-            
+
             if (_isValid)
             {
                 if (_newRole)
@@ -219,6 +219,57 @@ namespace cp
                     _queriesTableAdapter.pAddRole(Name: RoleFormTextBoxName.Text, AccessControl: newrights);
                     this.DialogResult = DialogResult.OK;
                 }
+            }
+        }
+
+        private void CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox se = (CheckBox)sender;
+
+            if (se.Name == "RoleFormCheckBoxUsersEdit" && se.Checked)
+                RoleFormCheckBoxUsersView.Checked = true;
+            else if (se.Name == "RoleFormCheckBoxRolesEdit" && se.Checked)
+                RoleFormCheckBoxRolesView.Checked = true;
+            else if ((se.Name == "RoleFormCheckBoxWorkCategoriesEdit" || se.Name == "RoleFormCheckBoxWorkCategoriesAudit") && se.Checked)
+                RoleFormCheckBoxWorkCategoriesView.Checked = true;
+            else if ((se.Name == "RoleFormCheckBoxEmployersEdit" || se.Name == "RoleFormCheckBoxEmployersAudit") && se.Checked)
+                RoleFormCheckBoxEmployersView.Checked = true;
+            else if ((se.Name == "RoleFormCheckBoxVacanciesEdit" || se.Name == "RoleFormCheckBoxVacanciesAudit") && se.Checked)
+                RoleFormCheckBoxVacanciesView.Checked = true;
+            else if ((se.Name == "RoleFormCheckBoxJobSeekersEdit" || se.Name == "RoleFormCheckBoxJobSeekersAudit") && se.Checked)
+                RoleFormCheckBoxJobSeekersView.Checked = true;
+            else if ((se.Name == "RoleFormCheckBoxDealsEdit" || se.Name == "RoleFormCheckBoxDealsAudit") && se.Checked)
+                RoleFormCheckBoxDealsView.Checked = true;
+
+
+            else if (se.Name == "RoleFormCheckBoxUsersView" && !se.Checked)
+                RoleFormCheckBoxUsersEdit.Checked = false;
+            else if (se.Name == "RoleFormCheckBoxRolesView" && !se.Checked)
+                RoleFormCheckBoxRolesEdit.Checked = false;
+            else if (se.Name == "RoleFormCheckBoxWorkCategoriesView" && !se.Checked)
+            {
+                RoleFormCheckBoxWorkCategoriesEdit.Checked = false;
+                RoleFormCheckBoxWorkCategoriesAudit.Checked = false;
+            }
+            else if (se.Name == "RoleFormCheckBoxEmployersView" && !se.Checked)
+            {
+                RoleFormCheckBoxEmployersEdit.Checked = false;
+                RoleFormCheckBoxEmployersAudit.Checked = false;
+            }
+            else if (se.Name == "RoleFormCheckBoxVacanciesView" && !se.Checked)
+            {
+                RoleFormCheckBoxVacanciesEdit.Checked = false;
+                RoleFormCheckBoxVacanciesAudit.Checked = false;
+            }
+            else if (se.Name == "RoleFormCheckBoxJobSeekersView" && !se.Checked)
+            {
+                RoleFormCheckBoxJobSeekersEdit.Checked = false;
+                RoleFormCheckBoxJobSeekersAudit.Checked = false;
+            }
+            else if (se.Name == "RoleFormCheckBoxDealsView" && !se.Checked)
+            {
+                RoleFormCheckBoxDealsEdit.Checked = false;
+                RoleFormCheckBoxDealsAudit.Checked = false;
             }
         }
     }

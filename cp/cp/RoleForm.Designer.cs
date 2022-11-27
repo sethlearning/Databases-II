@@ -36,31 +36,31 @@
             this.RoleFormTextBoxName = new System.Windows.Forms.TextBox();
             this.RoleFormLabelAccess = new System.Windows.Forms.Label();
             this.RoleFormGroupBoxUsers = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxUsersView = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxUsersEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxUsersView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxRoles = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxRolesView = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxRolesEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxRolesView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxWorkCategories = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxWorkCategoriesView = new System.Windows.Forms.CheckBox();
-            this.RoleFormCheckBoxWorkCategoriesEdit = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxWorkCategoriesAudit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxWorkCategoriesEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxWorkCategoriesView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxEmployers = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxEmployersView = new System.Windows.Forms.CheckBox();
-            this.RoleFormCheckBoxEmployersEdit = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxEmployersAudit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxEmployersEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxEmployersView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxVacancies = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxVacanciesView = new System.Windows.Forms.CheckBox();
-            this.RoleFormCheckBoxVacanciesEdit = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxVacanciesAudit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxVacanciesEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxVacanciesView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxJobSeekers = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxJobSeekersView = new System.Windows.Forms.CheckBox();
-            this.RoleFormCheckBoxJobSeekersEdit = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxJobSeekersAudit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxJobSeekersEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxJobSeekersView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxDeals = new System.Windows.Forms.GroupBox();
-            this.RoleFormCheckBoxDealsView = new System.Windows.Forms.CheckBox();
-            this.RoleFormCheckBoxDealsEdit = new System.Windows.Forms.CheckBox();
             this.RoleFormCheckBoxDealsAudit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxDealsEdit = new System.Windows.Forms.CheckBox();
+            this.RoleFormCheckBoxDealsView = new System.Windows.Forms.CheckBox();
             this.RoleFormGroupBoxUsers.SuspendLayout();
             this.RoleFormGroupBoxRoles.SuspendLayout();
             this.RoleFormGroupBoxWorkCategories.SuspendLayout();
@@ -144,16 +144,6 @@
             this.RoleFormGroupBoxUsers.TabStop = false;
             this.RoleFormGroupBoxUsers.Text = "Users";
             // 
-            // RoleFormCheckBoxUsersView
-            // 
-            this.RoleFormCheckBoxUsersView.AutoSize = true;
-            this.RoleFormCheckBoxUsersView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxUsersView.Name = "RoleFormCheckBoxUsersView";
-            this.RoleFormCheckBoxUsersView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxUsersView.TabIndex = 1;
-            this.RoleFormCheckBoxUsersView.Text = "View";
-            this.RoleFormCheckBoxUsersView.UseVisualStyleBackColor = true;
-            // 
             // RoleFormCheckBoxUsersEdit
             // 
             this.RoleFormCheckBoxUsersEdit.AutoSize = true;
@@ -164,6 +154,18 @@
             this.RoleFormCheckBoxUsersEdit.TabStop = false;
             this.RoleFormCheckBoxUsersEdit.Text = "Edit";
             this.RoleFormCheckBoxUsersEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxUsersEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
+            // 
+            // RoleFormCheckBoxUsersView
+            // 
+            this.RoleFormCheckBoxUsersView.AutoSize = true;
+            this.RoleFormCheckBoxUsersView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxUsersView.Name = "RoleFormCheckBoxUsersView";
+            this.RoleFormCheckBoxUsersView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxUsersView.TabIndex = 1;
+            this.RoleFormCheckBoxUsersView.Text = "View";
+            this.RoleFormCheckBoxUsersView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxUsersView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxRoles
             // 
@@ -176,16 +178,6 @@
             this.RoleFormGroupBoxRoles.TabStop = false;
             this.RoleFormGroupBoxRoles.Text = "Roles";
             // 
-            // RoleFormCheckBoxRolesView
-            // 
-            this.RoleFormCheckBoxRolesView.AutoSize = true;
-            this.RoleFormCheckBoxRolesView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxRolesView.Name = "RoleFormCheckBoxRolesView";
-            this.RoleFormCheckBoxRolesView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxRolesView.TabIndex = 3;
-            this.RoleFormCheckBoxRolesView.Text = "View";
-            this.RoleFormCheckBoxRolesView.UseVisualStyleBackColor = true;
-            // 
             // RoleFormCheckBoxRolesEdit
             // 
             this.RoleFormCheckBoxRolesEdit.AutoSize = true;
@@ -196,6 +188,18 @@
             this.RoleFormCheckBoxRolesEdit.TabStop = false;
             this.RoleFormCheckBoxRolesEdit.Text = "Edit";
             this.RoleFormCheckBoxRolesEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxRolesEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
+            // 
+            // RoleFormCheckBoxRolesView
+            // 
+            this.RoleFormCheckBoxRolesView.AutoSize = true;
+            this.RoleFormCheckBoxRolesView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxRolesView.Name = "RoleFormCheckBoxRolesView";
+            this.RoleFormCheckBoxRolesView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxRolesView.TabIndex = 3;
+            this.RoleFormCheckBoxRolesView.Text = "View";
+            this.RoleFormCheckBoxRolesView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxRolesView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxWorkCategories
             // 
@@ -209,15 +213,17 @@
             this.RoleFormGroupBoxWorkCategories.TabStop = false;
             this.RoleFormGroupBoxWorkCategories.Text = "Work Categories";
             // 
-            // RoleFormCheckBoxWorkCategoriesView
+            // RoleFormCheckBoxWorkCategoriesAudit
             // 
-            this.RoleFormCheckBoxWorkCategoriesView.AutoSize = true;
-            this.RoleFormCheckBoxWorkCategoriesView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxWorkCategoriesView.Name = "RoleFormCheckBoxWorkCategoriesView";
-            this.RoleFormCheckBoxWorkCategoriesView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxWorkCategoriesView.TabIndex = 5;
-            this.RoleFormCheckBoxWorkCategoriesView.Text = "View";
-            this.RoleFormCheckBoxWorkCategoriesView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxWorkCategoriesAudit.AutoSize = true;
+            this.RoleFormCheckBoxWorkCategoriesAudit.Location = new System.Drawing.Point(200, 20);
+            this.RoleFormCheckBoxWorkCategoriesAudit.Name = "RoleFormCheckBoxWorkCategoriesAudit";
+            this.RoleFormCheckBoxWorkCategoriesAudit.Size = new System.Drawing.Size(50, 17);
+            this.RoleFormCheckBoxWorkCategoriesAudit.TabIndex = 7;
+            this.RoleFormCheckBoxWorkCategoriesAudit.TabStop = false;
+            this.RoleFormCheckBoxWorkCategoriesAudit.Text = "Audit";
+            this.RoleFormCheckBoxWorkCategoriesAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxWorkCategoriesAudit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormCheckBoxWorkCategoriesEdit
             // 
@@ -229,17 +235,18 @@
             this.RoleFormCheckBoxWorkCategoriesEdit.TabStop = false;
             this.RoleFormCheckBoxWorkCategoriesEdit.Text = "Edit";
             this.RoleFormCheckBoxWorkCategoriesEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxWorkCategoriesEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // RoleFormCheckBoxWorkCategoriesAudit
+            // RoleFormCheckBoxWorkCategoriesView
             // 
-            this.RoleFormCheckBoxWorkCategoriesAudit.AutoSize = true;
-            this.RoleFormCheckBoxWorkCategoriesAudit.Location = new System.Drawing.Point(200, 20);
-            this.RoleFormCheckBoxWorkCategoriesAudit.Name = "RoleFormCheckBoxWorkCategoriesAudit";
-            this.RoleFormCheckBoxWorkCategoriesAudit.Size = new System.Drawing.Size(50, 17);
-            this.RoleFormCheckBoxWorkCategoriesAudit.TabIndex = 7;
-            this.RoleFormCheckBoxWorkCategoriesAudit.TabStop = false;
-            this.RoleFormCheckBoxWorkCategoriesAudit.Text = "Audit";
-            this.RoleFormCheckBoxWorkCategoriesAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxWorkCategoriesView.AutoSize = true;
+            this.RoleFormCheckBoxWorkCategoriesView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxWorkCategoriesView.Name = "RoleFormCheckBoxWorkCategoriesView";
+            this.RoleFormCheckBoxWorkCategoriesView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxWorkCategoriesView.TabIndex = 5;
+            this.RoleFormCheckBoxWorkCategoriesView.Text = "View";
+            this.RoleFormCheckBoxWorkCategoriesView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxWorkCategoriesView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxEmployers
             // 
@@ -253,15 +260,17 @@
             this.RoleFormGroupBoxEmployers.TabStop = false;
             this.RoleFormGroupBoxEmployers.Text = "Employers";
             // 
-            // RoleFormCheckBoxEmployersView
+            // RoleFormCheckBoxEmployersAudit
             // 
-            this.RoleFormCheckBoxEmployersView.AutoSize = true;
-            this.RoleFormCheckBoxEmployersView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxEmployersView.Name = "RoleFormCheckBoxEmployersView";
-            this.RoleFormCheckBoxEmployersView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxEmployersView.TabIndex = 8;
-            this.RoleFormCheckBoxEmployersView.Text = "View";
-            this.RoleFormCheckBoxEmployersView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxEmployersAudit.AutoSize = true;
+            this.RoleFormCheckBoxEmployersAudit.Location = new System.Drawing.Point(200, 20);
+            this.RoleFormCheckBoxEmployersAudit.Name = "RoleFormCheckBoxEmployersAudit";
+            this.RoleFormCheckBoxEmployersAudit.Size = new System.Drawing.Size(50, 17);
+            this.RoleFormCheckBoxEmployersAudit.TabIndex = 10;
+            this.RoleFormCheckBoxEmployersAudit.TabStop = false;
+            this.RoleFormCheckBoxEmployersAudit.Text = "Audit";
+            this.RoleFormCheckBoxEmployersAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxEmployersAudit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormCheckBoxEmployersEdit
             // 
@@ -273,17 +282,18 @@
             this.RoleFormCheckBoxEmployersEdit.TabStop = false;
             this.RoleFormCheckBoxEmployersEdit.Text = "Edit";
             this.RoleFormCheckBoxEmployersEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxEmployersEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // RoleFormCheckBoxEmployersAudit
+            // RoleFormCheckBoxEmployersView
             // 
-            this.RoleFormCheckBoxEmployersAudit.AutoSize = true;
-            this.RoleFormCheckBoxEmployersAudit.Location = new System.Drawing.Point(200, 20);
-            this.RoleFormCheckBoxEmployersAudit.Name = "RoleFormCheckBoxEmployersAudit";
-            this.RoleFormCheckBoxEmployersAudit.Size = new System.Drawing.Size(50, 17);
-            this.RoleFormCheckBoxEmployersAudit.TabIndex = 10;
-            this.RoleFormCheckBoxEmployersAudit.TabStop = false;
-            this.RoleFormCheckBoxEmployersAudit.Text = "Audit";
-            this.RoleFormCheckBoxEmployersAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxEmployersView.AutoSize = true;
+            this.RoleFormCheckBoxEmployersView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxEmployersView.Name = "RoleFormCheckBoxEmployersView";
+            this.RoleFormCheckBoxEmployersView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxEmployersView.TabIndex = 8;
+            this.RoleFormCheckBoxEmployersView.Text = "View";
+            this.RoleFormCheckBoxEmployersView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxEmployersView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxVacancies
             // 
@@ -297,15 +307,17 @@
             this.RoleFormGroupBoxVacancies.TabStop = false;
             this.RoleFormGroupBoxVacancies.Text = "Vacancies";
             // 
-            // RoleFormCheckBoxVacanciesView
+            // RoleFormCheckBoxVacanciesAudit
             // 
-            this.RoleFormCheckBoxVacanciesView.AutoSize = true;
-            this.RoleFormCheckBoxVacanciesView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxVacanciesView.Name = "RoleFormCheckBoxVacanciesView";
-            this.RoleFormCheckBoxVacanciesView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxVacanciesView.TabIndex = 11;
-            this.RoleFormCheckBoxVacanciesView.Text = "View";
-            this.RoleFormCheckBoxVacanciesView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxVacanciesAudit.AutoSize = true;
+            this.RoleFormCheckBoxVacanciesAudit.Location = new System.Drawing.Point(200, 20);
+            this.RoleFormCheckBoxVacanciesAudit.Name = "RoleFormCheckBoxVacanciesAudit";
+            this.RoleFormCheckBoxVacanciesAudit.Size = new System.Drawing.Size(50, 17);
+            this.RoleFormCheckBoxVacanciesAudit.TabIndex = 13;
+            this.RoleFormCheckBoxVacanciesAudit.TabStop = false;
+            this.RoleFormCheckBoxVacanciesAudit.Text = "Audit";
+            this.RoleFormCheckBoxVacanciesAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxVacanciesAudit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormCheckBoxVacanciesEdit
             // 
@@ -317,17 +329,18 @@
             this.RoleFormCheckBoxVacanciesEdit.TabStop = false;
             this.RoleFormCheckBoxVacanciesEdit.Text = "Edit";
             this.RoleFormCheckBoxVacanciesEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxVacanciesEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // RoleFormCheckBoxVacanciesAudit
+            // RoleFormCheckBoxVacanciesView
             // 
-            this.RoleFormCheckBoxVacanciesAudit.AutoSize = true;
-            this.RoleFormCheckBoxVacanciesAudit.Location = new System.Drawing.Point(200, 20);
-            this.RoleFormCheckBoxVacanciesAudit.Name = "RoleFormCheckBoxVacanciesAudit";
-            this.RoleFormCheckBoxVacanciesAudit.Size = new System.Drawing.Size(50, 17);
-            this.RoleFormCheckBoxVacanciesAudit.TabIndex = 13;
-            this.RoleFormCheckBoxVacanciesAudit.TabStop = false;
-            this.RoleFormCheckBoxVacanciesAudit.Text = "Audit";
-            this.RoleFormCheckBoxVacanciesAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxVacanciesView.AutoSize = true;
+            this.RoleFormCheckBoxVacanciesView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxVacanciesView.Name = "RoleFormCheckBoxVacanciesView";
+            this.RoleFormCheckBoxVacanciesView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxVacanciesView.TabIndex = 11;
+            this.RoleFormCheckBoxVacanciesView.Text = "View";
+            this.RoleFormCheckBoxVacanciesView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxVacanciesView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxJobSeekers
             // 
@@ -341,15 +354,17 @@
             this.RoleFormGroupBoxJobSeekers.TabStop = false;
             this.RoleFormGroupBoxJobSeekers.Text = "JobSeekers";
             // 
-            // RoleFormCheckBoxJobSeekersView
+            // RoleFormCheckBoxJobSeekersAudit
             // 
-            this.RoleFormCheckBoxJobSeekersView.AutoSize = true;
-            this.RoleFormCheckBoxJobSeekersView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxJobSeekersView.Name = "RoleFormCheckBoxJobSeekersView";
-            this.RoleFormCheckBoxJobSeekersView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxJobSeekersView.TabIndex = 14;
-            this.RoleFormCheckBoxJobSeekersView.Text = "View";
-            this.RoleFormCheckBoxJobSeekersView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxJobSeekersAudit.AutoSize = true;
+            this.RoleFormCheckBoxJobSeekersAudit.Location = new System.Drawing.Point(200, 20);
+            this.RoleFormCheckBoxJobSeekersAudit.Name = "RoleFormCheckBoxJobSeekersAudit";
+            this.RoleFormCheckBoxJobSeekersAudit.Size = new System.Drawing.Size(50, 17);
+            this.RoleFormCheckBoxJobSeekersAudit.TabIndex = 16;
+            this.RoleFormCheckBoxJobSeekersAudit.TabStop = false;
+            this.RoleFormCheckBoxJobSeekersAudit.Text = "Audit";
+            this.RoleFormCheckBoxJobSeekersAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxJobSeekersAudit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormCheckBoxJobSeekersEdit
             // 
@@ -361,17 +376,18 @@
             this.RoleFormCheckBoxJobSeekersEdit.TabStop = false;
             this.RoleFormCheckBoxJobSeekersEdit.Text = "Edit";
             this.RoleFormCheckBoxJobSeekersEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxJobSeekersEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // RoleFormCheckBoxJobSeekersAudit
+            // RoleFormCheckBoxJobSeekersView
             // 
-            this.RoleFormCheckBoxJobSeekersAudit.AutoSize = true;
-            this.RoleFormCheckBoxJobSeekersAudit.Location = new System.Drawing.Point(200, 20);
-            this.RoleFormCheckBoxJobSeekersAudit.Name = "RoleFormCheckBoxJobSeekersAudit";
-            this.RoleFormCheckBoxJobSeekersAudit.Size = new System.Drawing.Size(50, 17);
-            this.RoleFormCheckBoxJobSeekersAudit.TabIndex = 16;
-            this.RoleFormCheckBoxJobSeekersAudit.TabStop = false;
-            this.RoleFormCheckBoxJobSeekersAudit.Text = "Audit";
-            this.RoleFormCheckBoxJobSeekersAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxJobSeekersView.AutoSize = true;
+            this.RoleFormCheckBoxJobSeekersView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxJobSeekersView.Name = "RoleFormCheckBoxJobSeekersView";
+            this.RoleFormCheckBoxJobSeekersView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxJobSeekersView.TabIndex = 14;
+            this.RoleFormCheckBoxJobSeekersView.Text = "View";
+            this.RoleFormCheckBoxJobSeekersView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxJobSeekersView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormGroupBoxDeals
             // 
@@ -385,15 +401,17 @@
             this.RoleFormGroupBoxDeals.TabStop = false;
             this.RoleFormGroupBoxDeals.Text = "Deals";
             // 
-            // RoleFormCheckBoxDealsView
+            // RoleFormCheckBoxDealsAudit
             // 
-            this.RoleFormCheckBoxDealsView.AutoSize = true;
-            this.RoleFormCheckBoxDealsView.Location = new System.Drawing.Point(40, 20);
-            this.RoleFormCheckBoxDealsView.Name = "RoleFormCheckBoxDealsView";
-            this.RoleFormCheckBoxDealsView.Size = new System.Drawing.Size(49, 17);
-            this.RoleFormCheckBoxDealsView.TabIndex = 17;
-            this.RoleFormCheckBoxDealsView.Text = "View";
-            this.RoleFormCheckBoxDealsView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxDealsAudit.AutoSize = true;
+            this.RoleFormCheckBoxDealsAudit.Location = new System.Drawing.Point(200, 20);
+            this.RoleFormCheckBoxDealsAudit.Name = "RoleFormCheckBoxDealsAudit";
+            this.RoleFormCheckBoxDealsAudit.Size = new System.Drawing.Size(50, 17);
+            this.RoleFormCheckBoxDealsAudit.TabIndex = 19;
+            this.RoleFormCheckBoxDealsAudit.TabStop = false;
+            this.RoleFormCheckBoxDealsAudit.Text = "Audit";
+            this.RoleFormCheckBoxDealsAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxDealsAudit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleFormCheckBoxDealsEdit
             // 
@@ -405,17 +423,18 @@
             this.RoleFormCheckBoxDealsEdit.TabStop = false;
             this.RoleFormCheckBoxDealsEdit.Text = "Edit";
             this.RoleFormCheckBoxDealsEdit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxDealsEdit.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // RoleFormCheckBoxDealsAudit
+            // RoleFormCheckBoxDealsView
             // 
-            this.RoleFormCheckBoxDealsAudit.AutoSize = true;
-            this.RoleFormCheckBoxDealsAudit.Location = new System.Drawing.Point(200, 20);
-            this.RoleFormCheckBoxDealsAudit.Name = "RoleFormCheckBoxDealsAudit";
-            this.RoleFormCheckBoxDealsAudit.Size = new System.Drawing.Size(50, 17);
-            this.RoleFormCheckBoxDealsAudit.TabIndex = 19;
-            this.RoleFormCheckBoxDealsAudit.TabStop = false;
-            this.RoleFormCheckBoxDealsAudit.Text = "Audit";
-            this.RoleFormCheckBoxDealsAudit.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxDealsView.AutoSize = true;
+            this.RoleFormCheckBoxDealsView.Location = new System.Drawing.Point(40, 20);
+            this.RoleFormCheckBoxDealsView.Name = "RoleFormCheckBoxDealsView";
+            this.RoleFormCheckBoxDealsView.Size = new System.Drawing.Size(49, 17);
+            this.RoleFormCheckBoxDealsView.TabIndex = 17;
+            this.RoleFormCheckBoxDealsView.Text = "View";
+            this.RoleFormCheckBoxDealsView.UseVisualStyleBackColor = true;
+            this.RoleFormCheckBoxDealsView.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // RoleForm
             // 
