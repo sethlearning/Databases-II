@@ -69,7 +69,7 @@
             // 
             // UserFormButtonOK
             // 
-            this.UserFormButtonOK.Location = new System.Drawing.Point(241, 249);
+            this.UserFormButtonOK.Location = new System.Drawing.Point(240, 249);
             this.UserFormButtonOK.Name = "UserFormButtonOK";
             this.UserFormButtonOK.Size = new System.Drawing.Size(75, 23);
             this.UserFormButtonOK.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.UserFormButtonCancel;
-            this.ClientSize = new System.Drawing.Size(445, 297);
+            this.ClientSize = new System.Drawing.Size(444, 297);
             this.Controls.Add(this.UserFormCheckBoxActive);
             this.Controls.Add(this.UserFormLabelActive);
             this.Controls.Add(this.UserFormComboBoxRole);
@@ -205,6 +205,7 @@
             this.Controls.Add(this.UserFormButtonOK);
             this.Controls.Add(this.UserFormTextBoxCode);
             this.Controls.Add(this.UserFormLabelCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UserForm";
             this.Text = "Пользователь";
             this.Load += new System.EventHandler(this.UserForm_Load);
