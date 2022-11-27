@@ -36,6 +36,15 @@ namespace cp
             _usersTableAdapter.ClearBeforeFill = true;
         }
 
+        private void ListsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
+            //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
+            ConfigureInterfaceTabs();
+            ConfigureInterfaceButtons();
+        }
+
+        #region Configuration methods
         private void ConfigureInterfaceTabs()
         {
             ListsFormTabControl.TabPages.Clear();
@@ -103,21 +112,9 @@ namespace cp
                 ListsFormToolStripButtonDelete.Visible = false;
             }
         }
+        #endregion Configuration methods
 
-        private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-                Logout();
-        }
-
-        private void ListsForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
-            //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
-            ConfigureInterfaceTabs();
-            ConfigureInterfaceButtons();
-        }
-
+        #region User methods
         private void EditUser(bool newUserControl)
         {
             if (newUserControl || ListsFormUsersDataGridView.CurrentRow.Index >= ListsFormUsersDataGridView.Rows.Count - 1)
@@ -162,7 +159,31 @@ namespace cp
                 }
             }
         }
+        #endregion User methods
 
+        #region User events
+        private void ListsFormUsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditUser(newUserControl: false);
+        }
+
+        private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+            {
+                e.SuppressKeyPress = true;
+                //e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Insert)
+                EditUser(newUserControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditUser(newUserControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteUser();
+        }
+        #endregion User events
+
+        #region Role methods
         private void EditRole(bool newRoleControl)
         {
             if (newRoleControl || ListsFormRolesDataGridView.CurrentRow.Index >= ListsFormRolesDataGridView.RowCount - 1)
@@ -206,7 +227,35 @@ namespace cp
                 }
             }
         }
+        #endregion Role methods
 
+        #region Role events
+        private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditRole(newRoleControl: false);
+        }
+
+        private void ListsFormRolesDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Insert)
+                EditRole(newRoleControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditRole(newRoleControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteRole();
+
+        }
+        #endregion Role events
+
+        #region Logout
+        private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Logout();
+        }
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
         {
             Logout();
@@ -217,8 +266,9 @@ namespace cp
             _loginForm.Show();
             this.Dispose();
         }
+        #endregion Logout
 
-        // Exit
+        #region Exit
         private void Exit()
         {
             Application.Exit();
@@ -228,40 +278,9 @@ namespace cp
         {
             Exit();
         }
+        #endregion Exit
 
-        // User
-        private void ListsFormUsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            EditUser(newUserControl: false);
-        }
-
-        private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                EditUser(newUserControl: false);
-                e.SuppressKeyPress = true;
-                //e.Handled = true;
-            }
-        }
-
-        // Role
-        private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            EditRole(newRoleControl: false);
-        }
-
-        private void ListsFormRolesDataGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                EditRole(newRoleControl: false);
-                e.SuppressKeyPress = true;
-                //e.Handled = true;
-            }
-        }
-
-        // Buttons
+        #region Buttons
         private void ListsFormToolStripButtonNew_Click(object sender, EventArgs e)
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
@@ -285,5 +304,6 @@ namespace cp
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
                 DeleteRole();
         }
+        #endregion Buttons
     }
 }
