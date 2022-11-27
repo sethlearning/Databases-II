@@ -30,6 +30,10 @@
         {
             this.RoleFormLabelCode = new System.Windows.Forms.Label();
             this.RoleFormTextBoxCode = new System.Windows.Forms.TextBox();
+            this.RoleFormButtonOK = new System.Windows.Forms.Button();
+            this.RoleFormaButtonCancel = new System.Windows.Forms.Button();
+            this.RoleFormLabelName = new System.Windows.Forms.Label();
+            this.RoleFormTextBoxName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // RoleFormLabelCode
@@ -49,15 +53,57 @@
             this.RoleFormTextBoxCode.Size = new System.Drawing.Size(275, 20);
             this.RoleFormTextBoxCode.TabIndex = 1;
             // 
+            // RoleFormButtonOK
+            // 
+            this.RoleFormButtonOK.Location = new System.Drawing.Point(324, 369);
+            this.RoleFormButtonOK.Name = "RoleFormButtonOK";
+            this.RoleFormButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.RoleFormButtonOK.TabIndex = 2;
+            this.RoleFormButtonOK.Text = "OK";
+            this.RoleFormButtonOK.UseVisualStyleBackColor = true;
+            this.RoleFormButtonOK.Click += new System.EventHandler(this.RoleFormButtonOK_Click);
+            // 
+            // RoleFormaButtonCancel
+            // 
+            this.RoleFormaButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.RoleFormaButtonCancel.Location = new System.Drawing.Point(459, 368);
+            this.RoleFormaButtonCancel.Name = "RoleFormaButtonCancel";
+            this.RoleFormaButtonCancel.Size = new System.Drawing.Size(75, 23);
+            this.RoleFormaButtonCancel.TabIndex = 3;
+            this.RoleFormaButtonCancel.Text = "Cancel";
+            this.RoleFormaButtonCancel.UseVisualStyleBackColor = true;
+            // 
+            // RoleFormLabelName
+            // 
+            this.RoleFormLabelName.AutoSize = true;
+            this.RoleFormLabelName.Location = new System.Drawing.Point(20, 65);
+            this.RoleFormLabelName.Name = "RoleFormLabelName";
+            this.RoleFormLabelName.Size = new System.Drawing.Size(35, 13);
+            this.RoleFormLabelName.TabIndex = 4;
+            this.RoleFormLabelName.Text = "Роль:";
+            // 
+            // RoleFormTextBoxName
+            // 
+            this.RoleFormTextBoxName.Location = new System.Drawing.Point(140, 62);
+            this.RoleFormTextBoxName.Name = "RoleFormTextBoxName";
+            this.RoleFormTextBoxName.Size = new System.Drawing.Size(275, 20);
+            this.RoleFormTextBoxName.TabIndex = 5;
+            // 
             // RoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.RoleFormaButtonCancel;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RoleFormTextBoxName);
+            this.Controls.Add(this.RoleFormLabelName);
+            this.Controls.Add(this.RoleFormaButtonCancel);
+            this.Controls.Add(this.RoleFormButtonOK);
             this.Controls.Add(this.RoleFormTextBoxCode);
             this.Controls.Add(this.RoleFormLabelCode);
             this.Name = "RoleForm";
             this.Text = "Роль";
+            this.Load += new System.EventHandler(this.RoleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +113,9 @@
 
         private System.Windows.Forms.Label RoleFormLabelCode;
         private System.Windows.Forms.TextBox RoleFormTextBoxCode;
+        private System.Windows.Forms.Button RoleFormButtonOK;
+        private System.Windows.Forms.Button RoleFormaButtonCancel;
+        private System.Windows.Forms.Label RoleFormLabelName;
+        private System.Windows.Forms.TextBox RoleFormTextBoxName;
     }
 }

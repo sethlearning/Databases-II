@@ -60,7 +60,7 @@ namespace cp
                 (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageRoles);
-                this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
+                this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
             }
             if ((_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
             {
@@ -128,8 +128,8 @@ namespace cp
                 _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
 
             UserForm userForm = new UserForm(_usersRow, _userCode);
-            DialogResult dialogResult = userForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            DialogResult userFormDialogResult = userForm.ShowDialog();
+            if (userFormDialogResult == DialogResult.OK)
             {
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
@@ -171,6 +171,10 @@ namespace cp
                 _rolesRow = this.cPDBDataSet.Roles.NewRolesRow();
             else
                 _rolesRow = this.cPDBDataSet.Roles.FindByCode((int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value);
+
+            RoleForm roleForm= new RoleForm(_rolesRow, _userCode, _userRole);
+            DialogResult roleFormDialogResult = roleForm.ShowDialog();
+            MessageBox.Show(roleFormDialogResult.ToString());
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
@@ -205,10 +209,26 @@ namespace cp
             {
                 EditUser();
                 e.SuppressKeyPress = true;
-                //e.Handled= true;
+                //e.Handled = true;
             }
         }
 
+        private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditRole(newRoleControl: false);
+        }
+
+        private void ListsFormRolesDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EditRole(newRoleControl: false);
+                e.SuppressKeyPress = true;
+                //e.Handled = true;
+            }
+        }
+
+        // Buttons
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
@@ -225,16 +245,6 @@ namespace cp
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
                 RemoveUser();
-        }
-
-        private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void ListsFormRolesDataGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
     }
 }
