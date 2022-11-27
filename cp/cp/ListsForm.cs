@@ -36,7 +36,8 @@ namespace cp
             ListsFormTabControl.TabPages.Clear();
 
             // Users
-            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView)
+            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView ||
+                (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageUsers);
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
@@ -47,6 +48,17 @@ namespace cp
                 this.ListsFormUsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormUsersDataGridView_CellDoubleClick);
                 this.ListsFormUsersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormUsersDataGridView_KeyDown);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+            }
+
+            // Roles
+            if ((_accessRights & AccessRights.RolesView) == AccessRights.RolesView ||
+                (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageRoles);
+            }
+            if ((_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
+            {
+
             }
 
             // WorkCategories
@@ -67,6 +79,7 @@ namespace cp
         private void ConfigureInterfaceButtons()
         {
             if ( ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers" && (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles" && (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit )
             {
