@@ -118,8 +118,6 @@ namespace cp
             ConfigureInterfaceButtons();
         }
 
-        private void EditUser() => EditUser(newUserControl: false);
-
         private void EditUser(bool newUserControl)
         {
             if (newUserControl || ListsFormUsersDataGridView.CurrentRow.Index >= ListsFormUsersDataGridView.Rows.Count - 1)
@@ -138,7 +136,7 @@ namespace cp
             userForm.Dispose();
         }
 
-        private void RemoveUser()
+        private void DeleteUser()
         {
             if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
             {
@@ -147,8 +145,8 @@ namespace cp
                 else
                 {
                     _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
-                    DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (removeUserDialogResult == DialogResult.OK)
+                    DialogResult deleteUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (deleteUserDialogResult == DialogResult.OK)
                     {
                         try
                         {
@@ -156,7 +154,7 @@ namespace cp
                             this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                             _usersTableAdapter.Fill(this.cPDBDataSet.Users);
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show($"Удаление пользователя \"{_usersRow.UserName}\" невозможно.\n\n{ex.Message}", "Ошибка удаления пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -174,13 +172,39 @@ namespace cp
 
             RoleForm roleForm= new RoleForm(_rolesRow, _userCode, _userRole);
             DialogResult roleFormDialogResult = roleForm.ShowDialog();
-            MessageBox.Show(roleFormDialogResult.ToString());
             if (roleFormDialogResult== DialogResult.OK)
             {
                 this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }
             roleForm.Dispose();
+        }
+
+        private void DeleteRole()
+        {
+            if (ListsFormRolesDataGridView.CurrentRow.Index < ListsFormRolesDataGridView.Rows.Count - 1)
+            {
+                if(_userRole == (int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value)
+                    MessageBox.Show($"Невозможно удалить собственную роль: {ListsFormRolesDataGridView.CurrentRow.Cells[1].Value}", "Удаление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    _rolesRow = this.cPDBDataSet.Roles.FindByCode((int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value);
+                    DialogResult deleteRoleDialogResult = MessageBox.Show($"Удалить роль: {_rolesRow.Name}?", "Удаление роли", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (deleteRoleDialogResult == DialogResult.OK)
+                    {
+                        try
+                        {
+                            _queriesTableAdapter.pDeleteRole(Code: _rolesRow.Code);
+                            this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
+                            _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Удаление роли \"{_rolesRow.Name}\" невозможно.\n\n{ex.Message}", "Ошибка удаления роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
@@ -194,6 +218,7 @@ namespace cp
             this.Dispose();
         }
 
+        // Exit
         private void Exit()
         {
             Application.Exit();
@@ -204,21 +229,23 @@ namespace cp
             Exit();
         }
 
+        // User
         private void ListsFormUsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditUser();
+            EditUser(newUserControl: false);
         }
 
         private void ListsFormUsersDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                EditUser();
+                EditUser(newUserControl: false);
                 e.SuppressKeyPress = true;
                 //e.Handled = true;
             }
         }
 
+        // Role
         private void ListsFormRolesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditRole(newRoleControl: false);
@@ -235,22 +262,28 @@ namespace cp
         }
 
         // Buttons
-        private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
-        {
-            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
-                EditUser();
-        }
-
         private void ListsFormToolStripButtonNew_Click(object sender, EventArgs e)
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
                 EditUser(newUserControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
+                EditRole(newRoleControl: true);
+        }
+
+        private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                EditUser(newUserControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
+                EditRole(newRoleControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
-                RemoveUser();
+                DeleteUser();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
+                DeleteRole();
         }
     }
 }
