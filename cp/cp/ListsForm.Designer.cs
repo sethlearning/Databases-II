@@ -40,6 +40,8 @@
             this.vUsersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPDBDataSet = new cp.CPDBDataSet();
             this.ListsFormTabControlPageRoles = new System.Windows.Forms.TabPage();
+            this.ListsFormRolesDataGridView = new System.Windows.Forms.DataGridView();
+            this.vRolesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListsFormTabControlPageWorkCategories = new System.Windows.Forms.TabPage();
             this.ListsFormTabControlPageEmployers = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -55,8 +57,6 @@
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ListsFormRolesDataGridView = new System.Windows.Forms.DataGridView();
-            this.vRolesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vRolesListTableAdapter = new cp.CPDBDataSetTableAdapters.vRolesListTableAdapter();
             this.кодDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.рольDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,12 +67,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.vUsersListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.ListsFormTabControlPageRoles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).BeginInit();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ListsFormTabControl
@@ -181,6 +181,40 @@
             this.ListsFormTabControlPageRoles.TabIndex = 2;
             this.ListsFormTabControlPageRoles.Text = "Роли";
             this.ListsFormTabControlPageRoles.UseVisualStyleBackColor = true;
+            // 
+            // ListsFormRolesDataGridView
+            // 
+            this.ListsFormRolesDataGridView.AllowUserToAddRows = false;
+            this.ListsFormRolesDataGridView.AllowUserToDeleteRows = false;
+            this.ListsFormRolesDataGridView.AllowUserToResizeColumns = false;
+            this.ListsFormRolesDataGridView.AllowUserToResizeRows = false;
+            this.ListsFormRolesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListsFormRolesDataGridView.AutoGenerateColumns = false;
+            this.ListsFormRolesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListsFormRolesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListsFormRolesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодDataGridViewTextBoxColumn1,
+            this.рольDataGridViewTextBoxColumn1,
+            this.доступDataGridViewTextBoxColumn});
+            this.ListsFormRolesDataGridView.DataSource = this.vRolesListBindingSource;
+            this.ListsFormRolesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.ListsFormRolesDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.ListsFormRolesDataGridView.MultiSelect = false;
+            this.ListsFormRolesDataGridView.Name = "ListsFormRolesDataGridView";
+            this.ListsFormRolesDataGridView.ReadOnly = true;
+            this.ListsFormRolesDataGridView.RowHeadersVisible = false;
+            this.ListsFormRolesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.ListsFormRolesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListsFormRolesDataGridView.Size = new System.Drawing.Size(761, 332);
+            this.ListsFormRolesDataGridView.StandardTab = true;
+            this.ListsFormRolesDataGridView.TabIndex = 0;
+            // 
+            // vRolesListBindingSource
+            // 
+            this.vRolesListBindingSource.DataMember = "vRolesList";
+            this.vRolesListBindingSource.DataSource = this.cPDBDataSet;
             // 
             // ListsFormTabControlPageWorkCategories
             // 
@@ -294,51 +328,37 @@
             // 
             this.vUsersListTableAdapter.ClearBeforeFill = true;
             // 
-            // ListsFormRolesDataGridView
-            // 
-            this.ListsFormRolesDataGridView.AllowUserToAddRows = false;
-            this.ListsFormRolesDataGridView.AllowUserToDeleteRows = false;
-            this.ListsFormRolesDataGridView.AllowUserToResizeColumns = false;
-            this.ListsFormRolesDataGridView.AllowUserToResizeRows = false;
-            this.ListsFormRolesDataGridView.AutoGenerateColumns = false;
-            this.ListsFormRolesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListsFormRolesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.кодDataGridViewTextBoxColumn1,
-            this.рольDataGridViewTextBoxColumn1,
-            this.доступDataGridViewTextBoxColumn});
-            this.ListsFormRolesDataGridView.DataSource = this.vRolesListBindingSource;
-            this.ListsFormRolesDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.ListsFormRolesDataGridView.Name = "ListsFormRolesDataGridView";
-            this.ListsFormRolesDataGridView.Size = new System.Drawing.Size(761, 332);
-            this.ListsFormRolesDataGridView.TabIndex = 0;
-            // 
-            // vRolesListBindingSource
-            // 
-            this.vRolesListBindingSource.DataMember = "vRolesList";
-            this.vRolesListBindingSource.DataSource = this.cPDBDataSet;
-            // 
             // vRolesListTableAdapter
             // 
             this.vRolesListTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn1
             // 
+            this.кодDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.кодDataGridViewTextBoxColumn1.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn1.FillWeight = 20F;
             this.кодDataGridViewTextBoxColumn1.HeaderText = "Код";
             this.кодDataGridViewTextBoxColumn1.Name = "кодDataGridViewTextBoxColumn1";
             this.кодDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.кодDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // рольDataGridViewTextBoxColumn1
             // 
+            this.рольDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.рольDataGridViewTextBoxColumn1.DataPropertyName = "Роль";
+            this.рольDataGridViewTextBoxColumn1.FillWeight = 50F;
             this.рольDataGridViewTextBoxColumn1.HeaderText = "Роль";
             this.рольDataGridViewTextBoxColumn1.Name = "рольDataGridViewTextBoxColumn1";
+            this.рольDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // доступDataGridViewTextBoxColumn
             // 
+            this.доступDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.доступDataGridViewTextBoxColumn.DataPropertyName = "Доступ";
+            this.доступDataGridViewTextBoxColumn.FillWeight = 30F;
             this.доступDataGridViewTextBoxColumn.HeaderText = "Доступ";
             this.доступDataGridViewTextBoxColumn.Name = "доступDataGridViewTextBoxColumn";
+            this.доступDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ListsForm
             // 
@@ -360,14 +380,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.vUsersListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ListsFormTabControlPageRoles.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).EndInit();
             this.ListsFormMenuStrip.ResumeLayout(false);
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
