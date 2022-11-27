@@ -126,9 +126,16 @@ namespace cp
                     DialogResult removeUserDialogResult = MessageBox.Show($"Удалить пользователя: {_usersRow.UserName}?", "Удаление пользователя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (removeUserDialogResult == DialogResult.OK)
                     {
-                        _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
-                        this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
-                        _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                        try
+                        {
+                            _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
+                            this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+                            _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show($"Удаление пользователя \"{_usersRow.UserName}\" невозможно.\n\n{ex.Message}", "Ошибка удаления пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
