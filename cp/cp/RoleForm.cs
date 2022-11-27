@@ -18,6 +18,7 @@ namespace cp
         private bool _newRole = false;
         private bool _isValid;
         private AccessRights _accessRights;
+        private int _accessRightsValue;
         CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public RoleForm(CPDBDataSet.RolesRow rolesRow, int userCode, int userRole)
@@ -51,11 +52,6 @@ namespace cp
                 }
 
                 FillAccessRights();
-
-
-
-
-
             }
 
         }
@@ -213,11 +209,22 @@ namespace cp
 
             if (_isValid)
             {
+                _accessRightsValue = GetAccessRights();
                 if (_newRole)
                 {
-                    int newrights = GetAccessRights();
-                    _queriesTableAdapter.pAddRole(Name: RoleFormTextBoxName.Text, AccessControl: newrights);
+                    _queriesTableAdapter.pAddRole(Name: RoleFormTextBoxName.Text, AccessControl: _accessRightsValue);
                     this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    if (RoleFormTextBoxName.Text != _rolesRow.Name ||
+                        _accessRightsValue != _rolesRow.AccessControl)
+                    {
+                        _queriesTableAdapter.pUpdateRole(Code: _rolesRow.Code, Name: RoleFormTextBoxName.Text, AccessControl: _accessRightsValue);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                        this.DialogResult= DialogResult.Cancel;
                 }
             }
         }
