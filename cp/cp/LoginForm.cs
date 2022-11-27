@@ -46,7 +46,7 @@ namespace cp
                     CPDBDataSet.RolesRow rolesRow = this.cPDBDataSet.Roles.FindByCode(vActiveUsersRow.Role);
                     this.Hide();
                     LoginFormTextBoxPassword.Text = "";
-                    ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl), vActiveUsersRow.Code);
+                    ListsForm lf = new ListsForm(this, (AccessRights)(rolesRow.AccessControl), vActiveUsersRow.Code, vActiveUsersRow.Role);
                     lf.Show();
                 }
                 else

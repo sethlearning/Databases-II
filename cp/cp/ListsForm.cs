@@ -16,17 +16,20 @@ namespace cp
         private LoginForm _loginForm;
         private AccessRights _accessRights;
         private int _userCode;
+        private int _userRole;
         private CPDBDataSet.UsersRow _usersRow;
+        private CPDBDataSet.RolesRow _rolesRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
-        public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode)
+        public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
         {
             InitializeComponent();
             _loginForm = loginForm;
             _accessRights = accessRights;
             _userCode = userCode;
+            _userRole = userRole;
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
             _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
@@ -160,6 +163,14 @@ namespace cp
                     }
                 }
             }
+        }
+
+        private void EditRole(bool newRoleControl)
+        {
+            if (newRoleControl || ListsFormRolesDataGridView.CurrentRow.Index >= ListsFormRolesDataGridView.RowCount - 1)
+                _rolesRow = this.cPDBDataSet.Roles.NewRolesRow();
+            else
+                _rolesRow = this.cPDBDataSet.Roles.FindByCode((int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value);
         }
 
         private void ListsFormToolStripButtonLogout_Click(object sender, EventArgs e)
