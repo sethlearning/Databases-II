@@ -34,6 +34,7 @@
             this.RoleFormaButtonCancel = new System.Windows.Forms.Button();
             this.RoleFormLabelName = new System.Windows.Forms.Label();
             this.RoleFormTextBoxName = new System.Windows.Forms.TextBox();
+            this.RoleFormLabelAccess = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RoleFormLabelCode
@@ -89,12 +90,22 @@
             this.RoleFormTextBoxName.Size = new System.Drawing.Size(275, 20);
             this.RoleFormTextBoxName.TabIndex = 5;
             // 
+            // RoleFormLabelAccess
+            // 
+            this.RoleFormLabelAccess.AutoSize = true;
+            this.RoleFormLabelAccess.Location = new System.Drawing.Point(20, 110);
+            this.RoleFormLabelAccess.Name = "RoleFormLabelAccess";
+            this.RoleFormLabelAccess.Size = new System.Drawing.Size(47, 13);
+            this.RoleFormLabelAccess.TabIndex = 6;
+            this.RoleFormLabelAccess.Text = "Доступ:";
+            // 
             // RoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.RoleFormaButtonCancel;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RoleFormLabelAccess);
             this.Controls.Add(this.RoleFormTextBoxName);
             this.Controls.Add(this.RoleFormLabelName);
             this.Controls.Add(this.RoleFormaButtonCancel);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.Button RoleFormaButtonCancel;
         private System.Windows.Forms.Label RoleFormLabelName;
         private System.Windows.Forms.TextBox RoleFormTextBoxName;
+        private System.Windows.Forms.Label RoleFormLabelAccess;
     }
 }
