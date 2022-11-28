@@ -94,6 +94,8 @@ namespace cp
             if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
             {
                 ListsFormWorkCategoriesDataGridView.AllowUserToAddRows = true;
+                this.ListsFormWorkCategoriesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormWorkCategoriesDataGridView_CellDoubleClick);
+                this.ListsFormWorkCategoriesDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormWorkCategoriesDataGridView_KeyDown);
                 _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
             }
             if ((_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit)
@@ -115,7 +117,8 @@ namespace cp
             if ( ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers" && (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles" && (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit )
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
             {
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
@@ -265,6 +268,38 @@ namespace cp
 
         }
         #endregion Role events
+
+        #region WorkCategory methods
+        private void EditWorkCategory(bool newWorkCategoryControl)
+        {
+
+        }
+
+        private void DeleteWorkCategory()
+        {
+
+        }
+        #endregion WorkCategory methods
+
+        #region WorkCategory events
+        private void ListsFormWorkCategoriesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditWorkCategory(newWorkCategoryControl: false);
+        }
+
+        private void ListsFormWorkCategoriesDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Insert)
+                EditWorkCategory(newWorkCategoryControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditWorkCategory(newWorkCategoryControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteWorkCategory();
+        }
+        #endregion WorkCategory events
 
         #region Logout
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
