@@ -21,6 +21,7 @@ namespace cp
         private CPDBDataSet.RolesRow _rolesRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
+        private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
@@ -32,6 +33,7 @@ namespace cp
             _userRole = userRole;
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
             _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
+            _workCategoriesTableAdapter = new CPDBDataSetTableAdapters.WorkCategoriesTableAdapter();
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             _usersTableAdapter.ClearBeforeFill = true;
         }
@@ -39,7 +41,7 @@ namespace cp
         private void ListsForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.vWorkCategoriesList' table. You can move, or remove it, as needed.
-            this.vWorkCategoriesListTableAdapter.Fill(this.cPDBDataSet.vWorkCategoriesList);
+            //this.vWorkCategoriesListTableAdapter.Fill(this.cPDBDataSet.vWorkCategoriesList);
             // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
             //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
             ConfigureInterfaceTabs();
@@ -82,16 +84,28 @@ namespace cp
             }
 
             // WorkCategories
-            if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView)
+            if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView ||
+                (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
+                (_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit)
             {
-                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageRoles);
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
+                this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
             }
-            //if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
+            if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
+            {
+                ListsFormWorkCategoriesDataGridView.AllowUserToAddRows = true;
+                _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+            }
+            if ((_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit)
+            {
+                ListsFormWorkCategoriesDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn"].Visible = true;
+                ListsFormWorkCategoriesDataGridView.Columns["пользовательDataGridViewTextBoxColumn"].Visible = true;
+            }
 
             // Employers
             if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
             {
-                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageWorkCategories);
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
             }
             //if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
         }

@@ -387,6 +387,9 @@
             this.ListsFormWorkCategoriesDataGridView.AllowUserToDeleteRows = false;
             this.ListsFormWorkCategoriesDataGridView.AllowUserToResizeColumns = false;
             this.ListsFormWorkCategoriesDataGridView.AllowUserToResizeRows = false;
+            this.ListsFormWorkCategoriesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListsFormWorkCategoriesDataGridView.AutoGenerateColumns = false;
             this.ListsFormWorkCategoriesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListsFormWorkCategoriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -439,7 +442,7 @@
             // 
             this.датаИзмененияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.датаИзмененияDataGridViewTextBoxColumn.DataPropertyName = "Дата изменения";
-            this.датаИзмененияDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.датаИзмененияDataGridViewTextBoxColumn.FillWeight = 30F;
             this.датаИзмененияDataGridViewTextBoxColumn.HeaderText = "Дата изменения";
             this.датаИзмененияDataGridViewTextBoxColumn.Name = "датаИзмененияDataGridViewTextBoxColumn";
             this.датаИзмененияDataGridViewTextBoxColumn.ReadOnly = true;
@@ -449,7 +452,7 @@
             // 
             this.пользовательDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.пользовательDataGridViewTextBoxColumn.DataPropertyName = "Пользователь";
-            this.пользовательDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.пользовательDataGridViewTextBoxColumn.FillWeight = 30F;
             this.пользовательDataGridViewTextBoxColumn.HeaderText = "Пользователь";
             this.пользовательDataGridViewTextBoxColumn.Name = "пользовательDataGridViewTextBoxColumn";
             this.пользовательDataGridViewTextBoxColumn.ReadOnly = true;
