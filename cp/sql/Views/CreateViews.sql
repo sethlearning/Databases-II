@@ -17,3 +17,9 @@ CREATE VIEW dbo.vRolesList AS
     SELECT R.Code AS Код, R.Name AS Роль, R.AccessControl AS Доступ
     FROM dbo.Roles AS R
 GO
+
+CREATE VIEW dbo.vWorkCategoriesList AS
+    SELECT W.Code AS Код, W.Name AS Категория, W.ChangeTime AS [Дата изменения], U.UserName AS Пользователь
+    FROM dbo.WorkCategories AS W, dbo.Users AS U
+    WHERE W.ChangedBy = U.Code
+GO
