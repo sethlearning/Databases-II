@@ -43,7 +43,7 @@ namespace cp
                 RoleFormTextBoxName.Text = _rolesRow.Name;
                 _accessRights = (AccessRights)_rolesRow.AccessControl;
 
-                if (_rolesRow.Code == 1 || _rolesRow.Code == _userCode)
+                if (_rolesRow.Code == 1 || _rolesRow.Code == _userRole)
                 {
                     RoleFormCheckBoxUsersView.Enabled = false;
                     RoleFormCheckBoxUsersEdit.Enabled = false;

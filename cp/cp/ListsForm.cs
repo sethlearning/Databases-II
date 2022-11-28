@@ -19,6 +19,7 @@ namespace cp
         private int _userRole;
         private CPDBDataSet.UsersRow _usersRow;
         private CPDBDataSet.RolesRow _rolesRow;
+        private CPDBDataSet.WorkCategoriesRow _workCategoriesRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
@@ -38,15 +39,20 @@ namespace cp
             _usersTableAdapter.ClearBeforeFill = true;
         }
 
+        #region ListsForm events
         private void ListsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vWorkCategoriesList' table. You can move, or remove it, as needed.
-            //this.vWorkCategoriesListTableAdapter.Fill(this.cPDBDataSet.vWorkCategoriesList);
-            // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
-            //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
+
+        private void ListsFormTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl se = (TabControl)sender;
+            if (se.SelectedTab != null)
+                ConfigureInterfaceButtons();
+        }
+        #endregion ListsForm events
 
         #region Configuration methods
         private void ConfigureInterfaceTabs()
@@ -210,9 +216,9 @@ namespace cp
             else
                 _rolesRow = this.cPDBDataSet.Roles.FindByCode((int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value);
 
-            RoleForm roleForm= new RoleForm(_rolesRow, _userCode, _userRole);
+            RoleForm roleForm = new RoleForm(_rolesRow, _userCode, _userRole);
             DialogResult roleFormDialogResult = roleForm.ShowDialog();
-            if (roleFormDialogResult== DialogResult.OK)
+            if (roleFormDialogResult == DialogResult.OK)
             {
                 this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
@@ -272,12 +278,41 @@ namespace cp
         #region WorkCategory methods
         private void EditWorkCategory(bool newWorkCategoryControl)
         {
+            if (newWorkCategoryControl || ListsFormWorkCategoriesDataGridView.CurrentRow.Index >= ListsFormWorkCategoriesDataGridView.RowCount - 1)
+                _workCategoriesRow = this.cPDBDataSet.WorkCategories.NewWorkCategoriesRow();
+            else
+                _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
 
+            WorkCategoryForm workCategoryForm = new WorkCategoryForm(_workCategoriesRow, _userCode);
+            DialogResult workCategoryFormDialogResult = workCategoryForm.ShowDialog();
+            if (workCategoryFormDialogResult == DialogResult.OK)
+            {
+                this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
+                _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+            }
+            workCategoryForm.Dispose();
         }
 
         private void DeleteWorkCategory()
         {
-
+            if (ListsFormWorkCategoriesDataGridView.CurrentRow.Index < ListsFormWorkCategoriesDataGridView.RowCount - 1)
+            {
+                _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
+                DialogResult deleteWorkCategoryDialogResult = MessageBox.Show($"Удалить категорию: {_workCategoriesRow.Name}?", "Удаление вида деятельности", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (deleteWorkCategoryDialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        _queriesTableAdapter.pDeleteWorkCategory(Code: _workCategoriesRow.Code);
+                        this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
+                        _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Удаление категории \"{_workCategoriesRow.Name}\" невозможно.\n\n{ex.Message}", "Ошибка удаления вида деятельности", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         #endregion WorkCategory methods
 
@@ -338,6 +373,8 @@ namespace cp
                 EditUser(newUserControl: true);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
                 EditRole(newRoleControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
+                EditWorkCategory(newWorkCategoryControl: true);
         }
 
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
@@ -346,6 +383,8 @@ namespace cp
                 EditUser(newUserControl: false);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
                 EditRole(newRoleControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
+                EditWorkCategory(newWorkCategoryControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
@@ -354,6 +393,8 @@ namespace cp
                 DeleteUser();
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
                 DeleteRole();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
+                DeleteWorkCategory();
         }
         #endregion Buttons
     }

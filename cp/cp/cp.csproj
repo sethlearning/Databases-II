@@ -95,6 +95,12 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkCategoryForm.Designer.cs">
+      <DependentUpon>WorkCategoryForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ListsForm.resx">
       <DependentUpon>ListsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkCategoryForm.resx">
+      <DependentUpon>WorkCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="CPDBDataSet.xsc">
       <DependentUpon>CPDBDataSet.xsd</DependentUpon>

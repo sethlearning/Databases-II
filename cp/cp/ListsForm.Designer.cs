@@ -58,8 +58,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ListsFormToolStripButtonClose = new System.Windows.Forms.ToolStripButton();
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
-            this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vRolesListTableAdapter = new cp.CPDBDataSetTableAdapters.vRolesListTableAdapter();
             this.ListsFormWorkCategoriesDataGridView = new System.Windows.Forms.DataGridView();
             this.vWorkCategoriesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -68,6 +66,8 @@
             this.категорияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -79,10 +79,10 @@
             this.ListsFormTabControlPageWorkCategories.SuspendLayout();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ListsFormTabControl
@@ -99,6 +99,7 @@
             this.ListsFormTabControl.SelectedIndex = 0;
             this.ListsFormTabControl.Size = new System.Drawing.Size(775, 382);
             this.ListsFormTabControl.TabIndex = 1;
+            this.ListsFormTabControl.SelectedIndexChanged += new System.EventHandler(this.ListsFormTabControl_SelectedIndexChanged);
             // 
             // ListsFormTabControlPageUsers
             // 
@@ -485,10 +486,10 @@
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
