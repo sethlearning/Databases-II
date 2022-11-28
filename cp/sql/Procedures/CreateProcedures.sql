@@ -88,3 +88,35 @@ CREATE PROCEDURE pDeleteWorkCategory
             WHERE Code = @Code
     END
 GO
+
+-- Employers
+CREATE PROCEDURE pAddEmployer
+    @Name varchar(60),
+    @Address varchar(120),
+    @Phone varchar(15),
+    @UserCode int
+    AS BEGIN
+        INSERT INTO dbo.Employers (Name, Address, Phone, ChangeTime, ChangedBy) VALUES (@Name, @Address, @Phone, GETDATE(), @UserCode)
+    END
+GO
+
+CREATE PROCEDURE pUpdateEmployer
+    @Code int,
+    @Name varchar(60),
+    @Address varchar(120),
+    @Phone varchar(15),
+    @UserCode int
+    AS BEGIN
+        UPDATE dbo.Employers
+            SET Name = @Name, Address = @Address, Phone = @Phone, ChangeTime = GETDATE(), ChangedBy = @UserCode
+            WHERE Code = @Code
+    END
+GO
+
+CREATE PROCEDURE pDeleteEmployer
+    @Code int
+    AS BEGIN
+        DELETE FROM dbo.Employers
+            WHERE Code = @Code
+    END
+GO
