@@ -61,6 +61,13 @@
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vRolesListTableAdapter = new cp.CPDBDataSetTableAdapters.vRolesListTableAdapter();
+            this.ListsFormWorkCategoriesDataGridView = new System.Windows.Forms.DataGridView();
+            this.vWorkCategoriesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vWorkCategoriesListTableAdapter = new cp.CPDBDataSetTableAdapters.vWorkCategoriesListTableAdapter();
+            this.кодDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.категорияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаИзмененияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -69,10 +76,13 @@
             this.ListsFormTabControlPageRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).BeginInit();
+            this.ListsFormTabControlPageWorkCategories.SuspendLayout();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ListsFormTabControl
@@ -256,6 +266,7 @@
             // 
             // ListsFormTabControlPageWorkCategories
             // 
+            this.ListsFormTabControlPageWorkCategories.Controls.Add(this.ListsFormWorkCategoriesDataGridView);
             this.ListsFormTabControlPageWorkCategories.Location = new System.Drawing.Point(4, 22);
             this.ListsFormTabControlPageWorkCategories.Name = "ListsFormTabControlPageWorkCategories";
             this.ListsFormTabControlPageWorkCategories.Padding = new System.Windows.Forms.Padding(3);
@@ -370,6 +381,80 @@
             // 
             this.vRolesListTableAdapter.ClearBeforeFill = true;
             // 
+            // ListsFormWorkCategoriesDataGridView
+            // 
+            this.ListsFormWorkCategoriesDataGridView.AllowUserToAddRows = false;
+            this.ListsFormWorkCategoriesDataGridView.AllowUserToDeleteRows = false;
+            this.ListsFormWorkCategoriesDataGridView.AllowUserToResizeColumns = false;
+            this.ListsFormWorkCategoriesDataGridView.AllowUserToResizeRows = false;
+            this.ListsFormWorkCategoriesDataGridView.AutoGenerateColumns = false;
+            this.ListsFormWorkCategoriesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListsFormWorkCategoriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListsFormWorkCategoriesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодDataGridViewTextBoxColumn2,
+            this.категорияDataGridViewTextBoxColumn,
+            this.датаИзмененияDataGridViewTextBoxColumn,
+            this.пользовательDataGridViewTextBoxColumn});
+            this.ListsFormWorkCategoriesDataGridView.DataSource = this.vWorkCategoriesListBindingSource;
+            this.ListsFormWorkCategoriesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.ListsFormWorkCategoriesDataGridView.Location = new System.Drawing.Point(1, 3);
+            this.ListsFormWorkCategoriesDataGridView.MultiSelect = false;
+            this.ListsFormWorkCategoriesDataGridView.Name = "ListsFormWorkCategoriesDataGridView";
+            this.ListsFormWorkCategoriesDataGridView.ReadOnly = true;
+            this.ListsFormWorkCategoriesDataGridView.RowHeadersVisible = false;
+            this.ListsFormWorkCategoriesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.ListsFormWorkCategoriesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListsFormWorkCategoriesDataGridView.Size = new System.Drawing.Size(763, 351);
+            this.ListsFormWorkCategoriesDataGridView.StandardTab = true;
+            this.ListsFormWorkCategoriesDataGridView.TabIndex = 0;
+            // 
+            // vWorkCategoriesListBindingSource
+            // 
+            this.vWorkCategoriesListBindingSource.DataMember = "vWorkCategoriesList";
+            this.vWorkCategoriesListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // vWorkCategoriesListTableAdapter
+            // 
+            this.vWorkCategoriesListTableAdapter.ClearBeforeFill = true;
+            // 
+            // кодDataGridViewTextBoxColumn2
+            // 
+            this.кодDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.кодDataGridViewTextBoxColumn2.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn2.FillWeight = 10F;
+            this.кодDataGridViewTextBoxColumn2.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn2.Name = "кодDataGridViewTextBoxColumn2";
+            this.кодDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // категорияDataGridViewTextBoxColumn
+            // 
+            this.категорияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.категорияDataGridViewTextBoxColumn.DataPropertyName = "Категория";
+            this.категорияDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.категорияDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.категорияDataGridViewTextBoxColumn.Name = "категорияDataGridViewTextBoxColumn";
+            this.категорияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИзмененияDataGridViewTextBoxColumn
+            // 
+            this.датаИзмененияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.датаИзмененияDataGridViewTextBoxColumn.DataPropertyName = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.датаИзмененияDataGridViewTextBoxColumn.HeaderText = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn.Name = "датаИзмененияDataGridViewTextBoxColumn";
+            this.датаИзмененияDataGridViewTextBoxColumn.ReadOnly = true;
+            this.датаИзмененияDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // пользовательDataGridViewTextBoxColumn
+            // 
+            this.пользовательDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.пользовательDataGridViewTextBoxColumn.DataPropertyName = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.пользовательDataGridViewTextBoxColumn.HeaderText = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn.Name = "пользовательDataGridViewTextBoxColumn";
+            this.пользовательDataGridViewTextBoxColumn.ReadOnly = true;
+            this.пользовательDataGridViewTextBoxColumn.Visible = false;
+            // 
             // ListsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,12 +477,15 @@
             this.ListsFormTabControlPageRoles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormRolesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vRolesListBindingSource)).EndInit();
+            this.ListsFormTabControlPageWorkCategories.ResumeLayout(false);
             this.ListsFormMenuStrip.ResumeLayout(false);
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,5 +527,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn рольDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn доступDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView ListsFormWorkCategoriesDataGridView;
+        private System.Windows.Forms.BindingSource vWorkCategoriesListBindingSource;
+        private CPDBDataSetTableAdapters.vWorkCategoriesListTableAdapter vWorkCategoriesListTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn категорияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаИзмененияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn;
     }
 }

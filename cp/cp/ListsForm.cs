@@ -38,6 +38,8 @@ namespace cp
 
         private void ListsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vWorkCategoriesList' table. You can move, or remove it, as needed.
+            this.vWorkCategoriesListTableAdapter.Fill(this.cPDBDataSet.vWorkCategoriesList);
             // TODO: This line of code loads data into the 'cPDBDataSet.vRolesList' table. You can move, or remove it, as needed.
             //this.vRolesListTableAdapter.Fill(this.cPDBDataSet.vRolesList);
             ConfigureInterfaceTabs();
