@@ -83,6 +83,7 @@
             this.ListsFormVacanciesDataGridView = new System.Windows.Forms.DataGridView();
             this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
+            this.ListsFormToolStripComboBoxStatus = new System.Windows.Forms.ToolStripComboBox();
             this.кодDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.должностьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +91,6 @@
             this.работодательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ListsFormToolStripComboBoxStatus = new System.Windows.Forms.ToolStripComboBox();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -657,55 +657,6 @@
             // 
             this.vVacanciesListTableAdapter.ClearBeforeFill = true;
             // 
-            // кодDataGridViewTextBoxColumn4
-            // 
-            this.кодDataGridViewTextBoxColumn4.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn4.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn4.Name = "кодDataGridViewTextBoxColumn4";
-            this.кодDataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // видДеятельностиDataGridViewTextBoxColumn
-            // 
-            this.видДеятельностиDataGridViewTextBoxColumn.DataPropertyName = "Вид деятельности";
-            this.видДеятельностиDataGridViewTextBoxColumn.HeaderText = "Вид деятельности";
-            this.видДеятельностиDataGridViewTextBoxColumn.Name = "видДеятельностиDataGridViewTextBoxColumn";
-            this.видДеятельностиDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // должностьDataGridViewTextBoxColumn
-            // 
-            this.должностьDataGridViewTextBoxColumn.DataPropertyName = "Должность";
-            this.должностьDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.должностьDataGridViewTextBoxColumn.Name = "должностьDataGridViewTextBoxColumn";
-            this.должностьDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // заработнаяПлатаDataGridViewTextBoxColumn
-            // 
-            this.заработнаяПлатаDataGridViewTextBoxColumn.DataPropertyName = "Заработная плата";
-            this.заработнаяПлатаDataGridViewTextBoxColumn.HeaderText = "Заработная плата";
-            this.заработнаяПлатаDataGridViewTextBoxColumn.Name = "заработнаяПлатаDataGridViewTextBoxColumn";
-            this.заработнаяПлатаDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // работодательDataGridViewTextBoxColumn
-            // 
-            this.работодательDataGridViewTextBoxColumn.DataPropertyName = "Работодатель";
-            this.работодательDataGridViewTextBoxColumn.HeaderText = "Работодатель";
-            this.работодательDataGridViewTextBoxColumn.Name = "работодательDataGridViewTextBoxColumn";
-            this.работодательDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // датаИзмененияDataGridViewTextBoxColumn2
-            // 
-            this.датаИзмененияDataGridViewTextBoxColumn2.DataPropertyName = "Дата изменения";
-            this.датаИзмененияDataGridViewTextBoxColumn2.HeaderText = "Дата изменения";
-            this.датаИзмененияDataGridViewTextBoxColumn2.Name = "датаИзмененияDataGridViewTextBoxColumn2";
-            this.датаИзмененияDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // пользовательDataGridViewTextBoxColumn2
-            // 
-            this.пользовательDataGridViewTextBoxColumn2.DataPropertyName = "Пользователь";
-            this.пользовательDataGridViewTextBoxColumn2.HeaderText = "Пользователь";
-            this.пользовательDataGridViewTextBoxColumn2.Name = "пользовательDataGridViewTextBoxColumn2";
-            this.пользовательDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
             // ListsFormToolStripComboBoxStatus
             // 
             this.ListsFormToolStripComboBoxStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -719,6 +670,71 @@
             this.ListsFormToolStripComboBoxStatus.Name = "ListsFormToolStripComboBoxStatus";
             this.ListsFormToolStripComboBoxStatus.Size = new System.Drawing.Size(121, 25);
             this.ListsFormToolStripComboBoxStatus.Visible = false;
+            // 
+            // кодDataGridViewTextBoxColumn4
+            // 
+            this.кодDataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.кодDataGridViewTextBoxColumn4.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn4.FillWeight = 7F;
+            this.кодDataGridViewTextBoxColumn4.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn4.Name = "кодDataGridViewTextBoxColumn4";
+            this.кодDataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // видДеятельностиDataGridViewTextBoxColumn
+            // 
+            this.видДеятельностиDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.видДеятельностиDataGridViewTextBoxColumn.DataPropertyName = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.видДеятельностиDataGridViewTextBoxColumn.HeaderText = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn.Name = "видДеятельностиDataGridViewTextBoxColumn";
+            this.видДеятельностиDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // должностьDataGridViewTextBoxColumn
+            // 
+            this.должностьDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.должностьDataGridViewTextBoxColumn.DataPropertyName = "Должность";
+            this.должностьDataGridViewTextBoxColumn.FillWeight = 23F;
+            this.должностьDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.должностьDataGridViewTextBoxColumn.Name = "должностьDataGridViewTextBoxColumn";
+            this.должностьDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // заработнаяПлатаDataGridViewTextBoxColumn
+            // 
+            this.заработнаяПлатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.заработнаяПлатаDataGridViewTextBoxColumn.DataPropertyName = "Заработная плата";
+            this.заработнаяПлатаDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.заработнаяПлатаDataGridViewTextBoxColumn.HeaderText = "Заработная плата";
+            this.заработнаяПлатаDataGridViewTextBoxColumn.Name = "заработнаяПлатаDataGridViewTextBoxColumn";
+            this.заработнаяПлатаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // работодательDataGridViewTextBoxColumn
+            // 
+            this.работодательDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.работодательDataGridViewTextBoxColumn.DataPropertyName = "Работодатель";
+            this.работодательDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.работодательDataGridViewTextBoxColumn.HeaderText = "Работодатель";
+            this.работодательDataGridViewTextBoxColumn.Name = "работодательDataGridViewTextBoxColumn";
+            this.работодательDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИзмененияDataGridViewTextBoxColumn2
+            // 
+            this.датаИзмененияDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.датаИзмененияDataGridViewTextBoxColumn2.DataPropertyName = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn2.FillWeight = 25F;
+            this.датаИзмененияDataGridViewTextBoxColumn2.HeaderText = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn2.Name = "датаИзмененияDataGridViewTextBoxColumn2";
+            this.датаИзмененияDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.датаИзмененияDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // пользовательDataGridViewTextBoxColumn2
+            // 
+            this.пользовательDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.пользовательDataGridViewTextBoxColumn2.DataPropertyName = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn2.FillWeight = 20F;
+            this.пользовательDataGridViewTextBoxColumn2.HeaderText = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn2.Name = "пользовательDataGridViewTextBoxColumn2";
+            this.пользовательDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.пользовательDataGridViewTextBoxColumn2.Visible = false;
             // 
             // ListsForm
             // 
@@ -820,6 +836,7 @@
         private System.Windows.Forms.DataGridView ListsFormVacanciesDataGridView;
         private System.Windows.Forms.BindingSource vVacanciesListBindingSource;
         private CPDBDataSetTableAdapters.vVacanciesListTableAdapter vVacanciesListTableAdapter;
+        private System.Windows.Forms.ToolStripComboBox ListsFormToolStripComboBoxStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn видДеятельностиDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn должностьDataGridViewTextBoxColumn;
@@ -827,6 +844,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn работодательDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датаИзмененияDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.ToolStripComboBox ListsFormToolStripComboBoxStatus;
     }
 }

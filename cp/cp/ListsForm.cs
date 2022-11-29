@@ -160,12 +160,15 @@ namespace cp
             if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
             {
                 ListsFormVacanciesDataGridView.AllowUserToAddRows = true;
+                this.ListsFormVacanciesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormVacanciesDataGridView_CellDoubleClick);
+                this.ListsFormVacanciesDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormVacanciesDataGridView_KeyDown);
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
 
             }
             if ((_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
             {
-
+                ListsFormVacanciesDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn2"].Visible = true;
+                ListsFormVacanciesDataGridView.Columns["пользовательDataGridViewTextBoxColumn2"].Visible = true;
             }
             #endregion Vacancies
         }
@@ -175,7 +178,8 @@ namespace cp
             if ( ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers" && (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles" && (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies" && (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
             {
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
@@ -459,6 +463,39 @@ namespace cp
                 DeleteEmployer();
         }
         #endregion Employers events
+
+        #region Vacancies methods
+        private void EditVacancy(bool newVacancyControl)
+        {
+
+        }
+
+        private void DeleteVacancy()
+        {
+
+        }
+
+        #endregion Vacancies methods
+
+        #region Vacancies events
+        private void ListsFormVacanciesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditVacancy(newVacancyControl: false);
+        }
+
+        private void ListsFormVacanciesDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Insert)
+                EditVacancy(newVacancyControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditVacancy(newVacancyControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteVacancy();
+        }
+        #endregion Vacancies events
 
         #region Logout
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
