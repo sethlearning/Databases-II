@@ -20,9 +20,11 @@ namespace cp
         private CPDBDataSet.UsersRow _usersRow;
         private CPDBDataSet.RolesRow _rolesRow;
         private CPDBDataSet.WorkCategoriesRow _workCategoriesRow;
+        private CPDBDataSet.EmployersRow _employersRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
+        private CPDBDataSetTableAdapters.EmployersTableAdapter _employersTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
@@ -33,10 +35,14 @@ namespace cp
             _userCode = userCode;
             _userRole = userRole;
             _usersTableAdapter = new CPDBDataSetTableAdapters.UsersTableAdapter();
-            _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
-            _workCategoriesTableAdapter = new CPDBDataSetTableAdapters.WorkCategoriesTableAdapter();
-            _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             _usersTableAdapter.ClearBeforeFill = true;
+            _rolesTableAdapter = new CPDBDataSetTableAdapters.RolesTableAdapter();
+            _rolesTableAdapter.ClearBeforeFill = true;
+            _workCategoriesTableAdapter = new CPDBDataSetTableAdapters.WorkCategoriesTableAdapter();
+            _workCategoriesTableAdapter.ClearBeforeFill = true;
+            _employersTableAdapter = new CPDBDataSetTableAdapters.EmployersTableAdapter();
+            _employersTableAdapter.ClearBeforeFill = true;
+            _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
         }
 
         #region ListsForm events
