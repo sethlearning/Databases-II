@@ -27,6 +27,8 @@ namespace cp
 
         private void VacancyForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.Employers' table. You can move, or remove it, as needed.
+            this.employersTableAdapter.Fill(this.cPDBDataSet.Employers);
             this.workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
 
             if (_vacanciesRow.Code < 0)
@@ -41,7 +43,13 @@ namespace cp
                 VacancyFormComboBoxWorkCategory.SelectedValue = _vacanciesRow.WorkCategory;
                 VacancyFormTextBoxPosition.Text = _vacanciesRow.Position;
                 VacancyFormTextBoxSalary.Text = _vacanciesRow.Salary.ToString("N2");
+                VacancyFormComboBoxEmployer.SelectedValue = _vacanciesRow.Employer;
             }
+        }
+
+        private void VacancyFormButtonOK_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
