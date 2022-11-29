@@ -101,6 +101,12 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VacancyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VacancyForm.Designer.cs">
+      <DependentUpon>VacancyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VacancyForm.resx">
+      <DependentUpon>VacancyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkCategoryForm.resx">
       <DependentUpon>WorkCategoryForm.cs</DependentUpon>

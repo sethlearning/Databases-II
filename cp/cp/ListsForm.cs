@@ -489,7 +489,19 @@ namespace cp
         #region Vacancies methods
         private void EditVacancy(bool newVacancyControl)
         {
+            if (newVacancyControl || ListsFormVacanciesDataGridView.CurrentRow.Index >= ListsFormVacanciesDataGridView.RowCount - 1)
+                _vacanciesRow = this.cPDBDataSet.Vacancies.NewVacanciesRow();
+            else
+                _vacanciesRow = this.cPDBDataSet.Vacancies.FindByCode((int)ListsFormVacanciesDataGridView.CurrentRow.Cells[0].Value);
 
+            VacancyForm vacancyForm = new VacancyForm(_vacanciesRow, _userCode);
+            DialogResult vacancyFormDialogResult = vacancyForm.ShowDialog();
+            MessageBox.Show(vacancyFormDialogResult.ToString());
+            if (vacancyFormDialogResult == DialogResult.OK)
+            {
+
+            }
+            vacancyForm.Dispose();
         }
 
         private void DeleteVacancy()
