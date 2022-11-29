@@ -23,11 +23,13 @@ namespace cp
         private CPDBDataSet.WorkCategoriesRow _workCategoriesRow;
         private CPDBDataSet.EmployersRow _employersRow;
         private CPDBDataSet.VacanciesRow _vacanciesRow;
+        private CPDBDataSet.JobSeekersRow _jobSeekersRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
         private CPDBDataSetTableAdapters.EmployersTableAdapter _employersTableAdapter;
         private CPDBDataSetTableAdapters.VacanciesTableAdapter _vacanciesTableAdapter;
+        private CPDBDataSetTableAdapters.JobSeekersTableAdapter _jobSeekerTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
@@ -47,6 +49,8 @@ namespace cp
             _employersTableAdapter.ClearBeforeFill = true;
             _vacanciesTableAdapter = new CPDBDataSetTableAdapters.VacanciesTableAdapter();
             _vacanciesTableAdapter.ClearBeforeFill = true;
+            _jobSeekerTableAdapter = new CPDBDataSetTableAdapters.JobSeekersTableAdapter();
+            _jobSeekerTableAdapter.ClearBeforeFill = true;
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
         }
@@ -163,7 +167,6 @@ namespace cp
                 (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageVacancies);
-                //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
                 this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
             }
             if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
@@ -179,6 +182,23 @@ namespace cp
                 ListsFormVacanciesDataGridView.Columns["пользовательDataGridViewTextBoxColumn2"].Visible = true;
             }
             #endregion Vacancies
+
+            #region JobSeekers
+            if ((_accessRights & AccessRights.JobSeekersView) == AccessRights.JobSeekersView ||
+                (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit ||
+                (_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageJobSeekers);
+            }
+            if((_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
+            {
+                _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
+            }
+            if ((_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
+            {
+
+            }
+            #endregion JobSeekers
         }
 
         private void ConfigureInterfaceButtons()
