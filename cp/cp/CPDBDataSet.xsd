@@ -639,6 +639,28 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vVacanciesListTableAdapter" GeneratorDataComponentClassName="vVacanciesListTableAdapter" Name="vVacanciesList" UserDataComponentName="vVacanciesListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.vVacanciesList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Код, [Вид деятельности], Должность, [Заработная плата], Работодатель, [Дата изменения], Пользователь FROM dbo.vVacanciesList</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Код" DataSetColumn="Код" />
+              <Mapping SourceColumn="Вид деятельности" DataSetColumn="Вид деятельности" />
+              <Mapping SourceColumn="Должность" DataSetColumn="Должность" />
+              <Mapping SourceColumn="Заработная плата" DataSetColumn="Заработная плата" />
+              <Mapping SourceColumn="Работодатель" DataSetColumn="Работодатель" />
+              <Mapping SourceColumn="Дата изменения" DataSetColumn="Дата изменения" />
+              <Mapping SourceColumn="Пользователь" DataSetColumn="Пользователь" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources>
           <DbSource ConnectionRef="CPDBConnectionString (Settings)" DbObjectName="CPDB.dbo.pAddUser" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="pAddUser" MethodsParameterType="CLR" Modifier="Public" Name="pAddUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="pAddUser">
@@ -1079,6 +1101,43 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="vVacanciesList" msprop:Generator_RowEvHandlerName="vVacanciesListRowChangeEventHandler" msprop:Generator_RowDeletedName="vVacanciesListRowDeleted" msprop:Generator_RowDeletingName="vVacanciesListRowDeleting" msprop:Generator_RowEvArgName="vVacanciesListRowChangeEvent" msprop:Generator_TablePropName="vVacanciesList" msprop:Generator_RowChangedName="vVacanciesListRowChanged" msprop:Generator_RowChangingName="vVacanciesListRowChanging" msprop:Generator_TableClassName="vVacanciesListDataTable" msprop:Generator_RowClassName="vVacanciesListRow" msprop:Generator_TableVarName="tablevVacanciesList" msprop:Generator_UserTableName="vVacanciesList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Код" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_UserColumnName="Код" type="xs:int" />
+              <xs:element name="Вид_x0020_деятельности" msprop:Generator_ColumnPropNameInRow="Вид_деятельности" msprop:Generator_ColumnPropNameInTable="Вид_деятельностиColumn" msprop:Generator_ColumnVarNameInTable="columnВид_деятельности" msprop:Generator_UserColumnName="Вид деятельности">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Должность" msprop:Generator_ColumnPropNameInRow="Должность" msprop:Generator_ColumnPropNameInTable="ДолжностьColumn" msprop:Generator_ColumnVarNameInTable="columnДолжность" msprop:Generator_UserColumnName="Должность">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Заработная_x0020_плата" msprop:Generator_ColumnPropNameInRow="Заработная_плата" msprop:Generator_ColumnPropNameInTable="Заработная_платаColumn" msprop:Generator_ColumnVarNameInTable="columnЗаработная_плата" msprop:Generator_UserColumnName="Заработная плата" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Работодатель" msprop:Generator_ColumnPropNameInRow="Работодатель" msprop:Generator_ColumnPropNameInTable="РаботодательColumn" msprop:Generator_ColumnVarNameInTable="columnРаботодатель" msprop:Generator_UserColumnName="Работодатель">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_x0020_изменения" msprop:Generator_ColumnPropNameInRow="Дата_изменения" msprop:Generator_ColumnPropNameInTable="Дата_измененияColumn" msprop:Generator_ColumnVarNameInTable="columnДата_изменения" msprop:Generator_UserColumnName="Дата изменения" type="xs:dateTime" />
+              <xs:element name="Пользователь" msprop:Generator_ColumnPropNameInRow="Пользователь" msprop:Generator_ColumnPropNameInTable="ПользовательColumn" msprop:Generator_ColumnVarNameInTable="columnПользователь" msprop:Generator_UserColumnName="Пользователь">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1129,20 +1188,24 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
       <xs:selector xpath=".//mstns:vEmployersList" />
       <xs:field xpath="mstns:Код" />
     </xs:unique>
+    <xs:unique name="vVacanciesList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vVacanciesList" />
+      <xs:field xpath="mstns:Код" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Deals_ChangedBy" msdata:parent="Users" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_ChangedBy" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_Deals_ChangedBy" />
-      <msdata:Relationship name="FK_Deals_JobSeeker" msdata:parent="JobSeekers" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="JobSeeker" msprop:Generator_UserParentTable="JobSeekers" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_JobSeeker" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_ParentPropName="JobSeekersRow" msprop:Generator_UserRelationName="FK_Deals_JobSeeker" />
-      <msdata:Relationship name="FK_Deals_Vacancy" msdata:parent="Vacancies" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="Vacancy" msprop:Generator_UserParentTable="Vacancies" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_Vacancy" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_ParentPropName="VacanciesRow" msprop:Generator_UserRelationName="FK_Deals_Vacancy" />
-      <msdata:Relationship name="FK_Employers_ChangedBy" msdata:parent="Users" msdata:child="Employers" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Employers" msprop:Generator_RelationVarName="relationFK_Employers_ChangedBy" msprop:Generator_ChildPropName="GetEmployersRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_Employers_ChangedBy" />
-      <msdata:Relationship name="FK_JobSeekers_ChangedBy" msdata:parent="Users" msdata:child="JobSeekers" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="JobSeekers" msprop:Generator_RelationVarName="relationFK_JobSeekers_ChangedBy" msprop:Generator_ChildPropName="GetJobSeekersRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_JobSeekers_ChangedBy" />
-      <msdata:Relationship name="FK_Users_Role" msdata:parent="Roles" msdata:child="Users" msdata:parentkey="Code" msdata:childkey="Role" msprop:Generator_UserParentTable="Roles" msprop:Generator_UserChildTable="Users" msprop:Generator_RelationVarName="relationFK_Users_Role" msprop:Generator_ChildPropName="GetUsersRows" msprop:Generator_UserRelationName="FK_Users_Role" msprop:Generator_ParentPropName="RolesRow" />
-      <msdata:Relationship name="FK_Vacancies_ChangedBy" msdata:parent="Users" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_ChangedBy" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_UserRelationName="FK_Vacancies_ChangedBy" msprop:Generator_ParentPropName="UsersRow" />
-      <msdata:Relationship name="FK_Vacancies_Employer" msdata:parent="Employers" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="Employer" msprop:Generator_UserParentTable="Employers" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_Employer" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_UserRelationName="FK_Vacancies_Employer" msprop:Generator_ParentPropName="EmployersRow" />
-      <msdata:Relationship name="FK_JobSeekers_WorkCategory" msdata:parent="WorkCategories" msdata:child="JobSeekers" msdata:parentkey="Code" msdata:childkey="WorkCategory" msprop:Generator_UserParentTable="WorkCategories" msprop:Generator_UserChildTable="JobSeekers" msprop:Generator_RelationVarName="relationFK_JobSeekers_WorkCategory" msprop:Generator_ChildPropName="GetJobSeekersRows" msprop:Generator_ParentPropName="WorkCategoriesRow" msprop:Generator_UserRelationName="FK_JobSeekers_WorkCategory" />
-      <msdata:Relationship name="FK_Vacancies_WorkCategory" msdata:parent="WorkCategories" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="WorkCategory" msprop:Generator_UserParentTable="WorkCategories" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_WorkCategory" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_ParentPropName="WorkCategoriesRow" msprop:Generator_UserRelationName="FK_Vacancies_WorkCategory" />
-      <msdata:Relationship name="FK_WorkCategories_ChangedBy" msdata:parent="Users" msdata:child="WorkCategories" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="WorkCategories" msprop:Generator_RelationVarName="relationFK_WorkCategories_ChangedBy" msprop:Generator_ChildPropName="GetWorkCategoriesRows" msprop:Generator_UserRelationName="FK_WorkCategories_ChangedBy" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="FK_Deals_ChangedBy" msdata:parent="Users" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_ChangedBy" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_UserRelationName="FK_Deals_ChangedBy" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="FK_Deals_JobSeeker" msdata:parent="JobSeekers" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="JobSeeker" msprop:Generator_UserParentTable="JobSeekers" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_JobSeeker" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_UserRelationName="FK_Deals_JobSeeker" msprop:Generator_ParentPropName="JobSeekersRow" />
+      <msdata:Relationship name="FK_Deals_Vacancy" msdata:parent="Vacancies" msdata:child="Deals" msdata:parentkey="Code" msdata:childkey="Vacancy" msprop:Generator_UserParentTable="Vacancies" msprop:Generator_UserChildTable="Deals" msprop:Generator_RelationVarName="relationFK_Deals_Vacancy" msprop:Generator_ChildPropName="GetDealsRows" msprop:Generator_UserRelationName="FK_Deals_Vacancy" msprop:Generator_ParentPropName="VacanciesRow" />
+      <msdata:Relationship name="FK_Employers_ChangedBy" msdata:parent="Users" msdata:child="Employers" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Employers" msprop:Generator_RelationVarName="relationFK_Employers_ChangedBy" msprop:Generator_ChildPropName="GetEmployersRows" msprop:Generator_UserRelationName="FK_Employers_ChangedBy" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="FK_JobSeekers_ChangedBy" msdata:parent="Users" msdata:child="JobSeekers" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="JobSeekers" msprop:Generator_RelationVarName="relationFK_JobSeekers_ChangedBy" msprop:Generator_ChildPropName="GetJobSeekersRows" msprop:Generator_UserRelationName="FK_JobSeekers_ChangedBy" msprop:Generator_ParentPropName="UsersRow" />
+      <msdata:Relationship name="FK_Users_Role" msdata:parent="Roles" msdata:child="Users" msdata:parentkey="Code" msdata:childkey="Role" msprop:Generator_UserParentTable="Roles" msprop:Generator_UserChildTable="Users" msprop:Generator_RelationVarName="relationFK_Users_Role" msprop:Generator_ChildPropName="GetUsersRows" msprop:Generator_ParentPropName="RolesRow" msprop:Generator_UserRelationName="FK_Users_Role" />
+      <msdata:Relationship name="FK_Vacancies_ChangedBy" msdata:parent="Users" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_ChangedBy" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_Vacancies_ChangedBy" />
+      <msdata:Relationship name="FK_Vacancies_Employer" msdata:parent="Employers" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="Employer" msprop:Generator_UserParentTable="Employers" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_Employer" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_ParentPropName="EmployersRow" msprop:Generator_UserRelationName="FK_Vacancies_Employer" />
+      <msdata:Relationship name="FK_JobSeekers_WorkCategory" msdata:parent="WorkCategories" msdata:child="JobSeekers" msdata:parentkey="Code" msdata:childkey="WorkCategory" msprop:Generator_UserParentTable="WorkCategories" msprop:Generator_UserChildTable="JobSeekers" msprop:Generator_RelationVarName="relationFK_JobSeekers_WorkCategory" msprop:Generator_ChildPropName="GetJobSeekersRows" msprop:Generator_UserRelationName="FK_JobSeekers_WorkCategory" msprop:Generator_ParentPropName="WorkCategoriesRow" />
+      <msdata:Relationship name="FK_Vacancies_WorkCategory" msdata:parent="WorkCategories" msdata:child="Vacancies" msdata:parentkey="Code" msdata:childkey="WorkCategory" msprop:Generator_UserParentTable="WorkCategories" msprop:Generator_UserChildTable="Vacancies" msprop:Generator_RelationVarName="relationFK_Vacancies_WorkCategory" msprop:Generator_ChildPropName="GetVacanciesRows" msprop:Generator_UserRelationName="FK_Vacancies_WorkCategory" msprop:Generator_ParentPropName="WorkCategoriesRow" />
+      <msdata:Relationship name="FK_WorkCategories_ChangedBy" msdata:parent="Users" msdata:child="WorkCategories" msdata:parentkey="Code" msdata:childkey="ChangedBy" msprop:Generator_UserParentTable="Users" msprop:Generator_UserChildTable="WorkCategories" msprop:Generator_RelationVarName="relationFK_WorkCategories_ChangedBy" msprop:Generator_ChildPropName="GetWorkCategoriesRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_WorkCategories_ChangedBy" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -22,10 +22,12 @@ namespace cp
         private CPDBDataSet.RolesRow _rolesRow;
         private CPDBDataSet.WorkCategoriesRow _workCategoriesRow;
         private CPDBDataSet.EmployersRow _employersRow;
+        private CPDBDataSet.VacanciesRow _vacanciesRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
         private CPDBDataSetTableAdapters.EmployersTableAdapter _employersTableAdapter;
+        private CPDBDataSetTableAdapters.VacanciesTableAdapter _vacanciesTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
@@ -43,6 +45,8 @@ namespace cp
             _workCategoriesTableAdapter.ClearBeforeFill = true;
             _employersTableAdapter = new CPDBDataSetTableAdapters.EmployersTableAdapter();
             _employersTableAdapter.ClearBeforeFill = true;
+            _vacanciesTableAdapter = new CPDBDataSetTableAdapters.VacanciesTableAdapter();
+            _vacanciesTableAdapter.ClearBeforeFill = true;
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
         }
 
@@ -151,9 +155,12 @@ namespace cp
                 (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageVacancies);
+                this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
             }
             if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
             {
+                ListsFormVacanciesDataGridView.AllowUserToAddRows = true;
+                _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
 
             }
             if ((_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
