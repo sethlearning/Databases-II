@@ -499,7 +499,10 @@ namespace cp
             MessageBox.Show(vacancyFormDialogResult.ToString());
             if (vacancyFormDialogResult == DialogResult.OK)
             {
-
+                if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
+                    ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
+                    this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
             }
             vacancyForm.Dispose();
         }

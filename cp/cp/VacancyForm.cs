@@ -27,7 +27,6 @@ namespace cp
 
         private void VacancyForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.Employers' table. You can move, or remove it, as needed.
             this.employersTableAdapter.Fill(this.cPDBDataSet.Employers);
             this.workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
 
@@ -36,20 +35,81 @@ namespace cp
                 _newVacancy = true;
                 VacancyFormTextBoxCode.Text = "New Vacancy";
                 VacancyFormComboBoxWorkCategory.SelectedIndex = -1;
+                VacancyFormComboBoxEmployer.SelectedIndex = -1;
             }
             else
             {
+                if (_vacanciesRow.IsSalaryNull())
+                    _vacanciesRow.Salary = 0;
                 VacancyFormTextBoxCode.Text = _vacanciesRow.Code.ToString();
                 VacancyFormComboBoxWorkCategory.SelectedValue = _vacanciesRow.WorkCategory;
                 VacancyFormTextBoxPosition.Text = _vacanciesRow.Position;
-                VacancyFormTextBoxSalary.Text = _vacanciesRow.Salary.ToString("N2");
+                VacancyFormNumericUpDownSalary.Value = _vacanciesRow.Salary;
                 VacancyFormComboBoxEmployer.SelectedValue = _vacanciesRow.Employer;
             }
         }
 
         private void VacancyFormButtonOK_Click(object sender, EventArgs e)
         {
+            _isValid = true;
 
+            if (VacancyFormComboBoxWorkCategory.SelectedValue == null)
+            {
+                _isValid = false;
+                VacancyFormLabelWorkCategory.ForeColor = Color.Brown;
+            }
+            else
+                VacancyFormLabelWorkCategory.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+
+            if (String.IsNullOrWhiteSpace(VacancyFormTextBoxPosition.Text))
+            {
+                _isValid = false;
+                VacancyFormLabelPosition.ForeColor = Color.Brown;
+            }
+            else
+                VacancyFormLabelPosition.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+
+            if (VacancyFormComboBoxEmployer.SelectedValue == null)
+            {
+                _isValid = false;
+                VacancyFormLabelEmployer.ForeColor = Color.Brown;
+            }
+            else
+                VacancyFormLabelEmployer.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+
+            if (_isValid)
+            {
+                decimal? salary;
+                if (VacancyFormNumericUpDownSalary.Value == 0)
+                    salary = null;
+                else
+                    salary = VacancyFormNumericUpDownSalary.Value;
+
+                if (_newVacancy)
+                {
+                    _queriesTableAdapter.pAddVacancy(WorkCategory: (int)VacancyFormComboBoxWorkCategory.SelectedValue,
+                                                     Position: VacancyFormTextBoxPosition.Text,
+                                                     Salary: salary,
+                                                     Employer: (int)VacancyFormComboBoxEmployer.SelectedValue,
+                                                     UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else if ((int)VacancyFormComboBoxWorkCategory.SelectedValue != _vacanciesRow.WorkCategory ||
+                         VacancyFormTextBoxPosition.Text != _vacanciesRow.Position ||
+                         VacancyFormNumericUpDownSalary.Value != _vacanciesRow.Salary ||
+                         (int)VacancyFormComboBoxEmployer.SelectedValue != _vacanciesRow.Employer)
+                {
+                    _queriesTableAdapter.pUpdateVacancy(Code: _vacanciesRow.Code,
+                                                        WorkCategory: (int)VacancyFormComboBoxWorkCategory.SelectedValue,
+                                                        Position: VacancyFormTextBoxPosition.Text,
+                                                        Salary: salary,
+                                                        Employer: (int)VacancyFormComboBoxEmployer.SelectedValue,
+                                                        UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                    this.DialogResult = DialogResult.Cancel;
+            }
         }
     }
 }

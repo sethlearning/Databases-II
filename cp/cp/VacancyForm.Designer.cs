@@ -41,14 +41,15 @@
             this.VacancyFormLabelPosition = new System.Windows.Forms.Label();
             this.VacancyFormTextBoxPosition = new System.Windows.Forms.TextBox();
             this.VacancyFormLabelSalary = new System.Windows.Forms.Label();
-            this.VacancyFormTextBoxSalary = new System.Windows.Forms.TextBox();
             this.VacancyFormLabelEmployer = new System.Windows.Forms.Label();
             this.VacancyFormComboBoxEmployer = new System.Windows.Forms.ComboBox();
             this.employersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employersTableAdapter = new cp.CPDBDataSetTableAdapters.EmployersTableAdapter();
+            this.VacancyFormNumericUpDownSalary = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.workCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyFormNumericUpDownSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // VacancyFormLabelCode
@@ -74,7 +75,7 @@
             this.VacancyFormButtonOK.Location = new System.Drawing.Point(240, 251);
             this.VacancyFormButtonOK.Name = "VacancyFormButtonOK";
             this.VacancyFormButtonOK.Size = new System.Drawing.Size(75, 23);
-            this.VacancyFormButtonOK.TabIndex = 2;
+            this.VacancyFormButtonOK.TabIndex = 4;
             this.VacancyFormButtonOK.Text = "OK";
             this.VacancyFormButtonOK.UseVisualStyleBackColor = true;
             this.VacancyFormButtonOK.Click += new System.EventHandler(this.VacancyFormButtonOK_Click);
@@ -85,7 +86,7 @@
             this.VacancyFormButtonCancel.Location = new System.Drawing.Point(340, 251);
             this.VacancyFormButtonCancel.Name = "VacancyFormButtonCancel";
             this.VacancyFormButtonCancel.Size = new System.Drawing.Size(75, 23);
-            this.VacancyFormButtonCancel.TabIndex = 3;
+            this.VacancyFormButtonCancel.TabIndex = 5;
             this.VacancyFormButtonCancel.Text = "Cancel";
             this.VacancyFormButtonCancel.UseVisualStyleBackColor = true;
             // 
@@ -107,7 +108,7 @@
             this.VacancyFormComboBoxWorkCategory.Location = new System.Drawing.Point(140, 62);
             this.VacancyFormComboBoxWorkCategory.Name = "VacancyFormComboBoxWorkCategory";
             this.VacancyFormComboBoxWorkCategory.Size = new System.Drawing.Size(275, 21);
-            this.VacancyFormComboBoxWorkCategory.TabIndex = 5;
+            this.VacancyFormComboBoxWorkCategory.TabIndex = 0;
             this.VacancyFormComboBoxWorkCategory.ValueMember = "Code";
             // 
             // workCategoriesBindingSource
@@ -138,7 +139,7 @@
             this.VacancyFormTextBoxPosition.Location = new System.Drawing.Point(140, 107);
             this.VacancyFormTextBoxPosition.Name = "VacancyFormTextBoxPosition";
             this.VacancyFormTextBoxPosition.Size = new System.Drawing.Size(275, 20);
-            this.VacancyFormTextBoxPosition.TabIndex = 7;
+            this.VacancyFormTextBoxPosition.TabIndex = 1;
             // 
             // VacancyFormLabelSalary
             // 
@@ -148,13 +149,6 @@
             this.VacancyFormLabelSalary.Size = new System.Drawing.Size(64, 13);
             this.VacancyFormLabelSalary.TabIndex = 8;
             this.VacancyFormLabelSalary.Text = "Зар. плата:";
-            // 
-            // VacancyFormTextBoxSalary
-            // 
-            this.VacancyFormTextBoxSalary.Location = new System.Drawing.Point(140, 152);
-            this.VacancyFormTextBoxSalary.Name = "VacancyFormTextBoxSalary";
-            this.VacancyFormTextBoxSalary.Size = new System.Drawing.Size(275, 20);
-            this.VacancyFormTextBoxSalary.TabIndex = 9;
             // 
             // VacancyFormLabelEmployer
             // 
@@ -174,7 +168,7 @@
             this.VacancyFormComboBoxEmployer.Location = new System.Drawing.Point(140, 197);
             this.VacancyFormComboBoxEmployer.Name = "VacancyFormComboBoxEmployer";
             this.VacancyFormComboBoxEmployer.Size = new System.Drawing.Size(275, 21);
-            this.VacancyFormComboBoxEmployer.TabIndex = 11;
+            this.VacancyFormComboBoxEmployer.TabIndex = 3;
             this.VacancyFormComboBoxEmployer.ValueMember = "Code";
             // 
             // employersBindingSource
@@ -186,6 +180,25 @@
             // 
             this.employersTableAdapter.ClearBeforeFill = true;
             // 
+            // VacancyFormNumericUpDownSalary
+            // 
+            this.VacancyFormNumericUpDownSalary.DecimalPlaces = 2;
+            this.VacancyFormNumericUpDownSalary.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.VacancyFormNumericUpDownSalary.Location = new System.Drawing.Point(140, 152);
+            this.VacancyFormNumericUpDownSalary.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.VacancyFormNumericUpDownSalary.Name = "VacancyFormNumericUpDownSalary";
+            this.VacancyFormNumericUpDownSalary.Size = new System.Drawing.Size(275, 20);
+            this.VacancyFormNumericUpDownSalary.TabIndex = 2;
+            this.VacancyFormNumericUpDownSalary.ThousandsSeparator = true;
+            // 
             // VacancyForm
             // 
             this.AcceptButton = this.VacancyFormButtonOK;
@@ -193,9 +206,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.VacancyFormButtonCancel;
             this.ClientSize = new System.Drawing.Size(444, 298);
+            this.Controls.Add(this.VacancyFormNumericUpDownSalary);
             this.Controls.Add(this.VacancyFormComboBoxEmployer);
             this.Controls.Add(this.VacancyFormLabelEmployer);
-            this.Controls.Add(this.VacancyFormTextBoxSalary);
             this.Controls.Add(this.VacancyFormLabelSalary);
             this.Controls.Add(this.VacancyFormTextBoxPosition);
             this.Controls.Add(this.VacancyFormLabelPosition);
@@ -212,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VacancyFormNumericUpDownSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,10 +245,10 @@
         private System.Windows.Forms.Label VacancyFormLabelPosition;
         private System.Windows.Forms.TextBox VacancyFormTextBoxPosition;
         private System.Windows.Forms.Label VacancyFormLabelSalary;
-        private System.Windows.Forms.TextBox VacancyFormTextBoxSalary;
         private System.Windows.Forms.Label VacancyFormLabelEmployer;
         private System.Windows.Forms.ComboBox VacancyFormComboBoxEmployer;
         private System.Windows.Forms.BindingSource employersBindingSource;
         private CPDBDataSetTableAdapters.EmployersTableAdapter employersTableAdapter;
+        private System.Windows.Forms.NumericUpDown VacancyFormNumericUpDownSalary;
     }
 }
