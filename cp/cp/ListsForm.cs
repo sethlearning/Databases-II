@@ -496,7 +496,6 @@ namespace cp
 
             VacancyForm vacancyForm = new VacancyForm(_vacanciesRow, _userCode);
             DialogResult vacancyFormDialogResult = vacancyForm.ShowDialog();
-            MessageBox.Show(vacancyFormDialogResult.ToString());
             if (vacancyFormDialogResult == DialogResult.OK)
             {
                 if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
@@ -509,7 +508,24 @@ namespace cp
 
         private void DeleteVacancy()
         {
-
+            if (ListsFormVacanciesDataGridView.CurrentRow.Index < ListsFormVacanciesDataGridView.RowCount - 1)
+            {
+                _vacanciesRow = this.cPDBDataSet.Vacancies.FindByCode((int)ListsFormVacanciesDataGridView.CurrentRow.Cells[0].Value);
+                DialogResult deleteVacancyDialogResult = MessageBox.Show($"Удалить вакансию: {_vacanciesRow.Position}?", "Удаление вакансии", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (deleteVacancyDialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        _queriesTableAdapter.pDeleteVacancy(Code: _vacanciesRow.Code);
+                        this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                        _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Удаление вакансии \"{_vacanciesRow.Position}\" невозможно.\n\n{ex.Message}", "Ошибка удаления вакансии", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         #endregion Vacancies methods
@@ -575,6 +591,8 @@ namespace cp
                 EditWorkCategory(newWorkCategoryControl: true);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
                 EditEmployer(newEmployerControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
+                EditVacancy(newVacancyControl: true);
         }
 
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
@@ -587,6 +605,8 @@ namespace cp
                 EditWorkCategory(newWorkCategoryControl: false);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
                 EditEmployer(newEmployerControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
+                EditVacancy(newVacancyControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
@@ -599,6 +619,8 @@ namespace cp
                 DeleteWorkCategory();
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
                 DeleteEmployer();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
+                DeleteVacancy();
         }
         #endregion Buttons
 
