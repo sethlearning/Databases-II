@@ -68,6 +68,12 @@ namespace cp
                 UpdateLists();
             }
         }
+
+        private void ListsFormToolStripComboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
+                this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+        }
         #endregion ListsForm events
 
         #region Configuration methods
@@ -580,5 +586,6 @@ namespace cp
                 DeleteEmployer();
         }
         #endregion Buttons
+
     }
 }
