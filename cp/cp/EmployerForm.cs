@@ -42,5 +42,32 @@ namespace cp
                     EmployerFormTextBoxPhone.Text = _employersRow.Phone;
             }
         }
+
+        private void EmployerFormButtonOK_Click(object sender, EventArgs e)
+        {
+            _isValid = true;
+            if (String.IsNullOrWhiteSpace(EmployerFormTextBoxName.Text))
+            {
+                _isValid = false;
+                EmployerFormLabelName.ForeColor = Color.Brown;
+            }
+            else
+                EmployerFormLabelName.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+
+            if (_isValid)
+            {
+                if (_newEmployer)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else if (EmployerFormTextBoxName.Text != _employersRow.Name)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                    this.DialogResult = DialogResult.Cancel;
+
+            }
+        }
     }
 }

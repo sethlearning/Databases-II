@@ -114,6 +114,7 @@
             this.EmployerFormButtonOK.TabIndex = 3;
             this.EmployerFormButtonOK.Text = "OK";
             this.EmployerFormButtonOK.UseVisualStyleBackColor = true;
+            this.EmployerFormButtonOK.Click += new System.EventHandler(this.EmployerFormButtonOK_Click);
             // 
             // EmployerFormButtonCancel
             // 

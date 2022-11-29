@@ -57,8 +57,7 @@ namespace cp
                     _queriesTableAdapter.pAddWorkCategory(Name: WorkCategoryFormTextBoxName.Text, UserCode: _userCode);
                     this.DialogResult = DialogResult.OK;
                 }
-                else
-                    if (WorkCategoryFormTextBoxName.Text != _workCategoriesRow.Name)
+                else if (WorkCategoryFormTextBoxName.Text != _workCategoriesRow.Name)
                 {
                     _queriesTableAdapter.pUpdateWorkCategory(Code: _workCategoriesRow.Code, Name: WorkCategoryFormTextBoxName.Text, UserCode: _userCode);
                     this.DialogResult = DialogResult.OK;
