@@ -42,6 +42,8 @@ namespace cp
         #region ListsForm events
         private void ListsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vEmployersList' table. You can move, or remove it, as needed.
+            this.vEmployersListTableAdapter.Fill(this.cPDBDataSet.vEmployersList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }

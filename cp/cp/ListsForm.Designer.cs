@@ -53,6 +53,9 @@
             this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vWorkCategoriesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListsFormTabControlPageEmployers = new System.Windows.Forms.TabPage();
+            this.ListsFormTabControlPageVacancies = new System.Windows.Forms.TabPage();
+            this.ListsFormTabControlPageJobSeekers = new System.Windows.Forms.TabPage();
+            this.ListsFormTabControlPageDeals = new System.Windows.Forms.TabPage();
             this.ListsFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListsFormToolStrip = new System.Windows.Forms.ToolStrip();
@@ -68,9 +71,15 @@
             this.vWorkCategoriesListTableAdapter = new cp.CPDBDataSetTableAdapters.vWorkCategoriesListTableAdapter();
             this.usersListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ListsFormTabControlPageVacancies = new System.Windows.Forms.TabPage();
-            this.ListsFormTabControlPageJobSeekers = new System.Windows.Forms.TabPage();
-            this.ListsFormTabControlPageDeals = new System.Windows.Forms.TabPage();
+            this.ListsFormEmployersDataGridView = new System.Windows.Forms.DataGridView();
+            this.vEmployersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vEmployersListTableAdapter = new cp.CPDBDataSetTableAdapters.vEmployersListTableAdapter();
+            this.кодDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.адресDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаИзмененияDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пользовательDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ListsFormTabControl.SuspendLayout();
             this.ListsFormTabControlPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormUsersDataGridView)).BeginInit();
@@ -82,10 +91,13 @@
             this.ListsFormTabControlPageWorkCategories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).BeginInit();
+            this.ListsFormTabControlPageEmployers.SuspendLayout();
             this.ListsFormMenuStrip.SuspendLayout();
             this.ListsFormToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormEmployersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEmployersListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ListsFormTabControl
@@ -357,6 +369,7 @@
             // 
             // ListsFormTabControlPageEmployers
             // 
+            this.ListsFormTabControlPageEmployers.Controls.Add(this.ListsFormEmployersDataGridView);
             this.ListsFormTabControlPageEmployers.Location = new System.Drawing.Point(4, 22);
             this.ListsFormTabControlPageEmployers.Name = "ListsFormTabControlPageEmployers";
             this.ListsFormTabControlPageEmployers.Padding = new System.Windows.Forms.Padding(3);
@@ -364,6 +377,36 @@
             this.ListsFormTabControlPageEmployers.TabIndex = 3;
             this.ListsFormTabControlPageEmployers.Text = "Работодатели";
             this.ListsFormTabControlPageEmployers.UseVisualStyleBackColor = true;
+            // 
+            // ListsFormTabControlPageVacancies
+            // 
+            this.ListsFormTabControlPageVacancies.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageVacancies.Name = "ListsFormTabControlPageVacancies";
+            this.ListsFormTabControlPageVacancies.Padding = new System.Windows.Forms.Padding(3);
+            this.ListsFormTabControlPageVacancies.Size = new System.Drawing.Size(767, 356);
+            this.ListsFormTabControlPageVacancies.TabIndex = 4;
+            this.ListsFormTabControlPageVacancies.Text = "Вакансии";
+            this.ListsFormTabControlPageVacancies.UseVisualStyleBackColor = true;
+            // 
+            // ListsFormTabControlPageJobSeekers
+            // 
+            this.ListsFormTabControlPageJobSeekers.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageJobSeekers.Name = "ListsFormTabControlPageJobSeekers";
+            this.ListsFormTabControlPageJobSeekers.Padding = new System.Windows.Forms.Padding(3);
+            this.ListsFormTabControlPageJobSeekers.Size = new System.Drawing.Size(767, 356);
+            this.ListsFormTabControlPageJobSeekers.TabIndex = 5;
+            this.ListsFormTabControlPageJobSeekers.Text = "Соискатели";
+            this.ListsFormTabControlPageJobSeekers.UseVisualStyleBackColor = true;
+            // 
+            // ListsFormTabControlPageDeals
+            // 
+            this.ListsFormTabControlPageDeals.Location = new System.Drawing.Point(4, 22);
+            this.ListsFormTabControlPageDeals.Name = "ListsFormTabControlPageDeals";
+            this.ListsFormTabControlPageDeals.Padding = new System.Windows.Forms.Padding(3);
+            this.ListsFormTabControlPageDeals.Size = new System.Drawing.Size(767, 356);
+            this.ListsFormTabControlPageDeals.TabIndex = 6;
+            this.ListsFormTabControlPageDeals.Text = "Сделки";
+            this.ListsFormTabControlPageDeals.UseVisualStyleBackColor = true;
             // 
             // ListsFormMenuStrip
             // 
@@ -465,35 +508,97 @@
             // 
             this.vWorkCategoriesListTableAdapter.ClearBeforeFill = true;
             // 
-            // ListsFormTabControlPageVacancies
+            // ListsFormEmployersDataGridView
             // 
-            this.ListsFormTabControlPageVacancies.Location = new System.Drawing.Point(4, 22);
-            this.ListsFormTabControlPageVacancies.Name = "ListsFormTabControlPageVacancies";
-            this.ListsFormTabControlPageVacancies.Padding = new System.Windows.Forms.Padding(3);
-            this.ListsFormTabControlPageVacancies.Size = new System.Drawing.Size(767, 356);
-            this.ListsFormTabControlPageVacancies.TabIndex = 4;
-            this.ListsFormTabControlPageVacancies.Text = "Вакансии";
-            this.ListsFormTabControlPageVacancies.UseVisualStyleBackColor = true;
+            this.ListsFormEmployersDataGridView.AllowUserToAddRows = false;
+            this.ListsFormEmployersDataGridView.AllowUserToDeleteRows = false;
+            this.ListsFormEmployersDataGridView.AllowUserToResizeColumns = false;
+            this.ListsFormEmployersDataGridView.AllowUserToResizeRows = false;
+            this.ListsFormEmployersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListsFormEmployersDataGridView.AutoGenerateColumns = false;
+            this.ListsFormEmployersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListsFormEmployersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListsFormEmployersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодDataGridViewTextBoxColumn3,
+            this.названиеDataGridViewTextBoxColumn,
+            this.адресDataGridViewTextBoxColumn,
+            this.телефонDataGridViewTextBoxColumn,
+            this.датаИзмененияDataGridViewTextBoxColumn1,
+            this.пользовательDataGridViewTextBoxColumn1});
+            this.ListsFormEmployersDataGridView.DataSource = this.vEmployersListBindingSource;
+            this.ListsFormEmployersDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.ListsFormEmployersDataGridView.Location = new System.Drawing.Point(1, 3);
+            this.ListsFormEmployersDataGridView.MultiSelect = false;
+            this.ListsFormEmployersDataGridView.Name = "ListsFormEmployersDataGridView";
+            this.ListsFormEmployersDataGridView.ReadOnly = true;
+            this.ListsFormEmployersDataGridView.RowHeadersVisible = false;
+            this.ListsFormEmployersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListsFormEmployersDataGridView.Size = new System.Drawing.Size(763, 351);
+            this.ListsFormEmployersDataGridView.StandardTab = true;
+            this.ListsFormEmployersDataGridView.TabIndex = 0;
             // 
-            // ListsFormTabControlPageJobSeekers
+            // vEmployersListBindingSource
             // 
-            this.ListsFormTabControlPageJobSeekers.Location = new System.Drawing.Point(4, 22);
-            this.ListsFormTabControlPageJobSeekers.Name = "ListsFormTabControlPageJobSeekers";
-            this.ListsFormTabControlPageJobSeekers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListsFormTabControlPageJobSeekers.Size = new System.Drawing.Size(767, 356);
-            this.ListsFormTabControlPageJobSeekers.TabIndex = 5;
-            this.ListsFormTabControlPageJobSeekers.Text = "Соискатели";
-            this.ListsFormTabControlPageJobSeekers.UseVisualStyleBackColor = true;
+            this.vEmployersListBindingSource.DataMember = "vEmployersList";
+            this.vEmployersListBindingSource.DataSource = this.cPDBDataSet;
             // 
-            // ListsFormTabControlPageDeals
+            // vEmployersListTableAdapter
             // 
-            this.ListsFormTabControlPageDeals.Location = new System.Drawing.Point(4, 22);
-            this.ListsFormTabControlPageDeals.Name = "ListsFormTabControlPageDeals";
-            this.ListsFormTabControlPageDeals.Padding = new System.Windows.Forms.Padding(3);
-            this.ListsFormTabControlPageDeals.Size = new System.Drawing.Size(767, 356);
-            this.ListsFormTabControlPageDeals.TabIndex = 6;
-            this.ListsFormTabControlPageDeals.Text = "Сделки";
-            this.ListsFormTabControlPageDeals.UseVisualStyleBackColor = true;
+            this.vEmployersListTableAdapter.ClearBeforeFill = true;
+            // 
+            // кодDataGridViewTextBoxColumn3
+            // 
+            this.кодDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.кодDataGridViewTextBoxColumn3.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn3.FillWeight = 7F;
+            this.кодDataGridViewTextBoxColumn3.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn3.Name = "кодDataGridViewTextBoxColumn3";
+            this.кодDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // названиеDataGridViewTextBoxColumn
+            // 
+            this.названиеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
+            this.названиеDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // адресDataGridViewTextBoxColumn
+            // 
+            this.адресDataGridViewTextBoxColumn.DataPropertyName = "Адрес";
+            this.адресDataGridViewTextBoxColumn.FillWeight = 43F;
+            this.адресDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.адресDataGridViewTextBoxColumn.Name = "адресDataGridViewTextBoxColumn";
+            this.адресDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // телефонDataGridViewTextBoxColumn
+            // 
+            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИзмененияDataGridViewTextBoxColumn1
+            // 
+            this.датаИзмененияDataGridViewTextBoxColumn1.DataPropertyName = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.датаИзмененияDataGridViewTextBoxColumn1.HeaderText = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn1.Name = "датаИзмененияDataGridViewTextBoxColumn1";
+            this.датаИзмененияDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.датаИзмененияDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // пользовательDataGridViewTextBoxColumn1
+            // 
+            this.пользовательDataGridViewTextBoxColumn1.DataPropertyName = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.пользовательDataGridViewTextBoxColumn1.HeaderText = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn1.Name = "пользовательDataGridViewTextBoxColumn1";
+            this.пользовательDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.пользовательDataGridViewTextBoxColumn1.Visible = false;
             // 
             // ListsForm
             // 
@@ -520,12 +625,15 @@
             this.ListsFormTabControlPageWorkCategories.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListsFormWorkCategoriesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWorkCategoriesListBindingSource)).EndInit();
+            this.ListsFormTabControlPageEmployers.ResumeLayout(false);
             this.ListsFormMenuStrip.ResumeLayout(false);
             this.ListsFormMenuStrip.PerformLayout();
             this.ListsFormToolStrip.ResumeLayout(false);
             this.ListsFormToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListsFormEmployersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vEmployersListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,5 +685,14 @@
         private System.Windows.Forms.TabPage ListsFormTabControlPageVacancies;
         private System.Windows.Forms.TabPage ListsFormTabControlPageJobSeekers;
         private System.Windows.Forms.TabPage ListsFormTabControlPageDeals;
+        private System.Windows.Forms.DataGridView ListsFormEmployersDataGridView;
+        private System.Windows.Forms.BindingSource vEmployersListBindingSource;
+        private CPDBDataSetTableAdapters.vEmployersListTableAdapter vEmployersListTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn названиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn адресDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаИзмененияDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn1;
     }
 }
