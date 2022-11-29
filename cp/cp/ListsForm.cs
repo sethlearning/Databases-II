@@ -49,8 +49,6 @@ namespace cp
         #region ListsForm events
         private void ListsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vEmployersList' table. You can move, or remove it, as needed.
-            //this.vEmployersListTableAdapter.Fill(this.cPDBDataSet.vEmployersList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
@@ -477,6 +475,8 @@ namespace cp
                 EditRole(newRoleControl: true);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
                 EditWorkCategory(newWorkCategoryControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
+                EditEmployer(newEmployerControl: true);
         }
 
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
@@ -487,6 +487,8 @@ namespace cp
                 EditRole(newRoleControl: false);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
                 EditWorkCategory(newWorkCategoryControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
+                EditEmployer(newEmployerControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
@@ -497,6 +499,8 @@ namespace cp
                 DeleteRole();
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
                 DeleteWorkCategory();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
+                DeleteEmployer();
         }
         #endregion Buttons
     }
