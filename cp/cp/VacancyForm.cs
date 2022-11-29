@@ -27,14 +27,20 @@ namespace cp
 
         private void VacancyForm_Load(object sender, EventArgs e)
         {
+            this.workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+
             if (_vacanciesRow.Code < 0)
             {
                 _newVacancy = true;
                 VacancyFormTextBoxCode.Text = "New Vacancy";
+                VacancyFormComboBoxWorkCategory.SelectedIndex = -1;
             }
             else
             {
                 VacancyFormTextBoxCode.Text = _vacanciesRow.Code.ToString();
+                VacancyFormComboBoxWorkCategory.SelectedValue = _vacanciesRow.WorkCategory;
+                VacancyFormTextBoxPosition.Text = _vacanciesRow.Position;
+                VacancyFormTextBoxSalary.Text = _vacanciesRow.Salary.ToString();
             }
         }
     }
