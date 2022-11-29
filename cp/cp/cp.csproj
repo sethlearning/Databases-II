@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CPDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EmployerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerForm.Designer.cs">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <Compile Include="WorkCategoryForm.Designer.cs">
       <DependentUpon>WorkCategoryForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EmployerForm.resx">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListsForm.resx">
       <DependentUpon>ListsForm.cs</DependentUpon>
     </EmbeddedResource>
