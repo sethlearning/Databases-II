@@ -136,6 +136,8 @@ namespace cp
             if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
             {
                 ListsFormEmployersDataGridView.AllowUserToAddRows = true;
+                this.ListsFormEmployersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormEmployersDataGridView_CellDoubleClick);
+                this.ListsFormEmployersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormEmployersDataGridView_KeyDown);
                 _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
             }
             if ((_accessRights & AccessRights.EmployersAudit) == AccessRights.EmployersAudit)
@@ -151,8 +153,7 @@ namespace cp
             if ( ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers" && (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles" && (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
             {
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
@@ -174,6 +175,8 @@ namespace cp
                 this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
                 this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
+                this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
         }
         #endregion Configuration methods
 
@@ -373,6 +376,31 @@ namespace cp
                 DeleteWorkCategory();
         }
         #endregion WorkCategory events
+
+        #region Employers methods
+
+        #endregion Employers methods
+
+        #region Employers events
+        private void ListsFormEmployersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //EditEmployer(newEmployerControl: false);
+        }
+
+        private void ListsFormEmployersDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+            /*
+            if (e.KeyCode == Keys.Insert)
+                EditEmployer(newEmployerControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditEmployer(newEmployerControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteEmployer();
+            */
+        }
+        #endregion Employers events
 
         #region Logout
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
