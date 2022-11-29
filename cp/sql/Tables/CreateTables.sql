@@ -162,7 +162,7 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'JobSe
             Code INT IDENTITY(1, 1) CONSTRAINT PK_JobSeekers PRIMARY KEY,
             LastName VARCHAR(60) NOT NULL,
             FirstName VARCHAR(60) NOT NULL,
-            MiddleName VARCHAR(60) NOT NULL,
+            MiddleName VARCHAR(60) NULL,
             WorkCategory INT NOT NULL CONSTRAINT FK_JobSeekers_WorkCategory FOREIGN KEY REFERENCES dbo.WorkCategories(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_WorkCategory NONCLUSTERED WITH (FILLFACTOR = 90),
             Qualification VARCHAR(60) NULL INDEX Idx_Qualification WITH (FILLFACTOR = 90),
             DesiredSalary MONEY NULL,
