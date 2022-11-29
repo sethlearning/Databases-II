@@ -50,7 +50,10 @@ namespace cp
         {
             TabControl se = (TabControl)sender;
             if (se.SelectedTab != null)
+            {
                 ConfigureInterfaceButtons();
+                UpdateLists();
+            }
         }
         #endregion ListsForm events
 
@@ -136,6 +139,16 @@ namespace cp
                 ListsFormToolStripButtonEdit.Visible = false;
                 ListsFormToolStripButtonDelete.Visible = false;
             }
+        }
+
+        private void UpdateLists()
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageUsers")
+                this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles")
+                this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories")
+                this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
         }
         #endregion Configuration methods
 
