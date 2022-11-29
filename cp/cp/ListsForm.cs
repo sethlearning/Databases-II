@@ -64,6 +64,7 @@ namespace cp
             {
                 ConfigureInterfaceButtons();
                 UpdateLists();
+                UpdateStatusSelector();
             }
         }
         #endregion ListsForm events
@@ -203,6 +204,18 @@ namespace cp
                 this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
+        }
+
+        private void UpdateStatusSelector()
+        {
+            if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies" ||
+                ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+            {
+                ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
+                ListsFormToolStripComboBoxStatus.Visible = true;
+            }
+            else
+                ListsFormToolStripComboBoxStatus.Visible = false;
         }
         #endregion Configuration methods
 
