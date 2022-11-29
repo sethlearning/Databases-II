@@ -387,7 +387,11 @@ namespace cp
 
             EmployerForm employerForm = new EmployerForm(_employersRow, _userCode);
             DialogResult employerFormDialogResult = employerForm.ShowDialog();
-            MessageBox.Show(employerFormDialogResult.ToString());
+            if (employerFormDialogResult == DialogResult.OK)
+            {
+                this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
+                _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
+            }
             employerForm.Dispose();
         }
         #endregion Employers methods

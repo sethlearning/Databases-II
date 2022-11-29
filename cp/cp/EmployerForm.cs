@@ -34,12 +34,14 @@ namespace cp
             }
             else
             {
+                if (_employersRow.IsAddressNull())
+                    _employersRow.Address = String.Empty;
+                if (_employersRow.IsPhoneNull())
+                    _employersRow.Phone = String.Empty;
                 EmployerFormTextBoxCode.Text = _employersRow.Code.ToString();
                 EmployerFormTextBoxName.Text = _employersRow.Name;
-                if (!_employersRow.IsAddressNull())
-                    EmployerFormTextBoxAddress.Text = _employersRow.Address;
-                if (!_employersRow.IsPhoneNull())
-                    EmployerFormTextBoxPhone.Text = _employersRow.Phone;
+                EmployerFormTextBoxAddress.Text = _employersRow.Address;
+                EmployerFormTextBoxPhone.Text = _employersRow.Phone;
             }
         }
 
@@ -58,15 +60,25 @@ namespace cp
             {
                 if (_newEmployer)
                 {
+                    _queriesTableAdapter.pAddEmployer(Name: EmployerFormTextBoxName.Text,
+                                                      Address: String.IsNullOrEmpty(EmployerFormTextBoxAddress.Text) ? null : EmployerFormTextBoxAddress.Text,
+                                                      Phone: String.IsNullOrEmpty(EmployerFormTextBoxPhone.Text) ? null : EmployerFormTextBoxPhone.Text,
+                                                      UserCode: _userCode);
                     this.DialogResult = DialogResult.OK;
                 }
-                else if (EmployerFormTextBoxName.Text != _employersRow.Name)
+                else if (EmployerFormTextBoxName.Text != _employersRow.Name ||
+                         EmployerFormTextBoxAddress.Text != _employersRow.Address ||
+                         EmployerFormTextBoxPhone.Text != _employersRow.Phone)
                 {
+                    _queriesTableAdapter.pUpdateEmployer(Code: _employersRow.Code,
+                                                         Name: EmployerFormTextBoxName.Text,
+                                                         Address: String.IsNullOrEmpty(EmployerFormTextBoxAddress.Text) ? null : EmployerFormTextBoxAddress.Text,
+                                                         Phone: String.IsNullOrEmpty(EmployerFormTextBoxPhone.Text) ? null : EmployerFormTextBoxPhone.Text,
+                                                         UserCode: _userCode);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                     this.DialogResult = DialogResult.Cancel;
-
             }
         }
     }
