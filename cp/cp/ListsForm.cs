@@ -144,6 +144,23 @@ namespace cp
                 ListsFormEmployersDataGridView.Columns["пользовательDataGridViewTextBoxColumn1"].Visible = true;
             }
             #endregion Employers
+
+            #region Vacancies
+            if ((_accessRights & AccessRights.VacanciesView) == AccessRights.VacanciesView ||
+                (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
+                (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageVacancies);
+            }
+            if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
+            {
+
+            }
+            if ((_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
+            {
+
+            }
+            #endregion Vacancies
         }
 
         private void ConfigureInterfaceButtons()

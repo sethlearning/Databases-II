@@ -29,3 +29,9 @@ CREATE VIEW dbo.vEmployersList AS
     FROM dbo.Employers AS E, dbo.Users AS U
     WHERE E.ChangedBy = U.Code
 GO
+
+CREATE VIEW dbo.vVacanciesList AS
+    SELECT V.Code AS Код, W.Name AS [Вид деятельности], V.Position AS Должность, V.Salary AS [Заработная плата], E.Name AS Работодатель, V.ChangeTime AS [Дата изменения], U.UserName AS Пользователь
+    FROM dbo.Vacancies AS V, dbo.WorkCategories AS W, dbo.Employers AS E, dbo.Users AS U
+    WHERE V.WorkCategory = W.Code AND V.Employer = E.Code AND V.ChangedBy = U.Code
+GO

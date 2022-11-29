@@ -120,3 +120,38 @@ CREATE PROCEDURE pDeleteEmployer
             WHERE Code = @Code
     END
 GO
+
+-- Vacancies
+CREATE PROCEDURE pAddVacancy
+    @WorkCategory int,
+    @Position varchar(60),
+    @Salary money,
+    @Employer int,
+    @UserCode int
+    AS BEGIN
+        INSERT INTO dbo.Vacancies (WorkCategory, Position, Salary, Employer, ChangeTime, ChangedBy)
+            VALUES (@WorkCategory, @Position, @Salary, @Employer, GETDATE(), @UserCode)
+    END
+GO
+
+CREATE PROCEDURE pUpdateVacancy
+    @Code int,
+    @WorkCategory int,
+    @Position varchar(60),
+    @Salary money,
+    @Employer int,
+    @UserCode int
+    AS BEGIN
+        UPDATE dbo.Vacancies
+            SET WorkCategory = @WorkCategory, Position = @Position, Salary = @Salary, Employer = @Employer, ChangeTime = GETDATE(), ChangedBy = @UserCode
+            WHERE Code = @Code
+    END
+GO
+
+CREATE PROCEDURE pDeleteVacancy
+    @Code int
+    AS BEGIN
+        DELETE FROM dbo.Vacancies
+            WHERE Code = @Code
+    END
+GO
