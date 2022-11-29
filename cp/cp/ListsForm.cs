@@ -394,6 +394,28 @@ namespace cp
             }
             employerForm.Dispose();
         }
+
+        private void DeleteEmployer()
+        {
+            if (ListsFormEmployersDataGridView.CurrentRow.Index < ListsFormEmployersDataGridView.RowCount - 1)
+            {
+                _employersRow = this.cPDBDataSet.Employers.FindByCode((int)ListsFormEmployersDataGridView.CurrentRow.Cells[0].Value);
+                DialogResult deleteEmployerDialogResult = MessageBox.Show($"Удалить работодателя: {_employersRow.Name}?", "Удаление работодателя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (deleteEmployerDialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        _queriesTableAdapter.pDeleteEmployer(Code: _employersRow.Code);
+                        this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
+                        _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Удаление работодателя \"{_employersRow.Name}\" невозможно.\n\n{ex.Message}", "Ошибка удаления работодателя", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
         #endregion Employers methods
 
         #region Employers events
@@ -411,8 +433,8 @@ namespace cp
                 EditEmployer(newEmployerControl: true);
             else if (e.KeyCode == Keys.Enter)
                 EditEmployer(newEmployerControl: false);
-            //else if (e.KeyCode == Keys.Delete)
-                //DeleteEmployer();
+            else if (e.KeyCode == Keys.Delete)
+                DeleteEmployer();
         }
         #endregion Employers events
 
