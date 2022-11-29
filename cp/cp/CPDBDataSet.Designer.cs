@@ -10741,12 +10741,19 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Код, [Вид деятельности], Должность, [Заработная плата], Работодатель, [Дат" +
                 "а изменения], Пользователь FROM dbo.vVacanciesList";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "IF @Status = \'Free\'\r\nSELECT Код, [Вид деятельности], Должность, [Заработная плата" +
+                "], Работодатель, [Дата изменения], Пользователь\r\nFROM dbo.vVacanciesList\r\nWHERE " +
+                "Код NOT IN\r\n(SELECT Vacancy FROM dbo.Deals)\r\nORDER BY Код";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10768,6 +10775,42 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CPDBDataSet.vVacanciesListDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            CPDBDataSet.vVacanciesListDataTable dataTable = new CPDBDataSet.vVacanciesListDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillWithStatusOrderByCode(CPDBDataSet.vVacanciesListDataTable dataTable, string Status) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Status));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CPDBDataSet.vVacanciesListDataTable GetDataWithStatusOrderByCode(string Status) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Status));
+            }
             CPDBDataSet.vVacanciesListDataTable dataTable = new CPDBDataSet.vVacanciesListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

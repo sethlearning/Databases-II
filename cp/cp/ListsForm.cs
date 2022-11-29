@@ -48,6 +48,7 @@ namespace cp
             _vacanciesTableAdapter = new CPDBDataSetTableAdapters.VacanciesTableAdapter();
             _vacanciesTableAdapter.ClearBeforeFill = true;
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
+            ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
         }
 
         #region ListsForm events
@@ -63,8 +64,8 @@ namespace cp
             if (se.SelectedTab != null)
             {
                 ConfigureInterfaceButtons();
-                UpdateLists();
                 UpdateStatusSelector();
+                UpdateLists();
             }
         }
         #endregion ListsForm events
@@ -156,7 +157,8 @@ namespace cp
                 (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageVacancies);
-                this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
+                //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
+                this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
             }
             if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
             {
@@ -164,7 +166,6 @@ namespace cp
                 this.ListsFormVacanciesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormVacanciesDataGridView_CellDoubleClick);
                 this.ListsFormVacanciesDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormVacanciesDataGridView_KeyDown);
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
-
             }
             if ((_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
             {
@@ -204,6 +205,8 @@ namespace cp
                 this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers")
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
+                this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
         }
 
         private void UpdateStatusSelector()

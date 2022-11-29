@@ -30,11 +30,13 @@ namespace cp
         DealsView           = 0b_0001_0000_0000_0000_0000,  // 65536
         DealsEdit           = 0b_0010_0000_0000_0000_0000,  // 131072
         DealsAudit          = 0b_0100_0000_0000_0000_0000   // 262144
+    }
 
-        // Administrator = 3
-        // Director = 1364
-        // Manager = 4092
-        // Operator = 3412
+    public enum StatusSelector
+    {
+        Free = 0,
+        Occupied = 1,
+        All = 2
     }
 
     internal static class Utilities
