@@ -155,3 +155,45 @@ CREATE PROCEDURE pDeleteVacancy
             WHERE Code = @Code
     END
 GO
+
+-- JobSeekers
+CREATE PROCEDURE pAddJobSeeker
+    @LastName varchar(60),
+    @FirstName varchar(60),
+    @MiddleName varchar(60),
+    @WorkCategory int,
+    @Qualification varchar(60),
+    @DesiredSalary money,
+    @Notes varchar(120),
+    @UserCode int
+    AS BEGIN
+        INSERT INTO dbo.JobSeekers (LastName, FirstName, MiddleName, WorkCategory, Qualification, DesiredSalary, Notes, ChangeTime, ChangedBy)
+            VALUES (@LastName, @FirstName, @MiddleName, @WorkCategory, @Qualification, @DesiredSalary, @Notes, GETDATE(), @UserCode)
+    END
+GO
+
+CREATE PROCEDURE pUpdateJobSeeker
+    @Code int,
+    @LastName varchar(60),
+    @FirstName varchar(60),
+    @MiddleName varchar(60),
+    @WorkCategory int,
+    @Qualification varchar(60),
+    @DesiredSalary money,
+    @Notes varchar(120),
+    @UserCode int
+    AS BEGIN
+        UPDATE dbo.JobSeekers
+            SET LastName = @LastName, FirstName = @FirstName, MiddleName = @MiddleName, WorkCategory = @WorkCategory, Qualification = @Qualification, DesiredSalary = @DesiredSalary, Notes = @Notes, ChangeTime = GETDATE(), ChangedBy = @UserCode
+            WHERE Code = @Code
+    END
+GO
+
+CREATE PROCEDURE pDeleteJobSeeker
+    @Code int
+    AS BEGIN
+        DELETE FROM dbo.JobSeekers
+            WHERE Code = @Code
+    END
+GO
+
