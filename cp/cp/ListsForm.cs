@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,7 +50,7 @@ namespace cp
         private void ListsForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.vEmployersList' table. You can move, or remove it, as needed.
-            this.vEmployersListTableAdapter.Fill(this.cPDBDataSet.vEmployersList);
+            //this.vEmployersListTableAdapter.Fill(this.cPDBDataSet.vEmployersList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
@@ -70,7 +71,7 @@ namespace cp
         {
             ListsFormTabControl.TabPages.Clear();
 
-            // Users
+            #region Users
             if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView ||
                 (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit)
             {
@@ -84,8 +85,9 @@ namespace cp
                 this.ListsFormUsersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormUsersDataGridView_KeyDown);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
             }
+            #endregion Users
 
-            // Roles
+            #region Roles
             if ((_accessRights & AccessRights.RolesView) == AccessRights.RolesView ||
                 (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
             {
@@ -99,8 +101,9 @@ namespace cp
                 this.ListsFormRolesDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormRolesDataGridView_KeyDown);
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }
+            #endregion Roles
 
-            // WorkCategories
+            #region WorkCategories
             if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView ||
                 (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
                 (_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit)
@@ -120,13 +123,17 @@ namespace cp
                 ListsFormWorkCategoriesDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn"].Visible = true;
                 ListsFormWorkCategoriesDataGridView.Columns["пользовательDataGridViewTextBoxColumn"].Visible = true;
             }
+            #endregion WorkCategories
 
-            // Employers
-            if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView)
+            #region Employers
+            if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView ||
+                (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                (_accessRights & AccessRights.EmployersAudit) == AccessRights.EmployersAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
+                this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
             }
-            //if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
+            #endregion Employers
         }
 
         private void ConfigureInterfaceButtons()
