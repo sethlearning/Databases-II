@@ -133,6 +133,16 @@ namespace cp
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageEmployers);
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
             }
+            if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
+            {
+                ListsFormEmployersDataGridView.AllowUserToAddRows = true;
+                _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
+            }
+            if ((_accessRights & AccessRights.EmployersAudit) == AccessRights.EmployersAudit)
+            {
+                ListsFormEmployersDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn1"].Visible = true;
+                ListsFormEmployersDataGridView.Columns["пользовательDataGridViewTextBoxColumn1"].Visible = true;
+            }
             #endregion Employers
         }
 
