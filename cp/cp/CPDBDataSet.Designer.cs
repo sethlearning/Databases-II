@@ -10749,9 +10749,30 @@ SELECT Code, Name, ChangeTime, ChangedBy FROM WorkCategories WHERE (Code = @Code
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "IF @Status = \'Free\'\r\nSELECT Код, [Вид деятельности], Должность, [Заработная плата" +
-                "], Работодатель, [Дата изменения], Пользователь\r\nFROM dbo.vVacanciesList\r\nWHERE " +
-                "Код NOT IN\r\n(SELECT Vacancy FROM dbo.Deals)\r\nORDER BY Код";
+            this._commandCollection[1].CommandText = @"IF @Status = 'Free'
+BEGIN
+SELECT Код, [Вид деятельности], Должность, [Заработная плата], Работодатель, [Дата изменения], Пользователь
+FROM dbo.vVacanciesList
+WHERE Код NOT IN
+(SELECT Vacancy FROM dbo.Deals)
+ORDER BY Код
+END
+
+ELSE IF @Status = 'Occupied'
+BEGIN
+SELECT Код, [Вид деятельности], Должность, [Заработная плата], Работодатель, [Дата изменения], Пользователь
+FROM dbo.vVacanciesList
+WHERE Код IN
+(SELECT Vacancy FROM dbo.Deals)
+ORDER BY Код
+END
+
+ELSE IF @Status = 'All'
+BEGIN
+SELECT Код, [Вид деятельности], Должность, [Заработная плата], Работодатель, [Дата изменения], Пользователь
+FROM dbo.vVacanciesList
+ORDER BY Код
+END";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
