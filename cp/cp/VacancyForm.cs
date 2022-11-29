@@ -40,7 +40,7 @@ namespace cp
                 VacancyFormTextBoxCode.Text = _vacanciesRow.Code.ToString();
                 VacancyFormComboBoxWorkCategory.SelectedValue = _vacanciesRow.WorkCategory;
                 VacancyFormTextBoxPosition.Text = _vacanciesRow.Position;
-                VacancyFormTextBoxSalary.Text = _vacanciesRow.Salary.ToString();
+                VacancyFormTextBoxSalary.Text = _vacanciesRow.Salary.ToString("N2");
             }
         }
     }
