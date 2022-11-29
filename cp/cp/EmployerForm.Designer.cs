@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.EmployerFormLabelCode = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmployerFormTextBoxCode = new System.Windows.Forms.TextBox();
             this.EmployerFormLabelName = new System.Windows.Forms.Label();
             this.EmployerFormTextBoxName = new System.Windows.Forms.TextBox();
             this.EmployerFormLabelAddress = new System.Windows.Forms.Label();
-            this.EmployerFormTaxtBoxAddress = new System.Windows.Forms.TextBox();
+            this.EmployerFormTextBoxAddress = new System.Windows.Forms.TextBox();
             this.EmployerFormLabelPhone = new System.Windows.Forms.Label();
             this.EmployerFormTextBoxPhone = new System.Windows.Forms.TextBox();
             this.EmployerFormButtonOK = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             this.EmployerFormLabelCode.TabIndex = 0;
             this.EmployerFormLabelCode.Text = "Код:";
             // 
-            // textBox1
+            // EmployerFormTextBoxCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(275, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
+            this.EmployerFormTextBoxCode.Location = new System.Drawing.Point(140, 17);
+            this.EmployerFormTextBoxCode.Name = "EmployerFormTextBoxCode";
+            this.EmployerFormTextBoxCode.ReadOnly = true;
+            this.EmployerFormTextBoxCode.Size = new System.Drawing.Size(275, 20);
+            this.EmployerFormTextBoxCode.TabIndex = 1;
+            this.EmployerFormTextBoxCode.TabStop = false;
             // 
             // EmployerFormLabelName
             // 
@@ -83,12 +83,12 @@
             this.EmployerFormLabelAddress.TabIndex = 4;
             this.EmployerFormLabelAddress.Text = "Адрес:";
             // 
-            // EmployerFormTaxtBoxAddress
+            // EmployerFormTextBoxAddress
             // 
-            this.EmployerFormTaxtBoxAddress.Location = new System.Drawing.Point(140, 107);
-            this.EmployerFormTaxtBoxAddress.Name = "EmployerFormTaxtBoxAddress";
-            this.EmployerFormTaxtBoxAddress.Size = new System.Drawing.Size(275, 20);
-            this.EmployerFormTaxtBoxAddress.TabIndex = 1;
+            this.EmployerFormTextBoxAddress.Location = new System.Drawing.Point(140, 107);
+            this.EmployerFormTextBoxAddress.Name = "EmployerFormTextBoxAddress";
+            this.EmployerFormTextBoxAddress.Size = new System.Drawing.Size(275, 20);
+            this.EmployerFormTextBoxAddress.TabIndex = 1;
             // 
             // EmployerFormLabelPhone
             // 
@@ -136,15 +136,16 @@
             this.Controls.Add(this.EmployerFormButtonOK);
             this.Controls.Add(this.EmployerFormTextBoxPhone);
             this.Controls.Add(this.EmployerFormLabelPhone);
-            this.Controls.Add(this.EmployerFormTaxtBoxAddress);
+            this.Controls.Add(this.EmployerFormTextBoxAddress);
             this.Controls.Add(this.EmployerFormLabelAddress);
             this.Controls.Add(this.EmployerFormTextBoxName);
             this.Controls.Add(this.EmployerFormLabelName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.EmployerFormTextBoxCode);
             this.Controls.Add(this.EmployerFormLabelCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EmployerForm";
             this.Text = "EmployerForm";
+            this.Load += new System.EventHandler(this.EmployerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,11 +154,11 @@
         #endregion
 
         private System.Windows.Forms.Label EmployerFormLabelCode;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EmployerFormTextBoxCode;
         private System.Windows.Forms.Label EmployerFormLabelName;
         private System.Windows.Forms.TextBox EmployerFormTextBoxName;
         private System.Windows.Forms.Label EmployerFormLabelAddress;
-        private System.Windows.Forms.TextBox EmployerFormTaxtBoxAddress;
+        private System.Windows.Forms.TextBox EmployerFormTextBoxAddress;
         private System.Windows.Forms.Label EmployerFormLabelPhone;
         private System.Windows.Forms.TextBox EmployerFormTextBoxPhone;
         private System.Windows.Forms.Button EmployerFormButtonOK;

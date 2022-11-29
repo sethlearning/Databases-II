@@ -378,27 +378,37 @@ namespace cp
         #endregion WorkCategory events
 
         #region Employers methods
+        private void EditEmployer(bool newEmployerControl)
+        {
+            if (newEmployerControl || ListsFormEmployersDataGridView.CurrentRow.Index >= ListsFormEmployersDataGridView.RowCount - 1)
+                _employersRow = this.cPDBDataSet.Employers.NewEmployersRow();
+            else
+                _employersRow = this.cPDBDataSet.Employers.FindByCode((int)ListsFormEmployersDataGridView.CurrentRow.Cells[0].Value);
 
+            EmployerForm employerForm = new EmployerForm(_employersRow, _userCode);
+            DialogResult employerFormDialogResult = employerForm.ShowDialog();
+            MessageBox.Show(employerFormDialogResult.ToString());
+            employerForm.Dispose();
+        }
         #endregion Employers methods
 
         #region Employers events
         private void ListsFormEmployersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //EditEmployer(newEmployerControl: false);
+            EditEmployer(newEmployerControl: false);
         }
 
         private void ListsFormEmployersDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
                 e.SuppressKeyPress = true;
-            /*
+            
             if (e.KeyCode == Keys.Insert)
                 EditEmployer(newEmployerControl: true);
             else if (e.KeyCode == Keys.Enter)
                 EditEmployer(newEmployerControl: false);
-            else if (e.KeyCode == Keys.Delete)
-                DeleteEmployer();
-            */
+            //else if (e.KeyCode == Keys.Delete)
+                //DeleteEmployer();
         }
         #endregion Employers events
 
