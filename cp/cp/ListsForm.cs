@@ -217,14 +217,17 @@ namespace cp
                 (_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageDeals);
+                this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
             }
             if ((_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
             {
+                ListsFormDealsDataGridView.AllowUserToAddRows = true;
                 _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
             }
             if ((_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
             {
-
+                ListsFormDealsDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn4"].Visible = true;
+                ListsFormDealsDataGridView.Columns["пользовательDataGridViewTextBoxColumn4"].Visible = true;
             }
             #endregion Deals
         }
