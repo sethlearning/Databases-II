@@ -691,6 +691,8 @@ namespace cp
                 EditEmployer(newEmployerControl: true);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
                 EditVacancy(newVacancyControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+                EditJobSeeker(newJobSeekerControl: true);
         }
 
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
@@ -705,6 +707,8 @@ namespace cp
                 EditEmployer(newEmployerControl: false);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
                 EditVacancy(newVacancyControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+                EditJobSeeker(newJobSeekerControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
@@ -719,8 +723,9 @@ namespace cp
                 DeleteEmployer();
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
                 DeleteVacancy();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+                DeleteJobSeeker();
         }
         #endregion Buttons
-
     }
 }
