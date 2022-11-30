@@ -197,3 +197,35 @@ CREATE PROCEDURE pDeleteJobSeeker
     END
 GO
 
+-- Deals
+CREATE PROCEDURE pAddDeal
+    @JobSeeker int,
+    @Vacancy int,
+    @Commission money,
+    @UserCode int
+    AS BEGIN
+        INSERT INTO dbo.Deals (JobSeeker, Vacancy, Commission, ChangeTime, ChangedBy)
+            VALUES (@JobSeeker, @Vacancy, @Commission, GETDATE(), @UserCode)
+    END
+GO
+
+CREATE PROCEDURE pUpdateDeal
+    @Code int,
+    @JobSeeker int,
+    @Vacancy int,
+    @Commission money,
+    @UserCode int
+    AS BEGIN
+        UPDATE dbo.Deals
+            SET JobSeeker = @JobSeeker, Vacancy = @Vacancy, Commission = @Commission, ChangeTime = GETDATE(), ChangedBy = @UserCode
+            WHERE Code = @Code
+    END
+GO
+
+CREATE PROCEDURE pDeleteDeal
+    @Code int
+    AS BEGIN
+        DELETE FROM dbo.Deals
+            WHERE Code = @Code
+    END
+GO
