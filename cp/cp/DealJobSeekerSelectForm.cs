@@ -13,16 +13,21 @@ namespace cp
     public partial class DealJobSeekerSelectForm : Form
     {
         public int _code;
-        public DealJobSeekerSelectForm()
+        private int _workCategory;
+        public DealJobSeekerSelectForm(int workCategory)
         {
             InitializeComponent();
+            _workCategory = workCategory;
         }
 
         private void DealJobSeekerSelectForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.vJobSeekersWithFIOList' table. You can move, or remove it, as needed.
-            this.vJobSeekersWithFIOListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersWithFIOList);
-
+            //this.vJobSeekersWithFIOListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersWithFIOList);
+            if (_workCategory == -1)
+                this.vJobSeekersWithFIOListTableAdapter.FillAvailableOrderByCode(this.cPDBDataSet.vJobSeekersWithFIOList);
+            else
+                this.vJobSeekersWithFIOListTableAdapter.FillAvailableWithWorkCategoryOrderByCode(this.cPDBDataSet.vJobSeekersWithFIOList, _workCategory);
         }
 
 

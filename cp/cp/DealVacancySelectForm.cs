@@ -13,15 +13,21 @@ namespace cp
     public partial class DealVacancySelectForm : Form
     {
         public int _code;
-        public DealVacancySelectForm()
+        private int _workCategory;
+        public DealVacancySelectForm(int workCategory)
         {
             InitializeComponent();
+            _workCategory = workCategory;
         }
 
         private void DealVacancySelectForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cPDBDataSet.vVacanciesList' table. You can move, or remove it, as needed.
-            this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
+            //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
+            if (_workCategory == -1)
+                this.vVacanciesListTableAdapter.FillAvailableOrderByCode(this.cPDBDataSet.vVacanciesList);
+            else
+                this.vVacanciesListTableAdapter.FillAvailableWithWorkCategoryOrderByCode(this.cPDBDataSet.vVacanciesList, _workCategory);
 
         }
 
