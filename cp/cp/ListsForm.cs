@@ -58,6 +58,8 @@ namespace cp
         #region ListsForm events
         private void ListsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vJobSeekersList' table. You can move, or remove it, as needed.
+            //this.vJobSeekersListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
@@ -189,9 +191,11 @@ namespace cp
                 (_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
             {
                 ListsFormTabControl.TabPages.Add(ListsFormTabControlPageJobSeekers);
+                this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
             }
             if((_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
             {
+                ListsFormJobSeekersDataGridView.AllowUserToAddRows = true;
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
             }
             if ((_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
