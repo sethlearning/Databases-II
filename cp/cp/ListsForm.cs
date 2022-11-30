@@ -222,6 +222,8 @@ namespace cp
             if ((_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
             {
                 ListsFormDealsDataGridView.AllowUserToAddRows = true;
+                this.ListsFormDealsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormDealsDataGridView_CellDoubleClick);
+                this.ListsFormDealsDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormDealsDataGridView_KeyDown);
                 _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
             }
             if ((_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
@@ -268,6 +270,8 @@ namespace cp
                 this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
                 this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+            else if (ListsFormTabControl.SelectedTab.Name == "LIstsFormTabControlPageDeals")
+                this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
         }
 
         private void UpdateStatusSelector()
@@ -672,6 +676,38 @@ namespace cp
                 DeleteJobSeeker();
         }
         #endregion JobSeekers events
+
+        #region Deals methods
+        private void EditDeal(bool newDealControl)
+        {
+
+        }
+
+        private void DeleteDeal()
+        {
+
+        }
+        #endregion Deals methods
+
+        #region Deals events
+        private void ListsFormDealsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditDeal(newDealControl: false);
+        }
+
+        private void ListsFormDealsDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Insert)
+                EditDeal(newDealControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditDeal(newDealControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteDeal();
+        }
+        #endregion Deals events
 
         #region Logout
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
