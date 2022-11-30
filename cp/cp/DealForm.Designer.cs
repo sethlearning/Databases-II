@@ -148,6 +148,7 @@
             this.DealFormDataGridViewVacancy.Size = new System.Drawing.Size(730, 42);
             this.DealFormDataGridViewVacancy.StandardTab = true;
             this.DealFormDataGridViewVacancy.TabIndex = 5;
+            this.DealFormDataGridViewVacancy.DoubleClick += new System.EventHandler(this.DealFormDataGridViewVacancy_DoubleClick);
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -284,6 +285,7 @@
             this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 42);
             this.DealFormDataGridViewJobSeeker.StandardTab = true;
             this.DealFormDataGridViewJobSeeker.TabIndex = 9;
+            this.DealFormDataGridViewJobSeeker.DoubleClick += new System.EventHandler(this.DealFormDataGridViewJobSeeker_DoubleClick);
             // 
             // кодDataGridViewTextBoxColumn1
             // 

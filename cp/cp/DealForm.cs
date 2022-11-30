@@ -48,7 +48,8 @@ namespace cp
             }
         }
 
-        private void DealFormButtonVacancySelect_Click(object sender, EventArgs e)
+        #region Vacancy
+        private void SelectVacancy()
         {
             int jobSeekerWorkCategory;
 
@@ -64,12 +65,22 @@ namespace cp
             dealVacancySelectForm.Dispose();
         }
 
+        private void DealFormButtonVacancySelect_Click(object sender, EventArgs e)
+        {
+            SelectVacancy();
+        }
+        private void DealFormDataGridViewVacancy_DoubleClick(object sender, EventArgs e)
+        {
+            SelectVacancy();
+        }
         private void DealFormButtonVacancyClear_Click(object sender, EventArgs e)
         {
             this.cPDBDataSet.vVacanciesList.Clear();
         }
+        #endregion Vacancy
 
-        private void DealFormButtonJobSeekerSelect_Click(object sender, EventArgs e)
+        #region JobSeeker
+        private void SelectJobSeeker()
         {
             int vacancyWorkCategory;
 
@@ -84,12 +95,21 @@ namespace cp
                 this.vJobSeekersWithFIOListTableAdapter.FillByCode(this.cPDBDataSet.vJobSeekersWithFIOList, dealJobSeekerSelectForm._code);
             dealJobSeekerSelectForm.Dispose();
         }
+        private void DealFormButtonJobSeekerSelect_Click(object sender, EventArgs e)
+        {
+            SelectJobSeeker();
+        }
+        private void DealFormDataGridViewJobSeeker_DoubleClick(object sender, EventArgs e)
+        {
+            SelectJobSeeker();
+        }
 
         private void DealFormButtonJobSeekerClear_Click(object sender, EventArgs e)
         {
             this.cPDBDataSet.vJobSeekersWithFIOList.Clear();
         }
-
+        #endregion JobSeeker
+        
         private void DealFormButtonOK_Click(object sender, EventArgs e)
         {
             _isValid = true;
