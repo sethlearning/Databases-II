@@ -397,7 +397,7 @@
             // 
             this.DealFormNumericUpDownCommission.DecimalPlaces = 2;
             this.DealFormNumericUpDownCommission.Increment = new decimal(new int[] {
-            1000,
+            100,
             0,
             0,
             0});

@@ -59,7 +59,6 @@ namespace cp
 
             DealVacancySelectForm dealVacancySelectForm = new DealVacancySelectForm(workCategory: jobSeekerWorkCategory);
             DialogResult dealVacancySelectFormDialogResult = dealVacancySelectForm.ShowDialog();
-            MessageBox.Show(dealVacancySelectFormDialogResult.ToString());
             if (dealVacancySelectFormDialogResult == DialogResult.OK)
                 this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, dealVacancySelectForm._code);
             dealVacancySelectForm.Dispose();
@@ -81,7 +80,6 @@ namespace cp
 
             DealJobSeekerSelectForm dealJobSeekerSelectForm = new DealJobSeekerSelectForm(workCategory: vacancyWorkCategory);
             DialogResult dealJobSeekerSelectFormDialogResult = dealJobSeekerSelectForm.ShowDialog();
-            MessageBox.Show(dealJobSeekerSelectFormDialogResult.ToString());
             if (dealJobSeekerSelectFormDialogResult == DialogResult.OK)
                 this.vJobSeekersWithFIOListTableAdapter.FillByCode(this.cPDBDataSet.vJobSeekersWithFIOList, dealJobSeekerSelectForm._code);
             dealJobSeekerSelectForm.Dispose();

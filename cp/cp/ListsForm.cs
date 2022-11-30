@@ -687,7 +687,6 @@ namespace cp
 
             DealForm dealForm = new DealForm(_dealsRow, _userCode);
             DialogResult dealFormDialogResult = dealForm.ShowDialog();
-            MessageBox.Show(dealFormDialogResult.ToString());
             if (dealFormDialogResult == DialogResult.OK)
             {
                 this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
