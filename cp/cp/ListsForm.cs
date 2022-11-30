@@ -590,7 +590,6 @@ namespace cp
 
             JobSeekerForm jobSeekerForm = new JobSeekerForm(_jobSeekersRow, _userCode);
             DialogResult jobSeekerFormDialogResult = jobSeekerForm.ShowDialog();
-            MessageBox.Show(jobSeekerFormDialogResult.ToString());
             if (jobSeekerFormDialogResult == DialogResult.OK)
             {
                 if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
@@ -603,7 +602,29 @@ namespace cp
 
         private void DeleteJobSeeker()
         {
+            if (ListsFormJobSeekersDataGridView.CurrentRow.Index < ListsFormJobSeekersDataGridView.RowCount - 1)
+            {
+                string jobSeekerName;
+                _jobSeekersRow = this.cPDBDataSet.JobSeekers.FindByCode((int)ListsFormJobSeekersDataGridView.CurrentRow.Cells[0].Value);
+                jobSeekerName = $"{_jobSeekersRow.LastName} {_jobSeekersRow.FirstName[0]}.";
+                if (!_jobSeekersRow.IsMiddleNameNull())
+                    jobSeekerName += $" {_jobSeekersRow.MiddleName[0]}.";
 
+                DialogResult deleteJobSeekerDialogResult = MessageBox.Show($"Удалить соискателя: {jobSeekerName} ?", "Удаление соискателя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (deleteJobSeekerDialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        _queriesTableAdapter.pDeleteJobSeeker(Code: _jobSeekersRow.Code);
+                        this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                        _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Удаление соискателя {jobSeekerName} невозможно.\n\n{ex.Message}", "Ошибка удаления соискателя", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         #endregion JobSeekers methods
 
