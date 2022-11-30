@@ -27,19 +27,31 @@ namespace cp
 
         private void JobSeekerForm_Load(object sender, EventArgs e)
         {
+            this.workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
             if (_jobSeekersRow.Code < 0)
             {
                 _newJobSeeker = true;
                 JobSeekerFormTextBoxCode.Text = "New JobSeeker";
+                JobSeekerFormComboBoxWorkCategory.SelectedIndex = -1;
             }
             else
             {
                 if (_jobSeekersRow.IsMiddleNameNull())
                     _jobSeekersRow.MiddleName = String.Empty;
+                if (_jobSeekersRow.IsQualificationNull())
+                    _jobSeekersRow.Qualification = String.Empty;
+                if (_jobSeekersRow.IsDesiredSalaryNull())
+                    _jobSeekersRow.DesiredSalary = 0;
+                if (_jobSeekersRow.IsNotesNull())
+                    _jobSeekersRow.Notes= String.Empty;
                 JobSeekerFormTextBoxCode.Text = _jobSeekersRow.Code.ToString();
                 JobSeekerFormTextBoxLastName.Text = _jobSeekersRow.LastName;
                 JobSeekerFormTextBoxFirstName.Text = _jobSeekersRow.FirstName;
                 JobSeekerFormTextBoxMiddleName.Text = _jobSeekersRow.MiddleName;
+                JobSeekerFormComboBoxWorkCategory.SelectedValue = _jobSeekersRow.WorkCategory;
+                JobSeekerFormTextBoxQualification.Text = _jobSeekersRow.Qualification;
+                JobSeekerFormNumericUpDownDesiredSalary.Value = _jobSeekersRow.DesiredSalary;
+                JobSeekerFormTextBoxNotes.Text = _jobSeekersRow.Notes;
             }
         }
     }
