@@ -583,7 +583,22 @@ namespace cp
         #region JobSeekers methods
         private void EditJobSeeker(bool newJobSeekerControl)
         {
+            if (newJobSeekerControl || ListsFormJobSeekersDataGridView.CurrentRow.Index >= ListsFormJobSeekersDataGridView.RowCount - 1)
+                _jobSeekersRow = this.cPDBDataSet.JobSeekers.NewJobSeekersRow();
+            else
+                _jobSeekersRow = this.cPDBDataSet.JobSeekers.FindByCode((int)ListsFormJobSeekersDataGridView.CurrentRow.Cells[0].Value);
 
+            JobSeekerForm jobSeekerForm = new JobSeekerForm(_jobSeekersRow, _userCode);
+            DialogResult jobSeekerFormDialogResult = jobSeekerForm.ShowDialog();
+            MessageBox.Show(jobSeekerFormDialogResult.ToString());
+            if (jobSeekerFormDialogResult == DialogResult.OK)
+            {
+                if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
+                    ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
+                    this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
+            }
+            jobSeekerForm.Dispose();
         }
 
         private void DeleteJobSeeker()

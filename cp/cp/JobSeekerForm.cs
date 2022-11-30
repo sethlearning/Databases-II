@@ -27,7 +27,20 @@ namespace cp
 
         private void JobSeekerForm_Load(object sender, EventArgs e)
         {
-
+            if (_jobSeekersRow.Code < 0)
+            {
+                _newJobSeeker = true;
+                JobSeekerFormTextBoxCode.Text = "New JobSeeker";
+            }
+            else
+            {
+                if (_jobSeekersRow.IsMiddleNameNull())
+                    _jobSeekersRow.MiddleName = String.Empty;
+                JobSeekerFormTextBoxCode.Text = _jobSeekersRow.Code.ToString();
+                JobSeekerFormTextBoxLastName.Text = _jobSeekersRow.LastName;
+                JobSeekerFormTextBoxFirstName.Text = _jobSeekersRow.FirstName;
+                JobSeekerFormTextBoxMiddleName.Text = _jobSeekersRow.MiddleName;
+            }
         }
     }
 }
