@@ -79,6 +79,8 @@ namespace cp
         {
             if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
                 this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+                this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
         }
         #endregion ListsForm events
 
@@ -200,7 +202,8 @@ namespace cp
             }
             if ((_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
             {
-
+                ListsFormJobSeekersDataGridView.Columns["датаИзмененияDataGridViewTextBoxColumn3"].Visible = true;
+                ListsFormJobSeekersDataGridView.Columns["пользовательDataGridViewTextBoxColumn3"].Visible = true;
             }
             #endregion JobSeekers
         }
@@ -211,7 +214,8 @@ namespace cp
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageRoles" && (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies" && (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies" && (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers" && (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
             {
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
@@ -237,6 +241,8 @@ namespace cp
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies")
                 this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
+                this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
         }
 
         private void UpdateStatusSelector()

@@ -11643,6 +11643,22 @@ FROM dbo.vJobSeekersList
 WHERE Код NOT IN
 (SELECT JobSeeker FROM dbo.Deals)
 ORDER BY Код
+END
+
+ELSE IF @Status = 'Occupied'
+BEGIN
+SELECT Код, Фамилия, Имя, Отчество, [Вид деятельности], Квалификация, [Желаемая зарплата], [Иные данные], [Дата изменения], Пользователь
+FROM dbo.vJobSeekersList
+WHERE Код IN
+(SELECT JobSeeker FROM dbo.Deals)
+ORDER BY Код
+END
+
+ELSE IF @Status = 'All'
+BEGIN
+SELECT Код, Фамилия, Имя, Отчество, [Вид деятельности], Квалификация, [Желаемая зарплата], [Иные данные], [Дата изменения], Пользователь
+FROM dbo.vJobSeekersList
+ORDER BY Код
 END";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
