@@ -680,12 +680,40 @@ namespace cp
         #region Deals methods
         private void EditDeal(bool newDealControl)
         {
+            if (newDealControl || ListsFormDealsDataGridView.CurrentRow.Index >= ListsFormDealsDataGridView.RowCount - 1)
+                _dealsRow = this.cPDBDataSet.Deals.NewDealsRow();
+            else
+                _dealsRow = this.cPDBDataSet.Deals.FindByCode((int)ListsFormDealsDataGridView.CurrentRow.Cells[0].Value);
 
+            DealForm dealForm = new DealForm(_dealsRow, _userCode);
+            DialogResult dealFormDialogResult = dealForm.ShowDialog();
+            MessageBox.Show(dealFormDialogResult.ToString());
+            if (dealFormDialogResult == DialogResult.OK)
+            {
+                this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
+                _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
+            }
+            dealForm.Dispose();
         }
 
         private void DeleteDeal()
         {
+            if (ListsFormDealsDataGridView.CurrentRow.Index < ListsFormDealsDataGridView.RowCount - 1)
+            {
+                _dealsRow = this.cPDBDataSet.Deals.FindByCode((int)ListsFormDealsDataGridView.CurrentRow.Cells[0].Value);
+                DialogResult deleteDealDialogResult = MessageBox.Show($"Удалить сделку №{_dealsRow.Code}?", "Удаление сделки", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (deleteDealDialogResult == DialogResult.OK)
+                {
+                    try
+                    {
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Удаление сделки №{_dealsRow.Code} невозможно.\n\n{ex.Message}", "Ошибка удаления сделки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         #endregion Deals methods
 
@@ -754,6 +782,8 @@ namespace cp
                 EditVacancy(newVacancyControl: true);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
                 EditJobSeeker(newJobSeekerControl: true);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageDeals")
+                EditDeal(newDealControl: true);
         }
 
         private void ListsFormToolStripButtonEdit_Click(object sender, EventArgs e)
@@ -770,6 +800,8 @@ namespace cp
                 EditVacancy(newVacancyControl: false);
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
                 EditJobSeeker(newJobSeekerControl: false);
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageDeals")
+                EditDeal(newDealControl: false);
         }
 
         private void ListsFormToolStripButtonDelete_Click(object sender, EventArgs e)
@@ -786,6 +818,8 @@ namespace cp
                 DeleteVacancy();
             else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers")
                 DeleteJobSeeker();
+            else if (ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageDeals")
+                DeleteDeal();
         }
         #endregion Buttons
     }
