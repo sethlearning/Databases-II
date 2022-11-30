@@ -35,9 +35,6 @@
             this.DealFormButtonCancel = new System.Windows.Forms.Button();
             this.DealFormLabelVacancy = new System.Windows.Forms.Label();
             this.DealFormDataGridViewVacancy = new System.Windows.Forms.DataGridView();
-            this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cPDBDataSet = new cp.CPDBDataSet();
-            this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.работодательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +42,17 @@
             this.заработнаяПлатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
+            this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
             this.DealFormButtonVacancyClear = new System.Windows.Forms.Button();
             this.DealFormButtonVacancySelect = new System.Windows.Forms.Button();
+            this.DealFormLabelJobSeeker = new System.Windows.Forms.Label();
+            this.DealFormDataGridViewJobSeeker = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewVacancy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).BeginInit();
             this.SuspendLayout();
             // 
             // DealFormLabelCode
@@ -130,20 +133,6 @@
             this.DealFormDataGridViewVacancy.StandardTab = true;
             this.DealFormDataGridViewVacancy.TabIndex = 5;
             // 
-            // vVacanciesListBindingSource
-            // 
-            this.vVacanciesListBindingSource.DataMember = "vVacanciesList";
-            this.vVacanciesListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vVacanciesListTableAdapter
-            // 
-            this.vVacanciesListTableAdapter.ClearBeforeFill = true;
-            // 
             // кодDataGridViewTextBoxColumn
             // 
             this.кодDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -205,6 +194,20 @@
             this.пользовательDataGridViewTextBoxColumn.ReadOnly = true;
             this.пользовательDataGridViewTextBoxColumn.Visible = false;
             // 
+            // vVacanciesListBindingSource
+            // 
+            this.vVacanciesListBindingSource.DataMember = "vVacanciesList";
+            this.vVacanciesListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vVacanciesListTableAdapter
+            // 
+            this.vVacanciesListTableAdapter.ClearBeforeFill = true;
+            // 
             // DealFormButtonVacancyClear
             // 
             this.DealFormButtonVacancyClear.Location = new System.Drawing.Point(794, 112);
@@ -225,6 +228,23 @@
             this.DealFormButtonVacancySelect.UseVisualStyleBackColor = true;
             this.DealFormButtonVacancySelect.Click += new System.EventHandler(this.DealFormButtonVacancySelect_Click);
             // 
+            // DealFormLabelJobSeeker
+            // 
+            this.DealFormLabelJobSeeker.AutoSize = true;
+            this.DealFormLabelJobSeeker.Location = new System.Drawing.Point(20, 147);
+            this.DealFormLabelJobSeeker.Name = "DealFormLabelJobSeeker";
+            this.DealFormLabelJobSeeker.Size = new System.Drawing.Size(70, 13);
+            this.DealFormLabelJobSeeker.TabIndex = 8;
+            this.DealFormLabelJobSeeker.Text = "Соискатель:";
+            // 
+            // DealFormDataGridViewJobSeeker
+            // 
+            this.DealFormDataGridViewJobSeeker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DealFormDataGridViewJobSeeker.Location = new System.Drawing.Point(140, 150);
+            this.DealFormDataGridViewJobSeeker.Name = "DealFormDataGridViewJobSeeker";
+            this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 80);
+            this.DealFormDataGridViewJobSeeker.TabIndex = 9;
+            // 
             // DealForm
             // 
             this.AcceptButton = this.DealFormButtonOK;
@@ -232,6 +252,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.DealFormButtonCancel;
             this.ClientSize = new System.Drawing.Size(892, 450);
+            this.Controls.Add(this.DealFormDataGridViewJobSeeker);
+            this.Controls.Add(this.DealFormLabelJobSeeker);
             this.Controls.Add(this.DealFormButtonVacancySelect);
             this.Controls.Add(this.DealFormButtonVacancyClear);
             this.Controls.Add(this.DealFormDataGridViewVacancy);
@@ -247,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewVacancy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +295,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button DealFormButtonVacancyClear;
         private System.Windows.Forms.Button DealFormButtonVacancySelect;
+        private System.Windows.Forms.Label DealFormLabelJobSeeker;
+        private System.Windows.Forms.DataGridView DealFormDataGridViewJobSeeker;
     }
 }

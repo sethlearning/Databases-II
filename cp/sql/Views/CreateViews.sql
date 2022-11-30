@@ -47,3 +47,9 @@ CREATE VIEW dbo.vDealsList AS
     FROM dbo.Deals AS D, dbo.Employers AS E, dbo.WorkCategories AS W, dbo.Vacancies AS V, dbo.JobSeekers AS J, dbo.Users AS U
     WHERE D.JobSeeker = J.Code AND D.Vacancy = V.Code AND V.Employer = E.Code AND V.WorkCategory = W.Code AND D.ChangedBy = U.Code
 GO
+
+CREATE VIEW dbo.vJobSeekersWithFIOList AS
+    SELECT J.Code AS Код, CONCAT_WS(' ', J.LastName, J.FirstName, J.MiddleName) AS ФИО, W.Name AS [Вид деятельности], J.Qualification AS Квалификация, J.DesiredSalary AS [Желаемая зарплата], J.Notes AS [Иные данные], J.ChangeTime AS [Дата изменения], U.UserName AS Пользователь
+    FROM dbo.JobSeekers AS J, dbo.WorkCategories AS W, dbo.Users AS U
+    WHERE J.WorkCategory = W.Code AND J.ChangedBy = U.Code
+GO
