@@ -27,9 +27,11 @@ namespace cp
 
         private void DealForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vJobSeekersWithFIOList' table. You can move, or remove it, as needed.
+            //this.vJobSeekersWithFIOListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersWithFIOList);
             // TODO: This line of code loads data into the 'cPDBDataSet.vVacanciesList' table. You can move, or remove it, as needed.
             //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
-            
+
             if (_dealsRow.Code < 0)
             {
                 _newDeal = true;
@@ -37,14 +39,10 @@ namespace cp
             }
             else
             {
-                this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, _dealsRow.Code);
+                this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, _dealsRow.Vacancy);
+                this.vJobSeekersWithFIOListTableAdapter.FillByCode(this.cPDBDataSet.vJobSeekersWithFIOList, _dealsRow.JobSeeker);
                 DealFormTextBoxCode.Text = _dealsRow.Code.ToString();
             }
-        }
-
-        private void DealFormButtonVacancyClear_Click(object sender, EventArgs e)
-        {
-            this.cPDBDataSet.vVacanciesList.Clear();
         }
 
         private void DealFormButtonVacancySelect_Click(object sender, EventArgs e)
@@ -53,6 +51,21 @@ namespace cp
             DialogResult dealVacancySelectFormDialogResult = dealVacancySelectForm.ShowDialog();
             MessageBox.Show(dealVacancySelectFormDialogResult.ToString());
             this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, dealVacancySelectForm._code);
+        }
+
+        private void DealFormButtonVacancyClear_Click(object sender, EventArgs e)
+        {
+            this.cPDBDataSet.vVacanciesList.Clear();
+        }
+
+        private void DealFormButtonJobSeekerSelect_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DealFormButtonJobSeekerClear_Click(object sender, EventArgs e)
+        {
+            this.cPDBDataSet.vJobSeekersWithFIOList.Clear();
         }
     }
 }

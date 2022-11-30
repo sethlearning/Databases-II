@@ -49,10 +49,23 @@
             this.DealFormButtonVacancySelect = new System.Windows.Forms.Button();
             this.DealFormLabelJobSeeker = new System.Windows.Forms.Label();
             this.DealFormDataGridViewJobSeeker = new System.Windows.Forms.DataGridView();
+            this.vJobSeekersWithFIOListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vJobSeekersWithFIOListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter();
+            this.кодDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.видДеятельностиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.квалификацияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.иныеДанныеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаИзмененияDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пользовательDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DealFormButtonJobSeekerSelect = new System.Windows.Forms.Button();
+            this.DealFormButtonJobSeekerClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewVacancy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // DealFormLabelCode
@@ -210,7 +223,7 @@
             // 
             // DealFormButtonVacancyClear
             // 
-            this.DealFormButtonVacancyClear.Location = new System.Drawing.Point(794, 112);
+            this.DealFormButtonVacancyClear.Location = new System.Drawing.Point(794, 113);
             this.DealFormButtonVacancyClear.Name = "DealFormButtonVacancyClear";
             this.DealFormButtonVacancyClear.Size = new System.Drawing.Size(75, 23);
             this.DealFormButtonVacancyClear.TabIndex = 6;
@@ -220,7 +233,7 @@
             // 
             // DealFormButtonVacancySelect
             // 
-            this.DealFormButtonVacancySelect.Location = new System.Drawing.Point(699, 112);
+            this.DealFormButtonVacancySelect.Location = new System.Drawing.Point(699, 113);
             this.DealFormButtonVacancySelect.Name = "DealFormButtonVacancySelect";
             this.DealFormButtonVacancySelect.Size = new System.Drawing.Size(75, 23);
             this.DealFormButtonVacancySelect.TabIndex = 7;
@@ -239,11 +252,135 @@
             // 
             // DealFormDataGridViewJobSeeker
             // 
+            this.DealFormDataGridViewJobSeeker.AllowUserToAddRows = false;
+            this.DealFormDataGridViewJobSeeker.AllowUserToDeleteRows = false;
+            this.DealFormDataGridViewJobSeeker.AllowUserToResizeColumns = false;
+            this.DealFormDataGridViewJobSeeker.AllowUserToResizeRows = false;
+            this.DealFormDataGridViewJobSeeker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DealFormDataGridViewJobSeeker.AutoGenerateColumns = false;
+            this.DealFormDataGridViewJobSeeker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DealFormDataGridViewJobSeeker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DealFormDataGridViewJobSeeker.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодDataGridViewTextBoxColumn1,
+            this.фИОDataGridViewTextBoxColumn,
+            this.видДеятельностиDataGridViewTextBoxColumn1,
+            this.квалификацияDataGridViewTextBoxColumn,
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn,
+            this.иныеДанныеDataGridViewTextBoxColumn,
+            this.датаИзмененияDataGridViewTextBoxColumn1,
+            this.пользовательDataGridViewTextBoxColumn1});
+            this.DealFormDataGridViewJobSeeker.DataSource = this.vJobSeekersWithFIOListBindingSource;
+            this.DealFormDataGridViewJobSeeker.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DealFormDataGridViewJobSeeker.Location = new System.Drawing.Point(140, 150);
+            this.DealFormDataGridViewJobSeeker.MultiSelect = false;
             this.DealFormDataGridViewJobSeeker.Name = "DealFormDataGridViewJobSeeker";
-            this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 80);
+            this.DealFormDataGridViewJobSeeker.ReadOnly = true;
+            this.DealFormDataGridViewJobSeeker.RowHeadersVisible = false;
+            this.DealFormDataGridViewJobSeeker.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 42);
+            this.DealFormDataGridViewJobSeeker.StandardTab = true;
             this.DealFormDataGridViewJobSeeker.TabIndex = 9;
+            // 
+            // vJobSeekersWithFIOListBindingSource
+            // 
+            this.vJobSeekersWithFIOListBindingSource.DataMember = "vJobSeekersWithFIOList";
+            this.vJobSeekersWithFIOListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // vJobSeekersWithFIOListTableAdapter
+            // 
+            this.vJobSeekersWithFIOListTableAdapter.ClearBeforeFill = true;
+            // 
+            // кодDataGridViewTextBoxColumn1
+            // 
+            this.кодDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.кодDataGridViewTextBoxColumn1.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn1.FillWeight = 7F;
+            this.кодDataGridViewTextBoxColumn1.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn1.Name = "кодDataGridViewTextBoxColumn1";
+            this.кодDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // фИОDataGridViewTextBoxColumn
+            // 
+            this.фИОDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // видДеятельностиDataGridViewTextBoxColumn1
+            // 
+            this.видДеятельностиDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.видДеятельностиDataGridViewTextBoxColumn1.DataPropertyName = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn1.FillWeight = 20F;
+            this.видДеятельностиDataGridViewTextBoxColumn1.HeaderText = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn1.Name = "видДеятельностиDataGridViewTextBoxColumn1";
+            this.видДеятельностиDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // квалификацияDataGridViewTextBoxColumn
+            // 
+            this.квалификацияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.квалификацияDataGridViewTextBoxColumn.DataPropertyName = "Квалификация";
+            this.квалификацияDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.квалификацияDataGridViewTextBoxColumn.HeaderText = "Квалификация";
+            this.квалификацияDataGridViewTextBoxColumn.Name = "квалификацияDataGridViewTextBoxColumn";
+            this.квалификацияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // желаемаяЗарплатаDataGridViewTextBoxColumn
+            // 
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DataPropertyName = "Желаемая зарплата";
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.HeaderText = "Желаемая зарплата";
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.Name = "желаемаяЗарплатаDataGridViewTextBoxColumn";
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // иныеДанныеDataGridViewTextBoxColumn
+            // 
+            this.иныеДанныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.иныеДанныеDataGridViewTextBoxColumn.DataPropertyName = "Иные данные";
+            this.иныеДанныеDataGridViewTextBoxColumn.FillWeight = 15F;
+            this.иныеДанныеDataGridViewTextBoxColumn.HeaderText = "Иные данные";
+            this.иныеДанныеDataGridViewTextBoxColumn.Name = "иныеДанныеDataGridViewTextBoxColumn";
+            this.иныеДанныеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИзмененияDataGridViewTextBoxColumn1
+            // 
+            this.датаИзмененияDataGridViewTextBoxColumn1.DataPropertyName = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn1.HeaderText = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn1.Name = "датаИзмененияDataGridViewTextBoxColumn1";
+            this.датаИзмененияDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.датаИзмененияDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // пользовательDataGridViewTextBoxColumn1
+            // 
+            this.пользовательDataGridViewTextBoxColumn1.DataPropertyName = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn1.HeaderText = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn1.Name = "пользовательDataGridViewTextBoxColumn1";
+            this.пользовательDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.пользовательDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // DealFormButtonJobSeekerSelect
+            // 
+            this.DealFormButtonJobSeekerSelect.Location = new System.Drawing.Point(699, 200);
+            this.DealFormButtonJobSeekerSelect.Name = "DealFormButtonJobSeekerSelect";
+            this.DealFormButtonJobSeekerSelect.Size = new System.Drawing.Size(75, 23);
+            this.DealFormButtonJobSeekerSelect.TabIndex = 10;
+            this.DealFormButtonJobSeekerSelect.Text = "Select";
+            this.DealFormButtonJobSeekerSelect.UseVisualStyleBackColor = true;
+            this.DealFormButtonJobSeekerSelect.Click += new System.EventHandler(this.DealFormButtonJobSeekerSelect_Click);
+            // 
+            // DealFormButtonJobSeekerClear
+            // 
+            this.DealFormButtonJobSeekerClear.Location = new System.Drawing.Point(794, 200);
+            this.DealFormButtonJobSeekerClear.Name = "DealFormButtonJobSeekerClear";
+            this.DealFormButtonJobSeekerClear.Size = new System.Drawing.Size(75, 23);
+            this.DealFormButtonJobSeekerClear.TabIndex = 11;
+            this.DealFormButtonJobSeekerClear.Text = "Clear";
+            this.DealFormButtonJobSeekerClear.UseVisualStyleBackColor = true;
+            this.DealFormButtonJobSeekerClear.Click += new System.EventHandler(this.DealFormButtonJobSeekerClear_Click);
             // 
             // DealForm
             // 
@@ -252,6 +389,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.DealFormButtonCancel;
             this.ClientSize = new System.Drawing.Size(892, 450);
+            this.Controls.Add(this.DealFormButtonJobSeekerClear);
+            this.Controls.Add(this.DealFormButtonJobSeekerSelect);
             this.Controls.Add(this.DealFormDataGridViewJobSeeker);
             this.Controls.Add(this.DealFormLabelJobSeeker);
             this.Controls.Add(this.DealFormButtonVacancySelect);
@@ -270,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +437,17 @@
         private System.Windows.Forms.Button DealFormButtonVacancySelect;
         private System.Windows.Forms.Label DealFormLabelJobSeeker;
         private System.Windows.Forms.DataGridView DealFormDataGridViewJobSeeker;
+        private System.Windows.Forms.BindingSource vJobSeekersWithFIOListBindingSource;
+        private CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter vJobSeekersWithFIOListTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn видДеятельностиDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn квалификацияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn желаемаяЗарплатаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn иныеДанныеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаИзмененияDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button DealFormButtonJobSeekerSelect;
+        private System.Windows.Forms.Button DealFormButtonJobSeekerClear;
     }
 }
