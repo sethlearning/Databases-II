@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListsForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlPageUsers = new System.Windows.Forms.TabPage();
             this.ListsFormUsersDataGridView = new System.Windows.Forms.DataGridView();
@@ -74,16 +76,6 @@
             this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListsFormTabControlPageJobSeekers = new System.Windows.Forms.TabPage();
             this.ListsFormJobSeekersDataGridView = new System.Windows.Forms.DataGridView();
-            this.кодDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.отчествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.видДеятельностиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.квалификацияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.иныеДанныеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.датаИзмененияDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.пользовательDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vJobSeekersListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListsFormTabControlPageDeals = new System.Windows.Forms.TabPage();
             this.ListsFormDealsDataGridView = new System.Windows.Forms.DataGridView();
@@ -108,6 +100,16 @@
             this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
             this.vJobSeekersListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersListTableAdapter();
             this.vDealsListTableAdapter = new cp.CPDBDataSetTableAdapters.vDealsListTableAdapter();
+            this.кодDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.отчествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.видДеятельностиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.квалификацияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.иныеДанныеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаИзмененияDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пользовательDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кодDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.работодательDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -673,98 +675,6 @@
             this.ListsFormJobSeekersDataGridView.StandardTab = true;
             this.ListsFormJobSeekersDataGridView.TabIndex = 0;
             // 
-            // кодDataGridViewTextBoxColumn5
-            // 
-            this.кодDataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.кодDataGridViewTextBoxColumn5.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn5.FillWeight = 7F;
-            this.кодDataGridViewTextBoxColumn5.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn5.Name = "кодDataGridViewTextBoxColumn5";
-            this.кодDataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // фамилияDataGridViewTextBoxColumn
-            // 
-            this.фамилияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.фамилияDataGridViewTextBoxColumn.DataPropertyName = "Фамилия";
-            this.фамилияDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.фамилияDataGridViewTextBoxColumn.HeaderText = "Фамилия";
-            this.фамилияDataGridViewTextBoxColumn.Name = "фамилияDataGridViewTextBoxColumn";
-            this.фамилияDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // имяDataGridViewTextBoxColumn
-            // 
-            this.имяDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.имяDataGridViewTextBoxColumn.DataPropertyName = "Имя";
-            this.имяDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.имяDataGridViewTextBoxColumn.HeaderText = "Имя";
-            this.имяDataGridViewTextBoxColumn.Name = "имяDataGridViewTextBoxColumn";
-            this.имяDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // отчествоDataGridViewTextBoxColumn
-            // 
-            this.отчествоDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.отчествоDataGridViewTextBoxColumn.DataPropertyName = "Отчество";
-            this.отчествоDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.отчествоDataGridViewTextBoxColumn.HeaderText = "Отчество";
-            this.отчествоDataGridViewTextBoxColumn.Name = "отчествоDataGridViewTextBoxColumn";
-            this.отчествоDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // видДеятельностиDataGridViewTextBoxColumn1
-            // 
-            this.видДеятельностиDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.видДеятельностиDataGridViewTextBoxColumn1.DataPropertyName = "Вид деятельности";
-            this.видДеятельностиDataGridViewTextBoxColumn1.FillWeight = 20F;
-            this.видДеятельностиDataGridViewTextBoxColumn1.HeaderText = "Вид деятельности";
-            this.видДеятельностиDataGridViewTextBoxColumn1.Name = "видДеятельностиDataGridViewTextBoxColumn1";
-            this.видДеятельностиDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // квалификацияDataGridViewTextBoxColumn
-            // 
-            this.квалификацияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.квалификацияDataGridViewTextBoxColumn.DataPropertyName = "Квалификация";
-            this.квалификацияDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.квалификацияDataGridViewTextBoxColumn.HeaderText = "Квалификация";
-            this.квалификацияDataGridViewTextBoxColumn.Name = "квалификацияDataGridViewTextBoxColumn";
-            this.квалификацияDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // желаемаяЗарплатаDataGridViewTextBoxColumn
-            // 
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DataPropertyName = "Желаемая зарплата";
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.HeaderText = "Желаемая зарплата";
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.Name = "желаемаяЗарплатаDataGridViewTextBoxColumn";
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // иныеДанныеDataGridViewTextBoxColumn
-            // 
-            this.иныеДанныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.иныеДанныеDataGridViewTextBoxColumn.DataPropertyName = "Иные данные";
-            this.иныеДанныеDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.иныеДанныеDataGridViewTextBoxColumn.HeaderText = "Иные данные";
-            this.иныеДанныеDataGridViewTextBoxColumn.Name = "иныеДанныеDataGridViewTextBoxColumn";
-            this.иныеДанныеDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // датаИзмененияDataGridViewTextBoxColumn3
-            // 
-            this.датаИзмененияDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.датаИзмененияDataGridViewTextBoxColumn3.DataPropertyName = "Дата изменения";
-            this.датаИзмененияDataGridViewTextBoxColumn3.FillWeight = 20F;
-            this.датаИзмененияDataGridViewTextBoxColumn3.HeaderText = "Дата изменения";
-            this.датаИзмененияDataGridViewTextBoxColumn3.Name = "датаИзмененияDataGridViewTextBoxColumn3";
-            this.датаИзмененияDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.датаИзмененияDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // пользовательDataGridViewTextBoxColumn3
-            // 
-            this.пользовательDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.пользовательDataGridViewTextBoxColumn3.DataPropertyName = "Пользователь";
-            this.пользовательDataGridViewTextBoxColumn3.FillWeight = 20F;
-            this.пользовательDataGridViewTextBoxColumn3.HeaderText = "Пользователь";
-            this.пользовательDataGridViewTextBoxColumn3.Name = "пользовательDataGridViewTextBoxColumn3";
-            this.пользовательDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.пользовательDataGridViewTextBoxColumn3.Visible = false;
-            // 
             // vJobSeekersListBindingSource
             // 
             this.vJobSeekersListBindingSource.DataMember = "vJobSeekersList";
@@ -951,6 +861,101 @@
             // 
             this.vDealsListTableAdapter.ClearBeforeFill = true;
             // 
+            // кодDataGridViewTextBoxColumn5
+            // 
+            this.кодDataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.кодDataGridViewTextBoxColumn5.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn5.FillWeight = 7F;
+            this.кодDataGridViewTextBoxColumn5.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn5.Name = "кодDataGridViewTextBoxColumn5";
+            this.кодDataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // фамилияDataGridViewTextBoxColumn
+            // 
+            this.фамилияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.фамилияDataGridViewTextBoxColumn.DataPropertyName = "Фамилия";
+            this.фамилияDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.фамилияDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            this.фамилияDataGridViewTextBoxColumn.Name = "фамилияDataGridViewTextBoxColumn";
+            this.фамилияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // имяDataGridViewTextBoxColumn
+            // 
+            this.имяDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.имяDataGridViewTextBoxColumn.DataPropertyName = "Имя";
+            this.имяDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.имяDataGridViewTextBoxColumn.HeaderText = "Имя";
+            this.имяDataGridViewTextBoxColumn.Name = "имяDataGridViewTextBoxColumn";
+            this.имяDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // отчествоDataGridViewTextBoxColumn
+            // 
+            this.отчествоDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.отчествоDataGridViewTextBoxColumn.DataPropertyName = "Отчество";
+            this.отчествоDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.отчествоDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            this.отчествоDataGridViewTextBoxColumn.Name = "отчествоDataGridViewTextBoxColumn";
+            this.отчествоDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // видДеятельностиDataGridViewTextBoxColumn1
+            // 
+            this.видДеятельностиDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.видДеятельностиDataGridViewTextBoxColumn1.DataPropertyName = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn1.FillWeight = 20F;
+            this.видДеятельностиDataGridViewTextBoxColumn1.HeaderText = "Вид деятельности";
+            this.видДеятельностиDataGridViewTextBoxColumn1.Name = "видДеятельностиDataGridViewTextBoxColumn1";
+            this.видДеятельностиDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // квалификацияDataGridViewTextBoxColumn
+            // 
+            this.квалификацияDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.квалификацияDataGridViewTextBoxColumn.DataPropertyName = "Квалификация";
+            this.квалификацияDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.квалификацияDataGridViewTextBoxColumn.HeaderText = "Квалификация";
+            this.квалификацияDataGridViewTextBoxColumn.Name = "квалификацияDataGridViewTextBoxColumn";
+            this.квалификацияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // желаемаяЗарплатаDataGridViewTextBoxColumn
+            // 
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DataPropertyName = "Желаемая зарплата";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.HeaderText = "Желаемая зарплата";
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.Name = "желаемаяЗарплатаDataGridViewTextBoxColumn";
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // иныеДанныеDataGridViewTextBoxColumn
+            // 
+            this.иныеДанныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.иныеДанныеDataGridViewTextBoxColumn.DataPropertyName = "Иные данные";
+            this.иныеДанныеDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.иныеДанныеDataGridViewTextBoxColumn.HeaderText = "Иные данные";
+            this.иныеДанныеDataGridViewTextBoxColumn.Name = "иныеДанныеDataGridViewTextBoxColumn";
+            this.иныеДанныеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИзмененияDataGridViewTextBoxColumn3
+            // 
+            this.датаИзмененияDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.датаИзмененияDataGridViewTextBoxColumn3.DataPropertyName = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn3.FillWeight = 20F;
+            this.датаИзмененияDataGridViewTextBoxColumn3.HeaderText = "Дата изменения";
+            this.датаИзмененияDataGridViewTextBoxColumn3.Name = "датаИзмененияDataGridViewTextBoxColumn3";
+            this.датаИзмененияDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.датаИзмененияDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // пользовательDataGridViewTextBoxColumn3
+            // 
+            this.пользовательDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.пользовательDataGridViewTextBoxColumn3.DataPropertyName = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn3.FillWeight = 20F;
+            this.пользовательDataGridViewTextBoxColumn3.HeaderText = "Пользователь";
+            this.пользовательDataGridViewTextBoxColumn3.Name = "пользовательDataGridViewTextBoxColumn3";
+            this.пользовательDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.пользовательDataGridViewTextBoxColumn3.Visible = false;
+            // 
             // кодDataGridViewTextBoxColumn6
             // 
             this.кодDataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1000,6 +1005,9 @@
             // 
             this.комиссионныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.комиссионныеDataGridViewTextBoxColumn.DataPropertyName = "Комиссионные";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.комиссионныеDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.комиссионныеDataGridViewTextBoxColumn.FillWeight = 20F;
             this.комиссионныеDataGridViewTextBoxColumn.HeaderText = "Комиссионные";
             this.комиссионныеDataGridViewTextBoxColumn.Name = "комиссионныеDataGridViewTextBoxColumn";
@@ -1142,6 +1150,9 @@
         private System.Windows.Forms.DataGridView ListsFormJobSeekersDataGridView;
         private System.Windows.Forms.BindingSource vJobSeekersListBindingSource;
         private CPDBDataSetTableAdapters.vJobSeekersListTableAdapter vJobSeekersListTableAdapter;
+        private System.Windows.Forms.DataGridView ListsFormDealsDataGridView;
+        private System.Windows.Forms.BindingSource vDealsListBindingSource;
+        private CPDBDataSetTableAdapters.vDealsListTableAdapter vDealsListTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn фамилияDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn имяDataGridViewTextBoxColumn;
@@ -1152,9 +1163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn иныеДанныеDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датаИзмененияDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridView ListsFormDealsDataGridView;
-        private System.Windows.Forms.BindingSource vDealsListBindingSource;
-        private CPDBDataSetTableAdapters.vDealsListTableAdapter vDealsListTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn работодательDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn видДеятельностиDataGridViewTextBoxColumn2;
