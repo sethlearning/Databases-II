@@ -8,3 +8,4 @@ DROP VIEW IF EXISTS dbo.vWorkCategoriesList
 DROP VIEW IF EXISTS dbo.vEmployersList
 DROP VIEW IF EXISTS dbo.vVacanciesList
 DROP VIEW IF EXISTS dbo.vJobSeekersList
+DROP VIEW IF EXISTS dbo.vDealsList

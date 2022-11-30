@@ -41,3 +41,9 @@ CREATE VIEW dbo.vJobSeekersList AS
     FROM dbo.JobSeekers AS J, dbo.WorkCategories AS W, dbo.Users AS U
     WHERE J.WorkCategory = W.Code AND J.ChangedBy = U.Code
 GO
+
+CREATE VIEW dbo.vDealsList AS
+    SELECT D.Code AS Код, E.Name AS Работодатель, W.Name AS [Вид деятельности], V.Position AS Должность, dbo.fGetFullName(J.LastName, J.FirstName, J.MiddleName) AS Соискатель, D.Commission AS Комиссионные, D.ChangeTime AS [Дата изменения], U.UserName AS Пользователь
+    FROM dbo.Deals AS D, dbo.Employers AS E, dbo.WorkCategories AS W, dbo.Vacancies AS V, dbo.JobSeekers AS J, dbo.Users AS U
+    WHERE D.JobSeeker = J.Code AND D.Vacancy = V.Code AND V.Employer = E.Code AND V.WorkCategory = W.Code AND D.ChangedBy = U.Code
+GO
