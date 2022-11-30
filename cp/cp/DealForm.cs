@@ -114,7 +114,27 @@ namespace cp
 
             if (_isValid)
             {
-
+                if (_newDeal)
+                {
+                    _queriesTableAdapter.pAddDeal(JobSeeker: this.cPDBDataSet.vJobSeekersWithFIOList[0].Код,
+                                                  Vacancy: this.cPDBDataSet.vVacanciesList[0].Код,
+                                                  Commission: DealFormNumericUpDownCommission.Value,
+                                                  UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else if (this.cPDBDataSet.vVacanciesList[0].Код != _dealsRow.Vacancy ||
+                         this.cPDBDataSet.vJobSeekersWithFIOList[0].Код != _dealsRow.JobSeeker ||
+                         DealFormNumericUpDownCommission.Value != _dealsRow.Commission)
+                {
+                    _queriesTableAdapter.pUpdateDeal(Code: _dealsRow.Code,
+                                                     JobSeeker: this.cPDBDataSet.vJobSeekersWithFIOList[0].Код,
+                                                     Vacancy: this.cPDBDataSet.vVacanciesList[0].Код,
+                                                     Commission: DealFormNumericUpDownCommission.Value,
+                                                     UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                    this.DialogResult = DialogResult.Cancel;
             }
         }
     }
