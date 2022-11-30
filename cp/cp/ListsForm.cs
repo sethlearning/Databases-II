@@ -58,8 +58,6 @@ namespace cp
         #region ListsForm events
         private void ListsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vJobSeekersList' table. You can move, or remove it, as needed.
-            //this.vJobSeekersListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersList);
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
         }
@@ -198,6 +196,8 @@ namespace cp
             if((_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
             {
                 ListsFormJobSeekersDataGridView.AllowUserToAddRows = true;
+                this.ListsFormJobSeekersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsFormJobSeekersDataGridView_CellDoubleClick);
+                this.ListsFormJobSeekersDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListsFormJobSeekersDataGridView_KeyDown);
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
             }
             if ((_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
@@ -579,6 +579,38 @@ namespace cp
                 DeleteVacancy();
         }
         #endregion Vacancies events
+
+        #region JobSeekers methods
+        private void EditJobSeeker(bool newJobSeekerControl)
+        {
+
+        }
+
+        private void DeleteJobSeeker()
+        {
+
+        }
+        #endregion JobSeekers methods
+
+        #region JobSeekers events
+        private void ListsFormJobSeekersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditJobSeeker(newJobSeekerControl: false);
+        }
+
+        private void ListsFormJobSeekersDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Insert || e.KeyCode == Keys.Delete)
+                e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Insert)
+                EditJobSeeker(newJobSeekerControl: true);
+            else if (e.KeyCode == Keys.Enter)
+                EditJobSeeker(newJobSeekerControl: false);
+            else if (e.KeyCode == Keys.Delete)
+                DeleteJobSeeker();
+        }
+        #endregion JobSeekers events
 
         #region Logout
         private void ListsForm_FormClosed(object sender, FormClosedEventArgs e)
