@@ -24,12 +24,14 @@ namespace cp
         private CPDBDataSet.EmployersRow _employersRow;
         private CPDBDataSet.VacanciesRow _vacanciesRow;
         private CPDBDataSet.JobSeekersRow _jobSeekersRow;
+        private CPDBDataSet.DealsRow _dealsRow;
         private CPDBDataSetTableAdapters.UsersTableAdapter _usersTableAdapter;
         private CPDBDataSetTableAdapters.RolesTableAdapter _rolesTableAdapter;
         private CPDBDataSetTableAdapters.WorkCategoriesTableAdapter _workCategoriesTableAdapter;
         private CPDBDataSetTableAdapters.EmployersTableAdapter _employersTableAdapter;
         private CPDBDataSetTableAdapters.VacanciesTableAdapter _vacanciesTableAdapter;
         private CPDBDataSetTableAdapters.JobSeekersTableAdapter _jobSeekerTableAdapter;
+        private CPDBDataSetTableAdapters.DealsTableAdapter _dealsTableAdapter;
         private CPDBDataSetTableAdapters.QueriesTableAdapter _queriesTableAdapter;
 
         public ListsForm(LoginForm loginForm, AccessRights accessRights, int userCode, int userRole)
@@ -51,6 +53,8 @@ namespace cp
             _vacanciesTableAdapter.ClearBeforeFill = true;
             _jobSeekerTableAdapter = new CPDBDataSetTableAdapters.JobSeekersTableAdapter();
             _jobSeekerTableAdapter.ClearBeforeFill = true;
+            _dealsTableAdapter = new CPDBDataSetTableAdapters.DealsTableAdapter();
+            _dealsTableAdapter.ClearBeforeFill = true;
             _queriesTableAdapter = new CPDBDataSetTableAdapters.QueriesTableAdapter();
             ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
         }
@@ -206,6 +210,23 @@ namespace cp
                 ListsFormJobSeekersDataGridView.Columns["пользовательDataGridViewTextBoxColumn3"].Visible = true;
             }
             #endregion JobSeekers
+
+            #region Deals
+            if ((_accessRights & AccessRights.DealsView) == AccessRights.DealsView ||
+                (_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit ||
+                (_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
+            {
+                ListsFormTabControl.TabPages.Add(ListsFormTabControlPageDeals);
+            }
+            if ((_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
+            {
+                _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
+            }
+            if ((_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
+            {
+
+            }
+            #endregion Deals
         }
 
         private void ConfigureInterfaceButtons()
@@ -215,7 +236,8 @@ namespace cp
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageWorkCategories" && (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageEmployers" && (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
                  ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageVacancies" && (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
-                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers" && (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageJobSeekers" && (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit ||
+                 ListsFormTabControl.SelectedTab.Name == "ListsFormTabControlPageDeals" && (_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
             {
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
