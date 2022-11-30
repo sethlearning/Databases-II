@@ -27,6 +27,9 @@ namespace cp
 
         private void DealForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cPDBDataSet.vVacanciesList' table. You can move, or remove it, as needed.
+            //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
+            
             if (_dealsRow.Code < 0)
             {
                 _newDeal = true;
@@ -34,8 +37,22 @@ namespace cp
             }
             else
             {
+                this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, _dealsRow.Code);
                 DealFormTextBoxCode.Text = _dealsRow.Code.ToString();
             }
+        }
+
+        private void DealFormButtonVacancyClear_Click(object sender, EventArgs e)
+        {
+            this.cPDBDataSet.vVacanciesList.Clear();
+        }
+
+        private void DealFormButtonVacancySelect_Click(object sender, EventArgs e)
+        {
+            DealVacancySelectForm dealVacancySelectForm = new DealVacancySelectForm();
+            DialogResult dealVacancySelectFormDialogResult = dealVacancySelectForm.ShowDialog();
+            MessageBox.Show(dealVacancySelectFormDialogResult.ToString());
+            this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, dealVacancySelectForm._code);
         }
     }
 }
