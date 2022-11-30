@@ -93,8 +93,37 @@ namespace cp
 
                 if (_newJobSeeker)
                 {
-
+                    _queriesTableAdapter.pAddJobSeeker(LastName: JobSeekerFormTextBoxLastName.Text,
+                                                       FirstName: JobSeekerFormTextBoxFirstName.Text,
+                                                       MiddleName: String.IsNullOrEmpty(JobSeekerFormTextBoxMiddleName.Text) ? null : JobSeekerFormTextBoxMiddleName.Text,
+                                                       WorkCategory: (int)JobSeekerFormComboBoxWorkCategory.SelectedValue,
+                                                       Qualification: String.IsNullOrEmpty(JobSeekerFormTextBoxQualification.Text) ? null : JobSeekerFormTextBoxQualification.Text,
+                                                       DesiredSalary: desiredSalary,
+                                                       Notes: String.IsNullOrEmpty(JobSeekerFormTextBoxNotes.Text) ? null : JobSeekerFormTextBoxNotes.Text,
+                                                       UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
                 }
+                else if (JobSeekerFormTextBoxLastName.Text != _jobSeekersRow.LastName ||
+                         JobSeekerFormTextBoxFirstName.Text != _jobSeekersRow.FirstName ||
+                         JobSeekerFormTextBoxMiddleName.Text != _jobSeekersRow.MiddleName ||
+                         (int)JobSeekerFormComboBoxWorkCategory.SelectedValue != _jobSeekersRow.WorkCategory ||
+                         JobSeekerFormTextBoxQualification.Text != _jobSeekersRow.Qualification ||
+                         JobSeekerFormNumericUpDownDesiredSalary.Value != _jobSeekersRow.DesiredSalary ||
+                         JobSeekerFormTextBoxNotes.Text != _jobSeekersRow.Notes)
+                {
+                    _queriesTableAdapter.pUpdateJobSeeker(Code: _jobSeekersRow.Code,
+                                                          LastName: JobSeekerFormTextBoxLastName.Text,
+                                                          FirstName: JobSeekerFormTextBoxFirstName.Text,
+                                                          MiddleName: String.IsNullOrEmpty(JobSeekerFormTextBoxMiddleName.Text) ? null : JobSeekerFormTextBoxMiddleName.Text,
+                                                          WorkCategory: (int)JobSeekerFormComboBoxWorkCategory.SelectedValue,
+                                                          Qualification: String.IsNullOrEmpty(JobSeekerFormTextBoxQualification.Text) ? null : JobSeekerFormTextBoxQualification.Text,
+                                                          DesiredSalary: desiredSalary,
+                                                          Notes: String.IsNullOrEmpty(JobSeekerFormTextBoxNotes.Text) ? null : JobSeekerFormTextBoxNotes.Text,
+                                                          UserCode: _userCode);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                    this.DialogResult = DialogResult.Cancel;
             }
         }
     }

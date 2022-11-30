@@ -41,8 +41,8 @@
             this.JobSeekerFormTextBoxMiddleName = new System.Windows.Forms.TextBox();
             this.JobSeekerFormLabelWorkCategory = new System.Windows.Forms.Label();
             this.JobSeekerFormComboBoxWorkCategory = new System.Windows.Forms.ComboBox();
-            this.cPDBDataSet = new cp.CPDBDataSet();
             this.workCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
             this.workCategoriesTableAdapter = new cp.CPDBDataSetTableAdapters.WorkCategoriesTableAdapter();
             this.JobSeekerFormLabelQualification = new System.Windows.Forms.Label();
             this.JobSeekerFormTextBoxQualification = new System.Windows.Forms.TextBox();
@@ -50,8 +50,8 @@
             this.JobSeekerFormNumericUpDownDesiredSalary = new System.Windows.Forms.NumericUpDown();
             this.JobSeekerFormLabelNotes = new System.Windows.Forms.Label();
             this.JobSeekerFormTextBoxNotes = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JobSeekerFormNumericUpDownDesiredSalary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             this.JobSeekerFormButtonOK.Location = new System.Drawing.Point(240, 383);
             this.JobSeekerFormButtonOK.Name = "JobSeekerFormButtonOK";
             this.JobSeekerFormButtonOK.Size = new System.Drawing.Size(75, 23);
-            this.JobSeekerFormButtonOK.TabIndex = 2;
+            this.JobSeekerFormButtonOK.TabIndex = 7;
             this.JobSeekerFormButtonOK.Text = "OK";
             this.JobSeekerFormButtonOK.UseVisualStyleBackColor = true;
             this.JobSeekerFormButtonOK.Click += new System.EventHandler(this.JobSeekerFormButtonOK_Click);
@@ -89,7 +89,7 @@
             this.JobSeekerFormButtonCancel.Location = new System.Drawing.Point(340, 383);
             this.JobSeekerFormButtonCancel.Name = "JobSeekerFormButtonCancel";
             this.JobSeekerFormButtonCancel.Size = new System.Drawing.Size(75, 23);
-            this.JobSeekerFormButtonCancel.TabIndex = 3;
+            this.JobSeekerFormButtonCancel.TabIndex = 8;
             this.JobSeekerFormButtonCancel.Text = "Cancel";
             this.JobSeekerFormButtonCancel.UseVisualStyleBackColor = true;
             // 
@@ -107,7 +107,7 @@
             this.JobSeekerFormTextBoxLastName.Location = new System.Drawing.Point(140, 62);
             this.JobSeekerFormTextBoxLastName.Name = "JobSeekerFormTextBoxLastName";
             this.JobSeekerFormTextBoxLastName.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormTextBoxLastName.TabIndex = 5;
+            this.JobSeekerFormTextBoxLastName.TabIndex = 0;
             // 
             // JobSeekerFormLabelFirstName
             // 
@@ -123,7 +123,7 @@
             this.JobSeekerFormTextBoxFirstName.Location = new System.Drawing.Point(140, 107);
             this.JobSeekerFormTextBoxFirstName.Name = "JobSeekerFormTextBoxFirstName";
             this.JobSeekerFormTextBoxFirstName.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormTextBoxFirstName.TabIndex = 7;
+            this.JobSeekerFormTextBoxFirstName.TabIndex = 1;
             // 
             // JobSeekerFormLabelMiddleName
             // 
@@ -139,7 +139,7 @@
             this.JobSeekerFormTextBoxMiddleName.Location = new System.Drawing.Point(140, 152);
             this.JobSeekerFormTextBoxMiddleName.Name = "JobSeekerFormTextBoxMiddleName";
             this.JobSeekerFormTextBoxMiddleName.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormTextBoxMiddleName.TabIndex = 9;
+            this.JobSeekerFormTextBoxMiddleName.TabIndex = 2;
             // 
             // JobSeekerFormLabelWorkCategory
             // 
@@ -159,18 +159,18 @@
             this.JobSeekerFormComboBoxWorkCategory.Location = new System.Drawing.Point(140, 197);
             this.JobSeekerFormComboBoxWorkCategory.Name = "JobSeekerFormComboBoxWorkCategory";
             this.JobSeekerFormComboBoxWorkCategory.Size = new System.Drawing.Size(275, 21);
-            this.JobSeekerFormComboBoxWorkCategory.TabIndex = 11;
+            this.JobSeekerFormComboBoxWorkCategory.TabIndex = 3;
             this.JobSeekerFormComboBoxWorkCategory.ValueMember = "Code";
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // workCategoriesBindingSource
             // 
             this.workCategoriesBindingSource.DataMember = "WorkCategories";
             this.workCategoriesBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // workCategoriesTableAdapter
             // 
@@ -190,7 +190,7 @@
             this.JobSeekerFormTextBoxQualification.Location = new System.Drawing.Point(140, 242);
             this.JobSeekerFormTextBoxQualification.Name = "JobSeekerFormTextBoxQualification";
             this.JobSeekerFormTextBoxQualification.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormTextBoxQualification.TabIndex = 13;
+            this.JobSeekerFormTextBoxQualification.TabIndex = 4;
             // 
             // JobSeekerFormLabelDesiredSalary
             // 
@@ -217,7 +217,7 @@
             0});
             this.JobSeekerFormNumericUpDownDesiredSalary.Name = "JobSeekerFormNumericUpDownDesiredSalary";
             this.JobSeekerFormNumericUpDownDesiredSalary.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormNumericUpDownDesiredSalary.TabIndex = 15;
+            this.JobSeekerFormNumericUpDownDesiredSalary.TabIndex = 5;
             this.JobSeekerFormNumericUpDownDesiredSalary.ThousandsSeparator = true;
             // 
             // JobSeekerFormLabelNotes
@@ -234,7 +234,7 @@
             this.JobSeekerFormTextBoxNotes.Location = new System.Drawing.Point(140, 332);
             this.JobSeekerFormTextBoxNotes.Name = "JobSeekerFormTextBoxNotes";
             this.JobSeekerFormTextBoxNotes.Size = new System.Drawing.Size(275, 20);
-            this.JobSeekerFormTextBoxNotes.TabIndex = 17;
+            this.JobSeekerFormTextBoxNotes.TabIndex = 6;
             // 
             // JobSeekerForm
             // 
@@ -265,8 +265,8 @@
             this.Name = "JobSeekerForm";
             this.Text = "Соискатель";
             this.Load += new System.EventHandler(this.JobSeekerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JobSeekerFormNumericUpDownDesiredSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
