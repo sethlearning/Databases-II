@@ -97,6 +97,7 @@
             this.DealFormButtonOK.TabIndex = 2;
             this.DealFormButtonOK.Text = "OK";
             this.DealFormButtonOK.UseVisualStyleBackColor = true;
+            this.DealFormButtonOK.Click += new System.EventHandler(this.DealFormButtonOK_Click);
             // 
             // DealFormButtonCancel
             // 

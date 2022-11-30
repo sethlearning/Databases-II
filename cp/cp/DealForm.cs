@@ -31,10 +31,6 @@ namespace cp
 
         private void DealForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cPDBDataSet.vJobSeekersWithFIOList' table. You can move, or remove it, as needed.
-            //this.vJobSeekersWithFIOListTableAdapter.Fill(this.cPDBDataSet.vJobSeekersWithFIOList);
-            // TODO: This line of code loads data into the 'cPDBDataSet.vVacanciesList' table. You can move, or remove it, as needed.
-            //this.vVacanciesListTableAdapter.Fill(this.cPDBDataSet.vVacanciesList);
             _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
             _jobSeekersTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
 
@@ -94,6 +90,32 @@ namespace cp
         private void DealFormButtonJobSeekerClear_Click(object sender, EventArgs e)
         {
             this.cPDBDataSet.vJobSeekersWithFIOList.Clear();
+        }
+
+        private void DealFormButtonOK_Click(object sender, EventArgs e)
+        {
+            _isValid = true;
+
+            if (this.cPDBDataSet.vVacanciesList.Count == 0)
+            {
+                _isValid = false;
+                DealFormLabelVacancy.ForeColor = Utilities.WrongColor;
+            }
+            else
+                DealFormLabelVacancy.ForeColor = Utilities.RightColor;
+
+            if (this.cPDBDataSet.vJobSeekersWithFIOList.Count == 0)
+            {
+                _isValid = false;
+                DealFormLabelJobSeeker.ForeColor = Utilities.WrongColor;
+            }
+            else
+                DealFormLabelJobSeeker.ForeColor = Utilities.RightColor;
+
+            if (_isValid)
+            {
+
+            }
         }
     }
 }
