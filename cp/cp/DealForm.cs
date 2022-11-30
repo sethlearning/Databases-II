@@ -51,6 +51,7 @@ namespace cp
             DialogResult dealVacancySelectFormDialogResult = dealVacancySelectForm.ShowDialog();
             MessageBox.Show(dealVacancySelectFormDialogResult.ToString());
             this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, dealVacancySelectForm._code);
+            dealVacancySelectForm.Dispose();
         }
 
         private void DealFormButtonVacancyClear_Click(object sender, EventArgs e)
@@ -60,7 +61,11 @@ namespace cp
 
         private void DealFormButtonJobSeekerSelect_Click(object sender, EventArgs e)
         {
-
+            DealJobSeekerSelectForm dealJobSeekerSelectForm = new DealJobSeekerSelectForm();
+            DialogResult dealJobSeekerSelectFormDialogResult = dealJobSeekerSelectForm.ShowDialog();
+            MessageBox.Show(dealJobSeekerSelectFormDialogResult.ToString());
+            this.vJobSeekersWithFIOListTableAdapter.FillByCode(this.cPDBDataSet.vJobSeekersWithFIOList, dealJobSeekerSelectForm._code);
+            dealJobSeekerSelectForm.Dispose();
         }
 
         private void DealFormButtonJobSeekerClear_Click(object sender, EventArgs e)
