@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DealJobSeekerSelectFormDataGridView = new System.Windows.Forms.DataGridView();
-            this.DealJobSeekerSelectFormButtonOK = new System.Windows.Forms.Button();
-            this.DealJobSeekerSelectFormButtonCancel = new System.Windows.Forms.Button();
-            this.cPDBDataSet = new cp.CPDBDataSet();
-            this.vJobSeekersWithFIOListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vJobSeekersWithFIOListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +38,14 @@
             this.иныеДанныеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vJobSeekersWithFIOListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
+            this.DealJobSeekerSelectFormButtonOK = new System.Windows.Forms.Button();
+            this.DealJobSeekerSelectFormButtonCancel = new System.Windows.Forms.Button();
+            this.vJobSeekersWithFIOListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DealJobSeekerSelectFormDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // DealJobSeekerSelectFormDataGridView
@@ -82,39 +82,6 @@
             this.DealJobSeekerSelectFormDataGridView.TabIndex = 0;
             this.DealJobSeekerSelectFormDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DealJobSeekerSelectFormDataGridView_CellDoubleClick);
             this.DealJobSeekerSelectFormDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DealJobSeekerSelectFormDataGridView_KeyDown);
-            // 
-            // DealJobSeekerSelectFormButtonOK
-            // 
-            this.DealJobSeekerSelectFormButtonOK.Location = new System.Drawing.Point(615, 426);
-            this.DealJobSeekerSelectFormButtonOK.Name = "DealJobSeekerSelectFormButtonOK";
-            this.DealJobSeekerSelectFormButtonOK.Size = new System.Drawing.Size(75, 23);
-            this.DealJobSeekerSelectFormButtonOK.TabIndex = 1;
-            this.DealJobSeekerSelectFormButtonOK.Text = "OK";
-            this.DealJobSeekerSelectFormButtonOK.UseVisualStyleBackColor = true;
-            this.DealJobSeekerSelectFormButtonOK.Click += new System.EventHandler(this.DealJobSeekerSelectFormButtonOK_Click);
-            // 
-            // DealJobSeekerSelectFormButtonCancel
-            // 
-            this.DealJobSeekerSelectFormButtonCancel.Location = new System.Drawing.Point(720, 426);
-            this.DealJobSeekerSelectFormButtonCancel.Name = "DealJobSeekerSelectFormButtonCancel";
-            this.DealJobSeekerSelectFormButtonCancel.Size = new System.Drawing.Size(75, 23);
-            this.DealJobSeekerSelectFormButtonCancel.TabIndex = 2;
-            this.DealJobSeekerSelectFormButtonCancel.Text = "Cancel";
-            this.DealJobSeekerSelectFormButtonCancel.UseVisualStyleBackColor = true;
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vJobSeekersWithFIOListBindingSource
-            // 
-            this.vJobSeekersWithFIOListBindingSource.DataMember = "vJobSeekersWithFIOList";
-            this.vJobSeekersWithFIOListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // vJobSeekersWithFIOListTableAdapter
-            // 
-            this.vJobSeekersWithFIOListTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -186,10 +153,46 @@
             this.пользовательDataGridViewTextBoxColumn.ReadOnly = true;
             this.пользовательDataGridViewTextBoxColumn.Visible = false;
             // 
+            // vJobSeekersWithFIOListBindingSource
+            // 
+            this.vJobSeekersWithFIOListBindingSource.DataMember = "vJobSeekersWithFIOList";
+            this.vJobSeekersWithFIOListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DealJobSeekerSelectFormButtonOK
+            // 
+            this.DealJobSeekerSelectFormButtonOK.Location = new System.Drawing.Point(615, 426);
+            this.DealJobSeekerSelectFormButtonOK.Name = "DealJobSeekerSelectFormButtonOK";
+            this.DealJobSeekerSelectFormButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.DealJobSeekerSelectFormButtonOK.TabIndex = 1;
+            this.DealJobSeekerSelectFormButtonOK.Text = "OK";
+            this.DealJobSeekerSelectFormButtonOK.UseVisualStyleBackColor = true;
+            this.DealJobSeekerSelectFormButtonOK.Click += new System.EventHandler(this.DealJobSeekerSelectFormButtonOK_Click);
+            // 
+            // DealJobSeekerSelectFormButtonCancel
+            // 
+            this.DealJobSeekerSelectFormButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.DealJobSeekerSelectFormButtonCancel.Location = new System.Drawing.Point(720, 426);
+            this.DealJobSeekerSelectFormButtonCancel.Name = "DealJobSeekerSelectFormButtonCancel";
+            this.DealJobSeekerSelectFormButtonCancel.Size = new System.Drawing.Size(75, 23);
+            this.DealJobSeekerSelectFormButtonCancel.TabIndex = 2;
+            this.DealJobSeekerSelectFormButtonCancel.Text = "Cancel";
+            this.DealJobSeekerSelectFormButtonCancel.UseVisualStyleBackColor = true;
+            // 
+            // vJobSeekersWithFIOListTableAdapter
+            // 
+            this.vJobSeekersWithFIOListTableAdapter.ClearBeforeFill = true;
+            // 
             // DealJobSeekerSelectForm
             // 
+            this.AcceptButton = this.DealJobSeekerSelectFormButtonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.DealJobSeekerSelectFormButtonCancel;
             this.ClientSize = new System.Drawing.Size(800, 458);
             this.Controls.Add(this.DealJobSeekerSelectFormButtonCancel);
             this.Controls.Add(this.DealJobSeekerSelectFormButtonOK);
@@ -199,8 +202,8 @@
             this.Text = "DealJobSeekerSelectForm";
             this.Load += new System.EventHandler(this.DealJobSeekerSelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DealJobSeekerSelectFormDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

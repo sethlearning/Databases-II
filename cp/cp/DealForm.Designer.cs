@@ -49,8 +49,6 @@
             this.DealFormButtonVacancySelect = new System.Windows.Forms.Button();
             this.DealFormLabelJobSeeker = new System.Windows.Forms.Label();
             this.DealFormDataGridViewJobSeeker = new System.Windows.Forms.DataGridView();
-            this.vJobSeekersWithFIOListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vJobSeekersWithFIOListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter();
             this.кодDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,13 +57,18 @@
             this.иныеДанныеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vJobSeekersWithFIOListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vJobSeekersWithFIOListTableAdapter = new cp.CPDBDataSetTableAdapters.vJobSeekersWithFIOListTableAdapter();
             this.DealFormButtonJobSeekerSelect = new System.Windows.Forms.Button();
             this.DealFormButtonJobSeekerClear = new System.Windows.Forms.Button();
+            this.DealFormLabelCommission = new System.Windows.Forms.Label();
+            this.DealFormNumericUpDownCommission = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewVacancy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DealFormNumericUpDownCommission)).BeginInit();
             this.SuspendLayout();
             // 
             // DealFormLabelCode
@@ -88,7 +91,7 @@
             // 
             // DealFormButtonOK
             // 
-            this.DealFormButtonOK.Location = new System.Drawing.Point(240, 388);
+            this.DealFormButtonOK.Location = new System.Drawing.Point(699, 311);
             this.DealFormButtonOK.Name = "DealFormButtonOK";
             this.DealFormButtonOK.Size = new System.Drawing.Size(75, 23);
             this.DealFormButtonOK.TabIndex = 2;
@@ -98,7 +101,7 @@
             // DealFormButtonCancel
             // 
             this.DealFormButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.DealFormButtonCancel.Location = new System.Drawing.Point(340, 388);
+            this.DealFormButtonCancel.Location = new System.Drawing.Point(794, 311);
             this.DealFormButtonCancel.Name = "DealFormButtonCancel";
             this.DealFormButtonCancel.Size = new System.Drawing.Size(75, 23);
             this.DealFormButtonCancel.TabIndex = 3;
@@ -120,8 +123,7 @@
             this.DealFormDataGridViewVacancy.AllowUserToDeleteRows = false;
             this.DealFormDataGridViewVacancy.AllowUserToResizeColumns = false;
             this.DealFormDataGridViewVacancy.AllowUserToResizeRows = false;
-            this.DealFormDataGridViewVacancy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DealFormDataGridViewVacancy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DealFormDataGridViewVacancy.AutoGenerateColumns = false;
             this.DealFormDataGridViewVacancy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -256,8 +258,7 @@
             this.DealFormDataGridViewJobSeeker.AllowUserToDeleteRows = false;
             this.DealFormDataGridViewJobSeeker.AllowUserToResizeColumns = false;
             this.DealFormDataGridViewJobSeeker.AllowUserToResizeRows = false;
-            this.DealFormDataGridViewJobSeeker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DealFormDataGridViewJobSeeker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DealFormDataGridViewJobSeeker.AutoGenerateColumns = false;
             this.DealFormDataGridViewJobSeeker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -282,15 +283,6 @@
             this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 42);
             this.DealFormDataGridViewJobSeeker.StandardTab = true;
             this.DealFormDataGridViewJobSeeker.TabIndex = 9;
-            // 
-            // vJobSeekersWithFIOListBindingSource
-            // 
-            this.vJobSeekersWithFIOListBindingSource.DataMember = "vJobSeekersWithFIOList";
-            this.vJobSeekersWithFIOListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // vJobSeekersWithFIOListTableAdapter
-            // 
-            this.vJobSeekersWithFIOListTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn1
             // 
@@ -362,6 +354,15 @@
             this.пользовательDataGridViewTextBoxColumn1.ReadOnly = true;
             this.пользовательDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // vJobSeekersWithFIOListBindingSource
+            // 
+            this.vJobSeekersWithFIOListBindingSource.DataMember = "vJobSeekersWithFIOList";
+            this.vJobSeekersWithFIOListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // vJobSeekersWithFIOListTableAdapter
+            // 
+            this.vJobSeekersWithFIOListTableAdapter.ClearBeforeFill = true;
+            // 
             // DealFormButtonJobSeekerSelect
             // 
             this.DealFormButtonJobSeekerSelect.Location = new System.Drawing.Point(699, 200);
@@ -382,13 +383,43 @@
             this.DealFormButtonJobSeekerClear.UseVisualStyleBackColor = true;
             this.DealFormButtonJobSeekerClear.Click += new System.EventHandler(this.DealFormButtonJobSeekerClear_Click);
             // 
+            // DealFormLabelCommission
+            // 
+            this.DealFormLabelCommission.AutoSize = true;
+            this.DealFormLabelCommission.Location = new System.Drawing.Point(20, 248);
+            this.DealFormLabelCommission.Name = "DealFormLabelCommission";
+            this.DealFormLabelCommission.Size = new System.Drawing.Size(87, 13);
+            this.DealFormLabelCommission.TabIndex = 12;
+            this.DealFormLabelCommission.Text = "Комиссионные:";
+            // 
+            // DealFormNumericUpDownCommission
+            // 
+            this.DealFormNumericUpDownCommission.DecimalPlaces = 2;
+            this.DealFormNumericUpDownCommission.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.DealFormNumericUpDownCommission.Location = new System.Drawing.Point(140, 245);
+            this.DealFormNumericUpDownCommission.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.DealFormNumericUpDownCommission.Name = "DealFormNumericUpDownCommission";
+            this.DealFormNumericUpDownCommission.Size = new System.Drawing.Size(275, 20);
+            this.DealFormNumericUpDownCommission.TabIndex = 13;
+            this.DealFormNumericUpDownCommission.ThousandsSeparator = true;
+            // 
             // DealForm
             // 
             this.AcceptButton = this.DealFormButtonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.DealFormButtonCancel;
-            this.ClientSize = new System.Drawing.Size(892, 450);
+            this.ClientSize = new System.Drawing.Size(892, 354);
+            this.Controls.Add(this.DealFormNumericUpDownCommission);
+            this.Controls.Add(this.DealFormLabelCommission);
             this.Controls.Add(this.DealFormButtonJobSeekerClear);
             this.Controls.Add(this.DealFormButtonJobSeekerSelect);
             this.Controls.Add(this.DealFormDataGridViewJobSeeker);
@@ -410,6 +441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DealFormDataGridViewJobSeeker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DealFormNumericUpDownCommission)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,5 +481,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn пользовательDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button DealFormButtonJobSeekerSelect;
         private System.Windows.Forms.Button DealFormButtonJobSeekerClear;
+        private System.Windows.Forms.Label DealFormLabelCommission;
+        private System.Windows.Forms.NumericUpDown DealFormNumericUpDownCommission;
     }
 }

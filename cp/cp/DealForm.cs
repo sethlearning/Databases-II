@@ -42,6 +42,7 @@ namespace cp
                 this.vVacanciesListTableAdapter.FillByCode(this.cPDBDataSet.vVacanciesList, _dealsRow.Vacancy);
                 this.vJobSeekersWithFIOListTableAdapter.FillByCode(this.cPDBDataSet.vJobSeekersWithFIOList, _dealsRow.JobSeeker);
                 DealFormTextBoxCode.Text = _dealsRow.Code.ToString();
+                DealFormNumericUpDownCommission.Value = _dealsRow.Commission;
             }
         }
 
