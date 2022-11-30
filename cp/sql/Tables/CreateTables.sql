@@ -288,7 +288,6 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
             JobSeeker INT NOT NULL CONSTRAINT FK_Deals_JobSeeker FOREIGN KEY REFERENCES dbo.JobSeekers(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_JobSeeker NONCLUSTERED WITH (FILLFACTOR = 90),
             Vacancy INT NOT NULL CONSTRAINT FK_Deals_Vacancy FOREIGN KEY REFERENCES dbo.Vacancies(Code) ON DELETE NO ACTION ON UPDATE NO ACTION INDEX Idx_Vacancy NONCLUSTERED WITH (FILLFACTOR = 90),
             Commission MONEY NOT NULL,
-            DateClosed DATE NOT NULL INDEX Idx_Date NONCLUSTERED WITH (FILLFACTOR = 90),
             ChangeTime DATETIME2 NOT NULL,
             ChangedBy INT NOT NULL CONSTRAINT FK_Deals_ChangedBy FOREIGN KEY REFERENCES dbo.Users (Code) ON DELETE NO ACTION ON UPDATE NO ACTION
         )
@@ -315,11 +314,6 @@ IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',
                                         @level1type=N'TABLE',    @level1name=N'Deals',
                                         @level2type=N'COLUMN',   @level2name=N'Commission'
-
-        EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата совершения сделки',
-                                        @level0type=N'SCHEMA',   @level0name=N'dbo',
-                                        @level1type=N'TABLE',    @level1name=N'Deals',
-                                        @level2type=N'COLUMN',   @level2name=N'DateClosed'
 
         EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и время последнего изменения',
                                         @level0type=N'SCHEMA',   @level0name=N'dbo',

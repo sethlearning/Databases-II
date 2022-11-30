@@ -77,12 +77,19 @@ SELECT * FROM dbo.Vacancies
 
 
 -- Deals
+-- IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals')
+--     INSERT INTO dbo.Deals (JobSeeker, Vacancy, Commission, DateClosed, ChangeTime, ChangedBy)
+--         VALUES  (1, 1, 10000, '09/08/2022', GETDATE(), 4),
+--                 (2, 2, 8000, '09/09/2022', GETDATE(), 4),
+--                 (3, 3, 5000, '09/10/2022', GETDATE(), 4),
+--                 (4, 4, 9000, '09/12/2022', GETDATE(), 4)
+
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Deals')
-    INSERT INTO dbo.Deals (JobSeeker, Vacancy, Commission, DateClosed, ChangeTime, ChangedBy)
-        VALUES  (1, 1, 10000, '09/08/2022', GETDATE(), 4),
-                (2, 2, 8000, '09/09/2022', GETDATE(), 4),
-                (3, 3, 5000, '09/10/2022', GETDATE(), 4),
-                (4, 4, 9000, '09/12/2022', GETDATE(), 4)
+    INSERT INTO dbo.Deals (JobSeeker, Vacancy, Commission, ChangeTime, ChangedBy)
+        VALUES  (1, 1, 10000, GETDATE(), 4),
+                (2, 2, 8000, GETDATE(), 4),
+                (3, 3, 5000, GETDATE(), 4),
+                (4, 4, 9000, GETDATE(), 4)
 
 SELECT * FROM dbo.Deals
 
