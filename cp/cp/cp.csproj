@@ -75,6 +75,12 @@
     <Compile Include="DealForm.Designer.cs">
       <DependentUpon>DealForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DealJobSeekerSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealJobSeekerSelectForm.Designer.cs">
+      <DependentUpon>DealJobSeekerSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DealVacancySelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="DealForm.resx">
       <DependentUpon>DealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealJobSeekerSelectForm.resx">
+      <DependentUpon>DealJobSeekerSelectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DealVacancySelectForm.resx">
       <DependentUpon>DealVacancySelectForm.cs</DependentUpon>
