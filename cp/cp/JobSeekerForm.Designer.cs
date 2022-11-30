@@ -39,7 +39,7 @@
             this.JobSeekerFormTextBoxFirstName = new System.Windows.Forms.TextBox();
             this.JobSeekerFormLabelMiddleName = new System.Windows.Forms.Label();
             this.JobSeekerFormTextBoxMiddleName = new System.Windows.Forms.TextBox();
-            this.JobSeekerLabelWorkCategory = new System.Windows.Forms.Label();
+            this.JobSeekerFormLabelWorkCategory = new System.Windows.Forms.Label();
             this.JobSeekerFormComboBoxWorkCategory = new System.Windows.Forms.ComboBox();
             this.cPDBDataSet = new cp.CPDBDataSet();
             this.workCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -81,6 +81,7 @@
             this.JobSeekerFormButtonOK.TabIndex = 2;
             this.JobSeekerFormButtonOK.Text = "OK";
             this.JobSeekerFormButtonOK.UseVisualStyleBackColor = true;
+            this.JobSeekerFormButtonOK.Click += new System.EventHandler(this.JobSeekerFormButtonOK_Click);
             // 
             // JobSeekerFormButtonCancel
             // 
@@ -140,14 +141,14 @@
             this.JobSeekerFormTextBoxMiddleName.Size = new System.Drawing.Size(275, 20);
             this.JobSeekerFormTextBoxMiddleName.TabIndex = 9;
             // 
-            // JobSeekerLabelWorkCategory
+            // JobSeekerFormLabelWorkCategory
             // 
-            this.JobSeekerLabelWorkCategory.AutoSize = true;
-            this.JobSeekerLabelWorkCategory.Location = new System.Drawing.Point(20, 200);
-            this.JobSeekerLabelWorkCategory.Name = "JobSeekerLabelWorkCategory";
-            this.JobSeekerLabelWorkCategory.Size = new System.Drawing.Size(102, 13);
-            this.JobSeekerLabelWorkCategory.TabIndex = 10;
-            this.JobSeekerLabelWorkCategory.Text = "Вид деятельности:";
+            this.JobSeekerFormLabelWorkCategory.AutoSize = true;
+            this.JobSeekerFormLabelWorkCategory.Location = new System.Drawing.Point(20, 200);
+            this.JobSeekerFormLabelWorkCategory.Name = "JobSeekerFormLabelWorkCategory";
+            this.JobSeekerFormLabelWorkCategory.Size = new System.Drawing.Size(102, 13);
+            this.JobSeekerFormLabelWorkCategory.TabIndex = 10;
+            this.JobSeekerFormLabelWorkCategory.Text = "Вид деятельности:";
             // 
             // JobSeekerFormComboBoxWorkCategory
             // 
@@ -249,7 +250,7 @@
             this.Controls.Add(this.JobSeekerFormTextBoxQualification);
             this.Controls.Add(this.JobSeekerFormLabelQualification);
             this.Controls.Add(this.JobSeekerFormComboBoxWorkCategory);
-            this.Controls.Add(this.JobSeekerLabelWorkCategory);
+            this.Controls.Add(this.JobSeekerFormLabelWorkCategory);
             this.Controls.Add(this.JobSeekerFormTextBoxMiddleName);
             this.Controls.Add(this.JobSeekerFormLabelMiddleName);
             this.Controls.Add(this.JobSeekerFormTextBoxFirstName);
@@ -284,7 +285,7 @@
         private System.Windows.Forms.TextBox JobSeekerFormTextBoxFirstName;
         private System.Windows.Forms.Label JobSeekerFormLabelMiddleName;
         private System.Windows.Forms.TextBox JobSeekerFormTextBoxMiddleName;
-        private System.Windows.Forms.Label JobSeekerLabelWorkCategory;
+        private System.Windows.Forms.Label JobSeekerFormLabelWorkCategory;
         private System.Windows.Forms.ComboBox JobSeekerFormComboBoxWorkCategory;
         private CPDBDataSet cPDBDataSet;
         private System.Windows.Forms.BindingSource workCategoriesBindingSource;

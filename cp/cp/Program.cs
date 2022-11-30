@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace cp
 {
@@ -51,6 +52,9 @@ namespace cp
                 sb.Append(b.ToString("X2"));
             return sb.ToString();
         }
+
+        internal static Color RightColor = Color.FromKnownColor(KnownColor.ControlText);
+        internal static Color WrongColor = Color.Brown;
     }
     internal static class Program
     {

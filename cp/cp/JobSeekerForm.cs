@@ -54,5 +54,48 @@ namespace cp
                 JobSeekerFormTextBoxNotes.Text = _jobSeekersRow.Notes;
             }
         }
+
+        private void JobSeekerFormButtonOK_Click(object sender, EventArgs e)
+        {
+            _isValid = true;
+
+            if (String.IsNullOrWhiteSpace(JobSeekerFormTextBoxLastName.Text))
+            {
+                _isValid = false;
+                JobSeekerFormLabelLastName.ForeColor = Utilities.WrongColor;
+            }
+            else
+                JobSeekerFormLabelLastName.ForeColor = Utilities.RightColor;
+
+            if (String.IsNullOrWhiteSpace(JobSeekerFormTextBoxFirstName.Text))
+            {
+                _isValid = false;
+                JobSeekerFormLabelFirstName.ForeColor = Utilities.WrongColor;
+            }
+            else
+                JobSeekerFormLabelFirstName.ForeColor = Utilities.RightColor;
+
+            if (JobSeekerFormComboBoxWorkCategory.SelectedValue == null)
+            {
+                _isValid = false;
+                JobSeekerFormLabelWorkCategory.ForeColor = Utilities.WrongColor;
+            }
+            else
+                JobSeekerFormLabelWorkCategory.ForeColor = Utilities.RightColor;
+
+            if (_isValid)
+            {
+                decimal? desiredSalary;
+                if (JobSeekerFormNumericUpDownDesiredSalary.Value == 0)
+                    desiredSalary = null;
+                else
+                    desiredSalary = JobSeekerFormNumericUpDownDesiredSalary.Value;
+
+                if (_newJobSeeker)
+                {
+
+                }
+            }
+        }
     }
 }
