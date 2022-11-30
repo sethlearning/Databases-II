@@ -706,7 +706,9 @@ namespace cp
                 {
                     try
                     {
-
+                        //_queriesTableAdapter.pDeleteDeal(Code: _dealsRow.Code);
+                        this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
+                        _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
                     }
                     catch (Exception ex)
                     {
