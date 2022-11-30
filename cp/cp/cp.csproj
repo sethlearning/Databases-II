@@ -75,6 +75,12 @@
     <Compile Include="EmployerForm.Designer.cs">
       <DependentUpon>EmployerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobSeekerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSeekerForm.Designer.cs">
+      <DependentUpon>JobSeekerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="EmployerForm.resx">
       <DependentUpon>EmployerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerForm.resx">
+      <DependentUpon>JobSeekerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListsForm.resx">
       <DependentUpon>ListsForm.cs</DependentUpon>
