@@ -510,10 +510,17 @@ namespace cp
         #region WorkCategory methods
         private void EditWorkCategory(bool newWorkCategoryControl)
         {
+            int rowCode = 0;
+
             if (newWorkCategoryControl || ListsFormWorkCategoriesDataGridView.CurrentRow.Index >= ListsFormWorkCategoriesDataGridView.RowCount - 1)
                 _workCategoriesRow = this.cPDBDataSet.WorkCategories.NewWorkCategoriesRow();
             else
-                _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value;
+                //_workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
+                _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode(rowCode);
+            }
+
 
             WorkCategoryForm workCategoryForm = new WorkCategoryForm(_workCategoriesRow, _userCode);
             DialogResult workCategoryFormDialogResult = workCategoryForm.ShowDialog();
@@ -523,11 +530,28 @@ namespace cp
                 _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
             }
             workCategoryForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    //row.Selected = true;
+                    ListsFormWorkCategoriesDataGridView.CurrentCell = row.Cells[0];
+                    ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteWorkCategory()
         {
-            if (ListsFormWorkCategoriesDataGridView.CurrentRow.Index < ListsFormWorkCategoriesDataGridView.RowCount - 1)
+            int rowIndex = ListsFormWorkCategoriesDataGridView.CurrentRow.Index;
+
+            //if (ListsFormWorkCategoriesDataGridView.CurrentRow.Index < ListsFormWorkCategoriesDataGridView.RowCount - 1)
+            if (rowIndex < ListsFormWorkCategoriesDataGridView.RowCount - 1)
             {
                 _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
                 DialogResult deleteWorkCategoryDialogResult = MessageBox.Show($"Удалить категорию: {_workCategoriesRow.Name}?", "Удаление вида деятельности", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -538,6 +562,8 @@ namespace cp
                         _queriesTableAdapter.pDeleteWorkCategory(Code: _workCategoriesRow.Code);
                         this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
                         _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+                        //ListsFormWorkCategoriesDataGridView.Rows[rowIndex].Selected = true;
+                        ListsFormWorkCategoriesDataGridView.CurrentCell = ListsFormWorkCategoriesDataGridView.Rows[rowIndex].Cells[0];
                     }
                     catch (Exception ex)
                     {
