@@ -45,10 +45,10 @@ namespace cp
             if (String.IsNullOrWhiteSpace(WorkCategoryFormTextBoxName.Text))
             {
                 _isValid = false;
-                WorkCategoryLabelName.ForeColor = Color.Brown;
+                WorkCategoryLabelName.ForeColor = Utilities.WrongColor;
             }
             else
-                WorkCategoryLabelName.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                WorkCategoryLabelName.ForeColor = Utilities.RightColor;
 
             if (_isValid)
             {

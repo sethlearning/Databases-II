@@ -202,10 +202,10 @@ namespace cp
             if (String.IsNullOrWhiteSpace(RoleFormTextBoxName.Text))
             {
                 _isValid = false;
-                RoleFormLabelName.ForeColor = Color.Brown;
+                RoleFormLabelName.ForeColor = Utilities.WrongColor;
             }
             else
-                RoleFormLabelName.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                RoleFormLabelName.ForeColor = Utilities.RightColor;
 
             if (_isValid)
             {

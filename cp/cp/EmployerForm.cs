@@ -51,10 +51,10 @@ namespace cp
             if (String.IsNullOrWhiteSpace(EmployerFormTextBoxName.Text))
             {
                 _isValid = false;
-                EmployerFormLabelName.ForeColor = Color.Brown;
+                EmployerFormLabelName.ForeColor = Utilities.WrongColor;
             }
             else
-                EmployerFormLabelName.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                EmployerFormLabelName.ForeColor = Utilities.RightColor;
 
             if (_isValid)
             {

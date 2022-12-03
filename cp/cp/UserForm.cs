@@ -60,32 +60,32 @@ namespace cp
             if ( String.IsNullOrWhiteSpace(UserFormTextBoxUsername.Text) )
             {
                 //UserFormLabelUsername.Font = new Font(UserFormLabelCode.Font, FontStyle.Bold);
-                UserFormLabelUsername.ForeColor = Color.Brown;
+                UserFormLabelUsername.ForeColor = Utilities.WrongColor;
                 _isValid = false;
             }
             else
             {
                 //UserFormLabelUsername.Font = new Font(UserFormLabelCode.Font, FontStyle.Regular);
-                UserFormLabelUsername.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                UserFormLabelUsername.ForeColor = Utilities.RightColor;
             }
 
             // Role
             if (UserFormComboBoxRole.SelectedValue == null)
             {
-                UserFormLabelRole.ForeColor = Color.Brown;
+                UserFormLabelRole.ForeColor = Utilities.WrongColor;
                 _isValid = false;
             }
             else
-                UserFormLabelRole.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                UserFormLabelRole.ForeColor = Utilities.RightColor;
             
             // New User Password
             if ( _newUser && String.IsNullOrEmpty(UserFormTextBoxPassword.Text) )
             {
-                UserFormLabelPassword.ForeColor = Color.Brown;
+                UserFormLabelPassword.ForeColor = Utilities.WrongColor;
                 _isValid = false;
             }
             else
-                UserFormLabelPassword.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                UserFormLabelPassword.ForeColor = Utilities.RightColor;
 
             if (_isValid)
             {

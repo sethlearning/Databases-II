@@ -56,26 +56,26 @@ namespace cp
             if (VacancyFormComboBoxWorkCategory.SelectedValue == null)
             {
                 _isValid = false;
-                VacancyFormLabelWorkCategory.ForeColor = Color.Brown;
+                VacancyFormLabelWorkCategory.ForeColor = Utilities.WrongColor;
             }
             else
-                VacancyFormLabelWorkCategory.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                VacancyFormLabelWorkCategory.ForeColor = Utilities.RightColor;
 
             if (String.IsNullOrWhiteSpace(VacancyFormTextBoxPosition.Text))
             {
                 _isValid = false;
-                VacancyFormLabelPosition.ForeColor = Color.Brown;
+                VacancyFormLabelPosition.ForeColor = Utilities.WrongColor;
             }
             else
-                VacancyFormLabelPosition.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                VacancyFormLabelPosition.ForeColor = Utilities.RightColor;
 
             if (VacancyFormComboBoxEmployer.SelectedValue == null)
             {
                 _isValid = false;
-                VacancyFormLabelEmployer.ForeColor = Color.Brown;
+                VacancyFormLabelEmployer.ForeColor = Utilities.WrongColor;
             }
             else
-                VacancyFormLabelEmployer.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                VacancyFormLabelEmployer.ForeColor = Utilities.RightColor;
 
             if (_isValid)
             {
