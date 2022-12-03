@@ -390,21 +390,21 @@ namespace cp
             {
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+
+                if (rowCode == 0)
+                    foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                            rowCode = (int)row.Cells[0].Value;
+
+                foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                    {
+                        ListsFormUsersDataGridView.CurrentCell = row.Cells[0];
+                        break;
+                    }
             }
 
             userForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormUsersDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteUser()
@@ -478,20 +478,20 @@ namespace cp
             {
                 this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+
+                if (rowCode == 0)
+                    foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                            rowCode = (int)row.Cells[0].Value;
+
+                foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                    {
+                        ListsFormRolesDataGridView.CurrentCell = row.Cells[0];
+                        break;
+                    }
             }
             roleForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormRolesDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteRole()
@@ -565,22 +565,22 @@ namespace cp
             {
                 this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
                 _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
+
+                if (rowCode == 0)
+                    foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                            rowCode = (int)row.Cells[0].Value;
+
+                foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                    {
+                        //row.Selected = true;
+                        ListsFormWorkCategoriesDataGridView.CurrentCell = row.Cells[0];
+                        //ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
+                        break;
+                    }
             }
             workCategoryForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    //row.Selected = true;
-                    ListsFormWorkCategoriesDataGridView.CurrentCell = row.Cells[0];
-                    //ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteWorkCategory()
@@ -648,20 +648,20 @@ namespace cp
             {
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
                 _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
+
+                if (rowCode == 0)
+                    foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                            rowCode = (int)row.Cells[0].Value;
+
+                foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                    {
+                        ListsFormEmployersDataGridView.CurrentCell = row.Cells[0];
+                        break;
+                    }
             }
             employerForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormEmployersDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteEmployer()
@@ -728,22 +728,23 @@ namespace cp
             {
                 if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
                     ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
+                {
                     this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                    if (rowCode == 0)
+                        foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
+                            if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                                rowCode = (int)row.Cells[0].Value;
+
+                    foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                        {
+                            ListsFormVacanciesDataGridView.CurrentCell = row.Cells[0];
+                            break;
+                        }
+                }
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
             }
             vacancyForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormVacanciesDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteVacancy()
@@ -811,22 +812,23 @@ namespace cp
             {
                 if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
                     ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
+                {
                     this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
+                    if (rowCode == 0)
+                        foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
+                            if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                                rowCode = (int)row.Cells[0].Value;
+
+                    foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                        {
+                            ListsFormJobSeekersDataGridView.CurrentCell = row.Cells[0];
+                            break;
+                        }
+                }
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
             }
             jobSeekerForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormJobSeekersDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteJobSeeker()
@@ -898,20 +900,20 @@ namespace cp
             {
                 this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
                 _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
+
+                if (rowCode == 0)
+                    foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
+                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                            rowCode = (int)row.Cells[0].Value;
+
+                foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                    {
+                        ListsFormDealsDataGridView.CurrentCell = row.Cells[0];
+                        break;
+                    }
             }
             dealForm.Dispose();
-
-            if (rowCode == 0)
-                foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                        rowCode = (int)row.Cells[0].Value;
-
-            foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
-                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                {
-                    ListsFormDealsDataGridView.CurrentCell = row.Cells[0];
-                    break;
-                }
         }
 
         private void DeleteDeal()
