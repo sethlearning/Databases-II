@@ -166,6 +166,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RoleForm.resx">
       <DependentUpon>RoleForm.cs</DependentUpon>
@@ -214,6 +215,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Portrait-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start-Menu-Computer-Alt-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
