@@ -409,7 +409,8 @@ namespace cp
 
         private void DeleteUser()
         {
-            if (ListsFormUsersDataGridView.CurrentRow.Index < ListsFormUsersDataGridView.Rows.Count - 1)
+            int rowIndex = ListsFormUsersDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormUsersDataGridView.Rows.Count - 1)
             {
                 if (_userCode == (int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value)
                     MessageBox.Show($"Невозможно удалить собственную учетную запись: {ListsFormUsersDataGridView.CurrentRow.Cells[1].Value}", "Удаление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -424,6 +425,7 @@ namespace cp
                             _queriesTableAdapter.pDeleteUser(Code: _usersRow.Code);
                             this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                             _usersTableAdapter.Fill(this.cPDBDataSet.Users);
+                            ListsFormUsersDataGridView.CurrentCell = ListsFormUsersDataGridView.Rows[rowIndex].Cells[0];
                         }
                         catch (Exception ex)
                         {
@@ -494,7 +496,8 @@ namespace cp
 
         private void DeleteRole()
         {
-            if (ListsFormRolesDataGridView.CurrentRow.Index < ListsFormRolesDataGridView.Rows.Count - 1)
+            int rowIndex = ListsFormRolesDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormRolesDataGridView.Rows.Count - 1)
             {
                 if(_userRole == (int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value)
                     MessageBox.Show($"Невозможно удалить собственную роль: {ListsFormRolesDataGridView.CurrentRow.Cells[1].Value}", "Удаление роли", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -509,6 +512,7 @@ namespace cp
                             _queriesTableAdapter.pDeleteRole(Code: _rolesRow.Code);
                             this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
                             _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
+                            ListsFormRolesDataGridView.CurrentCell = ListsFormRolesDataGridView.Rows[rowIndex].Cells[0];
                         }
                         catch (Exception ex)
                         {
@@ -551,7 +555,6 @@ namespace cp
             else
             {
                 rowCode = (int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value;
-                //_workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
                 _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode(rowCode);
             }
 
@@ -583,8 +586,6 @@ namespace cp
         private void DeleteWorkCategory()
         {
             int rowIndex = ListsFormWorkCategoriesDataGridView.CurrentRow.Index;
-
-            //if (ListsFormWorkCategoriesDataGridView.CurrentRow.Index < ListsFormWorkCategoriesDataGridView.RowCount - 1)
             if (rowIndex < ListsFormWorkCategoriesDataGridView.RowCount - 1)
             {
                 _workCategoriesRow = this.cPDBDataSet.WorkCategories.FindByCode((int)ListsFormWorkCategoriesDataGridView.CurrentRow.Cells[0].Value);
@@ -665,7 +666,8 @@ namespace cp
 
         private void DeleteEmployer()
         {
-            if (ListsFormEmployersDataGridView.CurrentRow.Index < ListsFormEmployersDataGridView.RowCount - 1)
+            int rowIndex = ListsFormEmployersDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormEmployersDataGridView.RowCount - 1)
             {
                 _employersRow = this.cPDBDataSet.Employers.FindByCode((int)ListsFormEmployersDataGridView.CurrentRow.Cells[0].Value);
                 DialogResult deleteEmployerDialogResult = MessageBox.Show($"Удалить работодателя: {_employersRow.Name}?", "Удаление работодателя", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -676,6 +678,7 @@ namespace cp
                         _queriesTableAdapter.pDeleteEmployer(Code: _employersRow.Code);
                         this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
                         _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
+                        ListsFormEmployersDataGridView.CurrentCell = ListsFormEmployersDataGridView.Rows[rowIndex].Cells[0];
                     }
                     catch (Exception ex)
                     {
@@ -745,7 +748,8 @@ namespace cp
 
         private void DeleteVacancy()
         {
-            if (ListsFormVacanciesDataGridView.CurrentRow.Index < ListsFormVacanciesDataGridView.RowCount - 1)
+            int rowIndex = ListsFormVacanciesDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormVacanciesDataGridView.RowCount - 1)
             {
                 _vacanciesRow = this.cPDBDataSet.Vacancies.FindByCode((int)ListsFormVacanciesDataGridView.CurrentRow.Cells[0].Value);
                 DialogResult deleteVacancyDialogResult = MessageBox.Show($"Удалить вакансию: {_vacanciesRow.Position}?", "Удаление вакансии", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -756,6 +760,7 @@ namespace cp
                         _queriesTableAdapter.pDeleteVacancy(Code: _vacanciesRow.Code);
                         this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
                         _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
+                        ListsFormVacanciesDataGridView.CurrentCell = ListsFormVacanciesDataGridView.Rows[rowIndex].Cells[0];
                     }
                     catch (Exception ex)
                     {
@@ -826,7 +831,8 @@ namespace cp
 
         private void DeleteJobSeeker()
         {
-            if (ListsFormJobSeekersDataGridView.CurrentRow.Index < ListsFormJobSeekersDataGridView.RowCount - 1)
+            int rowIndex = ListsFormJobSeekersDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormJobSeekersDataGridView.RowCount - 1)
             {
                 string jobSeekerName;
                 _jobSeekersRow = this.cPDBDataSet.JobSeekers.FindByCode((int)ListsFormJobSeekersDataGridView.CurrentRow.Cells[0].Value);
@@ -842,6 +848,7 @@ namespace cp
                         _queriesTableAdapter.pDeleteJobSeeker(Code: _jobSeekersRow.Code);
                         this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
                         _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
+                        ListsFormJobSeekersDataGridView.CurrentCell = ListsFormJobSeekersDataGridView.Rows[rowIndex].Cells[0];
                     }
                     catch (Exception ex)
                     {
@@ -909,7 +916,8 @@ namespace cp
 
         private void DeleteDeal()
         {
-            if (ListsFormDealsDataGridView.CurrentRow.Index < ListsFormDealsDataGridView.RowCount - 1)
+            int rowIndex = ListsFormDealsDataGridView.CurrentRow.Index;
+            if (rowIndex < ListsFormDealsDataGridView.RowCount - 1)
             {
                 _dealsRow = this.cPDBDataSet.Deals.FindByCode((int)ListsFormDealsDataGridView.CurrentRow.Cells[0].Value);
                 DialogResult deleteDealDialogResult = MessageBox.Show($"Удалить сделку №{_dealsRow.Code}?", "Удаление сделки", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -920,6 +928,7 @@ namespace cp
                         _queriesTableAdapter.pDeleteDeal(Code: _dealsRow.Code);
                         this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
                         _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
+                        ListsFormDealsDataGridView.CurrentCell = ListsFormDealsDataGridView.Rows[rowIndex].Cells[0];
                     }
                     catch (Exception ex)
                     {
