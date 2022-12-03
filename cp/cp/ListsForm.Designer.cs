@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListsForm));
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlPageUsers = new System.Windows.Forms.TabPage();
@@ -605,9 +605,9 @@
             // 
             this.заработнаяПлатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.заработнаяПлатаDataGridViewTextBoxColumn.DataPropertyName = "Заработная плата";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.заработнаяПлатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle49.Format = "N2";
+            dataGridViewCellStyle49.NullValue = null;
+            this.заработнаяПлатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle49;
             this.заработнаяПлатаDataGridViewTextBoxColumn.FillWeight = 25F;
             this.заработнаяПлатаDataGridViewTextBoxColumn.HeaderText = "Заработная плата";
             this.заработнаяПлатаDataGridViewTextBoxColumn.Name = "заработнаяПлатаDataGridViewTextBoxColumn";
@@ -751,9 +751,9 @@
             // 
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.DataPropertyName = "Желаемая зарплата";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle50.Format = "N2";
+            dataGridViewCellStyle50.NullValue = null;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle50;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.FillWeight = 20F;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.HeaderText = "Желаемая зарплата";
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.Name = "желаемаяЗарплатаDataGridViewTextBoxColumn";
@@ -886,9 +886,9 @@
             // 
             this.комиссионныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.комиссионныеDataGridViewTextBoxColumn.DataPropertyName = "Комиссионные";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.комиссионныеDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle51.Format = "N2";
+            dataGridViewCellStyle51.NullValue = null;
+            this.комиссионныеDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle51;
             this.комиссионныеDataGridViewTextBoxColumn.FillWeight = 20F;
             this.комиссионныеDataGridViewTextBoxColumn.HeaderText = "Комиссионные";
             this.комиссионныеDataGridViewTextBoxColumn.Name = "комиссионныеDataGridViewTextBoxColumn";
@@ -1068,6 +1068,7 @@
             this.ListsFormToolStripMenuItemCreateUser.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateUser.Text = "Пользователя";
             this.ListsFormToolStripMenuItemCreateUser.Visible = false;
+            this.ListsFormToolStripMenuItemCreateUser.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateUser_Click);
             // 
             // ListsFormToolStripMenuItemCreateRole
             // 
@@ -1075,6 +1076,7 @@
             this.ListsFormToolStripMenuItemCreateRole.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateRole.Text = "Роль";
             this.ListsFormToolStripMenuItemCreateRole.Visible = false;
+            this.ListsFormToolStripMenuItemCreateRole.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateRole_Click);
             // 
             // ListsFormToolStripMenuItemCreateWorkCategory
             // 
@@ -1082,6 +1084,7 @@
             this.ListsFormToolStripMenuItemCreateWorkCategory.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateWorkCategory.Text = "Вид деятельности";
             this.ListsFormToolStripMenuItemCreateWorkCategory.Visible = false;
+            this.ListsFormToolStripMenuItemCreateWorkCategory.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateWorkCategory_Click);
             // 
             // ListsFormToolStripMenuItemCreateEmployer
             // 
@@ -1089,6 +1092,7 @@
             this.ListsFormToolStripMenuItemCreateEmployer.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateEmployer.Text = "Работодателя";
             this.ListsFormToolStripMenuItemCreateEmployer.Visible = false;
+            this.ListsFormToolStripMenuItemCreateEmployer.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateEmployer_Click);
             // 
             // ListsFormToolStripMenuItemCreateVacancy
             // 
@@ -1096,6 +1100,7 @@
             this.ListsFormToolStripMenuItemCreateVacancy.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateVacancy.Text = "Вакансию";
             this.ListsFormToolStripMenuItemCreateVacancy.Visible = false;
+            this.ListsFormToolStripMenuItemCreateVacancy.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateVacancy_Click);
             // 
             // ListsFormToolStripMenuItemCreateJobSeeker
             // 
@@ -1103,6 +1108,7 @@
             this.ListsFormToolStripMenuItemCreateJobSeeker.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateJobSeeker.Text = "Соискателя";
             this.ListsFormToolStripMenuItemCreateJobSeeker.Visible = false;
+            this.ListsFormToolStripMenuItemCreateJobSeeker.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateJobSeeker_Click);
             // 
             // ListsFormToolStripMenuItemCreateDeal
             // 
@@ -1110,6 +1116,7 @@
             this.ListsFormToolStripMenuItemCreateDeal.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemCreateDeal.Text = "Сделку";
             this.ListsFormToolStripMenuItemCreateDeal.Visible = false;
+            this.ListsFormToolStripMenuItemCreateDeal.Click += new System.EventHandler(this.ListsFormToolStripMenuItemCreateDeal_Click);
             // 
             // ListsFormToolStripMenuItemMove
             // 
@@ -1132,6 +1139,7 @@
             this.ListsFormToolStripMenuItemMoveToUsers.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToUsers.Text = "Пользователи";
             this.ListsFormToolStripMenuItemMoveToUsers.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToUsers.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToUsers_Click);
             // 
             // ListsFormToolStripMenuItemMoveToRoles
             // 
@@ -1139,6 +1147,7 @@
             this.ListsFormToolStripMenuItemMoveToRoles.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToRoles.Text = "Роли";
             this.ListsFormToolStripMenuItemMoveToRoles.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToRoles.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToRoles_Click);
             // 
             // ListsFormToolStripMenuItemMoveToWorkCategories
             // 
@@ -1146,6 +1155,7 @@
             this.ListsFormToolStripMenuItemMoveToWorkCategories.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToWorkCategories.Text = "Виды деятельности";
             this.ListsFormToolStripMenuItemMoveToWorkCategories.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToWorkCategories.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToWorkCategories_Click);
             // 
             // ListsFormToolStripMenuItemMoveToEmployers
             // 
@@ -1153,6 +1163,7 @@
             this.ListsFormToolStripMenuItemMoveToEmployers.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToEmployers.Text = "Работодатели";
             this.ListsFormToolStripMenuItemMoveToEmployers.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToEmployers.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToEmployers_Click);
             // 
             // ListsFormToolStripMenuItemMoveToVacancies
             // 
@@ -1160,6 +1171,7 @@
             this.ListsFormToolStripMenuItemMoveToVacancies.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToVacancies.Text = "Вакансии";
             this.ListsFormToolStripMenuItemMoveToVacancies.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToVacancies.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToVacancies_Click);
             // 
             // ListsFormToolStripMenuItemMoveToJobSeekers
             // 
@@ -1167,6 +1179,7 @@
             this.ListsFormToolStripMenuItemMoveToJobSeekers.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToJobSeekers.Text = "Соискатели";
             this.ListsFormToolStripMenuItemMoveToJobSeekers.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToJobSeekers.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToJobSeekers_Click);
             // 
             // ListsFormToolStripMenuItemMoveToDeals
             // 
@@ -1174,6 +1187,7 @@
             this.ListsFormToolStripMenuItemMoveToDeals.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemMoveToDeals.Text = "Сделки";
             this.ListsFormToolStripMenuItemMoveToDeals.Visible = false;
+            this.ListsFormToolStripMenuItemMoveToDeals.Click += new System.EventHandler(this.ListsFormToolStripMenuItemMoveToDeals_Click);
             // 
             // ListsFormToolStripMenuItemEndSession
             // 
@@ -1189,12 +1203,14 @@
             this.ListsFormToolStripMenuItemEndSessionLogout.Name = "ListsFormToolStripMenuItemEndSessionLogout";
             this.ListsFormToolStripMenuItemEndSessionLogout.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemEndSessionLogout.Text = "Выйти";
+            this.ListsFormToolStripMenuItemEndSessionLogout.Click += new System.EventHandler(this.ListsFormToolStripMenuItemEndSessionLogout_Click);
             // 
             // ListsFormToolStripMenuItemEndSessionExit
             // 
             this.ListsFormToolStripMenuItemEndSessionExit.Name = "ListsFormToolStripMenuItemEndSessionExit";
             this.ListsFormToolStripMenuItemEndSessionExit.Size = new System.Drawing.Size(180, 22);
             this.ListsFormToolStripMenuItemEndSessionExit.Text = "Закрыть";
+            this.ListsFormToolStripMenuItemEndSessionExit.Click += new System.EventHandler(this.ListsFormToolStripMenuItemEndSessionExit_Click);
             // 
             // ListsForm
             // 

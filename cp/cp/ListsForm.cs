@@ -907,5 +907,100 @@ namespace cp
                 DeleteDeal();
         }
         #endregion Buttons
+
+        #region Menu
+        private void ListsFormToolStripMenuItemCreateUser_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageUsers");
+            EditUser(newUserControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateRole_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageRoles");
+            EditRole(newRoleControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateWorkCategory_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageWorkCategories");
+            EditWorkCategory(newWorkCategoryControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateEmployer_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageEmployers");
+            EditEmployer(newEmployerControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateVacancy_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageVacancies");
+            EditVacancy(newVacancyControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateJobSeeker_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageJobSeekers");
+            EditJobSeeker(newJobSeekerControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemCreateDeal_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageDeals");
+            EditDeal(newDealControl: true);
+        }
+
+        private void ListsFormToolStripMenuItemMoveToUsers_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageUsers");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToRoles_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageRoles");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToWorkCategories_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageWorkCategories");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToEmployers_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageEmployers");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToVacancies_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageVacancies");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToJobSeekers_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageJobSeekers");
+        }
+
+        private void ListsFormToolStripMenuItemMoveToDeals_Click(object sender, EventArgs e)
+        {
+            MoveToTab("ListsFormTabControlPageDeals");
+        }
+
+        private void ListsFormToolStripMenuItemEndSessionLogout_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void ListsFormToolStripMenuItemEndSessionExit_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+        
+        private void MoveToTab(string tabName)
+        {
+            if (ListsFormTabControl.SelectedTab.Name != tabName)
+                ListsFormTabControl.SelectTab(tabName);
+        }
+        #endregion Menu
     }
 }
