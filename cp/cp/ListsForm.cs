@@ -696,13 +696,12 @@ namespace cp
             DialogResult vacancyFormDialogResult = vacancyForm.ShowDialog();
             if (vacancyFormDialogResult == DialogResult.OK)
             {
-                if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
-                    ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
-                {
-                    this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
-                    UpdateFocus(ListsFormVacanciesDataGridView, rowCode);
-                }
+                if (rowCode == 0 && ListsFormToolStripComboBoxStatus.SelectedIndex == 1)
+                    ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
+
+                this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
+                UpdateFocus(ListsFormVacanciesDataGridView, rowCode);
             }
             vacancyForm.Dispose();
         }
@@ -770,13 +769,12 @@ namespace cp
             DialogResult jobSeekerFormDialogResult = jobSeekerForm.ShowDialog();
             if (jobSeekerFormDialogResult == DialogResult.OK)
             {
-                if (ListsFormToolStripComboBoxStatus.SelectedIndex == 0 ||
-                    ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
-                {
-                    this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
-                    UpdateFocus(ListsFormJobSeekersDataGridView, rowCode);
-                }
+                if (rowCode == 0 && ListsFormToolStripComboBoxStatus.SelectedIndex == 1)
+                    ListsFormToolStripComboBoxStatus.SelectedIndex = 0;
+
+                this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
+                UpdateFocus(ListsFormJobSeekersDataGridView, rowCode);
             }
             jobSeekerForm.Dispose();
         }
