@@ -282,6 +282,60 @@ namespace cp
                 ListsFormToolStripMenuItemCreateJobSeeker.Visible = true;
             if ((_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
                 ListsFormToolStripMenuItemCreateDeal.Visible = true;
+
+            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView ||
+                (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
+                (_accessRights & AccessRights.RolesView) == AccessRights.RolesView ||
+                (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
+                (_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView ||
+                (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
+                (_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit ||
+                (_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView ||
+                (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                (_accessRights & AccessRights.EmployersAudit) == AccessRights.EmployersAudit ||
+                (_accessRights & AccessRights.VacanciesView) == AccessRights.VacanciesView ||
+                (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
+                (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit ||
+                (_accessRights & AccessRights.JobSeekersView) == AccessRights.JobSeekersView ||
+                (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit ||
+                (_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit ||
+                (_accessRights & AccessRights.DealsView) == AccessRights.DealsView ||
+                (_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit ||
+                (_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
+                ListsFormToolStripMenuItemMove.Visible = true;
+
+            if ((_accessRights & AccessRights.UsersView) == AccessRights.UsersView ||
+                (_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit)
+                ListsFormToolStripMenuItemMoveToUsers.Visible = true;
+
+            if ((_accessRights & AccessRights.RolesView) == AccessRights.RolesView ||
+                (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
+                ListsFormToolStripMenuItemMoveToRoles.Visible = true;
+
+            if ((_accessRights & AccessRights.WorkCategoriesView) == AccessRights.WorkCategoriesView ||
+                (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
+                (_accessRights & AccessRights.WorkCategoriesAudit) == AccessRights.WorkCategoriesAudit)
+                ListsFormToolStripMenuItemMoveToWorkCategories.Visible = true;
+
+            if ((_accessRights & AccessRights.EmployersView) == AccessRights.EmployersView ||
+                (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                (_accessRights & AccessRights.EmployersAudit) == AccessRights.EmployersAudit)
+                ListsFormToolStripMenuItemMoveToEmployers.Visible = true;
+
+            if ((_accessRights & AccessRights.VacanciesView) == AccessRights.VacanciesView ||
+                (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
+                (_accessRights & AccessRights.VacanciesAudit) == AccessRights.VacanciesAudit)
+                ListsFormToolStripMenuItemMoveToVacancies.Visible = true;
+
+            if ((_accessRights & AccessRights.JobSeekersView) == AccessRights.JobSeekersView ||
+                (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit ||
+                (_accessRights & AccessRights.JobSeekersAudit) == AccessRights.JobSeekersAudit)
+                ListsFormToolStripMenuItemMoveToJobSeekers.Visible = true;
+
+            if ((_accessRights & AccessRights.DealsView) == AccessRights.DealsView ||
+                (_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit ||
+                (_accessRights & AccessRights.DealsAudit) == AccessRights.DealsAudit)
+                ListsFormToolStripMenuItemMoveToDeals.Visible = true;
         }
 
         private void UpdateLists()
