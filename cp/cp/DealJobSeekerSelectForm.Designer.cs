@@ -52,7 +52,6 @@
             // 
             this.DealJobSeekerSelectFormDataGridView.AllowUserToAddRows = false;
             this.DealJobSeekerSelectFormDataGridView.AllowUserToDeleteRows = false;
-            this.DealJobSeekerSelectFormDataGridView.AllowUserToResizeColumns = false;
             this.DealJobSeekerSelectFormDataGridView.AllowUserToResizeRows = false;
             this.DealJobSeekerSelectFormDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -165,6 +164,7 @@
             // 
             // DealJobSeekerSelectFormButtonOK
             // 
+            this.DealJobSeekerSelectFormButtonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DealJobSeekerSelectFormButtonOK.Location = new System.Drawing.Point(615, 426);
             this.DealJobSeekerSelectFormButtonOK.Name = "DealJobSeekerSelectFormButtonOK";
             this.DealJobSeekerSelectFormButtonOK.Size = new System.Drawing.Size(75, 23);
@@ -175,6 +175,7 @@
             // 
             // DealJobSeekerSelectFormButtonCancel
             // 
+            this.DealJobSeekerSelectFormButtonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DealJobSeekerSelectFormButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.DealJobSeekerSelectFormButtonCancel.Location = new System.Drawing.Point(720, 426);
             this.DealJobSeekerSelectFormButtonCancel.Name = "DealJobSeekerSelectFormButtonCancel";
@@ -197,7 +198,7 @@
             this.Controls.Add(this.DealJobSeekerSelectFormButtonCancel);
             this.Controls.Add(this.DealJobSeekerSelectFormButtonOK);
             this.Controls.Add(this.DealJobSeekerSelectFormDataGridView);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "DealJobSeekerSelectForm";
             this.Text = "DealJobSeekerSelectForm";
             this.Load += new System.EventHandler(this.DealJobSeekerSelectForm_Load);

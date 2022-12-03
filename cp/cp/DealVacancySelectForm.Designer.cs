@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DealVacancySelectFormDataGridView = new System.Windows.Forms.DataGridView();
-            this.cPDBDataSet = new cp.CPDBDataSet();
-            this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.работодательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.видДеятельностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,18 +37,20 @@
             this.заработнаяПлатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаИзмененияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.пользовательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vVacanciesListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cPDBDataSet = new cp.CPDBDataSet();
+            this.vVacanciesListTableAdapter = new cp.CPDBDataSetTableAdapters.vVacanciesListTableAdapter();
             this.DealVacancySelectFormButtonOK = new System.Windows.Forms.Button();
             this.DealVacancySelectFormButtonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DealVacancySelectFormDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // DealVacancySelectFormDataGridView
             // 
             this.DealVacancySelectFormDataGridView.AllowUserToAddRows = false;
             this.DealVacancySelectFormDataGridView.AllowUserToDeleteRows = false;
-            this.DealVacancySelectFormDataGridView.AllowUserToResizeColumns = false;
             this.DealVacancySelectFormDataGridView.AllowUserToResizeRows = false;
             this.DealVacancySelectFormDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -80,20 +79,6 @@
             this.DealVacancySelectFormDataGridView.TabIndex = 0;
             this.DealVacancySelectFormDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DealVacancySelectFormDataGridView_CellDoubleClick);
             this.DealVacancySelectFormDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DealVacancySelectFormDataGridView_KeyDown);
-            // 
-            // cPDBDataSet
-            // 
-            this.cPDBDataSet.DataSetName = "CPDBDataSet";
-            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vVacanciesListBindingSource
-            // 
-            this.vVacanciesListBindingSource.DataMember = "vVacanciesList";
-            this.vVacanciesListBindingSource.DataSource = this.cPDBDataSet;
-            // 
-            // vVacanciesListTableAdapter
-            // 
-            this.vVacanciesListTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -156,8 +141,23 @@
             this.пользовательDataGridViewTextBoxColumn.ReadOnly = true;
             this.пользовательDataGridViewTextBoxColumn.Visible = false;
             // 
+            // vVacanciesListBindingSource
+            // 
+            this.vVacanciesListBindingSource.DataMember = "vVacanciesList";
+            this.vVacanciesListBindingSource.DataSource = this.cPDBDataSet;
+            // 
+            // cPDBDataSet
+            // 
+            this.cPDBDataSet.DataSetName = "CPDBDataSet";
+            this.cPDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vVacanciesListTableAdapter
+            // 
+            this.vVacanciesListTableAdapter.ClearBeforeFill = true;
+            // 
             // DealVacancySelectFormButtonOK
             // 
+            this.DealVacancySelectFormButtonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DealVacancySelectFormButtonOK.Location = new System.Drawing.Point(615, 426);
             this.DealVacancySelectFormButtonOK.Name = "DealVacancySelectFormButtonOK";
             this.DealVacancySelectFormButtonOK.Size = new System.Drawing.Size(75, 23);
@@ -168,6 +168,7 @@
             // 
             // DealVacancySelectFormButtonCancel
             // 
+            this.DealVacancySelectFormButtonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DealVacancySelectFormButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.DealVacancySelectFormButtonCancel.Location = new System.Drawing.Point(720, 426);
             this.DealVacancySelectFormButtonCancel.Name = "DealVacancySelectFormButtonCancel";
@@ -186,13 +187,13 @@
             this.Controls.Add(this.DealVacancySelectFormButtonCancel);
             this.Controls.Add(this.DealVacancySelectFormButtonOK);
             this.Controls.Add(this.DealVacancySelectFormDataGridView);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "DealVacancySelectForm";
             this.Text = "DealVacancySelectForm";
             this.Load += new System.EventHandler(this.DealVacancySelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DealVacancySelectFormDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
