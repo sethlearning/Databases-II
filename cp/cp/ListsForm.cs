@@ -248,12 +248,14 @@ namespace cp
                 ListsFormToolStripButtonNew.Visible = true;
                 ListsFormToolStripButtonEdit.Visible = true;
                 ListsFormToolStripButtonDelete.Visible = true;
+                ListsFormToolStripSeparator1.Visible = true;
             }
             else
             {
                 ListsFormToolStripButtonNew.Visible = false;
                 ListsFormToolStripButtonEdit.Visible = false;
                 ListsFormToolStripButtonDelete.Visible = false;
+                ListsFormToolStripSeparator1.Visible = false;
             }
         }
 

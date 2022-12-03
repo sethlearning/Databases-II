@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListsForm));
             this.ListsFormTabControl = new System.Windows.Forms.TabControl();
             this.ListsFormTabControlPageUsers = new System.Windows.Forms.TabPage();
@@ -104,9 +104,9 @@
             this.ListsFormToolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.ListsFormToolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.ListsFormToolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ListsFormToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ListsFormToolStripButtonLogout = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ListsFormToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ListsFormToolStripButtonClose = new System.Windows.Forms.ToolStripButton();
             this.ListsFormToolStripComboBoxStatus = new System.Windows.Forms.ToolStripComboBox();
             this.vUsersListTableAdapter = new cp.CPDBDataSetTableAdapters.vUsersListTableAdapter();
@@ -605,9 +605,9 @@
             // 
             this.заработнаяПлатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.заработнаяПлатаDataGridViewTextBoxColumn.DataPropertyName = "Заработная плата";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.заработнаяПлатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.заработнаяПлатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.заработнаяПлатаDataGridViewTextBoxColumn.FillWeight = 25F;
             this.заработнаяПлатаDataGridViewTextBoxColumn.HeaderText = "Заработная плата";
             this.заработнаяПлатаDataGridViewTextBoxColumn.Name = "заработнаяПлатаDataGridViewTextBoxColumn";
@@ -751,9 +751,9 @@
             // 
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.DataPropertyName = "Желаемая зарплата";
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.желаемаяЗарплатаDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.FillWeight = 20F;
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.HeaderText = "Желаемая зарплата";
             this.желаемаяЗарплатаDataGridViewTextBoxColumn.Name = "желаемаяЗарплатаDataGridViewTextBoxColumn";
@@ -886,9 +886,9 @@
             // 
             this.комиссионныеDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.комиссионныеDataGridViewTextBoxColumn.DataPropertyName = "Комиссионные";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.комиссионныеDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.комиссионныеDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.комиссионныеDataGridViewTextBoxColumn.FillWeight = 20F;
             this.комиссионныеDataGridViewTextBoxColumn.HeaderText = "Комиссионные";
             this.комиссионныеDataGridViewTextBoxColumn.Name = "комиссионныеDataGridViewTextBoxColumn";
@@ -953,9 +953,9 @@
             this.ListsFormToolStripButtonNew,
             this.ListsFormToolStripButtonEdit,
             this.ListsFormToolStripButtonDelete,
-            this.toolStripSeparator1,
+            this.ListsFormToolStripSeparator1,
             this.ListsFormToolStripButtonLogout,
-            this.toolStripSeparator2,
+            this.ListsFormToolStripSeparator2,
             this.ListsFormToolStripButtonClose,
             this.ListsFormToolStripComboBoxStatus});
             this.ListsFormToolStrip.Location = new System.Drawing.Point(0, 24);
@@ -991,10 +991,10 @@
             this.ListsFormToolStripButtonDelete.Text = "Удалить";
             this.ListsFormToolStripButtonDelete.Click += new System.EventHandler(this.ListsFormToolStripButtonDelete_Click);
             // 
-            // toolStripSeparator1
+            // ListsFormToolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.ListsFormToolStripSeparator1.Name = "ListsFormToolStripSeparator1";
+            this.ListsFormToolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // ListsFormToolStripButtonLogout
             // 
@@ -1005,10 +1005,10 @@
             this.ListsFormToolStripButtonLogout.Text = "Выйти";
             this.ListsFormToolStripButtonLogout.Click += new System.EventHandler(this.ListsFormToolStripButtonLogout_Click);
             // 
-            // toolStripSeparator2
+            // ListsFormToolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.ListsFormToolStripSeparator2.Name = "ListsFormToolStripSeparator2";
+            this.ListsFormToolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // ListsFormToolStripButtonClose
             // 
@@ -1256,9 +1256,9 @@
         private System.Windows.Forms.ToolStripMenuItem ListsFormToolStripMenuItemCreate;
         private System.Windows.Forms.ToolStrip ListsFormToolStrip;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonNew;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator ListsFormToolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonLogout;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator ListsFormToolStripSeparator2;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonClose;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonEdit;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonDelete;
