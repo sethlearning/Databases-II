@@ -64,6 +64,7 @@ namespace cp
         {
             ConfigureInterfaceTabs();
             ConfigureInterfaceButtons();
+            ConfigureMenuItems();
         }
 
         private void ListsFormTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -254,6 +255,33 @@ namespace cp
                 ListsFormToolStripButtonEdit.Visible = false;
                 ListsFormToolStripButtonDelete.Visible = false;
             }
+        }
+
+        private void ConfigureMenuItems()
+        {
+            if ((_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit ||
+                (_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit ||
+                (_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit ||
+                (_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit ||
+                (_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit ||
+                (_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit ||
+                (_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
+                ListsFormToolStripMenuItemCreate.Visible = true;
+
+            if ((_accessRights & AccessRights.UsersEdit) == AccessRights.UsersEdit)
+                ListsFormToolStripMenuItemCreateUser.Visible = true;
+            if ((_accessRights & AccessRights.RolesEdit) == AccessRights.RolesEdit)
+                ListsFormToolStripMenuItemCreateRole.Visible = true;
+            if ((_accessRights & AccessRights.WorkCategoriesEdit) == AccessRights.WorkCategoriesEdit)
+                ListsFormToolStripMenuItemCreateWorkCategory.Visible = true;
+            if ((_accessRights & AccessRights.EmployersEdit) == AccessRights.EmployersEdit)
+                ListsFormToolStripMenuItemCreateEmployer.Visible = true;
+            if ((_accessRights & AccessRights.VacanciesEdit) == AccessRights.VacanciesEdit)
+                ListsFormToolStripMenuItemCreateVacancy.Visible = true;
+            if ((_accessRights & AccessRights.JobSeekersEdit) == AccessRights.JobSeekersEdit)
+                ListsFormToolStripMenuItemCreateJobSeeker.Visible = true;
+            if ((_accessRights & AccessRights.DealsEdit) == AccessRights.DealsEdit)
+                ListsFormToolStripMenuItemCreateDeal.Visible = true;
         }
 
         private void UpdateLists()
