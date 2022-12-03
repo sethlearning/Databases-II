@@ -94,7 +94,7 @@
             this.DealFormButtonOK.Location = new System.Drawing.Point(699, 311);
             this.DealFormButtonOK.Name = "DealFormButtonOK";
             this.DealFormButtonOK.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonOK.TabIndex = 2;
+            this.DealFormButtonOK.TabIndex = 5;
             this.DealFormButtonOK.Text = "OK";
             this.DealFormButtonOK.UseVisualStyleBackColor = true;
             this.DealFormButtonOK.Click += new System.EventHandler(this.DealFormButtonOK_Click);
@@ -105,7 +105,7 @@
             this.DealFormButtonCancel.Location = new System.Drawing.Point(794, 311);
             this.DealFormButtonCancel.Name = "DealFormButtonCancel";
             this.DealFormButtonCancel.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonCancel.TabIndex = 3;
+            this.DealFormButtonCancel.TabIndex = 6;
             this.DealFormButtonCancel.Text = "Cancel";
             this.DealFormButtonCancel.UseVisualStyleBackColor = true;
             // 
@@ -148,6 +148,7 @@
             this.DealFormDataGridViewVacancy.Size = new System.Drawing.Size(730, 42);
             this.DealFormDataGridViewVacancy.StandardTab = true;
             this.DealFormDataGridViewVacancy.TabIndex = 5;
+            this.DealFormDataGridViewVacancy.TabStop = false;
             this.DealFormDataGridViewVacancy.DoubleClick += new System.EventHandler(this.DealFormDataGridViewVacancy_DoubleClick);
             // 
             // кодDataGridViewTextBoxColumn
@@ -230,7 +231,7 @@
             this.DealFormButtonVacancyClear.Location = new System.Drawing.Point(794, 113);
             this.DealFormButtonVacancyClear.Name = "DealFormButtonVacancyClear";
             this.DealFormButtonVacancyClear.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonVacancyClear.TabIndex = 6;
+            this.DealFormButtonVacancyClear.TabIndex = 1;
             this.DealFormButtonVacancyClear.Text = "Clear";
             this.DealFormButtonVacancyClear.UseVisualStyleBackColor = true;
             this.DealFormButtonVacancyClear.Click += new System.EventHandler(this.DealFormButtonVacancyClear_Click);
@@ -240,7 +241,7 @@
             this.DealFormButtonVacancySelect.Location = new System.Drawing.Point(699, 113);
             this.DealFormButtonVacancySelect.Name = "DealFormButtonVacancySelect";
             this.DealFormButtonVacancySelect.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonVacancySelect.TabIndex = 7;
+            this.DealFormButtonVacancySelect.TabIndex = 0;
             this.DealFormButtonVacancySelect.Text = "Select";
             this.DealFormButtonVacancySelect.UseVisualStyleBackColor = true;
             this.DealFormButtonVacancySelect.Click += new System.EventHandler(this.DealFormButtonVacancySelect_Click);
@@ -285,6 +286,7 @@
             this.DealFormDataGridViewJobSeeker.Size = new System.Drawing.Size(730, 42);
             this.DealFormDataGridViewJobSeeker.StandardTab = true;
             this.DealFormDataGridViewJobSeeker.TabIndex = 9;
+            this.DealFormDataGridViewJobSeeker.TabStop = false;
             this.DealFormDataGridViewJobSeeker.DoubleClick += new System.EventHandler(this.DealFormDataGridViewJobSeeker_DoubleClick);
             // 
             // кодDataGridViewTextBoxColumn1
@@ -371,7 +373,7 @@
             this.DealFormButtonJobSeekerSelect.Location = new System.Drawing.Point(699, 200);
             this.DealFormButtonJobSeekerSelect.Name = "DealFormButtonJobSeekerSelect";
             this.DealFormButtonJobSeekerSelect.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonJobSeekerSelect.TabIndex = 10;
+            this.DealFormButtonJobSeekerSelect.TabIndex = 2;
             this.DealFormButtonJobSeekerSelect.Text = "Select";
             this.DealFormButtonJobSeekerSelect.UseVisualStyleBackColor = true;
             this.DealFormButtonJobSeekerSelect.Click += new System.EventHandler(this.DealFormButtonJobSeekerSelect_Click);
@@ -381,7 +383,7 @@
             this.DealFormButtonJobSeekerClear.Location = new System.Drawing.Point(794, 200);
             this.DealFormButtonJobSeekerClear.Name = "DealFormButtonJobSeekerClear";
             this.DealFormButtonJobSeekerClear.Size = new System.Drawing.Size(75, 23);
-            this.DealFormButtonJobSeekerClear.TabIndex = 11;
+            this.DealFormButtonJobSeekerClear.TabIndex = 3;
             this.DealFormButtonJobSeekerClear.Text = "Clear";
             this.DealFormButtonJobSeekerClear.UseVisualStyleBackColor = true;
             this.DealFormButtonJobSeekerClear.Click += new System.EventHandler(this.DealFormButtonJobSeekerClear_Click);
@@ -411,7 +413,7 @@
             0});
             this.DealFormNumericUpDownCommission.Name = "DealFormNumericUpDownCommission";
             this.DealFormNumericUpDownCommission.Size = new System.Drawing.Size(275, 20);
-            this.DealFormNumericUpDownCommission.TabIndex = 13;
+            this.DealFormNumericUpDownCommission.TabIndex = 4;
             this.DealFormNumericUpDownCommission.ThousandsSeparator = true;
             // 
             // DealForm
