@@ -374,10 +374,15 @@ namespace cp
         #region User methods
         private void EditUser(bool newUserControl)
         {
+            int rowCode = 0;
+
             if (newUserControl || ListsFormUsersDataGridView.CurrentRow.Index >= ListsFormUsersDataGridView.Rows.Count - 1)
                 _usersRow = this.cPDBDataSet.Users.NewUsersRow();
             else
-                _usersRow = this.cPDBDataSet.Users.FindByCode((int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormUsersDataGridView.CurrentRow.Cells[0].Value;
+                _usersRow = this.cPDBDataSet.Users.FindByCode(rowCode);
+            }
 
             UserForm userForm = new UserForm(_usersRow, _userCode);
             DialogResult userFormDialogResult = userForm.ShowDialog();
@@ -388,6 +393,18 @@ namespace cp
             }
 
             userForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormUsersDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteUser()
@@ -443,10 +460,15 @@ namespace cp
         #region Role methods
         private void EditRole(bool newRoleControl)
         {
+            int rowCode = 0;
+
             if (newRoleControl || ListsFormRolesDataGridView.CurrentRow.Index >= ListsFormRolesDataGridView.RowCount - 1)
                 _rolesRow = this.cPDBDataSet.Roles.NewRolesRow();
             else
-                _rolesRow = this.cPDBDataSet.Roles.FindByCode((int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormRolesDataGridView.CurrentRow.Cells[0].Value;
+                _rolesRow = this.cPDBDataSet.Roles.FindByCode(rowCode);
+            }
 
             RoleForm roleForm = new RoleForm(_rolesRow, _userCode, _userRole);
             DialogResult roleFormDialogResult = roleForm.ShowDialog();
@@ -456,6 +478,18 @@ namespace cp
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
             }
             roleForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormRolesDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteRole()
@@ -541,7 +575,7 @@ namespace cp
                 {
                     //row.Selected = true;
                     ListsFormWorkCategoriesDataGridView.CurrentCell = row.Cells[0];
-                    ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
+                    //ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
                     break;
                 }
         }
@@ -597,10 +631,15 @@ namespace cp
         #region Employers methods
         private void EditEmployer(bool newEmployerControl)
         {
+            int rowCode = 0;
+
             if (newEmployerControl || ListsFormEmployersDataGridView.CurrentRow.Index >= ListsFormEmployersDataGridView.RowCount - 1)
                 _employersRow = this.cPDBDataSet.Employers.NewEmployersRow();
             else
-                _employersRow = this.cPDBDataSet.Employers.FindByCode((int)ListsFormEmployersDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormEmployersDataGridView.CurrentRow.Cells[0].Value;
+                _employersRow = this.cPDBDataSet.Employers.FindByCode(rowCode);
+            }
 
             EmployerForm employerForm = new EmployerForm(_employersRow, _userCode);
             DialogResult employerFormDialogResult = employerForm.ShowDialog();
@@ -610,6 +649,18 @@ namespace cp
                 _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
             }
             employerForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormEmployersDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteEmployer()
@@ -658,10 +709,15 @@ namespace cp
         #region Vacancies methods
         private void EditVacancy(bool newVacancyControl)
         {
+            int rowCode = 0;
+
             if (newVacancyControl || ListsFormVacanciesDataGridView.CurrentRow.Index >= ListsFormVacanciesDataGridView.RowCount - 1)
                 _vacanciesRow = this.cPDBDataSet.Vacancies.NewVacanciesRow();
             else
-                _vacanciesRow = this.cPDBDataSet.Vacancies.FindByCode((int)ListsFormVacanciesDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormVacanciesDataGridView.CurrentRow.Cells[0].Value;
+                _vacanciesRow = this.cPDBDataSet.Vacancies.FindByCode(rowCode);
+            }
 
             VacancyForm vacancyForm = new VacancyForm(_vacanciesRow, _userCode);
             DialogResult vacancyFormDialogResult = vacancyForm.ShowDialog();
@@ -673,6 +729,18 @@ namespace cp
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
             }
             vacancyForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormVacanciesDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteVacancy()
@@ -722,10 +790,15 @@ namespace cp
         #region JobSeekers methods
         private void EditJobSeeker(bool newJobSeekerControl)
         {
+            int rowCode = 0;
+
             if (newJobSeekerControl || ListsFormJobSeekersDataGridView.CurrentRow.Index >= ListsFormJobSeekersDataGridView.RowCount - 1)
                 _jobSeekersRow = this.cPDBDataSet.JobSeekers.NewJobSeekersRow();
             else
-                _jobSeekersRow = this.cPDBDataSet.JobSeekers.FindByCode((int)ListsFormJobSeekersDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormJobSeekersDataGridView.CurrentRow.Cells[0].Value;
+                _jobSeekersRow = this.cPDBDataSet.JobSeekers.FindByCode(rowCode);
+            }
 
             JobSeekerForm jobSeekerForm = new JobSeekerForm(_jobSeekersRow, _userCode);
             DialogResult jobSeekerFormDialogResult = jobSeekerForm.ShowDialog();
@@ -737,6 +810,18 @@ namespace cp
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
             }
             jobSeekerForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormJobSeekersDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteJobSeeker()
@@ -790,10 +875,15 @@ namespace cp
         #region Deals methods
         private void EditDeal(bool newDealControl)
         {
+            int rowCode = 0;
+
             if (newDealControl || ListsFormDealsDataGridView.CurrentRow.Index >= ListsFormDealsDataGridView.RowCount - 1)
                 _dealsRow = this.cPDBDataSet.Deals.NewDealsRow();
             else
-                _dealsRow = this.cPDBDataSet.Deals.FindByCode((int)ListsFormDealsDataGridView.CurrentRow.Cells[0].Value);
+            {
+                rowCode = (int)ListsFormDealsDataGridView.CurrentRow.Cells[0].Value;
+                _dealsRow = this.cPDBDataSet.Deals.FindByCode(rowCode);
+            }
 
             DealForm dealForm = new DealForm(_dealsRow, _userCode);
             DialogResult dealFormDialogResult = dealForm.ShowDialog();
@@ -803,6 +893,18 @@ namespace cp
                 _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
             }
             dealForm.Dispose();
+
+            if (rowCode == 0)
+                foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
+                        rowCode = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
+                {
+                    ListsFormDealsDataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
         }
 
         private void DeleteDeal()
