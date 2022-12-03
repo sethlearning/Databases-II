@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -369,6 +370,21 @@ namespace cp
             else
                 ListsFormToolStripComboBoxStatus.Visible = false;
         }
+        
+        private void UpdateFocus(DataGridView dataGridView, int code)
+        {
+            if (code == 0)
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value > code)
+                        code = (int)row.Cells[0].Value;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == code)
+                {
+                    dataGridView.CurrentCell = row.Cells[0];
+                    break;
+                }
+        }
         #endregion Configuration methods
 
         #region User methods
@@ -390,18 +406,7 @@ namespace cp
             {
                 this.vUsersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vUsersList);
                 _usersTableAdapter.Fill(this.cPDBDataSet.Users);
-
-                if (rowCode == 0)
-                    foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                            rowCode = (int)row.Cells[0].Value;
-
-                foreach (DataGridViewRow row in ListsFormUsersDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                    {
-                        ListsFormUsersDataGridView.CurrentCell = row.Cells[0];
-                        break;
-                    }
+                UpdateFocus(ListsFormUsersDataGridView, rowCode);
             }
 
             userForm.Dispose();
@@ -478,18 +483,7 @@ namespace cp
             {
                 this.vRolesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vRolesList);
                 _rolesTableAdapter.Fill(this.cPDBDataSet.Roles);
-
-                if (rowCode == 0)
-                    foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                            rowCode = (int)row.Cells[0].Value;
-
-                foreach (DataGridViewRow row in ListsFormRolesDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                    {
-                        ListsFormRolesDataGridView.CurrentCell = row.Cells[0];
-                        break;
-                    }
+                UpdateFocus(ListsFormRolesDataGridView, rowCode);
             }
             roleForm.Dispose();
         }
@@ -565,20 +559,7 @@ namespace cp
             {
                 this.vWorkCategoriesListTableAdapter.FillOrderByCode(this.cPDBDataSet.vWorkCategoriesList);
                 _workCategoriesTableAdapter.Fill(this.cPDBDataSet.WorkCategories);
-
-                if (rowCode == 0)
-                    foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                            rowCode = (int)row.Cells[0].Value;
-
-                foreach (DataGridViewRow row in ListsFormWorkCategoriesDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                    {
-                        //row.Selected = true;
-                        ListsFormWorkCategoriesDataGridView.CurrentCell = row.Cells[0];
-                        //ListsFormWorkCategoriesDataGridView.FirstDisplayedCell = row.Cells[0];
-                        break;
-                    }
+                UpdateFocus(ListsFormWorkCategoriesDataGridView, rowCode);
             }
             workCategoryForm.Dispose();
         }
@@ -648,18 +629,7 @@ namespace cp
             {
                 this.vEmployersListTableAdapter.FillOrderByCode(this.cPDBDataSet.vEmployersList);
                 _employersTableAdapter.Fill(this.cPDBDataSet.Employers);
-
-                if (rowCode == 0)
-                    foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                            rowCode = (int)row.Cells[0].Value;
-
-                foreach (DataGridViewRow row in ListsFormEmployersDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                    {
-                        ListsFormEmployersDataGridView.CurrentCell = row.Cells[0];
-                        break;
-                    }
+                UpdateFocus(ListsFormEmployersDataGridView, rowCode);
             }
             employerForm.Dispose();
         }
@@ -730,17 +700,7 @@ namespace cp
                     ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
                 {
                     this.vVacanciesListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vVacanciesList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
-                    if (rowCode == 0)
-                        foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
-                            if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                                rowCode = (int)row.Cells[0].Value;
-
-                    foreach (DataGridViewRow row in ListsFormVacanciesDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                        {
-                            ListsFormVacanciesDataGridView.CurrentCell = row.Cells[0];
-                            break;
-                        }
+                    UpdateFocus(ListsFormVacanciesDataGridView, rowCode);
                 }
                 _vacanciesTableAdapter.Fill(this.cPDBDataSet.Vacancies);
             }
@@ -814,17 +774,7 @@ namespace cp
                     ListsFormToolStripComboBoxStatus.SelectedIndex == 2)
                 {
                     this.vJobSeekersListTableAdapter.FillWithStatusOrderByCode(this.cPDBDataSet.vJobSeekersList, ((StatusSelector)ListsFormToolStripComboBoxStatus.SelectedIndex).ToString());
-                    if (rowCode == 0)
-                        foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
-                            if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                                rowCode = (int)row.Cells[0].Value;
-
-                    foreach (DataGridViewRow row in ListsFormJobSeekersDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                        {
-                            ListsFormJobSeekersDataGridView.CurrentCell = row.Cells[0];
-                            break;
-                        }
+                    UpdateFocus(ListsFormJobSeekersDataGridView, rowCode);
                 }
                 _jobSeekerTableAdapter.Fill(this.cPDBDataSet.JobSeekers);
             }
@@ -900,18 +850,7 @@ namespace cp
             {
                 this.vDealsListTableAdapter.FillOrderByCode(this.cPDBDataSet.vDealsList);
                 _dealsTableAdapter.Fill(this.cPDBDataSet.Deals);
-
-                if (rowCode == 0)
-                    foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
-                        if (row.Cells[0].Value != null && (int)row.Cells[0].Value > rowCode)
-                            rowCode = (int)row.Cells[0].Value;
-
-                foreach (DataGridViewRow row in ListsFormDealsDataGridView.Rows)
-                    if (row.Cells[0].Value != null && (int)row.Cells[0].Value == rowCode)
-                    {
-                        ListsFormDealsDataGridView.CurrentCell = row.Cells[0];
-                        break;
-                    }
+                UpdateFocus(ListsFormDealsDataGridView, rowCode);
             }
             dealForm.Dispose();
         }
