@@ -92,7 +92,7 @@ namespace cp
                 _passwordHash = Utilities.GetSHA256(UserFormTextBoxPassword.Text);
                 if (_newUser)
                 {
-                    _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: _passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Enabled);
+                    _queriesTableAdapter.pAddUser(UserName: UserFormTextBoxUsername.Text, PasswordHash: _passwordHash, Role: (int)UserFormComboBoxRole.SelectedValue, Enabled: UserFormCheckBoxActive.Checked);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
