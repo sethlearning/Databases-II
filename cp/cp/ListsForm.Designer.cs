@@ -1270,9 +1270,6 @@
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonClose;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonEdit;
         private System.Windows.Forms.ToolStripButton ListsFormToolStripButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enabledDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource usersListBindingSource1;
         private System.Windows.Forms.BindingSource vUsersListBindingSource;
         private CPDBDataSetTableAdapters.vUsersListTableAdapter vUsersListTableAdapter;
