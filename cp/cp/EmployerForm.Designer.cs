@@ -145,7 +145,7 @@
             this.Controls.Add(this.EmployerFormLabelCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EmployerForm";
-            this.Text = "EmployerForm";
+            this.Text = "Работодатель";
             this.Load += new System.EventHandler(this.EmployerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
