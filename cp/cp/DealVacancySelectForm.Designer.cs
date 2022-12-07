@@ -189,7 +189,7 @@
             this.Controls.Add(this.DealVacancySelectFormDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "DealVacancySelectForm";
-            this.Text = "DealVacancySelectForm";
+            this.Text = "Выбор вакансии";
             this.Load += new System.EventHandler(this.DealVacancySelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DealVacancySelectFormDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vVacanciesListBindingSource)).EndInit();

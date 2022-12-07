@@ -200,7 +200,7 @@
             this.Controls.Add(this.DealJobSeekerSelectFormDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "DealJobSeekerSelectForm";
-            this.Text = "DealJobSeekerSelectForm";
+            this.Text = "Выбор соискателя";
             this.Load += new System.EventHandler(this.DealJobSeekerSelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DealJobSeekerSelectFormDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJobSeekersWithFIOListBindingSource)).EndInit();
