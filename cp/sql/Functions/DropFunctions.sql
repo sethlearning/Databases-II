@@ -1,0 +1,4 @@
+USE CPDB
+GO
+
+DROP FUNCTION IF EXISTS dbo.fGetFullName

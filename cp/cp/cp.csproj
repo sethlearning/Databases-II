@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13E5265F-A6CA-4845-AAE1-5CA27EA29CD7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>cp</RootNamespace>
+    <AssemblyName>cp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CPDBDataSet.cs">
+      <DependentUpon>CPDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CPDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CPDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealForm.Designer.cs">
+      <DependentUpon>DealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealJobSeekerSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealJobSeekerSelectForm.Designer.cs">
+      <DependentUpon>DealJobSeekerSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealVacancySelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealVacancySelectForm.Designer.cs">
+      <DependentUpon>DealVacancySelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerForm.Designer.cs">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSeekerForm.Designer.cs">
+      <DependentUpon>JobSeekerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListsForm.Designer.cs">
+      <DependentUpon>ListsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleForm.Designer.cs">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VacancyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VacancyForm.Designer.cs">
+      <DependentUpon>VacancyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkCategoryForm.Designer.cs">
+      <DependentUpon>WorkCategoryForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DealForm.resx">
+      <DependentUpon>DealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealJobSeekerSelectForm.resx">
+      <DependentUpon>DealJobSeekerSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealVacancySelectForm.resx">
+      <DependentUpon>DealVacancySelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployerForm.resx">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerForm.resx">
+      <DependentUpon>JobSeekerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListsForm.resx">
+      <DependentUpon>ListsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RoleForm.resx">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VacancyForm.resx">
+      <DependentUpon>VacancyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkCategoryForm.resx">
+      <DependentUpon>WorkCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CPDBDataSet.xsc">
+      <DependentUpon>CPDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CPDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CPDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CPDBDataSet.xss">
+      <DependentUpon>CPDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Portrait-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start-Menu-Computer-Alt-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
