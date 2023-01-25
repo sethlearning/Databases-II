@@ -18,5 +18,5 @@ IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'CPDB')
             SIZE = 1 MB
         )
 
-IF EXISTS (SELECT name FROM sys.databases WHERE name = N'DatabaseName')
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'CPDB')
     ALTER DATABASE CPDB SET RECOVERY SIMPLE
