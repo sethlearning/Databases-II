@@ -43,8 +43,10 @@ SELECT * FROM dbo.Subjects
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Progress')
     INSERT INTO dbo.Progress (Code_stud, Code_subject, Code_lector, Date_exam, Estimate)
         VALUES  ('Ф12345', 1, 1, '12/29/2022', 5),
-                ('Ф12346', 2, 2, '12/30/2022', 5),
+                ('Ф12345', 2, 2, '12/30/2022', 5),
+                ('Ф12346', 2, 2, '12/29/2022', 5),
+                ('Ф12346', 3, 3, '12/30/2022', 4),
                 ('Ф12347', 3, 3, '12/31/2022', 5),
-                ('Ф12348', 3, 3, '12/31/2022', 5)
+                ('Ф12348', 3, 3, '12/31/2022', 4)
 
 SELECT * FROM dbo.Progress
