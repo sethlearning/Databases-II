@@ -8,7 +8,8 @@
     "user": "sa",
     "authenticationType": "SqlLogin",
     "password": "",
-    "savePassword": true
+    "savePassword": true,
+    "encrypt": false
   }
 ],
 "mssql.maxRecentConnections": 5,
